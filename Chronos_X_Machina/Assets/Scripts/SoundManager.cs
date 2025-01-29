@@ -7,6 +7,28 @@ using UnityEngine;
  */
 public class SoundManager : MonoBehaviour
 {
+    //This Enum helps manage which music is playing in the background.
+    public enum BGMusic
+    {
+        MENU,
+        LEVEL_1,
+        LEVEL_2,
+        LEVEL_3,
+        LEVEL_4,
+    }
+
+    public BGMusic music;
+
+    private void MusicSetup()
+    {
+        switch (music)
+        {
+            case BGMusic.MENU:
+                GameSource.clip = menuMusic;
+                break;
+        }
+    }
+
     //This holds the source for the background music.
     [Header("Music Source")]
     [SerializeField] private AudioSource GameSource;
@@ -33,26 +55,7 @@ public class SoundManager : MonoBehaviour
         SfxSource.PlayOneShot(clip);
     }
 
-    public enum BGMusic
-    {
-        MENU,
-        LEVEL_1,
-        LEVEL_2,
-        LEVEL_3,
-        LEVEL_4,
-    }
 
-    public BGMusic music;
 
-    private void MusicSetup()
-    {
-        switch (music)
-        {
-            case BGMusic.MENU:
-            GameSource.clip = menuMusic;
-            break;
-        }
-    }
 
-    //NOTE: MENU AND UI SELECTION SOUNDS WILL BE SEPARATE FROM THIS SCRIPT. THEY WILL BE USED IN THEIR OWN THINGS.
 }
