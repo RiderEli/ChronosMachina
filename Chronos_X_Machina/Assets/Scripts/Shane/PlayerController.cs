@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public float rotationSpeed = 100;
 
-    private float inActionDelay = .0000000000000000000000000000000000000001f;
+    //private float inActionDelay = .0000000000000000000000000000000000000001f;
     public int frameRate = 30;
 
     private bool available = true;
@@ -37,10 +37,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //
+        /*
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         characterController.Move(movement * Time.deltaTime);
-        //
+        */
 
 
         //Torso Rotation: Raycast to find pos of mouse, then calc dist from mouse to torso, clamps x , z rotation making only y rotation.
