@@ -22,7 +22,13 @@ public class EnemyParent : MonoBehaviour
 
     [Header("Movement Speed:")]
     public float tankSpeed;
-    
+
+    [Header("Enemy Health:")]
+    public int enemyHP;
+
+    [Header("Detection Range")]
+    public int enemyDetect;
+
     //This is a state machine for the grunts. It affects how they function around the battlefield.
     public enum enemyMovement
     {

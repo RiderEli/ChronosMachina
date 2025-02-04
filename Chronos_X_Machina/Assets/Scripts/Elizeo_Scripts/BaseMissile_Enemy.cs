@@ -27,6 +27,7 @@ public class BaseMissile_Enemy : MonoBehaviour
     [Header("Missile Type:")]
     public missileState missileType;
 
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -64,4 +65,6 @@ public class BaseMissile_Enemy : MonoBehaviour
 
         }
     }
+
+
 }
