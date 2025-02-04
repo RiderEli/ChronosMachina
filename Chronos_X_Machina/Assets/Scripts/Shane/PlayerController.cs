@@ -15,11 +15,12 @@ public class PlayerController : MonoBehaviour
     public Vector3 mousePos;
 
     public GameObject tester;
-
+    public float speed;
     public float rotationSpeed = 100;
 
     //private float inActionDelay = .0000000000000000000000000000000000000001f;
     public int frameRate = 30;
+
 
     private bool available = true;
     // Start is called before the first frame update
@@ -31,8 +32,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }   
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        if (move.magnitude > 0.1f) // Only rotate if moving
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(move);
+            Legs.transform.rotation = Quaternion.Slerp(Legs.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+
+        characterController.Move(move * speed * Time.deltaTime);
+    }
 
 
     void FixedUpdate()
@@ -50,8 +59,8 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             //Debug.Log(hit.transform.name);
-            Debug.DrawLine(ray.origin, hit.point);
-            Debug.Log("hit: " + hit.point);
+            //Debug.DrawLine(ray.origin, hit.point);
+            //Debug.Log("hit: " + hit.point);
 
             tester.transform.position = hit.point;
         }
