@@ -7,13 +7,14 @@ public class Turret : EnemyParent
     [Header("Is the turret aiming?")]
     public bool aiming;
 
-    [Header("How quickly will the turret shoot?")]
+    [Header("How fast will the turret shoot?")]
     public float missileDelay;
     private float shotCounter;
 
     // Start is called before the first frame update
     public override void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         movement = enemyMovement.idle;
         aiming = false;
         shotCounter = missileDelay;
@@ -25,7 +26,7 @@ public class Turret : EnemyParent
 
         if (aiming)
         {
-            enemyHead.transform.LookAt(playerTransform);
+            enemyHead.transform.LookAt(player.transform.position);
             missileShoot();
 
         }
@@ -40,7 +41,7 @@ public class Turret : EnemyParent
             Destroy(this.gameObject);
         }
 
-        float distance = Vector3.Distance(transform.position, playerTransform.position);
+        float distance = Vector3.Distance(transform.position, player.transform.position);
 
         if (distance < enemyDetect)
         {

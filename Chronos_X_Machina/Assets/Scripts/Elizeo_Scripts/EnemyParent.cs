@@ -18,7 +18,9 @@ public class EnemyParent : MonoBehaviour
 
     [Header("Transform List:")]
     public Transform weaponSpawn;
-    public Transform playerTransform;
+
+    [Header("Who/Where is the player character? (It's rhetorical btw, there is a code to find the player object. DO NOT TOUCH!!")]
+    public GameObject player;
 
     [Header("Movement Speed:")]
     public float tankSpeed;
@@ -64,6 +66,7 @@ public class EnemyParent : MonoBehaviour
                 break;
         }
     }
+
 
     //These are the movement functions for the state machines
     public void EnemyIdle()

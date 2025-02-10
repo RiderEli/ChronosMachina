@@ -61,6 +61,8 @@ public class BaseMissile_Enemy : MonoBehaviour
             case missileState.homing:
                 Vector3 Direction = player.transform.position - transform.position;
                 wepRB.velocity = new Vector3(Direction.x, 0, Direction.z).normalized * wepSpeed;
+                transform.LookAt(player.transform.position);
+                //transform.;
                 break;
 
         }

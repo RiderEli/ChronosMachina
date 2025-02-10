@@ -17,7 +17,7 @@ public class NormalGrunt : EnemyParent
         enemyMove();
         if(movement == enemyMovement.idle)
         {
-            enemyHead.transform.LookAt(playerTransform);
+            enemyHead.transform.LookAt(player.transform.position);
         }
     }
 
