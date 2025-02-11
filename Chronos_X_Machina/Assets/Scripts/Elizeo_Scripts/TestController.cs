@@ -23,10 +23,13 @@ public class TestController : MonoBehaviour
 
     private float playerSpeed = 5;
 
+    public PlayerHP playerHPUI;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         testHP = maxHP;
+        playerHPUI.SetMaxHP(maxHP);
         playerRB = GetComponent<Rigidbody>();
     }
 
@@ -41,22 +44,22 @@ public class TestController : MonoBehaviour
                 Instantiate(playerWep, transform.position, transform.rotation);
             }
 
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKey(KeyCode.A))
             {
                 playerRB.velocity = Vector3.left * playerSpeed;
             }
 
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKey(KeyCode.D))
             {
                 playerRB.velocity = Vector3.right * playerSpeed;
             }
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKey(KeyCode.W))
             {
                 playerRB.velocity = Vector3.forward * playerSpeed;
             }
 
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKey(KeyCode.S))
             {
                 playerRB.velocity = Vector3.back * playerSpeed;
             }
@@ -69,7 +72,7 @@ public class TestController : MonoBehaviour
 
         if (testHP <= 0)
         {
-            Debug.Log("You died, lol");
+            testHP = 0;
             //Destroy(this.gameObject);
         }
     }
@@ -79,6 +82,7 @@ public class TestController : MonoBehaviour
         if (other.gameObject.CompareTag("EnemyWep"))
         {
             testHP -= 25;
+            playerHPUI.SetHP(testHP);
             Destroy(other.gameObject);
         }
     }
