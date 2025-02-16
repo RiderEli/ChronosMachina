@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        pauseThing.SetActive(false);
         isPaused = false;
     }
     // Update is called once per frame
@@ -24,32 +25,33 @@ public class PauseMenu : MonoBehaviour
     {
         IsItPaused();
 
-        if (!GameOver.isGameOver)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (isPaused)
+                if (!isPaused)
                 {
-                    pauseThing.SetActive(true);
+                    isPaused = true;
                 }
                 else
                 {
-                    pauseThing.SetActive(false);
-                }
-            }
+                    isPaused = false;
+                }            
         }
+        
     }
 
     public void IsItPaused()
     {
         if (!isPaused)
         {
+            pauseThing.SetActive(false);
             Time.timeScale = 1f;
         }
         else
         {
+            pauseThing.SetActive(true);
             Time.timeScale = 0f;
         }
+
     }
 
     public void AudioButton()

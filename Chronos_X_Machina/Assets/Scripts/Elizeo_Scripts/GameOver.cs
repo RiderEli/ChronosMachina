@@ -9,13 +9,14 @@ public class GameOver : MonoBehaviour
 {
     public GameObject gameOverScreen;
 
-    public GameObject hpUI;
+    private GameObject playerObject;
 
-    public static bool isGameOver;
+    [SerializeField] public static bool isGameOver;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerObject = GameObject.FindGameObjectWithTag("Player");
         isGameOver = false;
         gameOverScreen.SetActive(false);
     }
@@ -26,18 +27,15 @@ public class GameOver : MonoBehaviour
         if (isGameOver)
         {
             
-            hpUI.SetActive(false);
             gameOverScreen.SetActive(true);
             ContinueButton();
             QuitButton();
-            PauseMenu.isPaused = true;
+            playerObject.SetActive(false);
         }
         else
         {
             
-            hpUI.SetActive(true);
             gameOverScreen.SetActive(false);
-            PauseMenu.isPaused = false;
         }
     }
 
