@@ -28,11 +28,11 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPaused)
             {
-                isPaused = false;
+                pauseThing.SetActive(true);
             }
             else
             {
-                isPaused = true;
+                pauseThing.SetActive(false);
             }
         }
     }
@@ -41,12 +41,10 @@ public class PauseMenu : MonoBehaviour
     {
         if (!isPaused)
         {
-            pauseThing.SetActive(false);
             Time.timeScale = 1f;
         }
         else
         {
-            pauseThing.SetActive(true);
             Time.timeScale = 0f;
         }
     }

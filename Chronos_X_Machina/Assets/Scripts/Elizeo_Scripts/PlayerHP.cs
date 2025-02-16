@@ -6,21 +6,7 @@ using UnityEngine.UI;
 public class PlayerHP : MonoBehaviour
 {
     public Slider hpSlider;
-    private void Awake()
-    {
-        
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetMaxHP(int hp)
     {
