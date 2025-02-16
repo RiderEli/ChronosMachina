@@ -26,8 +26,6 @@ public class TestController : MonoBehaviour
     [Header("Where the UI Goes:")]
     public PlayerHP playerHPUI;
 
-    [Header("Where the Game Over Container Goes:")]
-    public GameOver gameOver;
 
     // Start is called before the first frame update
     void Awake()
@@ -78,7 +76,7 @@ public class TestController : MonoBehaviour
         {
             testHP = 0;
             //Destroy(this.gameObject);
-            gameOver.isGameOver = true;
+            GameOver.isGameOver = true;
         }
     }
 

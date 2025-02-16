@@ -24,15 +24,18 @@ public class PauseMenu : MonoBehaviour
     {
         IsItPaused();
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!GameOver.isGameOver)
         {
-            if (isPaused)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                pauseThing.SetActive(true);
-            }
-            else
-            {
-                pauseThing.SetActive(false);
+                if (isPaused)
+                {
+                    pauseThing.SetActive(true);
+                }
+                else
+                {
+                    pauseThing.SetActive(false);
+                }
             }
         }
     }

@@ -11,7 +11,7 @@ public class GameOver : MonoBehaviour
 
     public GameObject hpUI;
 
-    public bool isGameOver;
+    public static bool isGameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +30,14 @@ public class GameOver : MonoBehaviour
             gameOverScreen.SetActive(true);
             ContinueButton();
             QuitButton();
+            PauseMenu.isPaused = true;
         }
         else
         {
             
             hpUI.SetActive(true);
             gameOverScreen.SetActive(false);
+            PauseMenu.isPaused = false;
         }
     }
 
