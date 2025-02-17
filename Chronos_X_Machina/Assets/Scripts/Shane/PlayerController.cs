@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private CharacterController characterController;
 
+    public GameObject Tester;
     public GameObject Legs;
     public GameObject UpperTorso;
     public GameObject FlarePrefab;
@@ -45,6 +46,32 @@ public class PlayerController : MonoBehaviour
         {
             ShootFlares();
         }
+    }
+
+    void FixedUpdate()
+    {
+        
+        //Torso Rotation: Raycast to find pos of mouse, then calc dist from mouse to torso, clamps x , z rotation making only y rotation.
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            //Debug.Log(hit.transform.name);
+            //Debug.DrawLine(ray.origin, hit.point);
+            //Debug.Log("hit: " + hit.point);
+
+            Tester.transform.position = hit.point;
+        }
+
+        var lookPos = hit.point - transform.position;
+        lookPos.y = 0;
+        var rotation = Quaternion.LookRotation(lookPos);
+        UpperTorso.transform.rotation = Quaternion.Slerp(UpperTorso.transform.rotation, rotation, Time.deltaTime * 30);
+        //END OF TORSO ROTATION
+
+
+
     }
 
     void ShootFlares()

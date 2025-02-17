@@ -3069,6 +3069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375c7d455bc24d64a95110812303e781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tester: {fileID: 821843808}
   Legs: {fileID: 1894326033}
   UpperTorso: {fileID: 1858899619}
   FlarePrefab: {fileID: 4829425078737153019, guid: 1658f074986d8b049b76fb372e8e2d38,
@@ -3079,7 +3080,7 @@ MonoBehaviour:
   flareSpeed: 10
   speed: 5
   rotationSpeed: 10
-  flaresPerShot: 3
+  flaresPerShot: 100
   flareSpreadAngle: 60
   flareArcAngle: 60
   verticalArcAngle: 180
