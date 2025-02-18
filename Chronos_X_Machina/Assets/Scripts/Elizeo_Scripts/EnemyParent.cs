@@ -62,7 +62,7 @@ public class EnemyParent : MonoBehaviour
                 break;
 
             case enemyMovement.moving:
-                EnemyForwards();
+                EnemyMove();
                 break;
         }
     }
@@ -74,9 +74,40 @@ public class EnemyParent : MonoBehaviour
         enemyRB.velocity = Vector3.zero;
     }
 
-    public void EnemyForwards()
+    public void EnemyMove()
     {
-        enemyRB.velocity = Vector3.forward * tankSpeed;
+        if (enemyDirection == enemyDirectionStates.UP)
+        {
+            enemyRB.velocity = Vector3.forward * tankSpeed;
+        }
+
+        if (enemyDirection == enemyDirectionStates.DOWN)
+        {
+            enemyRB.velocity = Vector3.back * tankSpeed;
+        }
+
+        if (enemyDirection == enemyDirectionStates.LEFT)
+        {
+            enemyRB.velocity = Vector3.left * tankSpeed;
+        }
+
+        if (enemyDirection == enemyDirectionStates.RIGHT)
+        {
+            enemyRB.velocity = Vector3.right * tankSpeed;
+        }
     }
+
+    public enum enemyDirectionStates
+    {
+        NONE,
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT
+    }
+
+    [Header("What direction is the enemy facing?")]
+    public enemyDirectionStates enemyDirection;
+
 
 }

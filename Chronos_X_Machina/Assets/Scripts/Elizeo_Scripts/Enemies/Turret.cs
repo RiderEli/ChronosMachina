@@ -56,10 +56,6 @@ public class Turret : EnemyParent
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            aiming = true;
-        }
 
         if (other.gameObject.CompareTag("PlayerWep"))
         {
