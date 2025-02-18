@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public GameObject FlarePrefab;
     public Transform LeftFlareSpawnPoint;
     public Transform RightFlareSpawnPoint;
-    public GameObject tester;
     public int maxFlareCharges = 3;
     private int currentFlareCharges;
     public float flareSpeed = 10f;
@@ -51,12 +50,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        /*
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        characterController.Move(movement * Time.deltaTime);
-        */
-
-
+        
         //Torso Rotation: Raycast to find pos of mouse, then calc dist from mouse to torso, clamps x , z rotation making only y rotation.
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -67,7 +61,7 @@ public class PlayerController : MonoBehaviour
             //Debug.DrawLine(ray.origin, hit.point);
             //Debug.Log("hit: " + hit.point);
 
-            tester.transform.position = hit.point;
+            Tester.transform.position = hit.point;
         }
 
         var lookPos = hit.point - transform.position;
@@ -75,7 +69,6 @@ public class PlayerController : MonoBehaviour
         var rotation = Quaternion.LookRotation(lookPos);
         UpperTorso.transform.rotation = Quaternion.Slerp(UpperTorso.transform.rotation, rotation, Time.deltaTime * 30);
         //END OF TORSO ROTATION
-
 
 
 
