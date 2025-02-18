@@ -215,9 +215,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flareLight: {fileID: 9095933862703514415}
   flareParticles: {fileID: 2977926797970388113}
-  flareDuration: 2
-  maxIntensity: 5
-  maxAlpha: 1
+  flareDuration: 1
+  maxIntensity: 10
+  maxAlpha: 5
 --- !u!198 &2977926797970388113
 ParticleSystem:
   m_ObjectHideFlags: 0
