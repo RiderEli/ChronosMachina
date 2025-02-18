@@ -51,16 +51,12 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-<<<<<<< Updated upstream
-        
-=======
         /*
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         characterController.Move(movement * Time.deltaTime);
         */
 
 
->>>>>>> Stashed changes
         //Torso Rotation: Raycast to find pos of mouse, then calc dist from mouse to torso, clamps x , z rotation making only y rotation.
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -71,11 +67,7 @@ public class PlayerController : MonoBehaviour
             //Debug.DrawLine(ray.origin, hit.point);
             //Debug.Log("hit: " + hit.point);
 
-<<<<<<< Updated upstream
-            Tester.transform.position = hit.point;
-=======
             tester.transform.position = hit.point;
->>>>>>> Stashed changes
         }
 
         var lookPos = hit.point - transform.position;
@@ -86,10 +78,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
     }
 
     void ShootFlares()
