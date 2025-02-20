@@ -120,11 +120,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 3
-  player: {fileID: 0}
-  seekerObject: {fileID: 0}
-  closestFlare: []
+  maxTurnAngle: 60
+  selfDestructTime: 2
+  flareLockDelay: 0.15
+  maxTurnAngleOnFlare: 150
+  flareTurnGracePeriod: 0.2
   flared: 0
   homing: 1
+  lostTarget: 0
+  explosionEffect: {fileID: 0}
 --- !u!1 &8462501882946520905
 GameObject:
   m_ObjectHideFlags: 0

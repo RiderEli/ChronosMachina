@@ -46,7 +46,7 @@ public class Flare : MonoBehaviour
             yield return null;
         }
 
-        //Destroy(gameObject);
-        this.gameObject.SetActive(false);
+        Destroy(gameObject);
+        //this.gameObject.SetActive(false);
     }
 }
