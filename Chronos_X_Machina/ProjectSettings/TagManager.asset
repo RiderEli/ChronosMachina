@@ -7,6 +7,10 @@ TagManager:
   - Enemy
   - Flare
   - Wall
+  - PlayerWep
+  - EnemyWep
+  - PlayerTarget
+  - PlayerGoal
   layers:
   - Default
   - TransparentFX
