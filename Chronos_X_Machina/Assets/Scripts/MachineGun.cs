@@ -28,13 +28,17 @@ public class MachineGun : MonoBehaviour
 
     private IEnumerator ShootContinuously()
     {
+        // Create the layer mask to ignore "Player" and "UI" layers
+        int layerMask = LayerMask.GetMask("Player", "UI");
+
         while (isFiring)
         {
             // Get the mouse position in world space
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 targetDirection;
 
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            // Raycast, ignoring the Player and UI layers
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, ~layerMask))
             {
                 targetDirection = (hit.point - barrelTip.transform.position).normalized;
             }

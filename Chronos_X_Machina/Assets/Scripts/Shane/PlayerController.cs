@@ -52,28 +52,30 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-        //Torso Rotation: Raycast to find pos of mouse, then calc dist from mouse to torso, clamps x , z rotation making only y rotation.
+        // Set up the ray from the mouse position to the scene
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-        {
-            //Debug.Log(hit.transform.name);
-            //Debug.DrawLine(ray.origin, hit.point);
-            //Debug.Log("hit: " + hit.point);
+        // Create a LayerMask that will ignore both the "Player" and "UI" layers
+        int layerMask = LayerMask.GetMask("Player", "UI");  // Get mask for both layers
 
+        // Cast the ray, but ignore the "Player" and "UI" layers
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~layerMask)) // The tilde (~) inverts the mask to ignore those layers
+        {
+            Debug.DrawLine(ray.origin, hit.point);
             Tester.transform.position = hit.point;
         }
+        else
+        {
+            // In case no hit occurs, move the object far enough along the ray
+            Tester.transform.position = ray.GetPoint(1000); // Move it in the direction of the ray, no obstacle
+        }
 
+        // Calculate and rotate the torso to face the hit point
         var lookPos = hit.point - transform.position;
-        lookPos.y = 0;
+        lookPos.y = 0; // Lock rotation to the Y-axis
         var rotation = Quaternion.LookRotation(lookPos);
         UpperTorso.transform.rotation = Quaternion.Slerp(UpperTorso.transform.rotation, rotation, Time.deltaTime * 30);
-        //END OF TORSO ROTATION
-
-
-
     }
 
     void ShootFlares()

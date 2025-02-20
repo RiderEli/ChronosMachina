@@ -9,6 +9,7 @@ public class Rocket : MonoBehaviour
     public float flareLockDelay = 1f;
     public float maxTurnAngleOnFlare = 150f; // Max turn angle when flared, before exploding
     public float flareInstantDetonationDistance = 2f; // Distance where missile explodes instantly if flared near player
+    public float groundHeight = 0f; // Define the ground height (set to 0 for ground level)
 
     private GameObject seekerObject;
     private GameObject playerObject;
@@ -89,7 +90,13 @@ public class Rocket : MonoBehaviour
             }
         }
 
+        // Always move forward
         transform.position += transform.forward * Speed * Time.deltaTime;
+
+        // Clamp the Y position to prevent clipping through the floor
+        Vector3 clampedPosition = transform.position;
+        clampedPosition.y = Mathf.Max(clampedPosition.y, groundHeight); // Prevent y from going below groundHeight
+        transform.position = clampedPosition;
     }
 
     void UpdateFlareList()
@@ -190,7 +197,12 @@ public class Rocket : MonoBehaviour
     {
         if (exploded) return;
 
-        if ((other.CompareTag("Player") && !flared) || other.CompareTag("Wall"))
+        if (other.CompareTag("Player") && !flared)
+        {
+            Explode();
+        }
+
+        if (other.CompareTag("Wall"))
         {
             Explode();
         }
