@@ -4,69 +4,65 @@ using UnityEngine;
 
 public class MachineGun : MonoBehaviour
 {
-    public float delayBetweenShots = 0.5f; // Time between shotgun shots
+    public float delayBetweenBullets = 0.1f;
     public float bulletSpeed = 20f;
+    public float inaccuracy = 2f; // Degrees of inaccuracy
     public float bulletRange = 50f; // Maximum range of bullets
-    public int pelletsPerShot = 6; // Number of pellets per shot
-    public float spreadAngle = 30f; // Cone angle for pellet spread
 
     public GameObject barrelTip;
     public GameObject bulletPrefab;
-    private bool canFire = true;
+    private bool isFiring = false;
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && canFire)
+        if (Input.GetMouseButtonDown(0))
         {
-            canFire = false;
-            StartCoroutine(ShootShotgun());
+            isFiring = true;
+            StartCoroutine(ShootContinuously());
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            isFiring = false;
         }
     }
 
-    private IEnumerator ShootShotgun()
+    private IEnumerator ShootContinuously()
     {
-        // Create the layer mask to ignore "Player" and "UI" layers
         int layerMask = LayerMask.GetMask("Player", "UI");
 
-        // Get the mouse position in world space
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Vector3 targetDirection;
-
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, ~layerMask))
+        while (isFiring)
         {
-            targetDirection = (hit.point - barrelTip.transform.position).normalized;
-        }
-        else
-        {
-            targetDirection = barrelTip.transform.forward;
-        }
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 targetDirection;
 
-        for (int i = 0; i < pelletsPerShot; i++)
-        {
-            // Calculate an evenly spaced spread within the defined cone
-            float spreadStep = spreadAngle / (pelletsPerShot - 1);
-            float spreadOffset = -spreadAngle / 2f + (spreadStep * i);
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, ~layerMask))
+            {
+                targetDirection = (hit.point - barrelTip.transform.position).normalized;
+            }
+            else
+            {
+                targetDirection = barrelTip.transform.forward;
+            }
+            targetDirection.y = 0;
+            targetDirection.Normalize();
 
-            Vector3 spreadDirection = Quaternion.Euler(0, spreadOffset, 0) * targetDirection;
-            spreadDirection.y = targetDirection.y; // Maintain original vertical angle
+            // Add inaccuracy
+            targetDirection = Quaternion.Euler(0, Random.Range(-inaccuracy, inaccuracy), 0) * targetDirection;
 
             // Instantiate bullet
-            GameObject bullet = Instantiate(bulletPrefab, barrelTip.transform.position, Quaternion.LookRotation(spreadDirection));
+            GameObject bullet = Instantiate(bulletPrefab, barrelTip.transform.position, Quaternion.LookRotation(targetDirection));
 
-            // Apply velocity using Rigidbody and ensure bullets don't drop
+            // Apply velocity using Rigidbody
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.velocity = spreadDirection * bulletSpeed;
-                rb.useGravity = false; // Disable gravity to prevent bullet drop
+                rb.velocity = targetDirection * bulletSpeed;
             }
 
             // Destroy bullet after it exceeds its range
             Destroy(bullet, bulletRange / bulletSpeed);
+
+            yield return new WaitForSeconds(delayBetweenBullets);
         }
-
-        yield return new WaitForSeconds(delayBetweenShots);
-        canFire = true; // Allow next shot
     }
-
 }

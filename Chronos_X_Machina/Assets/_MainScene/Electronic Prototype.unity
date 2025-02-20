@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22614,6 +22614,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e75a2d405583be24fbddd6b91bd4afeb, type: 3}
+--- !u!1 &1337653445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7826958751874517071, guid: a884e71611f91264eb5e26c4fbbfc28d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653895372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1338342505
 GameObject:
   m_ObjectHideFlags: 0
@@ -27996,6 +28002,32 @@ PrefabInstance:
       propertyPath: RightFlareSpawnPoint
       value: 
       objectReference: {fileID: 1879334058}
+    - target: {fileID: 4426084932063094254, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: barrelTip
+      value: 
+      objectReference: {fileID: 1337653445}
+    - target: {fileID: 4426084932063094254, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426084932063094254, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: spreadAngle
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426084932063094254, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6140399405611235981, guid: 6aeb2f211a2aedd45968b5f1356aaa86,
+        type: 3}
+    - target: {fileID: 4426084932063094254, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: pelletsPerShot
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4556308909352194348, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_Layer
