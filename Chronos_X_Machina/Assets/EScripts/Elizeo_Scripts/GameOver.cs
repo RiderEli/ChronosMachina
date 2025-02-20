@@ -26,15 +26,15 @@ public class GameOver : MonoBehaviour
     {
         if (isGameOver)
         {
-            
+            playerObject.SetActive(false);
             gameOverScreen.SetActive(true);
-            ContinueButton();
-            QuitButton();
+            //ContinueButton();
+            //QuitButton();
             playerObject.SetActive(false);
         }
         else
         {
-            
+            playerObject.SetActive(true);
             gameOverScreen.SetActive(false);
         }
     }
@@ -43,15 +43,18 @@ public class GameOver : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Z))
         {
-            SceneManager.LoadScene("Elizeo_Enemy");
+            //SceneManager.LoadScene("Elizeo_Enemy");
         }
+        SceneManager.LoadScene("Electronic Prototype");
     }
 
     public void QuitButton()
     {
         if (Input.GetKey(KeyCode.X))
         {
-            Debug.Log("Cue Time Machine");
+            //Debug.Log("Cue Time Machine");
         }
+        SceneManager.LoadScene("MainMenu");
+
     }
 }

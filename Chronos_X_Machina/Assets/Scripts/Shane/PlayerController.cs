@@ -15,7 +15,14 @@ public class PlayerController : MonoBehaviour
     public int maxFlareCharges = 3;
     private int currentFlareCharges;
 
+    [Header("Player HP - Added by Elizeo:")]
+    public int maxHP;
+    private int currentHP;
 
+    [Header("This is where Elizeo's HP bar will be located.")]
+    public PlayerHP playerHPUI;
+
+    [Header(" ")]
     public float flareSpeed = 10f;
     public float speed;
     public float rotationSpeed = 100;
@@ -28,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        currentHP = maxHP;
         characterController = GetComponent<CharacterController>();
         currentFlareCharges = maxFlareCharges;
     }
@@ -47,6 +55,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && currentFlareCharges > 0)
         {
             ShootFlares();
+        }
+
+        if (currentHP <= 0)
+        {
+            currentHP = 0;
+            GameOver.isGameOver = true;
         }
     }
 
@@ -109,6 +123,16 @@ public class PlayerController : MonoBehaviour
                 Random.Range(-randomVelocityFactor, randomVelocityFactor)
             );
             rb.velocity = (direction * flareSpeed) + randomOffset;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("EnemyWep"))
+        {
+            currentHP -= 25;
+            playerHPUI.SetHP(currentHP);
+            Destroy(other.gameObject);
         }
     }
 }

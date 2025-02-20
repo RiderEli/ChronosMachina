@@ -14,7 +14,7 @@ public class Turret : EnemyParent
     // Start is called before the first frame update
     public override void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+       // player = GameObject.FindGameObjectWithTag("PlayerTarget");
         movement = enemyMovement.idle;
         aiming = false;
         shotCounter = missileDelay;
@@ -23,7 +23,8 @@ public class Turret : EnemyParent
     // Update is called once per frame
     public override void Update()
     {
-
+ 
+        
         if (aiming)
         {
             enemyHead.transform.LookAt(player.transform.position);

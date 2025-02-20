@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 /* [Nava,Elizeo]
- * [January 28, 2025]
- * [This is the entire script for the Main Menu.]
- */
+* [January 28, 2025]
+* [This is the entire script for the Main Menu.]
+*/
 public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenu;
@@ -21,6 +22,7 @@ public class MainMenu : MonoBehaviour
     public void GameStart()
     {
         //Insert Scene Script here.
+        SceneManager.LoadScene("Electronic Prototype");
         Debug.Log("Game has started");
     }
 

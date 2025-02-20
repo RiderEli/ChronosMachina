@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1281471675329592039}
   m_Layer: 0
   m_Name: Rocket
-  m_TagString: Untagged
+  m_TagString: EnemyWep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   flareLockDelay: 0.15
   maxTurnAngleOnFlare: 80
   flareInstantDetonationDistance: 10
+  groundHeight: 0
   flared: 0
   homing: 1
   explosionEffect: {fileID: 0}

@@ -11,6 +11,11 @@ public class HomingRocketShooter : MonoBehaviour
 
     public bool shooting = false;
 
+    [Header("Enemy Health (Added by Elizeo):")]
+    public int enemyHP;
+
+    
+
     public float delayBetweenRockets;
     private float timer;
 
@@ -28,6 +33,12 @@ public class HomingRocketShooter : MonoBehaviour
                 Instantiate(rocketPrefab, barrelTwo.transform.position, barrelTwo.transform.rotation);
             }
         }
+
+        if (enemyHP <= 0)
+        {
+            Debug.Log("Enemy Died, lol");
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +46,11 @@ public class HomingRocketShooter : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             shooting = true;
+        }
+
+        if (other.CompareTag("PlayerWep"))
+        {
+            enemyHP -= 25;
         }
     }
 
