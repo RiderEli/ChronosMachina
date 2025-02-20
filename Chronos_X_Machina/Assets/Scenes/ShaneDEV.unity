@@ -335,6 +335,125 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73009073}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &112481095
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 341658222094009727, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_Name
+      value: Rocket
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281119518951353594, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: Speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: homing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: maxTurnAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: flareLockDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 8645553609446058849, guid: 4a4bcbad7aaa222419cf5392e2cf9db7,
+        type: 3}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: selfDestructTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: maxTurnAngleOnFlare
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: flareTurnGracePeriod
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: flareInstantDetonationDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.871505
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 27.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ebaf63574368b84ab207804808ce333, type: 3}
 --- !u!1 &134691243
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,6 +995,115 @@ Transform:
   m_Children: []
   m_Father: {fileID: 440120330}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &264229681
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 341658222094009727, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_Name
+      value: Rocket (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281119518951353594, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: Speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: homing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: maxTurnAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: flareLockDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 8645553609446058849, guid: 4a4bcbad7aaa222419cf5392e2cf9db7,
+        type: 3}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: selfDestructTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: flareTurnGracePeriod
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.885487
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25.060623
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.08502846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99637854
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 170.245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ebaf63574368b84ab207804808ce333, type: 3}
 --- !u!1 &323720220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,6 +1775,110 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 452642826}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &481450725
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 341658222094009727, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_Name
+      value: Rocket (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281119518951353594, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: Speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: homing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: maxTurnAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: flareLockDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 8645553609446058849, guid: 4a4bcbad7aaa222419cf5392e2cf9db7,
+        type: 3}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: selfDestructTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 31.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.08502846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99637854
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 170.245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ebaf63574368b84ab207804808ce333, type: 3}
 --- !u!1 &488222108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1985,125 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488222108}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &562652469
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 341658222094009727, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_Name
+      value: Rocket (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281119518951353594, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: Speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: homing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: maxTurnAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: flareLockDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 8645553609446058849, guid: 4a4bcbad7aaa222419cf5392e2cf9db7,
+        type: 3}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: selfDestructTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: maxTurnAngleOnFlare
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: flareTurnGracePeriod
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: flareInstantDetonationDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 34.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.08502846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99637854
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 170.245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ebaf63574368b84ab207804808ce333, type: 3}
 --- !u!1 &562666703
 GameObject:
   m_ObjectHideFlags: 0
@@ -3052,7 +3503,7 @@ GameObject:
   - component: {fileID: 735384806}
   m_Layer: 0
   m_Name: PlayerTest
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3080,7 +3531,7 @@ MonoBehaviour:
   flareSpeed: 10
   speed: 5
   rotationSpeed: 10
-  flaresPerShot: 100
+  flaresPerShot: 3
   flareSpreadAngle: 60
   flareArcAngle: 60
   verticalArcAngle: 180
@@ -6297,6 +6748,125 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546190436}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1577090789
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 341658222094009727, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_Name
+      value: Rocket (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281119518951353594, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: Speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: homing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: maxTurnAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: flareLockDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 8645553609446058849, guid: 4a4bcbad7aaa222419cf5392e2cf9db7,
+        type: 3}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: selfDestructTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: maxTurnAngleOnFlare
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: flareTurnGracePeriod
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281471675329592039, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: flareInstantDetonationDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 35.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.08502846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99637854
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 170.245
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821407236635876687, guid: 6ebaf63574368b84ab207804808ce333,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ebaf63574368b84ab207804808ce333, type: 3}
 --- !u!1 &1612818873
 GameObject:
   m_ObjectHideFlags: 0
@@ -9114,3 +9684,8 @@ SceneRoots:
   - {fileID: 735384803}
   - {fileID: 821843809}
   - {fileID: 1246407200}
+  - {fileID: 112481095}
+  - {fileID: 562652469}
+  - {fileID: 1577090789}
+  - {fileID: 264229681}
+  - {fileID: 481450725}

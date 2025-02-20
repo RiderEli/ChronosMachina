@@ -1,61 +1,198 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
     public float Speed = 3f;
+    public float maxTurnAngle = 60f;
+    public float selfDestructTime = 2f;
+    public float flareLockDelay = 1f;
+    public float maxTurnAngleOnFlare = 150f; // Max turn angle when flared, before exploding
+    public float flareInstantDetonationDistance = 2f; // Distance where missile explodes instantly if flared near player
 
-    public GameObject player;
-    public GameObject seekerObject;
-    public List<GameObject> closestFlare = new List<GameObject>();
+    private GameObject seekerObject;
+    private GameObject playerObject;
+    private List<GameObject> closestFlares = new List<GameObject>();
+    private Vector3 storedFlarePosition;
+    private bool hasStoredFlarePosition = false;
+    private bool exploded = false;
 
     public bool flared = false;
-    public bool homing = false;
+    public bool homing = true;
+    private bool lostTarget = false;
+    private bool hasPassedPlayer = false;
 
-    private float ShortestDistance;
+    private float lostTargetTimer = 0f;
+    private float flareTrackingTimer = 0f;
 
-    // Start is called before the first frame update
+    public GameObject explosionEffect;
+
     void Start()
     {
-        
+        playerObject = GameObject.FindWithTag("Player"); // Keep player reference
+        seekerObject = playerObject; // Default target is the player
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (exploded) return;
+
         if (homing)
         {
-            transform.LookAt(seekerObject.transform.position);
+            UpdateFlareList();
+
+            if (flared)
+            {
+                if (playerObject != null)
+                {
+                    float playerDistance = Vector3.Distance(transform.position, playerObject.transform.position);
+
+                    // If too close when flared, instantly detonate
+                    if (playerDistance < flareInstantDetonationDistance)
+                    {
+                        Explode();
+                        return;
+                    }
+
+                    // If missile has passed the player and is now flared, force it to self-destruct
+                    if (!hasPassedPlayer && Vector3.Dot(transform.forward, (playerObject.transform.position - transform.position).normalized) < 0)
+                    {
+                        hasPassedPlayer = true; // Mark as having passed the player
+                    }
+
+                    if (hasPassedPlayer)
+                    {
+                        Explode();
+                        return;
+                    }
+                }
+
+                TrackFlare();
+            }
+            else if (!hasStoredFlarePosition)
+            {
+                TrackPlayer();
+            }
         }
-        transform.position += transform.forward * Speed;
+
+        if (hasStoredFlarePosition)
+        {
+            MoveToStoredFlarePosition();
+        }
+
+        if (lostTarget)
+        {
+            lostTargetTimer += Time.deltaTime;
+            if (lostTargetTimer >= selfDestructTime)
+            {
+                Explode();
+            }
+        }
+
+        transform.position += transform.forward * Speed * Time.deltaTime;
     }
 
-    public void HeatSeeking()
+    void UpdateFlareList()
     {
-        /*
-        if (flared) 
+        closestFlares.Clear();
+        GameObject[] allFlares = GameObject.FindGameObjectsWithTag("Flare");
+
+        foreach (GameObject flare in allFlares)
         {
-            seekerObject = closestFlare.OrderBy(obj => Vector3.Distance(transform.position, obj.transform.position)).ToList();
+            closestFlares.Add(flare);
+        }
 
-            ShortestDistance = float.MaxValue;
+        flared = closestFlares.Count > 0;
+    }
 
-            for (int i = 0; i < closestFlare.Count; i++)
+    void TrackFlare()
+    {
+        float shortestDistance = float.MaxValue;
+        GameObject nearestFlare = null;
+
+        foreach (GameObject flare in closestFlares)
+        {
+            if (flare == null) continue;
+
+            float d = Vector3.Distance(transform.position, flare.transform.position);
+            if (d < shortestDistance)
             {
-                var d = Vector3.Distance(transform.position, closestFlare[i].transform.position);
-                if (d < ShortestDistance)
-                {
-                    ShortestDistance = d;
-                    TrackedPlayerPos = PlayerDataHolder.Instance.GetPlayerData(i).input.gameObject.transform.position;
-                }
+                shortestDistance = d;
+                nearestFlare = flare;
             }
-            Vector3 directionToPlayer = (TrackedPlayerPos - transform.position).normalized;
-            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-            Vector3 eulerRotation = targetRotation.eulerAngles;
-            eulerRotation.x = HippoParrent.transform.rotation.eulerAngles.x;
-            targetRotation = Quaternion.Euler(eulerRotation);
+        }
 
-            HippoParrent.transform.rotation = targetRotation;
-        }*/
+        if (nearestFlare != null)
+        {
+            seekerObject = nearestFlare; // Follow flare
+            lostTarget = false;
+            lostTargetTimer = 0f;
+            flareTrackingTimer += Time.deltaTime;
+
+            if (flareTrackingTimer >= flareLockDelay && !hasStoredFlarePosition)
+            {
+                storedFlarePosition = nearestFlare.transform.position; // Store position
+                hasStoredFlarePosition = true;
+                seekerObject = null; // Stop tracking moving flare
+            }
+        }
+    }
+
+    void TrackPlayer()
+    {
+        if (!homing || hasStoredFlarePosition) return;
+
+        if (seekerObject != null)
+        {
+            Vector3 direction = (seekerObject.transform.position - transform.position).normalized;
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, direction, Mathf.Deg2Rad * maxTurnAngle * Time.deltaTime, 0f);
+            transform.rotation = Quaternion.LookRotation(newDirection);
+        }
+    }
+
+    void MoveToStoredFlarePosition()
+    {
+        Vector3 direction = (storedFlarePosition - transform.position).normalized;
+        float angleDifference = Vector3.Angle(transform.forward, direction);
+
+        // If turning too sharply, explode
+        if (angleDifference > maxTurnAngleOnFlare)
+        {
+            Explode();
+            return;
+        }
+
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, direction, Mathf.Deg2Rad * maxTurnAngle * Time.deltaTime, 0f);
+        transform.rotation = Quaternion.LookRotation(newDirection);
+
+        if (Vector3.Distance(transform.position, storedFlarePosition) < 0.5f)
+        {
+            Explode();
+        }
+    }
+
+    void Explode()
+    {
+        if (exploded) return;
+
+        exploded = true;
+        homing = false;
+
+        if (explosionEffect != null)
+        {
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (exploded) return;
+
+        if ((other.CompareTag("Player") && !flared) || other.CompareTag("Wall"))
+        {
+            Explode();
+        }
     }
 }

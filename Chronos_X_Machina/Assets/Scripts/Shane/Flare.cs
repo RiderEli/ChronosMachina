@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Flare : MonoBehaviour
 {
+    public bool flareActive = true;
+
     public Light flareLight; // The light component of the flare
     public ParticleSystem flareParticles; // Optional: Particle system for the flare
 
@@ -45,5 +47,6 @@ public class Flare : MonoBehaviour
         }
 
         Destroy(gameObject);
+        //this.gameObject.SetActive(false);
     }
 }

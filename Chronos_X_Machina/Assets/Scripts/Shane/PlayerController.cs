@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public Transform RightFlareSpawnPoint;
     public int maxFlareCharges = 3;
     private int currentFlareCharges;
+
+
     public float flareSpeed = 10f;
     public float speed;
     public float rotationSpeed = 100;
