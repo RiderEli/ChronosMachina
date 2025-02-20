@@ -50,7 +50,7 @@ public class NormalGrunt : EnemyParent
         if (distance < enemyDetect)
         {
             aiming = true;
-            movement = enemyMovement.idle;
+            enemyDirection = enemyDirectionStates.NONE;
         }
         else
         {
@@ -63,6 +63,10 @@ public class NormalGrunt : EnemyParent
     {
         switch (enemyDirection)
         {
+            case enemyDirectionStates.NONE:
+                movement = enemyMovement.idle;
+            break;
+
             case enemyDirectionStates.UP:
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             break;
