@@ -63,6 +63,12 @@ public class Turret : EnemyParent
             enemyHP -= 25;
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.CompareTag("PlayerRocket"))
+        {
+            enemyHP -= 69;
+            Destroy(other.gameObject);
+        }
     }
 
     public void missileShoot()

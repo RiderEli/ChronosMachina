@@ -27,7 +27,10 @@ public class Rocket : MonoBehaviour
     private float flareTrackingTimer = 0f;
 
     public GameObject explosionEffect;
+    public float timeTillSelfDistruct = 4;
+    public float temp;
 
+    public bool playerWeapon;
     void Start()
     {
         playerObject = GameObject.FindWithTag("Player"); // Keep player reference
@@ -97,6 +100,12 @@ public class Rocket : MonoBehaviour
         Vector3 clampedPosition = transform.position;
         clampedPosition.y = Mathf.Max(clampedPosition.y, groundHeight); // Prevent y from going below groundHeight
         transform.position = clampedPosition;
+
+        temp += Time.deltaTime;
+        if(temp > timeTillSelfDistruct)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void UpdateFlareList()
@@ -205,6 +214,12 @@ public class Rocket : MonoBehaviour
         if (other.CompareTag("Wall"))
         {
             Explode();
+        }
+
+        if (playerWeapon && other.CompareTag("Enemy"))
+        {
+            Explode();
+
         }
     }
 }

@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 1290040848417230532}
   m_Layer: 0
   m_Name: TurretPrefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -353,11 +353,12 @@ MonoBehaviour:
   enemyWeapon: {fileID: 0}
   enemyRB: {fileID: 6343354974988577015}
   weaponSpawn: {fileID: 1474489888116460500}
-  playerTransform: {fileID: 0}
+  player: {fileID: 0}
   tankSpeed: 0
   enemyHP: 50
   enemyDetect: 15
   movement: 0
+  enemyDirection: 0
   aiming: 0
   missileDelay: 2
 --- !u!1 &5097679285412562014
