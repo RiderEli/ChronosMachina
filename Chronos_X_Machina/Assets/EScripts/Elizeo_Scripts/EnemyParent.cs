@@ -11,7 +11,7 @@ public class EnemyParent : MonoBehaviour
     public GameObject enemyHead;
 
     [Header("What weapon is the enemy shooting?")]
-    public GameObject enemyWeapon;
+    public GameObject[] enemyWeapon;
 
     [Header("This is for inheritance purposes, DO NOT TOUCH!!")]
     public Rigidbody enemyRB;
@@ -41,6 +41,16 @@ public class EnemyParent : MonoBehaviour
     [Header("Enemy Movement States:")]
     public enemyMovement movement;
 
+    //Here is a state machine for the enemy weapons. Thanks Shane.
+    public enum enemyWeapons
+    {
+        straight,
+        homing
+    }
+
+    [Header("Enemy Weapon States:")]
+    public enemyWeapons weapons;
+
     //These are staying bare-bones for the children scripts in the future.
     public virtual void Start()
     {
@@ -64,6 +74,18 @@ public class EnemyParent : MonoBehaviour
             case enemyMovement.moving:
                 EnemyMove();
                 break;
+        }
+    }
+
+    public void enemyWeaponShoot()
+    {
+        switch(weapons)
+        {
+            case enemyWeapons.straight:
+            break;
+
+            case enemyWeapons.homing:
+            break;
         }
     }
 

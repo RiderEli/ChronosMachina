@@ -21,7 +21,7 @@ public class BaseMissile_Enemy : MonoBehaviour
     public enum missileState
     {
         straight,
-        homing
+        //homing
     }
 
     [Header("Missile Type:")]
@@ -49,6 +49,7 @@ public class BaseMissile_Enemy : MonoBehaviour
         }
     }
 
+    //THIS STATE MACHINE HAS BEEN SCRAPPED AS OF 2/20/25. THIS MISSILE WILL ONLY FIRE STRAIGHT.
     public void missileStateMachine()
     {
         switch (missileType)
@@ -58,12 +59,12 @@ public class BaseMissile_Enemy : MonoBehaviour
                 break;
 
             //CURRENTLY A WIP, WILL ADJUST THE MISSILE ROTATION SOON.
-            case missileState.homing:
-                Vector3 Direction = player.transform.position - transform.position;
-                wepRB.velocity = new Vector3(Direction.x, 0, Direction.z).normalized * wepSpeed;
-                transform.LookAt(player.transform.position);
-                //transform.;
-                break;
+           // case missileState.homing:
+           //     Vector3 Direction = player.transform.position - transform.position;
+            //    wepRB.velocity = new Vector3(Direction.x, 0, Direction.z).normalized * wepSpeed;
+            //    transform.LookAt(player.transform.position);
+            //    //transform.;
+             //   break;
 
         }
     }

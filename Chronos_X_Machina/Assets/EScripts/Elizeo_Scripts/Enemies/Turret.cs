@@ -52,7 +52,7 @@ public class Turret : EnemyParent
         {
             aiming = false;
         }
-
+        enemyWeaponShoot();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -77,7 +77,16 @@ public class Turret : EnemyParent
 
         if (shotCounter < 0)
         {
-            Instantiate(enemyWeapon, weaponSpawn.transform.position, weaponSpawn.transform.rotation);
+            if (weapons == enemyWeapons.straight)
+            {
+                Instantiate(enemyWeapon[0], weaponSpawn.transform.position, weaponSpawn.transform.rotation);
+            }
+
+            if (weapons == enemyWeapons.homing)
+            {
+                Instantiate(enemyWeapon[1],weaponSpawn.transform.position, weaponSpawn.transform.rotation);
+            }
+
             shotCounter = missileDelay;
         }
 
