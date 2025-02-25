@@ -6,6 +6,7 @@ public class Turret : EnemyParent
 {
     [Header("Is the turret aiming?")]
     public bool aiming;
+    
 
     [Header("How fast will the turret shoot?")]
     public float missileDelay;

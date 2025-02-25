@@ -16,23 +16,36 @@ public class RocketGun : MonoBehaviour
     public float delayBetweenRockets;
     private float timer;
 
+    public int rocketMaxCharges = 5;
+    public int rocketCharges = 0;
+
+    private bool available = true;
+
     private void Start()
     {
         timer = Time.time;
+        rocketCharges = rocketMaxCharges;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-
         barrelOne.transform.LookAt(controller.Tester.transform.position);
-        if (Input.GetButton("Fire2") && timer > delayBetweenRockets)
+        if (Input.GetMouseButtonDown(1) && rocketCharges > 0)
         {
-            timer = 0;
+            rocketCharges--;
             ShootRockets();
         }
 
+        if (rocketCharges < rocketMaxCharges)
+        {
+            timer += Time.deltaTime;
+            if (timer > delayBetweenRockets)
+            {
+                rocketCharges++;
+                timer = 0;
+            }
+        }
     }
 
     private void ShootRockets()
