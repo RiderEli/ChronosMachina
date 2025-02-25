@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,14 +17,26 @@ public class PlayerController : MonoBehaviour
     public int maxFlareCharges = 3;
     private int currentFlareCharges;
 
+    private float deathTime = 1f;
+    //This is where Elizeo's Codes are located.
+    [Header("---------------------------------------------------------------------------------------------------------------------")]
+
     [Header("Player HP - Added by Elizeo:")]
     public int maxHP;
-    private int currentHP;
+    [SerializeField]private int currentHP;
 
     [Header("This is where Elizeo's HP bar will be located.")]
     public PlayerHP playerHPUI;
 
-    [Header(" ")]
+    [Header("Where will the player spawn?")]
+    public Transform playerSpawn;
+
+    [Header("How many lives does the player have?")]
+    public int playerLives;
+    [SerializeField]private int currentLives;
+
+    [Header("---------------------------------------------------------------------------------------------------------------------")]
+
     public float flareSpeed = 10f;
     public float speed;
     public float rotationSpeed = 100;
@@ -36,6 +50,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentHP = maxHP;
+        currentLives = playerLives;
         characterController = GetComponent<CharacterController>();
         currentFlareCharges = maxFlareCharges;
     }
@@ -57,11 +72,6 @@ public class PlayerController : MonoBehaviour
             ShootFlares();
         }
 
-        if (currentHP <= 0)
-        {
-            currentHP = 0;
-            GameOver.isGameOver = true;
-        }
     }
 
     void FixedUpdate()
@@ -80,7 +90,7 @@ public class PlayerController : MonoBehaviour
             Tester.transform.position = hit.point;
         }
         else
-        {
+        {                   
             // In case no hit occurs, move the object far enough along the ray
             Tester.transform.position = ray.GetPoint(1000); // Move it in the direction of the ray, no obstacle
         }
@@ -90,6 +100,18 @@ public class PlayerController : MonoBehaviour
         lookPos.y = 0; // Lock rotation to the Y-axis
         var rotation = Quaternion.LookRotation(lookPos);
         UpperTorso.transform.rotation = Quaternion.Slerp(UpperTorso.transform.rotation, rotation, Time.deltaTime * 30);
+
+
+        if (currentHP <= 0)
+        {
+            Respawn();
+            if (currentLives <= -1)
+            {
+                currentHP = 0;
+                currentLives = 0;
+                GameOver.isGameOver = true;
+            }    
+        }
     }
 
     void ShootFlares()
@@ -124,6 +146,14 @@ public class PlayerController : MonoBehaviour
             );
             rb.velocity = (direction * flareSpeed) + randomOffset;
         }
+    }
+
+    void Respawn()
+    {
+        currentLives -= 1;
+        currentHP = maxHP;
+        transform.position = playerSpawn.transform.position;
+        playerHPUI.SetHP(maxHP);
     }
 
     public void OnTriggerEnter(Collider other)

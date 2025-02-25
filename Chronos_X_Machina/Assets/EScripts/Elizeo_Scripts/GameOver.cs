@@ -9,7 +9,7 @@ public class GameOver : MonoBehaviour
 {
     public GameObject gameOverScreen;
 
-    private GameObject playerObject;
+    [SerializeField] private GameObject playerObject;
 
     [SerializeField] public static bool isGameOver;
 
@@ -45,7 +45,8 @@ public class GameOver : MonoBehaviour
         {
             //SceneManager.LoadScene("Elizeo_Enemy");
         }
-        SceneManager.LoadScene("Electronic Prototype");
+        //SceneManager.LoadScene("Electronic Prototype");
+        SceneManager.LoadScene("Elizeo_Enemy");
     }
 
     public void QuitButton()
