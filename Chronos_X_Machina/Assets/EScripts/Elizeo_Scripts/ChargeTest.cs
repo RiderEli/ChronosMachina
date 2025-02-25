@@ -1,14 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ChargeTest : MonoBehaviour
 {
-    [SerializeField] private int maxCharge = 10;
-    [SerializeField] private int minCharge = 1;
-    [SerializeField] private int currentCharge;
+    public float maxCharge = 200f;
+    [SerializeField] private float minCharge = .1f;
+    public float currentCharge;
 
     public Coroutine chargeRegen;
 
@@ -21,9 +19,10 @@ public class ChargeTest : MonoBehaviour
         chargeSlider.maxValue = maxCharge;
         chargeSlider.value = maxCharge;
     }
-    public void UseCharge()
+
+    public void UseCharge(float rechargeTime)
     {
-        if (currentCharge >= 9)
+        if (currentCharge >= maxCharge - .01f)
         {
             currentCharge = minCharge;
             chargeSlider.value = currentCharge;
@@ -33,27 +32,30 @@ public class ChargeTest : MonoBehaviour
                 StopCoroutine(chargeRegen);
             }
 
-            chargeRegen = StartCoroutine(Charging());
+            chargeRegen = StartCoroutine(Charging(rechargeTime));
         }
     }
 
-    private IEnumerator Charging(int amount = 1)
+    private IEnumerator Charging(float totalRechargeTime)
     {
         fireButton.interactable = false;
-        yield return new WaitForSeconds(amount);
+        float elapsedTime = 0f;
 
-        while (currentCharge < maxCharge)
+        float chargeIncrement = maxCharge / totalRechargeTime * Time.deltaTime;
+
+        while (elapsedTime < totalRechargeTime)
         {
-            currentCharge += amount;
+            elapsedTime += Time.deltaTime;
+            currentCharge = Mathf.Lerp(minCharge, maxCharge, elapsedTime / totalRechargeTime);
             chargeSlider.value = currentCharge;
-            yield return new WaitForSeconds (amount);
+            yield return null;
         }
+
+        currentCharge = maxCharge;
+        chargeSlider.value = maxCharge;
 
         chargeRegen = null;
-        if (chargeRegen == null)
-        {
-            fireButton.interactable = true;
-            Debug.Log("Chargeable is ready!");
-        }
+        fireButton.interactable = true;
+        Debug.Log("Charge is fully regenerated!");
     }
 }

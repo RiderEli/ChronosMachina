@@ -27,8 +27,7 @@ public class RocketGun : MonoBehaviour
         timer += Time.deltaTime;
 
         barrelOne.transform.LookAt(controller.Tester.transform.position);
-        // Check if the player presses the shoot button
-        if (Input.GetButton("Fire2") && timer > delayBetweenRockets) // "Fire1" is the default for left mouse button or controller button
+        if (Input.GetButton("Fire2") && timer > delayBetweenRockets)
         {
             timer = 0;
             ShootRockets();
@@ -38,7 +37,6 @@ public class RocketGun : MonoBehaviour
 
     private void ShootRockets()
     {
-        // Instantiate rockets from both barrels if dualBarrels is enabled
         Instantiate(rocketPrefab, barrelOne.transform.position, barrelOne.transform.rotation);
         if (dualBarrels && barrelTwo != null)
         {

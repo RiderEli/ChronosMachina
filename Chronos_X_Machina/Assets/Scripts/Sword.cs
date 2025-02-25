@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    public int charges = 5;
+    [SerializeField] ChargeTest chargeUI;
     
     public float arcRadius = 2f;
     public float arcAngle = 90f;
     public float attackRange = 2f;
-    public LayerMask EnemyLayer; 
+    public LayerMask EnemyLayer;
+
+    public float timeToRecharge = 2f;
+    private float rechargeHolder = 0f;
+
+    private void Start()
+    {
+        rechargeHolder = timeToRecharge;
+        //chargeUI.maxCharge = timeToRecharge;
+    }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(2) && charges > 0) // Middle mouse click
+        if (Input.GetMouseButtonDown(2) && rechargeHolder >= timeToRecharge) // Middle mouse click
         {
-            charges--;
-            Debug.Log(charges);
-            SwingSword();
+            rechargeHolder = 0f;
+            SwingSword(); 
+            chargeUI.UseCharge(timeToRecharge);
+        }
+        
+        if (rechargeHolder < timeToRecharge)
+        {
+            rechargeHolder += Time.deltaTime;   
         }
     }
 

@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour
     public int maxFlareCharges = 3;
     private int currentFlareCharges;
 
+    private Vector3 velocity;
+    public float gravity = -9.81f;
+    public float terminalVelocity = -50f;
+
     [Header("Player HP - Added by Elizeo:")]
     public int maxHP;
     private int currentHP;
@@ -51,6 +55,7 @@ public class PlayerController : MonoBehaviour
         }
 
         characterController.Move(move * speed * Time.deltaTime);
+        ApplyGravity();
 
         if (Input.GetKeyDown(KeyCode.Q) && currentFlareCharges > 0)
         {
@@ -134,5 +139,22 @@ public class PlayerController : MonoBehaviour
             playerHPUI.SetHP(currentHP);
             Destroy(other.gameObject);
         }
+    }
+
+    void ApplyGravity()
+    {
+        bool isGrounded = characterController.isGrounded;
+
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f; // Small downward force to keep grounded
+        }
+
+        // Apply gravity over time
+        velocity.y += gravity * Time.deltaTime;
+        velocity.y = Mathf.Max(velocity.y, terminalVelocity); // Limit fall speed
+
+        // Move character based on gravity
+        characterController.Move(velocity * Time.deltaTime);
     }
 }

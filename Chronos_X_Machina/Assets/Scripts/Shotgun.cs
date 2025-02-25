@@ -14,7 +14,7 @@ public class Shotgun : MonoBehaviour
     public GameObject bulletPrefab;
 
     private bool isFiring = false;
-    private bool isCoroutineRunning = false; // Prevent multiple coroutines
+    private bool isCoroutineRunning = false;
 
     void Update()
     {
@@ -31,7 +31,7 @@ public class Shotgun : MonoBehaviour
 
     private IEnumerator ShootShotgun()
     {
-        isCoroutineRunning = true; // Mark coroutine as running
+        isCoroutineRunning = true;
 
         int layerMask = LayerMask.GetMask("Player", "UI");
 
@@ -73,6 +73,6 @@ public class Shotgun : MonoBehaviour
             yield return new WaitForSeconds(delayBetweenShots);
         }
 
-        isCoroutineRunning = false; // Mark coroutine as stopped
+        isCoroutineRunning = false;
     }
 }

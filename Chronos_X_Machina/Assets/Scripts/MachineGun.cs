@@ -46,20 +46,16 @@ public class MachineGun : MonoBehaviour
             targetDirection.y = 0;
             targetDirection.Normalize();
 
-            // Add inaccuracy
             targetDirection = Quaternion.Euler(0, Random.Range(-inaccuracy, inaccuracy), 0) * targetDirection;
 
-            // Instantiate bullet
             GameObject bullet = Instantiate(bulletPrefab, barrelTip.transform.position, Quaternion.LookRotation(targetDirection));
 
-            // Apply velocity using Rigidbody
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.velocity = targetDirection * bulletSpeed;
             }
 
-            // Destroy bullet after it exceeds its range
             Destroy(bullet, bulletRange / bulletSpeed);
 
             yield return new WaitForSeconds(delayBetweenBullets);
