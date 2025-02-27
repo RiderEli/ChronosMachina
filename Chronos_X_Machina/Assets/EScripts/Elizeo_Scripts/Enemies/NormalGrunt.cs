@@ -16,7 +16,7 @@ public class NormalGrunt : EnemyParent
     // Update is called once per frame
     public override void Start()
     {
-       // player = GameObject.FindGameObjectWithTag("PlayerTarget");
+        player = GameObject.FindGameObjectWithTag("Player");
         movement = enemyMovement.moving;
         aiming = false;
         shotCounter = missileDelay;
@@ -43,6 +43,10 @@ public class NormalGrunt : EnemyParent
         {
             Debug.Log("Enemy Died, lol");
             Destroy(this.gameObject);
+            if (WaveSystem.insideWave == true)
+            {
+                WaveSystem.counter -= 1;
+            }
         }
 
         float distance = Vector3.Distance(transform.position, player.transform.position);

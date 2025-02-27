@@ -14,7 +14,7 @@ public class Turret : EnemyParent
     // Start is called before the first frame update
     public override void Start()
     {
-       // player = GameObject.FindGameObjectWithTag("PlayerTarget");
+        player = GameObject.FindGameObjectWithTag("Player");
         movement = enemyMovement.idle;
         aiming = false;
         shotCounter = missileDelay;
@@ -40,6 +40,10 @@ public class Turret : EnemyParent
         {
             Debug.Log("Enemy Died, lol");
             Destroy(this.gameObject);
+            if (WaveSystem.insideWave == true)
+            {
+                WaveSystem.counter -= 1;
+            }
         }
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
