@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
 
         if (move.magnitude > 0.1f)
         {
+            move.Normalize();
+
             Quaternion targetRotation = Quaternion.LookRotation(move);
             Legs.transform.rotation = Quaternion.Slerp(Legs.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
