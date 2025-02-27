@@ -241,8 +241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHead: {fileID: 3087302545841444174}
-  enemyWeapon: {fileID: 8909298994541195064, guid: 6ccbebe77351bc04aa7e97cd2f450b51,
-    type: 3}
+  enemyWeapon:
+  - {fileID: 8909298994541195064, guid: 6ccbebe77351bc04aa7e97cd2f450b51, type: 3}
+  - {fileID: 341658222094009727, guid: 6ebaf63574368b84ab207804808ce333, type: 3}
   enemyRB: {fileID: 3182027082410030995}
   weaponSpawn: {fileID: 1793952718478169455}
   player: {fileID: 0}
@@ -250,7 +251,8 @@ MonoBehaviour:
   enemyHP: 100
   enemyDetect: 50
   movement: 0
-  enemyDirection: 0
+  weapons: 0
+  enemyDirection: 2
   aiming: 0
   missileDelay: 2
 --- !u!54 &3182027082410030995

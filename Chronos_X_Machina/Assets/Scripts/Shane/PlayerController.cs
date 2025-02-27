@@ -17,7 +17,8 @@ public class PlayerController : MonoBehaviour
     public int maxFlareCharges = 3;
     private int currentFlareCharges;
 
-    private float deathTime = 1f;
+    //private float deathTime = 1f;
+    
     //This is where Elizeo's Codes are located.
     [Header("---------------------------------------------------------------------------------------------------------------------")]
 
