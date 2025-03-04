@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player HP - Added by Elizeo:")]
     public int maxHP;
-    [SerializeField]private int currentHP;
+    public static int currentHP;
 
     [Header("This is where Elizeo's HP bar will be located.")]
     public PlayerHP playerHPUI;
@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     [Header("How many lives does the player have?")]
     public int playerLives;
     [SerializeField]private int currentLives;
+
+    [Header("How much HP can the player heal?")]
+    public int healValue;
 
     [Header("---------------------------------------------------------------------------------------------------------------------")]
 
@@ -155,6 +158,7 @@ public class PlayerController : MonoBehaviour
         currentHP = maxHP;
         transform.position = playerSpawn.transform.position;
         playerHPUI.SetHP(maxHP);
+
     }
 
     public void OnTriggerEnter(Collider other)
@@ -162,6 +166,33 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("EnemyWep"))
         {
             currentHP -= 25;
+            playerHPUI.SetHP(currentHP);
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Explosion"))
+        {
+            currentHP -= 25;
+            playerHPUI.SetHP(currentHP);
+            other.gameObject.GetComponent<Collider>().enabled = false;
+        }
+
+        if (other.gameObject.CompareTag("EnemyBomb"))
+        {
+            currentHP -= 25;
+            playerHPUI.SetHP(currentHP);
+            other.gameObject.GetComponent<Collider>().enabled = false;
+        }
+
+        if (other.gameObject.CompareTag("Kamikaze"))
+        {
+            currentHP -= 50;
+            playerHPUI.SetHP(currentHP);
+        }
+
+        if (other.gameObject.CompareTag("Heal"))
+        {
+            currentHP += healValue;
             playerHPUI.SetHP(currentHP);
             Destroy(other.gameObject);
         }

@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -221,7 +221,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.90000004, z: -12.17}
-  m_LocalScale: {x: 2.4600065, y: 2.4600065, z: 2.4600065}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1003664548962943447}
@@ -244,12 +244,21 @@ MonoBehaviour:
   enemyWeapon:
   - {fileID: 8909298994541195064, guid: 6ccbebe77351bc04aa7e97cd2f450b51, type: 3}
   - {fileID: 341658222094009727, guid: 6ebaf63574368b84ab207804808ce333, type: 3}
+  enemyPieces:
+  - {fileID: 5846564563544001918}
+  - {fileID: 5987387962408276589}
+  - {fileID: 2180184031965035845}
   enemyRB: {fileID: 3182027082410030995}
   weaponSpawn: {fileID: 1793952718478169455}
   player: {fileID: 0}
   tankSpeed: 5
   enemyHP: 100
   enemyDetect: 50
+  enemyDamage: 0
+  enemyRenderer: {fileID: 0}
+  enemyMat:
+  - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
+  - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
   movement: 0
   weapons: 0
   enemyDirection: 2
@@ -343,7 +352,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -426,7 +435,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

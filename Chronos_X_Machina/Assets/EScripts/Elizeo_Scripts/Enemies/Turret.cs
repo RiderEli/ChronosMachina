@@ -11,6 +11,8 @@ public class Turret : EnemyParent
     public float missileDelay;
     private float shotCounter;
 
+    private Renderer enemyRend2;
+    private Renderer enemyRend3;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -18,6 +20,12 @@ public class Turret : EnemyParent
         movement = enemyMovement.idle;
         aiming = false;
         shotCounter = missileDelay;
+        enemyRenderer = enemyPieces[0].GetComponent<Renderer>();
+        enemyRend2 = enemyPieces[1].GetComponent<Renderer>();
+        enemyRend3 = enemyPieces[2].GetComponent<Renderer>();
+        enemyRenderer.material = enemyMat[0];
+                enemyRend2.material = enemyMat[0];
+        enemyRend3.material = enemyMat[0];
     }
 
     // Update is called once per frame
@@ -66,6 +74,7 @@ public class Turret : EnemyParent
         {
             enemyHP -= 25;
             Destroy(other.gameObject);
+            StartCoroutine(EnemyGotHit());
         }
 
         if (other.gameObject.CompareTag("PlayerRocket"))
@@ -96,5 +105,14 @@ public class Turret : EnemyParent
 
     }
 
-
+    public IEnumerator EnemyGotHit()
+    {
+        enemyRenderer.material = enemyMat[1];
+        enemyRend2.material = enemyMat[1];
+        enemyRend3.material = enemyMat[1];
+        yield return new WaitForSeconds(0.1f);
+        enemyRenderer.material = enemyMat[0];
+        enemyRend2.material = enemyMat[0];
+        enemyRend3.material = enemyMat[0];
+    }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 /* [Nava, Elizeo]
  * [January 30, 2025]
@@ -7,11 +8,17 @@ using UnityEngine;
  */
 public class EnemyParent : MonoBehaviour
 {
+    [Header("NOTE: If the enemy is a Kamikaze, DISREGARD EVERYTHING except for Speed and HP.")]
+    [Header("-------------------------------------------------------------------------------")]
+
     [Header("Where the gun is located:")]
     public GameObject enemyHead;
 
     [Header("What weapon is the enemy shooting?")]
     public GameObject[] enemyWeapon;
+
+    [Header("Enemy Pieces:")]
+    public GameObject[] enemyPieces;
 
     [Header("This is for inheritance purposes, DO NOT TOUCH!!")]
     public Rigidbody enemyRB;
@@ -31,11 +38,19 @@ public class EnemyParent : MonoBehaviour
     [Header("Detection Range")]
     public int enemyDetect;
 
+    [Header("Enemy Damage (KAMIKAZE ONLY, LEAVE AT 0 FOR ANY OTHER ENEMY)")]
+    public int enemyDamage;
+
+    [Header("THIS IS ALSO FOR INHERITANCE PURPOSES, DO NOT TOUCH!!")]
+    public Renderer enemyRenderer;
+
+    [Header("This will indicate the color that appears when the enemy gets hit.")]
+    public Material[] enemyMat;
     //This is a state machine for the grunts. It affects how they function around the battlefield.
     public enum enemyMovement
     {
         idle,
-        moving
+        moving,
     }
 
     [Header("Enemy Movement States:")]
@@ -45,7 +60,8 @@ public class EnemyParent : MonoBehaviour
     public enum enemyWeapons
     {
         straight,
-        homing
+        homing,
+        bomb
     }
 
     [Header("Enemy Weapon States:")]
@@ -54,12 +70,12 @@ public class EnemyParent : MonoBehaviour
     //These are staying bare-bones for the children scripts in the future.
     public virtual void Start()
     {
-     
+        //enemyRenderer = gameObject.GetComponent<Renderer>();
     }
 
     public virtual void Update()
     {
-        
+
     }
 
     //The state machine in action
@@ -74,18 +90,22 @@ public class EnemyParent : MonoBehaviour
             case enemyMovement.moving:
                 EnemyMove();
                 break;
+
         }
     }
 
     public void enemyWeaponShoot()
     {
-        switch(weapons)
+        switch (weapons)
         {
             case enemyWeapons.straight:
-            break;
+                break;
 
             case enemyWeapons.homing:
-            break;
+                break;
+
+            case enemyWeapons.bomb:
+                break;
         }
     }
 
@@ -130,6 +150,7 @@ public class EnemyParent : MonoBehaviour
 
     [Header("What direction is the enemy facing?")]
     public enemyDirectionStates enemyDirection;
+
 
 
 }
