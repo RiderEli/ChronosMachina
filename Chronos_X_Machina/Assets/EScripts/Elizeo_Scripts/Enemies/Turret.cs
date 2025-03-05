@@ -48,7 +48,7 @@ public class Turret : EnemyParent
         {
             Debug.Log("Enemy Died, lol");
             Destroy(this.gameObject);
-            if (WaveSystem.insideWave == true)
+            if (WaveChecker.insideWave == true)
             {
                 WaveSystem.counter -= 1;
             }

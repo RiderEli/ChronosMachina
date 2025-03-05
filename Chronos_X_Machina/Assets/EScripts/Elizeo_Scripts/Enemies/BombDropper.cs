@@ -31,7 +31,7 @@ public class BombDropper : EnemyParent
         {
             Debug.Log("Enemy Died, lol");
             Destroy(this.gameObject);
-            if (WaveSystem.insideWave == true)
+            if (WaveChecker.insideWave == true)
             {
                 WaveSystem.counter -= 1;
             }
@@ -44,7 +44,7 @@ public class BombDropper : EnemyParent
                 Destroy(transform.parent.gameObject, dropperDuration); // destroy parent a few frames later
             }
 
-            if (WaveSystem.insideWave == true)
+            if (WaveChecker.insideWave == true)
             {
                 WaveSystem.counter -= 1;
             }

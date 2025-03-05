@@ -13,58 +13,77 @@ public class WaveSystem : MonoBehaviour
     public int enemyCount;
     public static int counter;
 
+    private GameObject waveCheck;
+
+    private WaveChecker waveChecker;
     
     public GameObject[] enemy;
 
     public Transform[] spawnPoint;
 
+    private bool collisionPresent;
+
    // private bool hasEnemySpawned;
 
-    [Header("Where will the spawn camera be?")]
-    public Transform cameraPos;
+    //[Header("Where will the spawn camera be?")]
+   // public Transform cameraPos;
 
     [Header("Here are the doors: ")]
     public GameObject waveDoors;
 
-    [Header("Here is the wave camera: ")]
-    public GameObject waveCamera;
+    //[Header("Here is the wave camera: ")]
+    //public GameObject waveCamera;
 
-    [Header("Here is the player camera: ")]
-    public GameObject playerCamera;
-    public static bool insideWave = false;
+    //[Header("Here is the player camera: ")]
+    //public GameObject playerCamera;
     void Start()
     {
        // hasEnemySpawned = true;
         counter = enemyCount;
+        WaveChecker.insideWave = false;
+        waveCheck = GameObject.FindGameObjectWithTag("Wave");
+        waveChecker = waveCheck.GetComponent<WaveChecker>();
+        collisionPresent = true;
     }
     // Update is called once per frame
     void Update()
     {
         if (counter <= 0)
         {
-            insideWave = false;
+            WaveChecker.insideWave = false;
             this.gameObject.SetActive(false);
         }
 
-        if (insideWave == true)
+        if (WaveChecker.insideWave == true)
         {
             waveDoors.SetActive(true);
-            waveCamera.SetActive(true);
-            playerCamera.SetActive(false);
+
         }
         else
         {
             waveDoors.SetActive(false);
-            waveCamera.SetActive(false);
-            playerCamera.SetActive(true);
+
         }
 
+        if (PlayerController.currentHP <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (!collisionPresent)
+        {
+            GetComponent<Collider>().enabled = false;
+        }
+        else
+        {
+            GetComponent<Collider>().enabled = true;
+        }
     }
 
     public IEnumerator waveSpawner()
     {
-       // hasEnemySpawned = false;
-        insideWave = true;
+        // hasEnemySpawned = false;
+        WaveChecker.insideWave = true;
 
         for (int i = 0; i < enemyCount; i++)
         {
@@ -81,8 +100,8 @@ public class WaveSystem : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             StartCoroutine(waveSpawner());
-            GetComponent<Collider>().enabled = false;
-            waveCamera.transform.position = cameraPos.transform.position;
+            waveChecker.LocateWaveCam();
+            collisionPresent = false;
         }
     }
 }

@@ -1149,6 +1149,12 @@ MonoBehaviour:
   maxFlareCharges: 3
   maxHP: 0
   playerHPUI: {fileID: 0}
+  playerSpawn: {fileID: 0}
+  playerLives: 0
+  currentLives: 0
+  healValue: 0
+  waveCam: {fileID: 0}
+  playerCam: {fileID: 0}
   flareSpeed: 10
   speed: 5
   rotationSpeed: 10

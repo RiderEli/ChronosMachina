@@ -92,7 +92,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1003664548962943447}
-  - component: {fileID: 1931007360743396676}
   m_Layer: 0
   m_Name: GruntPart1
   m_TagString: Enemy
@@ -118,27 +117,6 @@ Transform:
   - {fileID: 1793952718478169455}
   m_Father: {fileID: 1828098487502703674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1931007360743396676
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3087302545841444174}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3129017533142247349
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +126,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1235742680974906809}
-  - component: {fileID: 209794233594187097}
   m_Layer: 0
   m_Name: GruntPart4
   m_TagString: Enemy
@@ -172,27 +149,6 @@ Transform:
   - {fileID: 3925371595670478712}
   m_Father: {fileID: 1828098487502703674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &209794233594187097
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3129017533142247349}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 1, z: 2}
-  m_Center: {x: 0, y: -0.7, z: 0.9}
 --- !u!1 &4480485666751128175
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +160,7 @@ GameObject:
   - component: {fileID: 1828098487502703674}
   - component: {fileID: 7300044266939765210}
   - component: {fileID: 3182027082410030995}
+  - component: {fileID: 3656165570696083078}
   m_Layer: 0
   m_Name: TestGruntPrefab
   m_TagString: Untagged
@@ -291,6 +248,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!65 &3656165570696083078
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4480485666751128175}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 3, z: 3}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &5846564563544001918
 GameObject:
   m_ObjectHideFlags: 0

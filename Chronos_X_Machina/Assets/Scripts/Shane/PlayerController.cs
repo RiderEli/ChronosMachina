@@ -39,6 +39,10 @@ public class PlayerController : MonoBehaviour
     [Header("How much HP can the player heal?")]
     public int healValue;
 
+    [Header("These are the Player Cameras")]
+    public GameObject waveCam;
+    public GameObject playerCam;
+
     [Header("---------------------------------------------------------------------------------------------------------------------")]
 
     public float flareSpeed = 10f;
@@ -57,6 +61,7 @@ public class PlayerController : MonoBehaviour
         currentLives = playerLives;
         characterController = GetComponent<CharacterController>();
         currentFlareCharges = maxFlareCharges;
+
     }
 
     void Update()
@@ -76,6 +81,16 @@ public class PlayerController : MonoBehaviour
             ShootFlares();
         }
 
+        if (!WaveChecker.insideWave)
+        {
+            waveCam.SetActive(false);
+            playerCam.SetActive(true);
+        }
+        else
+        {
+            waveCam.SetActive(true);
+            playerCam.SetActive(false);
+        }
     }
 
     void FixedUpdate()
@@ -114,7 +129,7 @@ public class PlayerController : MonoBehaviour
                 currentHP = 0;
                 currentLives = 0;
                 GameOver.isGameOver = true;
-            }    
+            }
         }
     }
 

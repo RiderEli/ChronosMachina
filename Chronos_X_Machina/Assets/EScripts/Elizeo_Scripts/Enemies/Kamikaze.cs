@@ -23,7 +23,7 @@ public class Kamikaze : EnemyParent
         {
             Debug.Log("Enemy Died, lol");
             Destroy(this.gameObject);
-            if (WaveSystem.insideWave == true)
+            if (WaveChecker.insideWave == true)
             {
                 WaveSystem.counter -= 1;
             }
@@ -49,7 +49,7 @@ public class Kamikaze : EnemyParent
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(this.gameObject);
-            if (WaveSystem.insideWave == true)
+            if (WaveChecker.insideWave == true)
             {
                 WaveSystem.counter -= 1;
             }
