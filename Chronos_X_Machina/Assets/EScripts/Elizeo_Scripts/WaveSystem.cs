@@ -18,7 +18,7 @@ public class WaveSystem : MonoBehaviour
 
     public Transform[] spawnPoint;
 
-    private bool hasEnemySpawned;
+   // private bool hasEnemySpawned;
 
     [Header("Where will the spawn camera be?")]
     public Transform cameraPos;
@@ -34,7 +34,7 @@ public class WaveSystem : MonoBehaviour
     public static bool insideWave = false;
     void Start()
     {
-        hasEnemySpawned = true;
+       // hasEnemySpawned = true;
         counter = enemyCount;
     }
     // Update is called once per frame
@@ -63,7 +63,7 @@ public class WaveSystem : MonoBehaviour
 
     public IEnumerator waveSpawner()
     {
-        hasEnemySpawned = false;
+       // hasEnemySpawned = false;
         insideWave = true;
 
         for (int i = 0; i < enemyCount; i++)
@@ -73,7 +73,7 @@ public class WaveSystem : MonoBehaviour
         }
 
         yield return new WaitForSeconds(waveTime);
-        hasEnemySpawned = true;
+        //hasEnemySpawned = true;
     }
 
     public void OnTriggerEnter(Collider other)

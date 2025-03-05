@@ -17,6 +17,8 @@ public class BombDropper : EnemyParent
         //player = GameObject.FindGameObjectWithTag("Player"); //to prevent any "Null Exception" errors
         movement = enemyMovement.moving;
         shotCounter = bombDelay;
+        enemyRenderer = enemyPieces[0].GetComponent<Renderer>();
+        enemyRenderer.material = enemyMat[0];
     }
 
     // Update is called once per frame
@@ -99,6 +101,14 @@ public class BombDropper : EnemyParent
         {
             enemyHP -= 25;
             Destroy(other.gameObject);
+            StartCoroutine(EnemyGotHit());
         }
+    }
+
+    public IEnumerator EnemyGotHit()
+    {
+        enemyRenderer.material = enemyMat[1];
+        yield return new WaitForSeconds(0.1f);
+        enemyRenderer.material = enemyMat[0];
     }
 }

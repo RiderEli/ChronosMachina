@@ -24,7 +24,7 @@ public class Turret : EnemyParent
         enemyRend2 = enemyPieces[1].GetComponent<Renderer>();
         enemyRend3 = enemyPieces[2].GetComponent<Renderer>();
         enemyRenderer.material = enemyMat[0];
-                enemyRend2.material = enemyMat[0];
+        enemyRend2.material = enemyMat[0];
         enemyRend3.material = enemyMat[0];
     }
 

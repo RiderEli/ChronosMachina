@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,6 +103,8 @@ MonoBehaviour:
   enemyHead: {fileID: 0}
   enemyWeapon:
   - {fileID: 7131190371455756378, guid: 233b87f42c014374aa7117e7ea4fcf12, type: 3}
+  enemyPieces:
+  - {fileID: 1421640585124261553}
   enemyRB: {fileID: 6227023336778954932}
   weaponSpawn: {fileID: 5897001575119602518}
   player: {fileID: 0}
@@ -110,6 +112,10 @@ MonoBehaviour:
   enemyHP: 100
   enemyDetect: 0
   enemyDamage: 0
+  enemyRenderer: {fileID: 0}
+  enemyMat:
+  - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
+  - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
   movement: 1
   weapons: 2
   enemyDirection: 3

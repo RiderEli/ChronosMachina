@@ -10,12 +10,14 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject soundMenu;
+    public GameObject resMenu;
 
     //Sets up the main menu
     private void Start()
     {
         mainMenu.SetActive(true);
         soundMenu.SetActive(false);
+        resMenu.SetActive(false);
     }
     
     //Starts the game, debug for testing only.
@@ -31,12 +33,21 @@ public class MainMenu : MonoBehaviour
     {
         soundMenu.SetActive(true);
         mainMenu.SetActive(false);
+        resMenu.SetActive(false);
     }
 
     //Goes back to the main menu
     public void BackToMenu()
     {
         mainMenu.SetActive(true);
+        soundMenu.SetActive(false);
+        resMenu.SetActive(false);
+    }
+
+    public void GameRes()
+    {
+        resMenu.SetActive(true);
+        mainMenu.SetActive(false);
         soundMenu.SetActive(false);
     }
 
