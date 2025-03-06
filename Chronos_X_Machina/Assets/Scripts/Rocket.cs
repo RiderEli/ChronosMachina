@@ -9,7 +9,8 @@ public class Rocket : MonoBehaviour
     public float flareLockDelay = 1f;
     public float maxTurnAngleOnFlare = 150f; // Max turn angle when flared, before exploding
     public float flareInstantDetonationDistance = 2f; // Distance where missile explodes instantly if flared near player
-    public float groundHeight = 0f; // Define the ground height (set to 0 for ground level)
+    public float groundHeight = 0f; // Minimum height (ground level)
+    public float maxHeight = 10f; // Maximum height (prevents aiming too high)
 
     private GameObject seekerObject;
     private GameObject playerObject;
@@ -27,10 +28,11 @@ public class Rocket : MonoBehaviour
     private float flareTrackingTimer = 0f;
 
     public GameObject explosionEffect;
-    public float timeTillSelfDistruct = 4;
-    public float temp;
+    public float timeTillSelfDistruct = 4f;
+    private float temp;
 
     public bool playerWeapon;
+
     void Start()
     {
         playerObject = GameObject.FindWithTag("Player"); // Keep player reference
@@ -96,13 +98,13 @@ public class Rocket : MonoBehaviour
         // Always move forward
         transform.position += transform.forward * Speed * Time.deltaTime;
 
-        // Clamp the Y position to prevent clipping through the floor
+        // Clamp the Y position (Prevents going too high or below ground)
         Vector3 clampedPosition = transform.position;
-        clampedPosition.y = Mathf.Max(clampedPosition.y, groundHeight); // Prevent y from going below groundHeight
+        clampedPosition.y = Mathf.Clamp(clampedPosition.y, groundHeight, maxHeight);
         transform.position = clampedPosition;
 
         temp += Time.deltaTime;
-        if(temp > timeTillSelfDistruct)
+        if (temp > timeTillSelfDistruct)
         {
             Destroy(gameObject);
         }
@@ -219,7 +221,6 @@ public class Rocket : MonoBehaviour
         if (playerWeapon && other.CompareTag("Enemy"))
         {
             Explode();
-
         }
     }
 }

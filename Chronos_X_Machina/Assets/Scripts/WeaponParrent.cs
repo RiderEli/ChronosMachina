@@ -12,6 +12,9 @@ public class WeaponParrent : MonoBehaviour
     public float fireRateMG = 1;
     public float bulletSpeedMG = 1;
     public float rangeMG = 20;
+    public bool Tier1_MG = true;
+    public bool Tier2_MG = false;
+    public bool Tier3_MG = false;
 
     public float inaccuracyMG = 1;
     public float delayBtwnBulletsMG = 1;
@@ -23,6 +26,10 @@ public class WeaponParrent : MonoBehaviour
     public float fireRateSG = 1;
     public float bulletSpeedSG = 1;
     public float rangeSG = 20;
+    public bool Tier1_SG = true;
+    public bool Tier2_SG = false;
+    public bool Tier3_SG = false;
+
 
     public int bulletsShot = 5;
 
@@ -34,6 +41,10 @@ public class WeaponParrent : MonoBehaviour
     public float fireRatePL = 1;
     public float bulletSpeedPL = 1;
     public float rangePL = 20;
+    public bool Tier1_PL = true;
+    public bool Tier2_PL = false;
+    public bool Tier3_PL = false;
+
 
     public float weaponCharge = 0f;
 
@@ -45,18 +56,24 @@ public class WeaponParrent : MonoBehaviour
     public float fireRateSWD = 1;
     public float swingSpeedSWD = 1;
     public float rangeSWD = 20;
+    public bool Tier1_SWD = true;
+    public bool Tier2_SWD = false;
+    public bool Tier3_SWD = false;
 
 
-    
+
     [Header("Grenade Launcher Settings | GRE")]
     [SerializeField] GrenadeLauncher grenadeLauncher;
     public float damageGRE = 4;
     public float fireRateGRE = 1;
     public float bulletSpeedGRE = 1;
     public float rangeGRE = 20;
+    public bool Tier1_GRE = true;
+    public bool Tier2_GRE = false;
+    public bool Tier3_GRE = false;
 
 
-    
+
     [Header("Flamethrower Settings | FLM")]
     [Tooltip("the amount of weapon charge per attack, more charge more dmg")]
     [SerializeField] Flamethrower flamethrower;
@@ -64,6 +81,10 @@ public class WeaponParrent : MonoBehaviour
     public float fireRateFLM = 1;
     public float bulletSpeedFLM = 1;
     public float rangeFLM = 20;
+    public bool Tier1_FLM = true;
+    public bool Tier2_FLM = false;
+    public bool Tier3_FLM = false;
+
 
 
     [Space(15)]
