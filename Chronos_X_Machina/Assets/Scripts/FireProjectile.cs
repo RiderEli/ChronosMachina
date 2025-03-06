@@ -9,42 +9,76 @@ public class FireProjectile : MonoBehaviour
     public float lingerTime = 1.5f;
 
     private Rigidbody rb;
-    private bool hasSplashed = false;
+    private bool hasCollidedWithWall = false;
+    private bool isLingerOnEnemy = false;
     private ParticleSystem fireParticleSystem;
+
+    private float maxRange = 10f;
+    private int dotDamage = 5;
+    private float dotDuration = 3f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        fireParticleSystem = GetComponent<ParticleSystem>(); // Get the particle system attached to the fire
-        StartCoroutine(LingerAtMaxRange());
+        fireParticleSystem = GetComponent<ParticleSystem>(); // Get the fire particle system
     }
 
-    private IEnumerator LingerAtMaxRange()
+    public void Initialize(float range, int damage, float duration, int burnDamage)
     {
-        yield return new WaitForSeconds(lingerTime);
-        rb.velocity = Vector3.zero; // Stop moving
-        yield return new WaitForSeconds(lingerTime); // Fire lingers
-        Destroy(gameObject);
+        maxRange = range;
+        dotDamage = damage;
+        dotDuration = duration;
+        burnDamagePerSecond = burnDamage;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && !isLingerOnEnemy)
         {
-            EnemyParent enemy = collision.gameObject.GetComponent<EnemyParent>();
+            isLingerOnEnemy = true;
+            StopMovement();
+            StickToEnemy(other);
+            EnemyParent enemy = other.GetComponent<EnemyParent>();
             if (enemy != null)
             {
-                enemy.enemyHP -= impactDamage;
-                StartCoroutine(BurnEffect(enemy));
+                enemy.enemyHP -= impactDamage; // Apply impact damage
+                StartCoroutine(BurnEffect(enemy)); // Apply burn damage over time
             }
-            Destroy(gameObject); // Destroy the fire after hitting an enemy
         }
-        else if (collision.gameObject.CompareTag("Wall") && !hasSplashed)
+        else if (other.CompareTag("Wall") && !hasCollidedWithWall)
         {
-            hasSplashed = true;
-            RedirectFireSplash(collision); // Redirect fire upon hitting the wall
-            Destroy(gameObject); // Destroy the fire projectile after collision
+            hasCollidedWithWall = true;
+            StopMovement();
+            StickToWall(other);
         }
+    }
+
+    private void StopMovement()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true; // Disable physics
+    }
+
+    private void StickToWall(Collider other)
+    {
+        Vector3 wallNormal = other.transform.forward;
+        Vector3 wallPoint = other.ClosestPointOnBounds(transform.position);
+
+        transform.position = wallPoint;
+        transform.rotation = Quaternion.LookRotation(wallNormal);
+
+        Destroy(gameObject, lingerTime); // Destroy after lingering
+    }
+
+    private void StickToEnemy(Collider other)
+    {
+        transform.position = other.transform.position;
+        transform.SetParent(other.transform); // Parent to the enemy
+
+        fireParticleSystem.Play(); // Ensure fire is active
+
+        Destroy(gameObject, lingerTime); // Destroy after lingering
     }
 
     private IEnumerator BurnEffect(EnemyParent enemy)
@@ -54,27 +88,7 @@ public class FireProjectile : MonoBehaviour
         {
             enemy.enemyHP -= burnDamagePerSecond;
             burnTimeRemaining -= 1f;
-            yield return new WaitForSeconds(1f); // Adjust for more precise timing
+            yield return new WaitForSeconds(1f);
         }
-    }
-
-    private void RedirectFireSplash(Collision collision)
-    {
-        Vector3 hitNormal = collision.contacts[0].normal; // Get the surface normal of the wall
-        Vector3 hitPoint = collision.contacts[0].point;  // Get the point of impact
-
-        // Play the fire particle system at the point of collision
-        fireParticleSystem.transform.position = hitPoint;
-        fireParticleSystem.Play();  // Trigger the splash effect
-
-        // Add redirection effect: scatter the particles
-        var main = fireParticleSystem.main;
-        main.startSpeed = new ParticleSystem.MinMaxCurve(5f, 10f); // Modify speed for splash
-
-        // Apply outward velocity for the splash effect
-        var velocityOverLifetime = fireParticleSystem.velocityOverLifetime;
-        velocityOverLifetime.x = new ParticleSystem.MinMaxCurve(hitNormal.x + Random.Range(-0.5f, 0.5f));
-        velocityOverLifetime.y = new ParticleSystem.MinMaxCurve(hitNormal.y + Random.Range(0f, 0.5f)); // Control direction upwards
-        velocityOverLifetime.z = new ParticleSystem.MinMaxCurve(hitNormal.z + Random.Range(-0.5f, 0.5f));
     }
 }

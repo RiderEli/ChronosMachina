@@ -126,13 +126,13 @@ MonoBehaviour:
   flareLockDelay: 0.15
   maxTurnAngleOnFlare: 80
   flareInstantDetonationDistance: 10
-  groundHeight: 0
+  groundHeight: 2
+  maxHeight: 10
   flared: 0
   homing: 0
   explosionEffect: {fileID: 8645553609446058849, guid: 4a4bcbad7aaa222419cf5392e2cf9db7,
     type: 3}
   timeTillSelfDistruct: 0.4
-  temp: 0
   playerWeapon: 1
 --- !u!54 &7443115649675147050
 Rigidbody:

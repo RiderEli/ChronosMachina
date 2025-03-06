@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
 
         // Create a LayerMask that will ignore both the "Player" and "UI" layers
-        int layerMask = LayerMask.GetMask("Player", "UI");  // Get mask for both layers
+        int layerMask = LayerMask.GetMask("Player", "UI", "Ignore Raycast");  // Get mask for both layers
 
         // Cast the ray, but ignore the "Player" and "UI" layers
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~layerMask)) // The tilde (~) inverts the mask to ignore those layers
