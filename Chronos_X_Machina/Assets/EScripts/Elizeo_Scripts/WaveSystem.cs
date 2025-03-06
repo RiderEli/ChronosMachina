@@ -38,9 +38,9 @@ public class WaveSystem : MonoBehaviour
     //public GameObject playerCamera;
     void Start()
     {
-       // hasEnemySpawned = true;
+        // hasEnemySpawned = true;
         counter = enemyCount;
-        WaveChecker.insideWave = false;
+
         waveCheck = GameObject.FindGameObjectWithTag("Wave");
         waveChecker = waveCheck.GetComponent<WaveChecker>();
         collisionPresent = true;
@@ -48,8 +48,13 @@ public class WaveSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Counter: " + counter);
+
+        counter = enemyCount;
+
         if (counter <= 0)
         {
+            Debug.Log("Counter Ran Out!");
             WaveChecker.insideWave = false;
             this.gameObject.SetActive(false);
         }
@@ -85,9 +90,10 @@ public class WaveSystem : MonoBehaviour
         // hasEnemySpawned = false;
         WaveChecker.insideWave = true;
 
+
         for (int i = 0; i < enemyCount; i++)
         {
-            GameObject enemyClone = Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)]);
+            GameObject enemyClone = Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)]);
             yield return new WaitForSeconds(spawnRate);
         }
 

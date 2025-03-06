@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class WaveChecker : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class WaveChecker : MonoBehaviour
     void Start()
     {
         waveSpawned = false;
+        insideWave = false;
+
     }
 
     // Update is called once per frame
