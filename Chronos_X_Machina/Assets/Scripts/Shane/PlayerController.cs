@@ -19,14 +19,32 @@ public class PlayerController : MonoBehaviour
     public float gravity = -9.81f;
     public float terminalVelocity = -50f;
 
+    //This is where Elizeo's Codes are located.
+    [Header("---------------------------------------------------------------------------------------------------------------------")]
+
     [Header("Player HP - Added by Elizeo:")]
     public int maxHP;
-    private int currentHP;
+    public static int currentHP;
 
     [Header("This is where Elizeo's HP bar will be located.")]
     public PlayerHP playerHPUI;
 
-    [Header(" ")]
+    [Header("Where will the player spawn?")]
+    public Transform playerSpawn;
+
+    [Header("How many lives does the player have?")]
+    public int playerLives;
+    [SerializeField] private int currentLives;
+
+    [Header("How much HP can the player heal?")]
+    public int healValue;
+
+    [Header("These are the Player Cameras")]
+    public GameObject waveCam;
+    public GameObject playerCam;
+
+    [Header("---------------------------------------------------------------------------------------------------------------------")]
+
     public float flareSpeed = 10f;
     public float speed;
     public float rotationSpeed = 100;
@@ -40,6 +58,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentHP = maxHP;
+        currentLives = playerLives;
         characterController = GetComponent<CharacterController>();
         currentFlareCharges = maxFlareCharges;
     }
@@ -64,10 +83,16 @@ public class PlayerController : MonoBehaviour
             ShootFlares();
         }
 
-        if (currentHP <= 0)
+
+        if (!WaveChecker.insideWave)
         {
-            currentHP = 0;
-            GameOver.isGameOver = true;
+            waveCam.SetActive(false);
+            playerCam.SetActive(true);
+        }
+        else
+        {
+            waveCam.SetActive(true);
+            playerCam.SetActive(false);
         }
     }
 
@@ -97,6 +122,17 @@ public class PlayerController : MonoBehaviour
         lookPos.y = 0; // Lock rotation to the Y-axis
         var rotation = Quaternion.LookRotation(lookPos);
         UpperTorso.transform.rotation = Quaternion.Slerp(UpperTorso.transform.rotation, rotation, Time.deltaTime * 30);
+
+        if (currentHP <= 0)
+        {
+            Respawn();
+            if (currentLives <= -1)
+            {
+                currentHP = 0;
+                currentLives = 0;
+                GameOver.isGameOver = true;
+            }
+        }
     }
 
     void ShootFlares()
@@ -141,6 +177,41 @@ public class PlayerController : MonoBehaviour
             playerHPUI.SetHP(currentHP);
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.CompareTag("Explosion"))
+        {
+            currentHP -= 25;
+            playerHPUI.SetHP(currentHP);
+            other.gameObject.GetComponent<Collider>().enabled = false;
+        }
+
+        if (other.gameObject.CompareTag("EnemyBomb"))
+        {
+            currentHP -= 25;
+            playerHPUI.SetHP(currentHP);
+            other.gameObject.GetComponent<Collider>().enabled = false;
+        }
+
+        if (other.gameObject.CompareTag("Kamikaze"))
+        {
+            currentHP -= 50;
+            playerHPUI.SetHP(currentHP);
+        }
+
+        if (other.gameObject.CompareTag("Heal"))
+        {
+            currentHP += healValue;
+            playerHPUI.SetHP(currentHP);
+            Destroy(other.gameObject);
+        }
+    }
+    void Respawn()
+    {
+        currentLives -= 1;
+        currentHP = maxHP;
+        transform.position = playerSpawn.transform.position;
+        playerHPUI.SetHP(maxHP);
+
     }
 
     void ApplyGravity()

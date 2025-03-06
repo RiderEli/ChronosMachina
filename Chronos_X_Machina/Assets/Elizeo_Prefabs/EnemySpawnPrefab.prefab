@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f4e6eeb08697948b70c11ec60cb2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveObject: {fileID: 1952910925683099093}
+  waveObject: {fileID: 5438720618779511127, guid: 147b49ad2d542f94aab0f6c48cdd48f9,
+    type: 3}
   waveCam: {fileID: 0}
   cameraPos: {fileID: 3114484012150055969}
 --- !u!1 &6870385751748622170
@@ -151,12 +152,6 @@ PrefabInstance:
 --- !u!4 &595573286391446429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6351187124279244575, guid: 147b49ad2d542f94aab0f6c48cdd48f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 5791652990106471554}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1952910925683099093 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5438720618779511127, guid: 147b49ad2d542f94aab0f6c48cdd48f9,
     type: 3}
   m_PrefabInstance: {fileID: 5791652990106471554}
   m_PrefabAsset: {fileID: 0}

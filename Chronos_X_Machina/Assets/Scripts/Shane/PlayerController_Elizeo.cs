@@ -61,7 +61,8 @@ public class PlayerController_Elizeo : MonoBehaviour
         currentLives = playerLives;
         characterController = GetComponent<CharacterController>();
         currentFlareCharges = maxFlareCharges;
-
+        waveCam.gameObject.SetActive(false);
+        playerCam.gameObject.SetActive(true);
     }
 
     void Update()
