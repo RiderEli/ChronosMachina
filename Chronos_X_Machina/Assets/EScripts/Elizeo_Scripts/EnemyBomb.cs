@@ -51,6 +51,11 @@ public class EnemyBomb : MonoBehaviour
             StartCoroutine(explosion());
         }
 
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            StartCoroutine(explosion());
+        }
+
         if (other.gameObject.CompareTag("Player"))
         {
             StartCoroutine(explosion());
