@@ -48,11 +48,11 @@ public class LevelFinisnLine : MonoBehaviour
 
     public void PlayAgain()
     {
-        SceneManager.LoadScene("Electronic Prototype");
+        SceneManager.LoadScene(1);
     }
 
     public void QuitButton()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 }

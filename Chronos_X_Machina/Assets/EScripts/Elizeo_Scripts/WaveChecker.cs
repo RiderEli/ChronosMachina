@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+//using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class WaveChecker : MonoBehaviour
 {
@@ -36,7 +36,7 @@ public class WaveChecker : MonoBehaviour
             Debug.Log("No current wave");
         }
 
-        if (!waveSpawned)
+        /*if (!waveSpawned)
         {
             Debug.Log("Nothing is Spawning");
 
@@ -45,7 +45,8 @@ public class WaveChecker : MonoBehaviour
         {
             Debug.Log("Something is Spawning");
 
-        }
+        }*/
+
     }
 
     public void SpawnWave()

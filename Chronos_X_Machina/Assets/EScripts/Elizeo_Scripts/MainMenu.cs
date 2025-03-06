@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
     public void GameStart()
     {
         //Insert Scene Script here.
-        SceneManager.LoadScene("Electronic Prototype");
+        SceneManager.LoadScene(1);
         Debug.Log("Game has started");
     }
 
