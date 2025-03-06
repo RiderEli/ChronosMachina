@@ -1322,6 +1322,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5660341397297467807}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3237576838575754873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4052734508857120095}
+  m_Layer: 3
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4052734508857120095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3237576838575754873}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: -0, z: -76.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7834858766158441039}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3300004231629408233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,8 +1365,9 @@ GameObject:
   - component: {fileID: 4385065217387698216}
   - component: {fileID: 2213536198613312571}
   - component: {fileID: 3813739771465789296}
-  - component: {fileID: 2572497955089294963}
   - component: {fileID: 2500734639721194294}
+  - component: {fileID: 7949425268603118233}
+  - component: {fileID: 8599183444138089627}
   m_Layer: 3
   m_Name: PlayerTest
   m_TagString: Player
@@ -1388,13 +1420,13 @@ MonoBehaviour:
   maxHP: 100
   playerHPUI: {fileID: 6527490296319119079}
   playerSpawn: {fileID: 0}
-  playerLives: 0
+  playerLives: 3
   currentLives: 0
-  healValue: 0
+  healValue: 25
   waveCam: {fileID: 0}
-  playerCam: {fileID: 0}
+  playerCam: {fileID: 2292162795776462073}
   flareSpeed: 10
-  speed: 20
+  speed: 25
   rotationSpeed: 10
   flaresPerShot: 4
   flareSpreadAngle: 20
@@ -1504,7 +1536,29 @@ MonoBehaviour:
   rangeBEAM: 20
   healingStatBoosts: {fileID: 4779378551611437848}
   healingPercent: 10
---- !u!54 &2572497955089294963
+--- !u!64 &2500734639721194294
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3300004231629408233}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!54 &7949425268603118233
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1529,9 +1583,9 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 124
   m_CollisionDetection: 0
---- !u!64 &2500734639721194294
+--- !u!64 &8599183444138089627
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2189,6 +2243,7 @@ GameObject:
   - component: {fileID: 6508818390484889524}
   - component: {fileID: 4394348224564626869}
   - component: {fileID: 9176238165690719704}
+  - component: {fileID: 5523675641330938908}
   m_Layer: 3
   m_Name: missiles_launcher_low
   m_TagString: Untagged
@@ -2210,6 +2265,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5281652193382299651}
+  - {fileID: 4052734508857120095}
   m_Father: {fileID: 3107980763264050745}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &6508818390484889524
@@ -2278,6 +2334,28 @@ MonoBehaviour:
   rocketPrefab: {fileID: 341658222094009727, guid: c712f90a9b4947c4e843409963089359,
     type: 3}
   barrelOne: {fileID: 8174697909509443684}
+  barrelTwo: {fileID: 0}
+  dualBarrels: 0
+  shooting: 0
+  delayBetweenRockets: 2
+  rocketMaxCharges: 5
+  rocketCharges: 0
+--- !u!114 &5523675641330938908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4371535095163340440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6b7179b592cbf4b8ff81e65b311436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 4385065217387698216}
+  rocketPrefab: {fileID: 341658222094009727, guid: c712f90a9b4947c4e843409963089359,
+    type: 3}
+  barrelOne: {fileID: 3237576838575754873}
   barrelTwo: {fileID: 0}
   dualBarrels: 0
   shooting: 0
@@ -2940,7 +3018,7 @@ Transform:
   m_GameObject: {fileID: 6550659984369105533}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6, y: 3.8400002, z: -4.8}
+  m_LocalPosition: {x: -0.6, y: 3.8400002, z: 1.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

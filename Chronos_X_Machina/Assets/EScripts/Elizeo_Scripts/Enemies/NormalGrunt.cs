@@ -17,7 +17,7 @@ public class NormalGrunt : EnemyParent
     // Update is called once per frame
     public override void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("PlayerTarget");
         movement = enemyMovement.moving;
         aiming = false;
         shotCounter = missileDelay;

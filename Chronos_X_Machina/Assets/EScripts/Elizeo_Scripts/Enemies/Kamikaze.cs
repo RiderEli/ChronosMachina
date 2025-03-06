@@ -8,7 +8,7 @@ public class Kamikaze : EnemyParent
     // Start is called before the first frame update
     public override void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("PlayerTarget");
         enemyRenderer = enemyPieces[0].GetComponent<Renderer>();
         enemyRend2 = enemyPieces[1].GetComponent<Renderer>();
         enemyRenderer.material = enemyMat[0];
