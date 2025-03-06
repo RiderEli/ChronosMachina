@@ -11,15 +11,22 @@ public class NormalGrunt : EnemyParent
     [Header("How fast will the Missile Grunt shoot?")]
     public float missileDelay;
     private float shotCounter;
-    
 
+    private Renderer enemyRend2;
+    private Renderer enemyRend3;
     // Update is called once per frame
     public override void Start()
     {
-       // player = GameObject.FindGameObjectWithTag("PlayerTarget");
+        player = GameObject.FindGameObjectWithTag("Player");
         movement = enemyMovement.moving;
         aiming = false;
         shotCounter = missileDelay;
+        enemyRenderer = enemyPieces[0].GetComponent<Renderer>();
+        enemyRend2 = enemyPieces[1].GetComponent<Renderer>();
+        enemyRend3 = enemyPieces[2].GetComponent<Renderer>();
+        enemyRenderer.material = enemyMat[0];
+        enemyRend2.material = enemyMat[0];
+        enemyRend3.material = enemyMat[0];
     }
 
     public override void Update()
@@ -43,6 +50,10 @@ public class NormalGrunt : EnemyParent
         {
             Debug.Log("Enemy Died, lol");
             Destroy(this.gameObject);
+            if (WaveChecker.insideWave == true)
+            {
+                WaveSystem.counter -= 1;
+            }
         }
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
@@ -50,7 +61,7 @@ public class NormalGrunt : EnemyParent
         if (distance < enemyDetect)
         {
             aiming = true;
-            movement = enemyMovement.idle;
+            enemyDirection = enemyDirectionStates.NONE;
         }
         else
         {
@@ -63,6 +74,10 @@ public class NormalGrunt : EnemyParent
     {
         switch (enemyDirection)
         {
+            case enemyDirectionStates.NONE:
+                movement = enemyMovement.idle;
+            break;
+
             case enemyDirectionStates.UP:
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             break;
@@ -89,6 +104,7 @@ public class NormalGrunt : EnemyParent
         {
             enemyHP -= 25;
             Destroy(other.gameObject);
+            StartCoroutine(EnemyGotHit());
         }
     }
 
@@ -111,5 +127,16 @@ public class NormalGrunt : EnemyParent
             shotCounter = missileDelay;
         }
 
+    }
+
+    public IEnumerator EnemyGotHit()
+    {
+        enemyRenderer.material = enemyMat[1];
+        enemyRend2.material = enemyMat[1];
+        enemyRend3.material = enemyMat[1];
+        yield return new WaitForSeconds(0.1f);
+        enemyRenderer.material = enemyMat[0];
+        enemyRend2.material = enemyMat[0];
+        enemyRend3.material = enemyMat[0];
     }
 }

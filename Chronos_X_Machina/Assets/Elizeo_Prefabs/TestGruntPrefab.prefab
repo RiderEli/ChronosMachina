@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +92,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1003664548962943447}
-  - component: {fileID: 1931007360743396676}
   m_Layer: 0
   m_Name: GruntPart1
   m_TagString: Enemy
@@ -118,27 +117,6 @@ Transform:
   - {fileID: 1793952718478169455}
   m_Father: {fileID: 1828098487502703674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1931007360743396676
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3087302545841444174}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3129017533142247349
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +126,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1235742680974906809}
-  - component: {fileID: 209794233594187097}
   m_Layer: 0
   m_Name: GruntPart4
   m_TagString: Enemy
@@ -172,27 +149,6 @@ Transform:
   - {fileID: 3925371595670478712}
   m_Father: {fileID: 1828098487502703674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &209794233594187097
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3129017533142247349}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 1, z: 2}
-  m_Center: {x: 0, y: -0.7, z: 0.9}
 --- !u!1 &4480485666751128175
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +160,7 @@ GameObject:
   - component: {fileID: 1828098487502703674}
   - component: {fileID: 7300044266939765210}
   - component: {fileID: 3182027082410030995}
+  - component: {fileID: 3656165570696083078}
   m_Layer: 0
   m_Name: TestGruntPrefab
   m_TagString: Untagged
@@ -221,7 +178,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.90000004, z: -12.17}
-  m_LocalScale: {x: 2.4600065, y: 2.4600065, z: 2.4600065}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1003664548962943447}
@@ -241,16 +198,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHead: {fileID: 3087302545841444174}
-  enemyWeapon: {fileID: 8909298994541195064, guid: 6ccbebe77351bc04aa7e97cd2f450b51,
-    type: 3}
+  enemyWeapon:
+  - {fileID: 8909298994541195064, guid: 6ccbebe77351bc04aa7e97cd2f450b51, type: 3}
+  - {fileID: 341658222094009727, guid: 6ebaf63574368b84ab207804808ce333, type: 3}
+  enemyPieces:
+  - {fileID: 5846564563544001918}
+  - {fileID: 5987387962408276589}
+  - {fileID: 2180184031965035845}
   enemyRB: {fileID: 3182027082410030995}
   weaponSpawn: {fileID: 1793952718478169455}
   player: {fileID: 0}
   tankSpeed: 5
   enemyHP: 100
   enemyDetect: 50
+  enemyDamage: 0
+  enemyRenderer: {fileID: 0}
+  enemyMat:
+  - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
+  - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
   movement: 0
-  enemyDirection: 0
+  weapons: 0
+  enemyDirection: 2
   aiming: 0
   missileDelay: 2
 --- !u!54 &3182027082410030995
@@ -280,6 +248,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!65 &3656165570696083078
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4480485666751128175}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 10, z: 3}
+  m_Center: {x: 0, y: 4.3, z: 0}
 --- !u!1 &5846564563544001918
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +330,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -424,7 +413,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

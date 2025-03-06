@@ -12,6 +12,15 @@ TagManager:
   - PlayerTarget
   - PlayerGoal
   - PlayerRocket
+  - Wave Camera
+  - Checkpoint
+  - Kamikaze
+  - Ground
+  - Explosion
+  - EnemyBomb
+  - Heal
+  - Audio
+  - Wave
   layers:
   - Default
   - TransparentFX
