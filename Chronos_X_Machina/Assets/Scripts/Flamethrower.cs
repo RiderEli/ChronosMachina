@@ -16,7 +16,7 @@ public class Flamethrower : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(2)) // Middle mouse button to activate flamethrower
+        if (Input.GetMouseButton(2))
         {
             if (!isFiring)
             {
@@ -41,33 +41,29 @@ public class Flamethrower : MonoBehaviour
     void StopFiring()
     {
         isFiring = false;
-        StopAllCoroutines(); // Stop firing immediately
+        StopAllCoroutines();
     }
 
     private IEnumerator FireFlamesContinuously()
     {
         while (isFiring)
         {
-            // Spawn the flame particle at the fireOrigin
             GameObject flameParticle = Instantiate(flameParticlePrefab, fireOrigin.transform.position, fireOrigin.transform.rotation);
 
-            // Set the particle's velocity
             Rigidbody rb = flameParticle.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.velocity = fireOrigin.transform.forward * particleSpeed;  // Set the direction and speed
+                rb.velocity = fireOrigin.transform.forward * particleSpeed;
             }
 
-            // Access FireProjectile and assign parameters
             FireProjectile fireScript = flameParticle.GetComponent<FireProjectile>();
             if (fireScript != null)
             {
                 fireScript.Initialize(maxRange, dotDamage, dotDuration, burnDamagePerSecond);
             }
 
-            Destroy(flameParticle, 5f); // Destroy after 5 seconds
-
-            yield return new WaitForSeconds(fireRate); // Wait between each shot
+            Destroy(flameParticle, 5f);
+            yield return new WaitForSeconds(fireRate);
         }
     }
 }

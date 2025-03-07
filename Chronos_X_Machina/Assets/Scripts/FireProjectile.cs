@@ -20,7 +20,7 @@ public class FireProjectile : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        fireParticleSystem = GetComponent<ParticleSystem>(); // Get the fire particle system
+        fireParticleSystem = GetComponent<ParticleSystem>();
     }
 
     public void Initialize(float range, int damage, float duration, int burnDamage)
@@ -41,7 +41,7 @@ public class FireProjectile : MonoBehaviour
             EnemyParent enemy = other.GetComponent<EnemyParent>();
             if (enemy != null)
             {
-                enemy.enemyHP -= impactDamage; // Apply impact damage
+                enemy.enemyHP -= impactDamage;
                 StartCoroutine(BurnEffect(enemy)); // Apply burn damage over time
             }
         }
@@ -57,7 +57,7 @@ public class FireProjectile : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        rb.isKinematic = true; // Disable physics
+        rb.isKinematic = true;
     }
 
     private void StickToWall(Collider other)
@@ -68,17 +68,15 @@ public class FireProjectile : MonoBehaviour
         transform.position = wallPoint;
         transform.rotation = Quaternion.LookRotation(wallNormal);
 
-        Destroy(gameObject, lingerTime); // Destroy after lingering
+        Destroy(gameObject, lingerTime); 
     }
 
     private void StickToEnemy(Collider other)
     {
         transform.position = other.transform.position;
-        transform.SetParent(other.transform); // Parent to the enemy
-
-        fireParticleSystem.Play(); // Ensure fire is active
-
-        Destroy(gameObject, lingerTime); // Destroy after lingering
+        transform.SetParent(other.transform);
+        fireParticleSystem.Play();
+        Destroy(gameObject, lingerTime); 
     }
 
     private IEnumerator BurnEffect(EnemyParent enemy)

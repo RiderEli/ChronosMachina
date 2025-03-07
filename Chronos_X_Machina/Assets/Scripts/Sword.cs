@@ -22,7 +22,7 @@ public class Sword : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(2) && rechargeHolder >= timeToRecharge) // Middle mouse click
+        if (Input.GetMouseButtonDown(2) && rechargeHolder >= timeToRecharge)
         {
             rechargeHolder = 0f;
             SwingSword(); 
