@@ -36,6 +36,12 @@ public class MainMenu : MonoBehaviour
         resMenu.SetActive(false);
     }
 
+    //Goes in to the Time Hub
+    public void IntoTime()
+    {
+        SceneManager.LoadScene("Elizeo_TimeMachine");
+    }
+
     //Goes back to the main menu
     public void BackToMenu()
     {
