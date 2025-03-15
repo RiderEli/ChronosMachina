@@ -11,6 +11,9 @@ public class BombDropper : EnemyParent
     public float bombDelay;
     private float shotCounter;
 
+    [Header("Check this bool if you are using this Bomb Dropper in a wave")]
+    public bool dropperInWave;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -19,6 +22,7 @@ public class BombDropper : EnemyParent
         shotCounter = bombDelay;
         enemyRenderer = enemyPieces[0].GetComponent<Renderer>();
         enemyRenderer.material = enemyMat[0];
+        enemyRB = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -37,19 +41,19 @@ public class BombDropper : EnemyParent
             }
         }
 
-        if (transform.parent != null) // if object has a parent
-        {
-            if (transform.childCount <= 1) // if this object is the last child
-            {
-                Destroy(transform.parent.gameObject, dropperDuration); // destroy parent a few frames later
-            }
 
-            if (WaveChecker.insideWave == true)
-            {
-                WaveSystem.counter -= 1;
-            }
-        }
+        StartCoroutine(BombDeath());
+
+
+
+
+
+
+
+    
     }
+
+
 
     public void BombShoot()
     {
@@ -110,5 +114,15 @@ public class BombDropper : EnemyParent
         enemyRenderer.material = enemyMat[1];
         yield return new WaitForSeconds(0.1f);
         enemyRenderer.material = enemyMat[0];
+    }
+
+    public IEnumerator BombDeath()
+    {
+        yield return new WaitForSeconds(dropperDuration);
+        Destroy(transform.parent.gameObject);
+        if (WaveChecker.insideWave == true && dropperInWave == true)
+        {
+            WaveSystem.counter -= 1;
+        }
     }
 }

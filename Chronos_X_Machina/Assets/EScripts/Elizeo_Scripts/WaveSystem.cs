@@ -6,7 +6,7 @@ using UnityEngine;
 public class WaveSystem : MonoBehaviour
 {
     [Header("How fast will the enemy spawn?")]
-    public float spawnRate;
+   // public float spawnRate;
     public float waveTime;
 
     [Header("How many enemies will spawn?")]
@@ -17,9 +17,9 @@ public class WaveSystem : MonoBehaviour
 
     private WaveChecker waveChecker;
     
-    public GameObject[] enemy;
+   // public GameObject[] enemy;
 
-    public Transform[] spawnPoint;
+   // public Transform[] spawnPoint;
 
     private bool collisionPresent;
 
@@ -31,6 +31,8 @@ public class WaveSystem : MonoBehaviour
     [Header("Here are the doors: ")]
     public GameObject waveDoors;
 
+    public GameObject enemies;
+
     //[Header("Here is the wave camera: ")]
     //public GameObject waveCamera;
 
@@ -39,7 +41,10 @@ public class WaveSystem : MonoBehaviour
     void Start()
     {
         // hasEnemySpawned = true;
-        counter = enemyCount;
+
+
+
+
 
         waveCheck = GameObject.FindGameObjectWithTag("Wave");
         waveChecker = waveCheck.GetComponent<WaveChecker>();
@@ -50,24 +55,29 @@ public class WaveSystem : MonoBehaviour
     {
         Debug.Log("Counter: " + counter);
 
-        counter = enemyCount;
+
+
+
 
         if (counter <= 0)
         {
-            Debug.Log("Counter Ran Out!");
-            WaveChecker.insideWave = false;
-            this.gameObject.SetActive(false);
+            if (WaveChecker.insideWave == true)
+            {
+                Debug.Log("Counter Ran Out!");
+                WaveChecker.insideWave = false;
+                this.gameObject.SetActive(false);
+            }
         }
 
         if (WaveChecker.insideWave == true)
         {
             waveDoors.SetActive(true);
-
+            enemies.SetActive(true);
         }
         else
         {
             waveDoors.SetActive(false);
-
+            enemies.SetActive(false);
         }
 
         if (PlayerController.currentHP <= 0)
@@ -90,12 +100,11 @@ public class WaveSystem : MonoBehaviour
         // hasEnemySpawned = false;
         WaveChecker.insideWave = true;
 
+        counter = enemyCount;
 
-        for (int i = 0; i < enemyCount; i++)
-        {
-            GameObject enemyClone = Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)]);
-            yield return new WaitForSeconds(spawnRate);
-        }
+
+
+
 
         yield return new WaitForSeconds(waveTime);
         //hasEnemySpawned = true;

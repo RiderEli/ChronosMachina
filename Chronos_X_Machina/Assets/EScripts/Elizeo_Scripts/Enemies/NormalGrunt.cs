@@ -14,6 +14,10 @@ public class NormalGrunt : EnemyParent
 
     private Renderer enemyRend2;
     private Renderer enemyRend3;
+    private Renderer enemyRendLEFT;
+    private Renderer enemyRendRIGHT;
+    private Renderer enemyRendUP;
+    private Renderer enemyRendDOWN;
     // Update is called once per frame
     public override void Start()
     {
@@ -27,6 +31,7 @@ public class NormalGrunt : EnemyParent
         enemyRenderer.material = enemyMat[0];
         enemyRend2.material = enemyMat[0];
         enemyRend3.material = enemyMat[0];
+        enemyRB = GetComponent<Rigidbody>();
     }
 
     public override void Update()

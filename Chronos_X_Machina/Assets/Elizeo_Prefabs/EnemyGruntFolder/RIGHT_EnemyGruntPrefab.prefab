@@ -162,8 +162,8 @@ GameObject:
   - component: {fileID: 3182027082410030995}
   - component: {fileID: 3656165570696083078}
   m_Layer: 0
-  m_Name: TestGruntPrefab
-  m_TagString: Untagged
+  m_Name: RIGHT_EnemyGruntPrefab
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,20 +205,20 @@ MonoBehaviour:
   - {fileID: 5846564563544001918}
   - {fileID: 5987387962408276589}
   - {fileID: 2180184031965035845}
-  enemyRB: {fileID: 3182027082410030995}
+  enemyRB: {fileID: 0}
   weaponSpawn: {fileID: 1793952718478169455}
   player: {fileID: 0}
-  tankSpeed: 5
+  tankSpeed: 8
   enemyHP: 100
-  enemyDetect: 50
+  enemyDetect: 35
   enemyDamage: 0
   enemyRenderer: {fileID: 0}
   enemyMat:
-  - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
+  - {fileID: 2100000, guid: a6809e429d9bfb3408734e048161eace, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
   movement: 0
   weapons: 0
-  enemyDirection: 2
+  enemyDirection: 4
   aiming: 0
   missileDelay: 2
 --- !u!54 &3182027082410030995
@@ -243,10 +243,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &3656165570696083078
 BoxCollider:
