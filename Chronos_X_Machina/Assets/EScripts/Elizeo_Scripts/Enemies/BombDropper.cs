@@ -41,15 +41,7 @@ public class BombDropper : EnemyParent
             }
         }
 
-
-        StartCoroutine(BombDeath());
-
-
-
-
-
-
-
+        StartCoroutine(BombDeath());    
     
     }
 
