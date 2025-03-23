@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class WeaponUpgradeSystem : MonoBehaviour
 {
     [SerializeField] private WeaponParrent weaponParrent;
-    public int playerCurrency = 100;
+    private int playerCurrency = 100;
 
     private Dictionary<string, Button[]> weaponButtons = new Dictionary<string, Button[]>();
 
@@ -29,6 +29,8 @@ public class WeaponUpgradeSystem : MonoBehaviour
         AssignButtons("ChestLaser");
         AssignButtons("HealingStatBoost");
     }
+
+    
 
     private void AssignButtons(string weaponName)
     {
@@ -83,7 +85,7 @@ public class WeaponUpgradeSystem : MonoBehaviour
                 Debug.Log("EMP upgrade not implemented yet.");
                 break;
             case "ChestLaser":
-                Debug.Log("Chest Laser upgrade not implemented yet.");
+                Debug.Log("Chest Laser upgrade not implemented yet.");  
                 break;
             case "HealingStatBoost":
                 Debug.Log("Healing Stat Boost upgrade not implemented yet.");
@@ -96,7 +98,9 @@ public class WeaponUpgradeSystem : MonoBehaviour
 
     private void UpgradeWeapon(ref bool tier1, ref bool tier2, ref bool tier3, int targetTier)
     {
-        int cost = targetTier == 2 ? 50 : 75; // Example costs
+        int cost = (targetTier == 2) ? 50 : 75; // Example costs
+
+        // Ensure the player has enough currency before proceeding
         if (playerCurrency < cost)
         {
             Debug.Log("Not enough currency to upgrade.");
@@ -108,18 +112,19 @@ public class WeaponUpgradeSystem : MonoBehaviour
             tier1 = false;
             tier2 = true;
             playerCurrency -= cost;
-            Debug.Log("Upgraded to Tier 2!");
+            Debug.Log($"Upgraded to Tier 2! Remaining Currency: {playerCurrency}");
         }
         else if (targetTier == 3 && tier2 && !tier3)
         {
             tier2 = false;
             tier3 = true;
             playerCurrency -= cost;
-            Debug.Log("Upgraded to Tier 3!");
+            Debug.Log($"Upgraded to Tier 3! Remaining Currency: {playerCurrency}");
         }
         else
         {
             Debug.Log("Weapon is already at max tier or upgrade conditions not met!");
         }
     }
+
 }

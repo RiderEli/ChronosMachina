@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 268796000}
   - component: {fileID: 268796003}
   m_Layer: 5
-  m_Name: Weapon3Button
+  m_Name: Tier1_Sword_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 433470835}
   - component: {fileID: 433470838}
   m_Layer: 5
-  m_Name: Weapon4Button
+  m_Name: Tier1_Flamethrower_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1185,7 +1185,7 @@ GameObject:
   - component: {fileID: 448467618}
   - component: {fileID: 448467617}
   m_Layer: 5
-  m_Name: Weapon2Button
+  m_Name: Tier3_Shotgun_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1468,6 +1468,111 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 499168130}
   m_CullTransparentMesh: 1
+--- !u!1 &512170553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 512170557}
+  - component: {fileID: 512170556}
+  - component: {fileID: 512170555}
+  - component: {fileID: 512170554}
+  m_Layer: 0
+  m_Name: rf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &512170554
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512170553}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &512170555
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512170553}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &512170556
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512170553}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &512170557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512170553}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.97, y: 0, z: 0.42}
+  m_LocalScale: {x: 6, y: 1, z: 6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &561760020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,7 +1587,7 @@ GameObject:
   - component: {fileID: 561760022}
   - component: {fileID: 561760025}
   m_Layer: 5
-  m_Name: Weapon1Button
+  m_Name: Tier1_MachineGun_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1915,7 +2020,7 @@ GameObject:
   - component: {fileID: 638239131}
   - component: {fileID: 638239130}
   m_Layer: 5
-  m_Name: Weapon3Button
+  m_Name: Tier2_Sword_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2078,7 +2183,7 @@ GameObject:
   - component: {fileID: 666205789}
   - component: {fileID: 666205788}
   m_Layer: 5
-  m_Name: Weapon4Button
+  m_Name: Tier3_Flamethrower_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2830,7 +2935,7 @@ GameObject:
   - component: {fileID: 1109709422}
   - component: {fileID: 1109709425}
   m_Layer: 5
-  m_Name: Weapon2Button
+  m_Name: Tier1_Shotgun_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2993,7 +3098,7 @@ GameObject:
   - component: {fileID: 1117133587}
   - component: {fileID: 1117133586}
   m_Layer: 5
-  m_Name: Weapon1Button
+  m_Name: Tier3_MachineGun_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3426,7 +3531,7 @@ GameObject:
   - component: {fileID: 1236600795}
   - component: {fileID: 1236600794}
   m_Layer: 5
-  m_Name: Weapon3Button
+  m_Name: Tier3_Sword_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3738,7 +3843,7 @@ GameObject:
   - component: {fileID: 1357977280}
   - component: {fileID: 1357977279}
   m_Layer: 5
-  m_Name: Weapon4Button
+  m_Name: Tier2_Flamethrower_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4071,7 +4176,7 @@ GameObject:
   - component: {fileID: 1449666803}
   - component: {fileID: 1449666802}
   m_Layer: 5
-  m_Name: Weapon2Button
+  m_Name: Tier2_Shotgun_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4229,7 +4334,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1462633892}
-  - component: {fileID: 1462633891}
   - component: {fileID: 1462633893}
   m_Layer: 0
   m_Name: Upgrade Manager
@@ -4238,18 +4342,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1462633891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462633890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bdb534c9621e1947be79145c4225aab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1462633892
 Transform:
   m_ObjectHideFlags: 0
@@ -4278,7 +4370,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponParrent: {fileID: 1471757854}
-  playerCurrency: 100
 --- !u!114 &1471757854 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3813739771465789296, guid: a884e71611f91264eb5e26c4fbbfc28d,
@@ -4299,6 +4390,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 128305787094975077, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 128305787094975077, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 217103335342338316, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4349,11 +4450,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2292162795776462073, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3300004231629408233, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_Name
       value: PlayerTest
       objectReference: {fileID: 0}
+    - target: {fileID: 3714424976677912401, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: Tester
+      value: 
+      objectReference: {fileID: 1886213682}
     - target: {fileID: 5788512343472234389, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -4364,7 +4480,28 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6248487661189005711, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340206744745723351, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7369997851567608423, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461383531888625974, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5523675641330938908, guid: a884e71611f91264eb5e26c4fbbfc28d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4679,9 +4816,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1716234227}
   - component: {fileID: 1716234226}
-  - component: {fileID: 1716234228}
   m_Layer: 0
-  m_Name: Showcase t1
+  m_Name: Showcase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4726,20 +4862,6 @@ Transform:
   - {fileID: 1851627457}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1716234228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716234225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89d38a210d976904fa3acc1121382cc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponParrent: {fileID: 1471757854}
-  playerCurrency: 100
 --- !u!1 &1781614574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4888,7 +5010,7 @@ GameObject:
   - component: {fileID: 1784036164}
   - component: {fileID: 1784036163}
   m_Layer: 5
-  m_Name: Weapon1Button
+  m_Name: Tier2_MachineGun_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4999,7 +5121,7 @@ MonoBehaviour:
           m_StringArgument: Machine Gun t2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1716234228}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WeaponUpgradeSystem, Assembly-CSharp
         m_MethodName: PurchaseUpgrade
         m_Mode: 5
@@ -5133,6 +5255,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851627456}
   m_Mesh: {fileID: -5579741352678751231, guid: b5aa8a2b2c6c2ce40bf3bf1017224faa, type: 3}
+--- !u!1 &1886213682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886213683}
+  m_Layer: 0
+  m_Name: ester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1886213683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886213682}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -483.26553, y: -40.73729, z: 338.58923}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2125396845
 GameObject:
   m_ObjectHideFlags: 0
@@ -5560,3 +5713,5 @@ SceneRoots:
   - {fileID: 1716234227}
   - {fileID: 1462633892}
   - {fileID: 1496033572}
+  - {fileID: 1886213683}
+  - {fileID: 512170557}

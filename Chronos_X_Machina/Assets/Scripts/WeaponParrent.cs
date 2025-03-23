@@ -13,11 +13,16 @@ public class WeaponParrent : MonoBehaviour
     public float bulletSpeedMG = 1;
     public float rangeMG = 20;
     public bool Tier1_MG = true;
-    public bool Tier2_MG = false;
-    public bool Tier3_MG = false;
 
+    public bool Tier2_MG = false;
+    public int Tier2_MG_Cost = 10;
+    
+    public bool Tier3_MG = false;
+    public int Tier3_MG_Cost = 15;
+    
     public float inaccuracyMG = 1;
     public float delayBtwnBulletsMG = 1;
+
 
 
     [Header("Shotgun Settings | SG")]
@@ -27,8 +32,12 @@ public class WeaponParrent : MonoBehaviour
     public float bulletSpeedSG = 1;
     public float rangeSG = 20;
     public bool Tier1_SG = true;
+
     public bool Tier2_SG = false;
+    public int Tier2_SG_Cost = 7;
+
     public bool Tier3_SG = false;
+    public int Tier3_SG_Cost = 12;
 
 
     public int bulletsShot = 5;
@@ -42,8 +51,12 @@ public class WeaponParrent : MonoBehaviour
     public float bulletSpeedPL = 1;
     public float rangePL = 20;
     public bool Tier1_PL = true;
+
     public bool Tier2_PL = false;
+    public int Tier2_PL_Cost = 11;
+
     public bool Tier3_PL = false;
+    public int Tier3_PL_Cost = 14;
 
 
     public float weaponCharge = 0f;
@@ -57,8 +70,12 @@ public class WeaponParrent : MonoBehaviour
     public float swingSpeedSWD = 1;
     public float rangeSWD = 20;
     public bool Tier1_SWD = true;
+
     public bool Tier2_SWD = false;
+    public int Tier2_SWD_Cost = 6;
+
     public bool Tier3_SWD = false;
+    public int Tier3_SWD_Cost = 12;
 
 
 
@@ -69,8 +86,12 @@ public class WeaponParrent : MonoBehaviour
     public float bulletSpeedGRE = 1;
     public float rangeGRE = 20;
     public bool Tier1_GRE = true;
+
     public bool Tier2_GRE = false;
+    public int Tier2_GRE_Cost = 9;
+
     public bool Tier3_GRE = false;
+    public int Tier3_GRE_Cost = 15;
 
 
 
@@ -82,8 +103,12 @@ public class WeaponParrent : MonoBehaviour
     public float bulletSpeedFLM = 1;
     public float rangeFLM = 20;
     public bool Tier1_FLM = true;
+
     public bool Tier2_FLM = false;
+    public int Tier2_FLM_Cost = 14;
+    
     public bool Tier3_FLM = false;
+    public int Tier3_FLM_Cost = 18;
 
 
 
