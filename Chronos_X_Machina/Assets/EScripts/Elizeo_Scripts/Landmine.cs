@@ -24,6 +24,8 @@ public class Landmine : MonoBehaviour
     [Header("The Cluster Bombs")]
     public GameObject clusterPrefab;
 
+    public Transform clusterSpawn;
+
     private Renderer mineRender;
 
     public Material[] mineMat;
@@ -61,7 +63,7 @@ public class Landmine : MonoBehaviour
             }
             if (landmineType == mineType.Cluster)
             {
-                Debug.Log("Cluster Bombs Set");
+                StartCoroutine(clusterDelay());
             }
         }
     }
@@ -72,6 +74,17 @@ public class Landmine : MonoBehaviour
         yield return new WaitForSeconds(explodeDelay);
         mine.SetActive(false);
         explosionPrefab.SetActive(true);
+        yield return new WaitForSeconds(explodeTime);
+        Destroy(gameObject);
+    }
+
+    public IEnumerator clusterDelay()
+    {
+        mineRender.material = mineMat[1];
+        yield return new WaitForSeconds(explodeDelay);
+        mine.SetActive(false);
+        explosionPrefab.SetActive(true);
+        Instantiate(clusterPrefab, clusterSpawn.transform.position, clusterSpawn.transform.rotation);
         yield return new WaitForSeconds(explodeTime);
         Destroy(gameObject);
     }
