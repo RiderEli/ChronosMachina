@@ -16,6 +16,24 @@ public class EnemyBomb : MonoBehaviour
 
     [Header("How fast will the bomb drop?")]
     public float fallSpeed;
+
+    public enum bombType
+    {
+        Normal,
+        Cluster
+    }
+
+    public enum bombDir
+    {
+        up,
+        down,
+        left,
+        right
+    }
+
+    public bombType typeOfBomb;
+
+    public bombDir bombDirection;
     public void Start()
     {
         bombExploding = false;
@@ -23,15 +41,42 @@ public class EnemyBomb : MonoBehaviour
         bombObject.SetActive(true);
         explosionObject.SetActive(false);
         explosionDuration = explosionTimer;
+        if (typeOfBomb == bombType.Cluster)
+        {
+            if (bombDirection == bombDir.up)
+            {
+                bombRB.velocity = new Vector3(0, fallSpeed, 10);
+            }
+            if (bombDirection == bombDir.down)
+            {
+                bombRB.velocity = new Vector3(0, fallSpeed, -10);
+            }
+            if (bombDirection == bombDir.left)
+            {
+                bombRB.velocity = new Vector3(10, fallSpeed, 0);
+            }
+            if (bombDirection == bombDir.right)
+            {
+                bombRB.velocity = new Vector3(-10, fallSpeed, 0);
+            }
+        }
     }
 
     public void FixedUpdate()
     {
-        bombRB.velocity = Vector3.down * fallSpeed;
+        if (typeOfBomb == bombType.Normal)
+        {
+            bombRB.velocity = Vector3.down * fallSpeed;
+        }
+        if (typeOfBomb == bombType.Cluster)
+        {
+            bombRB.useGravity = true;
+        }
 
         if (bombExploding)
         {
             bombRB.velocity = Vector3.zero;
+
         }
     }
 

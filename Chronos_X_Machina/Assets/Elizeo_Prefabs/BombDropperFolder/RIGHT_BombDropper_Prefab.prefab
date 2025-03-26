@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4775515147101312156}
   m_Layer: 0
-  m_Name: BombDropper_Prefab
+  m_Name: RIGHT_BombDropper_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   - {fileID: 7131190371455756378, guid: 233b87f42c014374aa7117e7ea4fcf12, type: 3}
   enemyPieces:
   - {fileID: 8769479308182142627}
-  enemyRB: {fileID: 8723085471597758114}
+  enemyRB: {fileID: 0}
   weaponSpawn: {fileID: 8922216470582120111}
   player: {fileID: 0}
   tankSpeed: 10
@@ -260,11 +260,11 @@ MonoBehaviour:
   enemyDamage: 0
   enemyRenderer: {fileID: 0}
   enemyMat:
-  - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
+  - {fileID: 2100000, guid: a6809e429d9bfb3408734e048161eace, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
   movement: 1
   weapons: 2
-  enemyDirection: 3
+  enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
 --- !u!65 &1115190931698811487
