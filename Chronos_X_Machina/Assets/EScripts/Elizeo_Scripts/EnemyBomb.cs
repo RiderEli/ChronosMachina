@@ -32,6 +32,7 @@ public class EnemyBomb : MonoBehaviour
         if (bombExploding)
         {
             bombRB.velocity = Vector3.zero;
+
         }
     }
 
