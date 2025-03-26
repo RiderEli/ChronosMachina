@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,14 +15,12 @@ public class WeaponParrent : MonoBehaviour
 
     public bool Tier2_MG = false;
     public int Tier2_MG_Cost = 10;
-    
+
     public bool Tier3_MG = false;
     public int Tier3_MG_Cost = 15;
-    
+
     public float inaccuracyMG = 1;
     public float delayBtwnBulletsMG = 1;
-
-
 
     [Header("Shotgun Settings | SG")]
     [SerializeField] Shotgun shotgun;
@@ -39,9 +36,7 @@ public class WeaponParrent : MonoBehaviour
     public bool Tier3_SG = false;
     public int Tier3_SG_Cost = 12;
 
-
     public int bulletsShot = 5;
-
 
     [Header("Plasma Settings | PL")]
     [SerializeField] PlasmaGun plasmaGun;
@@ -58,9 +53,7 @@ public class WeaponParrent : MonoBehaviour
     public bool Tier3_PL = false;
     public int Tier3_PL_Cost = 14;
 
-
     public float weaponCharge = 0f;
-
 
     [Space(15)]
     [Header("Sword Settings | SWD")]
@@ -77,8 +70,6 @@ public class WeaponParrent : MonoBehaviour
     public bool Tier3_SWD = false;
     public int Tier3_SWD_Cost = 12;
 
-
-
     [Header("Grenade Launcher Settings | GRE")]
     [SerializeField] GrenadeLauncher grenadeLauncher;
     public float damageGRE = 4;
@@ -93,8 +84,6 @@ public class WeaponParrent : MonoBehaviour
     public bool Tier3_GRE = false;
     public int Tier3_GRE_Cost = 15;
 
-
-
     [Header("Flamethrower Settings | FLM")]
     [Tooltip("the amount of weapon charge per attack, more charge more dmg")]
     [SerializeField] Flamethrower flamethrower;
@@ -106,11 +95,9 @@ public class WeaponParrent : MonoBehaviour
 
     public bool Tier2_FLM = false;
     public int Tier2_FLM_Cost = 14;
-    
+
     public bool Tier3_FLM = false;
     public int Tier3_FLM_Cost = 18;
-
-
 
     [Space(15)]
     [Header("AOE EMP Blast Settings | EMP")]
@@ -132,16 +119,58 @@ public class WeaponParrent : MonoBehaviour
     [Tooltip("the amount of weapon charge per attack, more charge more dmg")]
     public float healingPercent = 10;
 
+    [Header("Rocket Launcher | RPG")]
+    [SerializeField] RocketGun rocketLauncher;
+    [Tooltip("accurate rockets for high single target damage")]
 
-    // Start is called before the first frame update
+    // Add a reference to PlayerController for shopping state
+    public PlayerController playerController;  // Make sure to drag the PlayerController script in the inspector
+
     void Start()
     {
-        
+        // Ensure that all weapon scripts are enabled by default
+        EnableAllWeaponScripts();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (playerController.isShopping)
+        {
+            DisableAllWeaponScripts();
+        }
+        else
+        {
+            EnableAllWeaponScripts();
+        }
+    }
+
+    // Disable all weapon scripts when shopping
+    void DisableAllWeaponScripts()
+    {
+        if (machineGun != null) machineGun.enabled = false;
+        if (shotgun != null) shotgun.enabled = false;
+        if (plasmaGun != null) plasmaGun.enabled = false;
+        if (sword != null) sword.enabled = false;
+        if (grenadeLauncher != null) grenadeLauncher.enabled = false;
+        if (flamethrower != null) flamethrower.enabled = false;
+        if (emp != null) emp.enabled = false;
+        if (chestLaser != null) chestLaser.enabled = false;
+        if (healingStatBoosts != null) healingStatBoosts.enabled = false;
+        if (rocketLauncher != null) rocketLauncher.enabled = false; 
+    }
+
+    // Re-enable all weapon scripts when not shopping
+    void EnableAllWeaponScripts()
+    {
+        if (machineGun != null) machineGun.enabled = true;
+        if (shotgun != null) shotgun.enabled = true;
+        if (plasmaGun != null) plasmaGun.enabled = true;
+        if (sword != null) sword.enabled = true;
+        if (grenadeLauncher != null) grenadeLauncher.enabled = true;
+        if (flamethrower != null) flamethrower.enabled = true;
+        if (emp != null) emp.enabled = true;
+        if (chestLaser != null) chestLaser.enabled = true;
+        if (healingStatBoosts != null) healingStatBoosts.enabled = true;
+        if (rocketLauncher != null) rocketLauncher.enabled = true;
     }
 }

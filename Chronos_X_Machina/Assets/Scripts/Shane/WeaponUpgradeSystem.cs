@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class WeaponUpgradeSystem : MonoBehaviour
 {
     [SerializeField] private WeaponParrent weaponParrent;
-    private int playerCurrency = 100;
+    public int playerCurrency = 100;
 
     private Dictionary<string, Button[]> weaponButtons = new Dictionary<string, Button[]>();
 
