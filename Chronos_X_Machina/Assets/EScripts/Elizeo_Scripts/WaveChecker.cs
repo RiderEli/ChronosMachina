@@ -6,6 +6,8 @@ using UnityEngine;
 public class WaveChecker : MonoBehaviour
 {
     public GameObject waveObject;
+
+    [Header("WARNING: WAVE CAM MUST BE IN THE SCENE AND NOT IN THE PREFAB!")]
     public GameObject waveCam;
 
     [Header("Where will the spawn camera be?")]

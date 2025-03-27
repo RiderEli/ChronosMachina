@@ -107,8 +107,8 @@ MonoBehaviour:
   weaponSpawn: {fileID: 7699388211447500810}
   player: {fileID: 0}
   tankSpeed: 10
-  enemyHP: 25
-  enemyDetect: 20
+  enemyHP: 100
+  enemyDetect: 50
   enemyDamage: 0
   enemyRenderer: {fileID: 0}
   enemyMat:
