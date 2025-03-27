@@ -14,9 +14,23 @@ public class Flamethrower : MonoBehaviour
     public float dotDuration = 3f;
     public int burnDamagePerSecond = 5;
 
+    public float maxAmmo = 5f;
+    private float currentAmmo;
+    public float rechargeRate = 1f;
+    public float rechargePenaltyTime = 3f;
+    private bool isRechargingPenalty = false;
+
+    [SerializeField] ChargeTest chargeUI;
+
+    void Start()
+    {
+        currentAmmo = maxAmmo;
+        chargeUI.SetMaxCharge(maxAmmo);
+    }
+
     void Update()
     {
-        if (Input.GetMouseButton(2))
+        if (Input.GetMouseButton(2) && currentAmmo > 0 && !isRechargingPenalty)
         {
             if (!isFiring)
             {
@@ -29,6 +43,13 @@ public class Flamethrower : MonoBehaviour
             {
                 StopFiring();
             }
+        }
+
+        // **Check if we should recharge**
+        if (!isFiring && !isRechargingPenalty && currentAmmo < maxAmmo)
+        {
+            currentAmmo += rechargeRate * Time.deltaTime;
+            chargeUI.UpdateCharge(currentAmmo);
         }
     }
 
@@ -46,11 +67,11 @@ public class Flamethrower : MonoBehaviour
 
     private IEnumerator FireFlamesContinuously()
     {
-        while (isFiring)
+        while (isFiring && currentAmmo > 0)
         {
             GameObject flameParticle = Instantiate(flameParticlePrefab, fireOrigin.transform.position, fireOrigin.transform.rotation);
-
             Rigidbody rb = flameParticle.GetComponent<Rigidbody>();
+
             if (rb != null)
             {
                 rb.velocity = fireOrigin.transform.forward * particleSpeed;
@@ -63,7 +84,30 @@ public class Flamethrower : MonoBehaviour
             }
 
             Destroy(flameParticle, 5f);
+
+            currentAmmo -= 1f;
+            chargeUI.UpdateCharge(currentAmmo);
+
+            if (currentAmmo <= 0)
+            {
+                StopFiring();
+                StartCoroutine(RechargePenalty());
+                yield break;
+            }
+
             yield return new WaitForSeconds(fireRate);
         }
+    }
+
+    private IEnumerator RechargePenalty()
+    {
+        isRechargingPenalty = true;
+        Debug.Log("Timer started");
+
+        yield return new WaitForSeconds(rechargePenaltyTime);
+
+        Debug.Log("Timer ended");
+        isRechargingPenalty = false;
+        currentAmmo = 0; // Ensure it starts from empty
     }
 }
