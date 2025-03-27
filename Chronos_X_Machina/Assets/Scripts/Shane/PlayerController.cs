@@ -32,6 +32,13 @@ public class PlayerController : MonoBehaviour
     public Transform RightFlareSpawnPoint;
     public int maxFlareCharges = 3;
     private int currentFlareCharges;
+    public float flareSpeed = 10f;
+    public int flaresPerShot = 5;
+    public float flareSpreadAngle = 20f;
+    public float flareArcAngle = 30f;
+    public float verticalArcAngle = 15f;
+    public float randomVelocityFactor = 3f;
+    public float upwardBoost = 5f;
 
     [Header("Player HP")]
     public int maxHP;
@@ -181,15 +188,42 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+
     void ShootFlares()
     {
         if (FlarePrefab != null && LeftFlareSpawnPoint != null && RightFlareSpawnPoint != null)
         {
-            Instantiate(FlarePrefab, LeftFlareSpawnPoint.position, Quaternion.identity);
-            Instantiate(FlarePrefab, RightFlareSpawnPoint.position, Quaternion.identity);
+            for (int i = 0; i < flaresPerShot; i++)
+            {
+                float horizontalOffset = Random.Range(-flareSpreadAngle, flareSpreadAngle);
+                float verticalOffset = Random.Range(-verticalArcAngle, verticalArcAngle);
+
+                Quaternion leftFlareRotation = Quaternion.Euler(verticalOffset, -flareArcAngle + horizontalOffset, 0) * transform.rotation;
+                Quaternion rightFlareRotation = Quaternion.Euler(verticalOffset, flareArcAngle + horizontalOffset, 0) * transform.rotation;
+
+                SpawnFlare(LeftFlareSpawnPoint, leftFlareRotation, -transform.right);
+                SpawnFlare(RightFlareSpawnPoint, rightFlareRotation, transform.right);
+            }
             currentFlareCharges--;
         }
     }
+
+    void SpawnFlare(Transform spawnPoint, Quaternion rotation, Vector3 direction)
+    {
+        GameObject flare = Instantiate(FlarePrefab, spawnPoint.position, rotation);
+        Rigidbody rb = flare.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            Vector3 randomOffset = new Vector3(
+                Random.Range(-randomVelocityFactor, randomVelocityFactor),
+                Random.Range(0, randomVelocityFactor) + upwardBoost,
+                Random.Range(-randomVelocityFactor, randomVelocityFactor)
+            );
+            rb.velocity = (direction * flareSpeed) + randomOffset;
+        }
+    }
+
 
     void HandleCameras()
     {

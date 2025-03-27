@@ -20,6 +20,22 @@ public class ChargeTest : MonoBehaviour
         chargeSlider.value = maxCharge;
     }
 
+    // Set max charge (for different weapons like the flamethrower)
+    public void SetMaxCharge(float max)
+    {
+        maxCharge = max;
+        chargeSlider.maxValue = maxCharge;
+        currentCharge = maxCharge;
+        chargeSlider.value = currentCharge;
+    }
+
+    // Update charge bar dynamically
+    public void UpdateCharge(float charge)
+    {
+        currentCharge = Mathf.Clamp(charge, minCharge, maxCharge);
+        chargeSlider.value = currentCharge;
+    }
+
     public void UseCharge(float rechargeTime)
     {
         if (currentCharge >= maxCharge - .01f)
