@@ -5,14 +5,17 @@ using UnityEngine;
 public class Kamikaze : EnemyParent
 {
     private Renderer enemyRend2;
+    private Renderer enemyRend3;
     // Start is called before the first frame update
     public override void Start()
     {
         player = GameObject.FindGameObjectWithTag("PlayerTarget");
         enemyRenderer = enemyPieces[0].GetComponent<Renderer>();
         enemyRend2 = enemyPieces[1].GetComponent<Renderer>();
+        enemyRend3 = enemyPieces[2].GetComponent<Renderer>();
         enemyRenderer.material = enemyMat[0];
         enemyRend2.material = enemyMat[0];
+        enemyRend3.material = enemyMat[0];
     }
 
     // Update is called once per frame
@@ -60,8 +63,10 @@ public class Kamikaze : EnemyParent
     {
         enemyRenderer.material = enemyMat[1];
         enemyRend2.material = enemyMat[1];
+        enemyRend3.material = enemyMat[1];
         yield return new WaitForSeconds(0.1f);
         enemyRenderer.material = enemyMat[0];
         enemyRend2.material = enemyMat[0];
+        enemyRend3.material = enemyMat[0];
     }
 }

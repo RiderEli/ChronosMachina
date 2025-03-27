@@ -72,19 +72,19 @@ public class BombDropper : EnemyParent
                 break;
 
             case enemyDirectionStates.UP:
-                transform.rotation = Quaternion.Euler(90, 0, 0);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
                 break;
 
             case enemyDirectionStates.DOWN:
-                transform.rotation = Quaternion.Euler(90, 180, 0);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
                 break;
 
             case enemyDirectionStates.LEFT:
-                transform.rotation = Quaternion.Euler(90, -90, 0);
+                transform.rotation = Quaternion.Euler(0, -90, 0);
                 break;
 
             case enemyDirectionStates.RIGHT:
-                transform.rotation = Quaternion.Euler(90, 90, 0);
+                transform.rotation = Quaternion.Euler(0, 90, 0);
                 break;
 
         }
