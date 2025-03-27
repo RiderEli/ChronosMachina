@@ -17411,6 +17411,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1653895372}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &969082405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653895372}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969082397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375c7d455bc24d64a95110812303e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &980521785
 GameObject:
   m_ObjectHideFlags: 0
@@ -30305,6 +30317,27 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 948190974954343945, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: maxRadius
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 948190974954343945, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: expansionSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 948190974954343945, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: empVisualPrefab
+      value: 
+      objectReference: {fileID: 1918604307449147949, guid: bc7424bcc3ba64b4d9fbf3f92226554a,
+        type: 3}
+    - target: {fileID: 948190974954343945, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 1273454548259797454, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_Layer
@@ -30342,6 +30375,11 @@ PrefabInstance:
       objectReference: {fileID: 1021495149}
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
+      propertyPath: rechargeRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
       propertyPath: flameCollider
       value: 
       objectReference: {fileID: 7435269215468941916, guid: 5123f4c9d79f2de428b8fc573f9c7410,
@@ -30371,7 +30409,7 @@ PrefabInstance:
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: rechargePenaltyTime
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1428197726223678965, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
@@ -30508,11 +30546,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3813739771465789296, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: sword
+      value: 
+      objectReference: {fileID: 1961531842}
+    - target: {fileID: 3813739771465789296, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: rocketLauncher
+      value: 
+      objectReference: {fileID: 2053765120}
+    - target: {fileID: 3813739771465789296, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 969082405}
     - target: {fileID: 3885392990320496954, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: chargeUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 875279838}
     - target: {fileID: 4116900092769054504, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_Layer
@@ -30577,7 +30630,7 @@ PrefabInstance:
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: maxFlareCharges
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
@@ -35026,6 +35079,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 3
+--- !u!114 &1961531842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3885392990320496954, guid: a884e71611f91264eb5e26c4fbbfc28d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653895372}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740f69e4b73ef7648905ef14bad2c00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1965813430
 GameObject:
   m_ObjectHideFlags: 0
@@ -36956,6 +37021,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 632217089}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2053765120 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4745858322485624952, guid: a884e71611f91264eb5e26c4fbbfc28d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653895372}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6b7179b592cbf4b8ff81e65b311436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2057046793
 PrefabInstance:
   m_ObjectHideFlags: 0

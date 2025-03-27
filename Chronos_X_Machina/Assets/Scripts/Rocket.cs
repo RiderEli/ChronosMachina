@@ -218,6 +218,11 @@ public class Rocket : MonoBehaviour
             Explode();
         }
 
+        if (homing && other.CompareTag("PlayerWep"))
+        {
+            Explode();
+        }
+
         if (playerWeapon && other.CompareTag("Enemy"))
         {
             Explode();

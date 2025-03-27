@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     public Transform LeftFlareSpawnPoint;
     public Transform RightFlareSpawnPoint;
     public int maxFlareCharges = 3;
+    public int flareCharges = 0;
+    public float flareRechargeTimer = 2f;
     private int currentFlareCharges;
     public float flareSpeed = 10f;
     public int flaresPerShot = 5;
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
     public float verticalArcAngle = 15f;
     public float randomVelocityFactor = 3f;
     public float upwardBoost = 5f;
+    private float flareRechargeTimerElapsed = 0f;
 
     [Header("Player HP")]
     public int maxHP;
@@ -94,6 +97,21 @@ public class PlayerController : MonoBehaviour
         StoreActiveWeapons();
         HandleCameras();
         HandleHealthSystem();
+        RechargeFlares(); // Call the recharge function
+    }
+
+
+    void RechargeFlares()
+    {
+        if (currentFlareCharges < maxFlareCharges)
+        {
+            flareRechargeTimerElapsed += Time.deltaTime;
+            if (flareRechargeTimerElapsed >= flareRechargeTimer)
+            {
+                currentFlareCharges++;
+                flareRechargeTimerElapsed = 0f;
+            }
+        }
     }
 
     void StoreActiveWeapons()
@@ -188,11 +206,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
     void ShootFlares()
     {
-        if (FlarePrefab != null && LeftFlareSpawnPoint != null && RightFlareSpawnPoint != null)
+        if (FlarePrefab != null && LeftFlareSpawnPoint != null && RightFlareSpawnPoint != null && currentFlareCharges > 0)
         {
             for (int i = 0; i < flaresPerShot; i++)
             {
@@ -206,8 +222,10 @@ public class PlayerController : MonoBehaviour
                 SpawnFlare(RightFlareSpawnPoint, rightFlareRotation, transform.right);
             }
             currentFlareCharges--;
+            flareRechargeTimerElapsed = 0f; // Reset recharge timer after shooting
         }
     }
+
 
     void SpawnFlare(Transform spawnPoint, Quaternion rotation, Vector3 direction)
     {
