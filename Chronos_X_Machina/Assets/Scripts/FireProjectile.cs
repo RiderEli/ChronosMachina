@@ -80,9 +80,6 @@ public class FireProjectile : MonoBehaviour
         transform.position = wallPoint;
         transform.rotation = Quaternion.LookRotation(wallNormal);
 
-        var emission = fireParticleSystem.emission;
-        emission.enabled = false; // Stop new particles
-
         Destroy(gameObject, lingerTime);
     }
 
@@ -90,10 +87,6 @@ public class FireProjectile : MonoBehaviour
     {
         transform.position = other.ClosestPoint(transform.position);
         transform.SetParent(other.transform);
-
-        var emission = fireParticleSystem.emission;
-        emission.enabled = true; // Ensure fire keeps burning
-
         Destroy(gameObject, lingerTime);
     }
 

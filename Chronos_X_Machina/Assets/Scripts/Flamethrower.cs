@@ -57,12 +57,26 @@ public class Flamethrower : MonoBehaviour
             }
         }
 
-        // **Recharge Ammo**
-        if (!isFiring && !isRechargingPenalty && currentAmmo < maxAmmo)
+        if(isRechargingPenalty && currentAmmo != maxAmmo)
         {
             currentAmmo += rechargeRate * Time.deltaTime;
             chargeUI.UpdateCharge(currentAmmo);
+            if(currentAmmo >= maxAmmo)
+            {
+                isRechargingPenalty = false;
+            }
         }
+        else
+        {
+            // **Recharge Ammo**
+            if (!isFiring && !isRechargingPenalty && currentAmmo < maxAmmo)
+            {
+                currentAmmo += rechargeRate * Time.deltaTime;
+                chargeUI.UpdateCharge(currentAmmo);
+            }
+        }
+
+        
     }
 
     void StartFiring()
@@ -137,5 +151,7 @@ public class Flamethrower : MonoBehaviour
         Debug.Log("Recharge penalty ended");
         isRechargingPenalty = false;
         currentAmmo = 0; // Start from empty
+
+        yield return new WaitForSeconds(maxAmmo / rechargeRate);
     }
 }

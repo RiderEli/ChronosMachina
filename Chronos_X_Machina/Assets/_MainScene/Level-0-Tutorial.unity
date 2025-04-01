@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2667,6 +2667,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 3
+--- !u!1 &152385510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4654626186079721302, guid: 618c75cf7e6add44ab94ec3ca436dcb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 905708902}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &152793042
 GameObject:
   m_ObjectHideFlags: 0
@@ -4258,6 +4264,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 3
+--- !u!198 &255532746 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 574467308904215636, guid: a884e71611f91264eb5e26c4fbbfc28d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653895372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &256047279
 GameObject:
   m_ObjectHideFlags: 0
@@ -6152,12 +6164,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 965995244}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &370445907 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4468097630631905868, guid: a884e71611f91264eb5e26c4fbbfc28d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1653895372}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &380040274
 GameObject:
   m_ObjectHideFlags: 0
@@ -7697,7 +7703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishUI: {fileID: 1995354932}
   playerThing: {fileID: 969082397}
-  pauseContainer: {fileID: 0}
+  pauseContainer: {fileID: 152385510}
   GameOverContainer: {fileID: 1358941046}
 --- !u!1 &459999801
 GameObject:
@@ -9697,6 +9703,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 3
+--- !u!1 &544509959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8265828784029025402, guid: a884e71611f91264eb5e26c4fbbfc28d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653895372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &545642155
 GameObject:
   m_ObjectHideFlags: 3
@@ -15995,12 +16007,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 405107621}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &913945198 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2708235209085228889, guid: e75a2d405583be24fbddd6b91bd4afeb,
-    type: 3}
-  m_PrefabInstance: {fileID: 405107621}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919968940
 GameObject:
   m_ObjectHideFlags: 0
@@ -18595,37 +18601,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 3
---- !u!1 &1021495149
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1021495150}
-  m_Layer: 0
-  m_Name: Barrel Exit
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1021495150
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021495149}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.89, y: 105.25, z: 216.74}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 370445907}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1024542071
 GameObject:
   m_ObjectHideFlags: 0
@@ -30351,7 +30326,7 @@ PrefabInstance:
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: maxAmmo
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
@@ -30366,17 +30341,27 @@ PrefabInstance:
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: maxRange
-      value: 8
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: dotDamage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: fireOrigin
       value: 
-      objectReference: {fileID: 1021495149}
+      objectReference: {fileID: 544509959}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: dotDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: rechargeRate
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
@@ -30387,19 +30372,24 @@ PrefabInstance:
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: particleSpeed
-      value: 40
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: flameParticles
       value: 
-      objectReference: {fileID: 913945198}
+      objectReference: {fileID: 255532746}
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: flameBulletPrefab
       value: 
       objectReference: {fileID: 7435269215468941916, guid: 5123f4c9d79f2de428b8fc573f9c7410,
         type: 3}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: burnDamagePerSecond
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: flameParticlePrefab
@@ -30409,8 +30399,14 @@ PrefabInstance:
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: rechargePenaltyTime
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: flameProjectilePrefab
+      value: 
+      objectReference: {fileID: 7435269215468941916, guid: 5123f4c9d79f2de428b8fc573f9c7410,
+        type: 3}
     - target: {fileID: 1428197726223678965, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_Layer
@@ -30940,10 +30936,6 @@ PrefabInstance:
         type: 3}
       insertIndex: 0
       addedObject: {fileID: 4257070206358699019}
-    - targetCorrespondingSourceObject: {fileID: 4468097630631905868, guid: a884e71611f91264eb5e26c4fbbfc28d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1021495150}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3300004231629408233, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
