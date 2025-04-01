@@ -15294,6 +15294,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1337991183318650030, guid: 49768e08dd6df1c418e754be002e081c,
         type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337991183318650030, guid: 49768e08dd6df1c418e754be002e081c,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -74115,6 +74120,52 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: fireRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: maxRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: dotDamage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: dotDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: particleSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: flameParticles
+      value: 
+      objectReference: {fileID: 1708301569}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: burnDamagePerSecond
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: flameProjectilePrefab
+      value: 
+      objectReference: {fileID: 7435269215468941916, guid: 5123f4c9d79f2de428b8fc573f9c7410,
+        type: 3}
     - target: {fileID: 1674946245128948501, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_IsActive
@@ -76464,6 +76515,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cac2515c0da3094081866f434c31f5f, type: 3}
+--- !u!198 &1708301569 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 574467308904215636, guid: a884e71611f91264eb5e26c4fbbfc28d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653895372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1713219143
 GameObject:
   m_ObjectHideFlags: 0

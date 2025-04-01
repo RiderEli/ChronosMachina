@@ -17,10 +17,13 @@ public class FireProjectile : MonoBehaviour
     private int dotDamage = 5;
     private float dotDuration = 3f;
 
+    private Vector3 startPosition; // Store the starting position
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         fireParticleSystem = GetComponent<ParticleSystem>();
+        startPosition = transform.position; // Initialize starting position
     }
 
     public void Initialize(float range, int damage, float duration, int burnDamage)
@@ -29,6 +32,15 @@ public class FireProjectile : MonoBehaviour
         dotDamage = damage;
         dotDuration = duration;
         burnDamagePerSecond = burnDamage;
+    }
+
+    void Update()
+    {
+        //  Destroy if the projectile travels too far
+        if (Vector3.Distance(startPosition, transform.position) >= maxRange)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -62,21 +74,27 @@ public class FireProjectile : MonoBehaviour
 
     private void StickToWall(Collider other)
     {
-        Vector3 wallNormal = other.transform.forward;
-        Vector3 wallPoint = other.ClosestPointOnBounds(transform.position);
+        Vector3 wallPoint = other.ClosestPoint(transform.position);
+        Vector3 wallNormal = -other.transform.forward;
 
         transform.position = wallPoint;
         transform.rotation = Quaternion.LookRotation(wallNormal);
 
-        Destroy(gameObject, lingerTime); 
+        var emission = fireParticleSystem.emission;
+        emission.enabled = false; // Stop new particles
+
+        Destroy(gameObject, lingerTime);
     }
 
     private void StickToEnemy(Collider other)
     {
-        transform.position = other.transform.position;
+        transform.position = other.ClosestPoint(transform.position);
         transform.SetParent(other.transform);
-        fireParticleSystem.Play();
-        Destroy(gameObject, lingerTime); 
+
+        var emission = fireParticleSystem.emission;
+        emission.enabled = true; // Ensure fire keeps burning
+
+        Destroy(gameObject, lingerTime);
     }
 
     private IEnumerator BurnEffect(EnemyParent enemy)
