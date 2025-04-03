@@ -49,8 +49,17 @@ public class CameraRotate : MonoBehaviour
             currentRotation = Mathf.Lerp(currentRotation, 180f, returnSpeed * Time.deltaTime);
             transform.rotation = Quaternion.Euler(0, currentRotation, 0);
             yield return null;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                break;
+            }
         }
-        currentRotation = 180f;
-        transform.rotation = Quaternion.Euler(0, currentRotation, 0);
+
+        if (Mathf.Abs(currentRotation - 180f) <= 0.1f)
+        {
+            currentRotation = 180f;
+            transform.rotation = Quaternion.Euler(0, currentRotation, 0);
+        }
     }
 }

@@ -72,11 +72,13 @@ public class Flamethrower : MonoBehaviour
 
         if(isRechargingPenalty && currentAmmo != maxAmmo)
         {
+            playerController.isUsingFlamethrower = false;
             currentAmmo += rechargeRate * Time.deltaTime;
             chargeUI.UpdateCharge(currentAmmo);
             if(currentAmmo >= maxAmmo)
             {
                 isRechargingPenalty = false;
+
             }
         }
         else
@@ -86,6 +88,7 @@ public class Flamethrower : MonoBehaviour
             {
                 currentAmmo += rechargeRate * Time.deltaTime;
                 chargeUI.UpdateCharge(currentAmmo);
+                playerController.isUsingFlamethrower = false;
             }
         }
 
