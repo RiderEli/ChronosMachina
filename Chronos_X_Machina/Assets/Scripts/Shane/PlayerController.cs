@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private CharacterController characterController;
     private Rigidbody rb;
+    private bool weaponsShown = true;
 
     [Header("Weapon Management")]
     public Transform LeftArmTransform; // Parent object for left arm weapons
@@ -89,12 +90,15 @@ public class PlayerController : MonoBehaviour
         if (isShopping)
         {
             rb.isKinematic = true;
+            HideWeapons();
             return;
         }
         else
         {
             rb.isKinematic = false;
+            ShowWeapons();
         }
+
 
         HandleMovement();
         HandleFlareShooting();
@@ -102,6 +106,7 @@ public class PlayerController : MonoBehaviour
         HandleCameras();
         HandleHealthSystem();
         RechargeFlares(); // Call the recharge function
+        HideWeapons();
     }
 
     void RechargeFlares()
@@ -115,6 +120,21 @@ public class PlayerController : MonoBehaviour
                 flareRechargeTimerElapsed = 0f;
             }
         }
+    }
+
+    void HideWeapons()
+    {
+        equipedLeftWeapon.SetActive(false);
+
+        equipedRightWeapon.SetActive(false);
+        weaponsShown = false;
+    }
+
+    void ShowWeapons()
+    {
+        equipedLeftWeapon.SetActive(true);
+
+        equipedRightWeapon.SetActive(true);
     }
 
     void StoreActiveWeapons()
