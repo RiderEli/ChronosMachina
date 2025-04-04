@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private CharacterController characterController;
     private Rigidbody rb;
+    private bool weaponsShown = true;
 
     [Header("Weapon Management")]
     public Transform LeftArmTransform; // Parent object for left arm weapons
@@ -68,6 +69,10 @@ public class PlayerController : MonoBehaviour
     // Bool for shopping state
     public bool isShopping = false;
 
+    [Header("Flamethrower Settings")]
+    public float torsoTurnReductionFactor = 0.4f; // Factor to reduce torso rotation during flamethrower use
+    [HideInInspector] public bool isUsingFlamethrower = false;
+
     void Start()
     {
         currentHP = maxHP;
@@ -85,12 +90,15 @@ public class PlayerController : MonoBehaviour
         if (isShopping)
         {
             rb.isKinematic = true;
+            HideWeapons();
             return;
         }
         else
         {
             rb.isKinematic = false;
+            ShowWeapons();
         }
+
 
         HandleMovement();
         HandleFlareShooting();
@@ -98,8 +106,8 @@ public class PlayerController : MonoBehaviour
         HandleCameras();
         HandleHealthSystem();
         RechargeFlares(); // Call the recharge function
+        HideWeapons();
     }
-
 
     void RechargeFlares()
     {
@@ -112,6 +120,21 @@ public class PlayerController : MonoBehaviour
                 flareRechargeTimerElapsed = 0f;
             }
         }
+    }
+
+    void HideWeapons()
+    {
+        equipedLeftWeapon.SetActive(false);
+
+        equipedRightWeapon.SetActive(false);
+        weaponsShown = false;
+    }
+
+    void ShowWeapons()
+    {
+        equipedLeftWeapon.SetActive(true);
+
+        equipedRightWeapon.SetActive(true);
     }
 
     void StoreActiveWeapons()
@@ -137,17 +160,6 @@ public class PlayerController : MonoBehaviour
                     equipedRightWeapon = child.gameObject;
                 }
             }
-            
-            /*
-            foreach (Transform child in LeftArmTransform.transform)
-            {
-                // Add the child GameObject to the list
-                superWeapons.Add(child.gameObject);
-                if (child.gameObject.activeSelf)
-                {
-                    equippedSuper = child.gameObject;
-                }
-            }*/
         }
     }
 
@@ -204,6 +216,16 @@ public class PlayerController : MonoBehaviour
         {
             ShootFlares();
         }
+
+        // Check if the flamethrower is actively being used (add your own key/input for flamethrower)
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isUsingFlamethrower = true;
+        }
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            isUsingFlamethrower = false;
+        }
     }
 
     void ShootFlares()
@@ -226,7 +248,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     void SpawnFlare(Transform spawnPoint, Quaternion rotation, Vector3 direction)
     {
         GameObject flare = Instantiate(FlarePrefab, spawnPoint.position, rotation);
@@ -241,7 +262,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity = (direction * flareSpeed) + randomOffset;
         }
     }
-
 
     void HandleCameras()
     {
@@ -277,8 +297,16 @@ public class PlayerController : MonoBehaviour
         {
             var lookPos = hit.point - transform.position;
             lookPos.y = 0;
+
+            var rotationSpeed = this.rotationSpeed;
+            // Apply torso rotation reduction if the flamethrower is being used
+            if (isUsingFlamethrower)
+            {
+                rotationSpeed *= torsoTurnReductionFactor;
+            }
+
             var rotation = Quaternion.LookRotation(lookPos);
-            UpperTorso.transform.rotation = Quaternion.Slerp(UpperTorso.transform.rotation, rotation, Time.deltaTime * 30);
+            UpperTorso.transform.rotation = Quaternion.Slerp(UpperTorso.transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
     }
 
