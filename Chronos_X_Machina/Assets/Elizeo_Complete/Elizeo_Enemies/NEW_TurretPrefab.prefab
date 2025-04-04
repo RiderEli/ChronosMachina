@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deba1122164ec664b992cb4ff6603e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHead: {fileID: 1551176433269964663}
+  enemyHead: {fileID: 0}
   enemyWeapon:
   - {fileID: 8909298994541195064, guid: 6ccbebe77351bc04aa7e97cd2f450b51, type: 3}
   - {fileID: 341658222094009727, guid: 6ebaf63574368b84ab207804808ce333, type: 3}
@@ -153,6 +153,7 @@ MonoBehaviour:
   movement: 0
   weapons: 0
   enemyDirection: 0
+  poop: {fileID: 0}
   aiming: 0
   missileDelay: 2
 --- !u!54 &5341093249117760478
@@ -316,12 +317,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59053e64e6b4d62468b82f9bd61c1e98, type: 3}
---- !u!1 &1551176433269964663 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 486852337111295599, guid: 59053e64e6b4d62468b82f9bd61c1e98,
-    type: 3}
-  m_PrefabInstance: {fileID: 1389157214485551384}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2219485252772111821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 975721133752335573, guid: 59053e64e6b4d62468b82f9bd61c1e98,

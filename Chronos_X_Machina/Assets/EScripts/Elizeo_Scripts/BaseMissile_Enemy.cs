@@ -69,5 +69,17 @@ public class BaseMissile_Enemy : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Ground"))
+        {
+            if (transform.parent != null)
+            {
+                Destroy(transform.parent.gameObject);
+            }
+            Destroy(gameObject);
+        }
+    }
+
 
 }
