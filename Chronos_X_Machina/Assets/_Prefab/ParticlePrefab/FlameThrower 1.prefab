@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3802183948351447968}
   - component: {fileID: 4530360057193482419}
   m_Layer: 0
-  m_Name: FlameThrower
+  m_Name: FlameThrower 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4813,7 +4813,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d3242d9af68ab349b1b13f17fe604d0, type: 2}
+  - {fileID: 2100000, guid: 9395a578f01be9d448bcd4de3740807d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

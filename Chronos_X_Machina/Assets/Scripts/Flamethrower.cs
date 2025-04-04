@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Flamethrower : MonoBehaviour
@@ -24,6 +25,8 @@ public class Flamethrower : MonoBehaviour
 
     [SerializeField] ChargeTest chargeUI;
 
+    private PlayerController playerController; // Reference to PlayerController
+
     void Start()
     {
         currentAmmo = maxAmmo;
@@ -38,6 +41,8 @@ public class Flamethrower : MonoBehaviour
             var emission = flameParticles.emission;
             emission.enabled = false; // Ensure no particles spawn initially
         }
+
+        playerController = FindObjectOfType<PlayerController>(); // Find the PlayerController component
     }
 
     void Update()
@@ -47,6 +52,10 @@ public class Flamethrower : MonoBehaviour
             if (!isFiring)
             {
                 StartFiring();
+                if (playerController != null)
+                {
+                    playerController.isUsingFlamethrower = true; // Set the flag to reduce torso rotation when firing
+                }
             }
         }
         else
@@ -54,15 +63,36 @@ public class Flamethrower : MonoBehaviour
             if (isFiring)
             {
                 StopFiring();
+                if (playerController != null)
+                {
+                    playerController.isUsingFlamethrower = false; // Reset the flag when not firing
+                }
             }
         }
 
-        // **Recharge Ammo**
-        if (!isFiring && !isRechargingPenalty && currentAmmo < maxAmmo)
+        if(isRechargingPenalty && currentAmmo != maxAmmo)
         {
+            playerController.isUsingFlamethrower = false;
             currentAmmo += rechargeRate * Time.deltaTime;
             chargeUI.UpdateCharge(currentAmmo);
+            if(currentAmmo >= maxAmmo)
+            {
+                isRechargingPenalty = false;
+
+            }
         }
+        else
+        {
+            // **Recharge Ammo**
+            if (!isFiring && !isRechargingPenalty && currentAmmo < maxAmmo)
+            {
+                currentAmmo += rechargeRate * Time.deltaTime;
+                chargeUI.UpdateCharge(currentAmmo);
+                playerController.isUsingFlamethrower = false;
+            }
+        }
+
+        
     }
 
     void StartFiring()
@@ -137,5 +167,7 @@ public class Flamethrower : MonoBehaviour
         Debug.Log("Recharge penalty ended");
         isRechargingPenalty = false;
         currentAmmo = 0; // Start from empty
+
+        yield return new WaitForSeconds(maxAmmo / rechargeRate);
     }
 }

@@ -68,6 +68,10 @@ public class PlayerController : MonoBehaviour
     // Bool for shopping state
     public bool isShopping = false;
 
+    [Header("Flamethrower Settings")]
+    public float torsoTurnReductionFactor = 0.4f; // Factor to reduce torso rotation during flamethrower use
+    [HideInInspector] public bool isUsingFlamethrower = false;
+
     void Start()
     {
         currentHP = maxHP;
@@ -99,7 +103,6 @@ public class PlayerController : MonoBehaviour
         HandleHealthSystem();
         RechargeFlares(); // Call the recharge function
     }
-
 
     void RechargeFlares()
     {
@@ -137,17 +140,6 @@ public class PlayerController : MonoBehaviour
                     equipedRightWeapon = child.gameObject;
                 }
             }
-            
-            /*
-            foreach (Transform child in LeftArmTransform.transform)
-            {
-                // Add the child GameObject to the list
-                superWeapons.Add(child.gameObject);
-                if (child.gameObject.activeSelf)
-                {
-                    equippedSuper = child.gameObject;
-                }
-            }*/
         }
     }
 
@@ -204,6 +196,16 @@ public class PlayerController : MonoBehaviour
         {
             ShootFlares();
         }
+
+        // Check if the flamethrower is actively being used (add your own key/input for flamethrower)
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isUsingFlamethrower = true;
+        }
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            isUsingFlamethrower = false;
+        }
     }
 
     void ShootFlares()
@@ -226,7 +228,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     void SpawnFlare(Transform spawnPoint, Quaternion rotation, Vector3 direction)
     {
         GameObject flare = Instantiate(FlarePrefab, spawnPoint.position, rotation);
@@ -241,7 +242,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity = (direction * flareSpeed) + randomOffset;
         }
     }
-
 
     void HandleCameras()
     {
@@ -277,8 +277,16 @@ public class PlayerController : MonoBehaviour
         {
             var lookPos = hit.point - transform.position;
             lookPos.y = 0;
+
+            var rotationSpeed = this.rotationSpeed;
+            // Apply torso rotation reduction if the flamethrower is being used
+            if (isUsingFlamethrower)
+            {
+                rotationSpeed *= torsoTurnReductionFactor;
+            }
+
             var rotation = Quaternion.LookRotation(lookPos);
-            UpperTorso.transform.rotation = Quaternion.Slerp(UpperTorso.transform.rotation, rotation, Time.deltaTime * 30);
+            UpperTorso.transform.rotation = Quaternion.Slerp(UpperTorso.transform.rotation, rotation, Time.deltaTime * rotationSpeed);
         }
     }
 
