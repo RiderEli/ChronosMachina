@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4331, y: 1.4331, z: 1.4331}
+  m_LocalScale: {x: 4.1438084, y: 4.1438084, z: 4.1438084}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2404669562991007291}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 7235790261443384927}
   - component: {fileID: 2481155439301755447}
   m_Layer: 0
-  m_Name: BombPrefab
+  m_Name: CannonBallPrefab
   m_TagString: EnemyBomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7131190371455756378}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 25.05, z: -4.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -223,7 +223,7 @@ Transform:
   - {fileID: 9051432639428337209}
   - {fileID: 2286075841981822782}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!65 &8824319806002820016
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -243,7 +243,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Size: {x: 4, y: 4, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7235790261443384927
 Rigidbody:
@@ -270,7 +270,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &2481155439301755447
 MonoBehaviour:
@@ -287,6 +287,7 @@ MonoBehaviour:
   bombObject: {fileID: 4701891443412368770}
   explosionObject: {fileID: 5048692176534630368}
   explosionTimer: 1
+  bombDuration: 0.5
   fallSpeed: 50
-  typeOfBomb: 0
+  typeOfBomb: 2
   bombDirection: 0

@@ -21,7 +21,7 @@ public class WaveSystem : MonoBehaviour
 
    // public Transform[] spawnPoint;
 
-    private bool collisionPresent;
+    public static bool collisionPresent;
 
    // private bool hasEnemySpawned;
 
@@ -45,7 +45,7 @@ public class WaveSystem : MonoBehaviour
 
 
 
-
+        counter = enemyCount;
         waveCheck = GameObject.FindGameObjectWithTag("Wave");
         waveChecker = waveCheck.GetComponent<WaveChecker>();
         collisionPresent = true;
@@ -82,7 +82,7 @@ public class WaveSystem : MonoBehaviour
 
         if (PlayerController.currentHP <= 0)
         {
-            Destroy(this.gameObject);
+            
         }
 
         if (!collisionPresent)
@@ -100,7 +100,7 @@ public class WaveSystem : MonoBehaviour
         // hasEnemySpawned = false;
         WaveChecker.insideWave = true;
 
-        counter = enemyCount;
+       
 
 
 
