@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 
 public class WaveChecker : MonoBehaviour
 {
-    public GameObject waveObject;
+   // public GameObject waveObject;
 
     [Header("WARNING: WAVE CAM MUST BE IN THE SCENE AND NOT IN THE PREFAB!")]
     public GameObject waveCam;
@@ -14,6 +15,7 @@ public class WaveChecker : MonoBehaviour
     public Transform cameraPos;
     public static bool insideWave;
     private bool waveSpawned;
+
     void Start()
     {
         waveSpawned = false;
@@ -55,7 +57,7 @@ public class WaveChecker : MonoBehaviour
     {
         if (waveSpawned == false)
         {
-            Instantiate(waveObject, transform.position, transform.rotation, this.transform);
+            WaveSystem.collisionPresent = true;
             waveSpawned = true;
         }
     }
@@ -69,8 +71,8 @@ public class WaveChecker : MonoBehaviour
     {
         insideWave = false;
         yield return new WaitForSeconds(0.1f);
-        SpawnWave();
+        WaveSystem.collisionPresent = true;
         yield return new WaitForSeconds(0.1f);
-        waveSpawned = false;
+
     }
 }

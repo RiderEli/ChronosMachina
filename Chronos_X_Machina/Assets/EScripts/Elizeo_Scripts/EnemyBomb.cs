@@ -14,13 +14,16 @@ public class EnemyBomb : MonoBehaviour
     private bool bombExploding;
     private Rigidbody bombRB;
 
+    public float bombDuration;
+
     [Header("How fast will the bomb drop?")]
     public float fallSpeed;
 
     public enum bombType
     {
         Normal,
-        Cluster
+        Cluster,
+        Cannon
     }
 
     public enum bombDir
@@ -72,7 +75,11 @@ public class EnemyBomb : MonoBehaviour
         {
             bombRB.useGravity = true;
         }
-
+        if (typeOfBomb == bombType.Cannon)
+        {
+            bombRB.velocity = Vector3.back * fallSpeed;
+            StartCoroutine(bombLife());
+        }
         if (bombExploding)
         {
             bombRB.velocity = Vector3.zero;
@@ -87,6 +94,12 @@ public class EnemyBomb : MonoBehaviour
         explosionObject.SetActive(true);
         yield return new WaitForSeconds(explosionDuration);
         Destroy(gameObject);
+    }
+
+    public IEnumerator bombLife()
+    {
+        yield return new WaitForSeconds(bombDuration);
+        StartCoroutine(explosion());
     }
 
     public void OnTriggerEnter(Collider other)
