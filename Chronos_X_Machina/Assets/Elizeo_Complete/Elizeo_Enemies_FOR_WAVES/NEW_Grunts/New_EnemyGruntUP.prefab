@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4243902338677192652}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.963333, y: 0, z: -43.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -108,7 +108,7 @@ MonoBehaviour:
   player: {fileID: 0}
   tankSpeed: 10
   enemyHP: 100
-  enemyDetect: 50
+  enemyDetect: 30
   enemyDamage: 0
   enemyRenderer: {fileID: 0}
   enemyMat:

@@ -11,7 +11,7 @@ public class EnemyActivity : MonoBehaviour
     public GameObject enemyThing;
     private Collider boxTrigger;
 
-    [Header("Check this bool if you want an enemy to spawn at a certain spot.")]
+    [Header("KEEP THIS BOOL CHECKED! - This is for the enemies to spawn in the EnemySpawn position.")]
     public bool spawnPointEnabled;
 
     [Header("Set your certain spawn here:")]
