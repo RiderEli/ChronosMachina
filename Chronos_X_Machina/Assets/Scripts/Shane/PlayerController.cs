@@ -66,8 +66,9 @@ public class PlayerController : MonoBehaviour
     public float terminalVelocity = -50f;
     private Vector3 velocity;
 
-    // Bool for shopping state
+    [Header("Shopping")]
     public bool isShopping = false;
+    public int screws = 0;
 
     [Header("Flamethrower Settings")]
     public float torsoTurnReductionFactor = 0.4f; // Factor to reduce torso rotation during flamethrower use
@@ -97,6 +98,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.isKinematic = false;
             ShowWeapons();
+            Debug.Log("seen");
         }
 
 
@@ -106,7 +108,6 @@ public class PlayerController : MonoBehaviour
         HandleCameras();
         HandleHealthSystem();
         RechargeFlares(); // Call the recharge function
-        HideWeapons();
     }
 
     void RechargeFlares()

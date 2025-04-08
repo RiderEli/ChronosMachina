@@ -67,7 +67,7 @@ public class Turret : EnemyParent
         else
         {
             aiming = false;
-            Debug.Log("poop");
+            //Debug.Log("poop");
         }
         enemyWeaponShoot();
     }

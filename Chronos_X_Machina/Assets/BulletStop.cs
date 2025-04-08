@@ -6,7 +6,7 @@ public class BulletStop : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("Wall") || other.CompareTag("Ground"))
         {
             Destroy(gameObject);
         }
