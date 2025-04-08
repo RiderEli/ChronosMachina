@@ -8,19 +8,22 @@ public class WaveChecker : MonoBehaviour
 {
    // public GameObject waveObject;
 
-    [Header("WARNING: WAVE CAM MUST BE IN THE SCENE AND NOT IN THE PREFAB!")]
-    public GameObject waveCam;
+  //  [Header("WARNING: WAVE CAM MUST BE IN THE SCENE AND NOT IN THE PREFAB!")]
+   // public GameObject waveCam;
 
     [Header("Where will the spawn camera be?")]
     public Transform cameraPos;
     public static bool insideWave;
     private bool waveSpawned;
 
+    public PlayerController player;
+
     void Start()
     {
         waveSpawned = false;
         insideWave = false;
-
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    
     }
 
     // Update is called once per frame
@@ -64,7 +67,7 @@ public class WaveChecker : MonoBehaviour
 
     public void LocateWaveCam()
     {
-        waveCam.transform.position = cameraPos.transform.position;
+        player.waveCam.transform.position = cameraPos.transform.position;
     }
 
     public IEnumerator DiedOnSpawn()
