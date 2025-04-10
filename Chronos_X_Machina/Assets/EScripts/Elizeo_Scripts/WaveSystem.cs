@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WaveSystem : MonoBehaviour
 {
-    [Header("How fast will the enemy spawn?")]
+    [Header("DON'T WORRY ABOUT THIS, THIS IS ONLY MEANT FOR A COROUTINE")]
    // public float spawnRate;
     public float waveTime;
 
@@ -13,9 +13,9 @@ public class WaveSystem : MonoBehaviour
     public int enemyCount;
     public static int counter;
 
-    private GameObject waveCheck;
+    //private GameObject waveCheck;
 
-    private WaveChecker waveChecker;
+    public WaveChecker waveChecker;
     
    // public GameObject[] enemy;
 
@@ -46,8 +46,8 @@ public class WaveSystem : MonoBehaviour
 
 
         counter = enemyCount;
-        waveCheck = GameObject.FindGameObjectWithTag("Wave");
-        waveChecker = waveCheck.GetComponent<WaveChecker>();
+        //waveCheck = GameObject.FindGameObjectWithTag("Wave");
+        //waveChecker = waveCheck.GetComponent<WaveChecker>();
         collisionPresent = true;
     }
     // Update is called once per frame
@@ -65,7 +65,9 @@ public class WaveSystem : MonoBehaviour
             {
                 Debug.Log("Counter Ran Out!");
                 WaveChecker.insideWave = false;
-                this.gameObject.SetActive(false);
+                // this.gameObject.SetActive(false);
+                Destroy(transform.parent.gameObject);
+                
             }
         }
 

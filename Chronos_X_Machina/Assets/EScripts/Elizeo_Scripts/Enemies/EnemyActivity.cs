@@ -8,10 +8,10 @@ using UnityEngine;
 public class EnemyActivity : MonoBehaviour
 {
     //Enemies are prefabs, meaning that they HAVE to instantiate.
-    public GameObject enemyList;
+    public GameObject enemyThing;
     private Collider boxTrigger;
 
-    [Header("Check this bool if you want an enemy to spawn at a certain spot.")]
+    [Header("KEEP THIS BOOL CHECKED! - This is for the enemies to spawn in the EnemySpawn position.")]
     public bool spawnPointEnabled;
 
     [Header("Set your certain spawn here:")]
@@ -21,7 +21,7 @@ public class EnemyActivity : MonoBehaviour
     private void Start()
     {
         boxTrigger = GetComponent<Collider>();
-        enemyList.SetActive(false);
+        enemyThing.SetActive(false);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -35,16 +35,11 @@ public class EnemyActivity : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        // if (spawnPointEnabled)
-        // {
-        //   Instantiate(enemyPrefab, enemySpawn.position, enemySpawn.rotation, this.transform);
-        //
-        //   }
-        //  else
-        // {
-        //      Instantiate(enemyPrefab, transform.position, transform.rotation, this.transform);
-        //   }
-        enemyList.SetActive(true);
+         if (spawnPointEnabled)
+         {
+            enemyThing.transform.position = enemySpawn.transform.position;
+         }
+        enemyThing.SetActive(true);
 
     }
 
