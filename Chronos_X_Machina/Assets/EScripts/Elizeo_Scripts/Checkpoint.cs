@@ -25,6 +25,7 @@ public class Checkpoint : MonoBehaviour
 
     public void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         poleRenderer = checkpointPoleL.GetComponent<Renderer>();
         pole2Renderer = checkpointPoleR.GetComponent<Renderer>();
         poleRenderer.material = poleMat[0];

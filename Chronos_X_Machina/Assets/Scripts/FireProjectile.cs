@@ -14,8 +14,6 @@ public class FireProjectile : MonoBehaviour
     private ParticleSystem fireParticleSystem;
 
     private float maxRange = 10f;
-    private int dotDamage = 5;
-    private float dotDuration = 3f;
 
     private Vector3 startPosition; // Store the starting position
 
@@ -29,9 +27,9 @@ public class FireProjectile : MonoBehaviour
     public void Initialize(float range, int damage, float duration, int burnDamage)
     {
         maxRange = range;
-        dotDamage = damage;
-        dotDuration = duration;
+        burnDuration = duration;
         burnDamagePerSecond = burnDamage;
+        impactDamage = damage;
     }
 
     void Update()

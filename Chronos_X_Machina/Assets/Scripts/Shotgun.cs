@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shotgun : MonoBehaviour
 {
+    public int damage = 25;
     public float delayBetweenShots = 0.5f; // Time between shotgun shots
     public float bulletSpeed = 20f;
     public float bulletRange = 50f; // Maximum range of bullets
@@ -59,6 +60,11 @@ public class Shotgun : MonoBehaviour
                 Vector3 spreadDirection = Quaternion.Euler(0, spreadOffset, 0) * targetDirection;
 
                 GameObject bullet = Instantiate(bulletPrefab, barrelTip.transform.position, Quaternion.LookRotation(spreadDirection));
+                BulletProjectile bulletProjectile = bullet.GetComponent<BulletProjectile>();
+                if (bulletProjectile != null)
+                {
+                    bulletProjectile.Initialize(damage);
+                }
 
                 Rigidbody rb = bullet.GetComponent<Rigidbody>();
                 if (rb != null)

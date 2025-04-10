@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+
 public class LevelFinisnLine : MonoBehaviour
 {
     public GameObject finishUI;
@@ -12,6 +14,13 @@ public class LevelFinisnLine : MonoBehaviour
     public GameObject pauseContainer;
     public GameObject GameOverContainer;
 
+    public enum nextLevels
+    {
+        LEVEL_1,
+        LEVEL_2
+    }
+
+    public nextLevels levels;
     void Start()
     {
         isLevelFinished = false;  
@@ -46,9 +55,14 @@ public class LevelFinisnLine : MonoBehaviour
         }
     }
 
-    public void PlayAgain()
+    public void Tutorial_Level()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void Level_One()
+    {
+        SceneManager.LoadScene(2);
     }
 
     public void QuitButton()

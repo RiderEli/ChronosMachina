@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 /* [Nava, Elizeo]
@@ -55,12 +54,12 @@ public class TimeMachineHub : MonoBehaviour
 
     public void GoToTutorial()
     {
-        SceneManager.LoadScene("Electronic Prototype");
+        SceneManager.LoadScene(1);
     }
 
     public void GoToLevel1()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void ExitFromScene()
@@ -81,7 +80,7 @@ public class TimeMachineHub : MonoBehaviour
         {
             inTimeMachine_Level = false;
         }
-    }    
+    }
 
     public void TimeStop()
     {
@@ -91,7 +90,7 @@ public class TimeMachineHub : MonoBehaviour
             {
                 Time.timeScale = 0.0f;
                 middleHub.SetActive(true);
-            }    
+            }
             else
             {
                 Time.timeScale = 1.0f;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Turret : EnemyParent
 {
+    //public GameObject poop;
+
     [Header("Is the turret aiming?")]
     public bool aiming;
     
@@ -37,6 +39,7 @@ public class Turret : EnemyParent
         if (aiming)
         {
             enemyHead.transform.LookAt(player.transform.position);
+           // poop.transform.position = player.transform.position;
             missileShoot();
 
         }
@@ -64,6 +67,7 @@ public class Turret : EnemyParent
         else
         {
             aiming = false;
+            //Debug.Log("poop");
         }
         enemyWeaponShoot();
     }
@@ -73,7 +77,18 @@ public class Turret : EnemyParent
 
         if (other.gameObject.CompareTag("PlayerWep"))
         {
-            enemyHP -= 25;
+            if (other.gameObject.GetComponent<BulletProjectile>() != null)
+            {
+                enemyHP -= other.gameObject.GetComponent<BulletProjectile>().impactDamage;
+            }
+            else if (other.gameObject.GetComponent<FireProjectile>() != null) 
+            {
+                enemyHP -= other.gameObject.GetComponent<FireProjectile>().impactDamage;
+            }
+            else
+            {
+                enemyHP -= 25;
+            }
             Destroy(other.gameObject);
             StartCoroutine(EnemyGotHit());
         }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6691329841403122964}
   - component: {fileID: 5458174010999143355}
   - component: {fileID: 1576245417457406863}
+  - component: {fileID: -4723026992460154368}
   m_Layer: 0
   m_Name: bullet
   m_TagString: PlayerWep
@@ -50,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6140399405611235981}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -133,3 +134,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4723026992460154368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140399405611235981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d15947a7db01384db3c08dec573275c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactDamage: 5
