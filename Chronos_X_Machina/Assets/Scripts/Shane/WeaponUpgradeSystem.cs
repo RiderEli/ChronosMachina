@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class WeaponUpgradeSystem : MonoBehaviour
 {
     [SerializeField] private WeaponParrent weaponParrent;
-    public int playerCurrency = 100;
+    [SerializeField] private PlayerController playerController;
 
     private Dictionary<string, Button[]> weaponButtons = new Dictionary<string, Button[]>();
 
@@ -55,7 +55,7 @@ public class WeaponUpgradeSystem : MonoBehaviour
     // Purchase logic for a specific tier
     public void PurchaseUpgrade(string weaponType, int tier)
     {
-        if (playerCurrency < 50) // Adjust pricing as needed
+        if (playerController.screws < 50) // Adjust pricing as needed
         {
             Debug.Log($"Not enough currency to upgrade {weaponType}.");
             return;
@@ -101,7 +101,7 @@ public class WeaponUpgradeSystem : MonoBehaviour
         int cost = (targetTier == 2) ? 50 : 75; // Example costs
 
         // Ensure the player has enough currency before proceeding
-        if (playerCurrency < cost)
+        if (playerController.screws < cost)
         {
             Debug.Log("Not enough currency to upgrade.");
             return;
@@ -111,15 +111,15 @@ public class WeaponUpgradeSystem : MonoBehaviour
         {
             tier1 = false;
             tier2 = true;
-            playerCurrency -= cost;
-            Debug.Log($"Upgraded to Tier 2! Remaining Currency: {playerCurrency}");
+            playerController.screws -= cost;
+            Debug.Log($"Upgraded to Tier 2! Remaining Currency: {playerController.screws}");
         }
         else if (targetTier == 3 && tier2 && !tier3)
         {
             tier2 = false;
             tier3 = true;
-            playerCurrency -= cost;
-            Debug.Log($"Upgraded to Tier 3! Remaining Currency: {playerCurrency}");
+            playerController.screws -= cost;
+            Debug.Log($"Upgraded to Tier 3! Remaining Currency: {playerController.screws}");
         }
         else
         {

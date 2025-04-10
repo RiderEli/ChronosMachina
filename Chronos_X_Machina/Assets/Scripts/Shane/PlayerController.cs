@@ -48,12 +48,14 @@ public class PlayerController : MonoBehaviour
     public int maxHP;
     public static int currentHP;
     public PlayerHP playerHPUI;
+    private GameObject Player;
 
     [Header("Respawn System")]
     public Transform playerSpawn;
     public int playerLives;
     [SerializeField] private int currentLives;
     public int healValue;
+    private bool isRespawning = false;
 
     [Header("Cameras")]
     public GameObject waveCam;
@@ -81,6 +83,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         currentFlareCharges = maxFlareCharges;
+        Player = GameObject.Find("PlayerTest");
 
         // Initialize weapons
         InitializeWeapons();
@@ -100,6 +103,7 @@ public class PlayerController : MonoBehaviour
             ShowWeapons();
             Debug.Log("seen");
         }
+
 
 
         HandleMovement();
@@ -200,6 +204,8 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
+        if (isRespawning) return;
+
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         if (move.magnitude > 0.1f)
         {
@@ -315,6 +321,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentHP <= 0)
         {
+            playerHPUI.SetHP(currentHP);
             Respawn();
             if (currentLives <= -1)
             {
@@ -325,12 +332,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Respawn()
+    public void Respawn()
     {
+        isRespawning = true;
         currentLives -= 1;
         currentHP = maxHP;
+
+        characterController.enabled = false;
         transform.position = playerSpawn.position;
+        velocity = Vector3.zero;
+        characterController.enabled = true;
+
         playerHPUI.SetHP(maxHP);
+
+        StartCoroutine(RespawnCooldown());
+    }
+
+    private IEnumerator RespawnCooldown()
+    {
+        yield return new WaitForSeconds(0.5f); 
+        isRespawning = false;
     }
 
     void ApplyGravity()
