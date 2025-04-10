@@ -513,7 +513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7222137631254782199
 Transform:
   m_ObjectHideFlags: 0
@@ -1128,7 +1128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3710570066224016777
 Transform:
   m_ObjectHideFlags: 0
@@ -1509,7 +1509,7 @@ MonoBehaviour:
     type: 3}
   LeftFlareSpawnPoint: {fileID: 3989829308874942212}
   RightFlareSpawnPoint: {fileID: 2213080823115078850}
-  maxFlareCharges: 4
+  maxFlareCharges: 100
   flareCharges: 0
   flareRechargeTimer: 2
   flareSpeed: 10
@@ -1522,15 +1522,15 @@ MonoBehaviour:
   maxHP: 100
   playerHPUI: {fileID: 6527490296319119079}
   playerSpawn: {fileID: 0}
-  playerLives: 3
+  playerLives: 5
   currentLives: 0
   healValue: 25
   waveCam: {fileID: 0}
-  playerCam: {fileID: 0}
-  speed: 20
+  playerCam: {fileID: 2292162795776462073}
+  speed: 25
   rotationSpeed: 10
-  gravity: -9.8
-  terminalVelocity: -50
+  gravity: -80
+  terminalVelocity: -80
   isShopping: 0
   screws: 0
   torsoTurnReductionFactor: 0.4
@@ -4235,6 +4235,31 @@ PrefabInstance:
       propertyPath: chargeUI
       value: 
       objectReference: {fileID: 7032485914615149161}
+    - target: {fileID: 1958504897331683906, guid: cd0849b05d2cc4e44ae049fb5541313a,
+        type: 3}
+      propertyPath: fireRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958504897331683906, guid: cd0849b05d2cc4e44ae049fb5541313a,
+        type: 3}
+      propertyPath: maxRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958504897331683906, guid: cd0849b05d2cc4e44ae049fb5541313a,
+        type: 3}
+      propertyPath: dotDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958504897331683906, guid: cd0849b05d2cc4e44ae049fb5541313a,
+        type: 3}
+      propertyPath: particleSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958504897331683906, guid: cd0849b05d2cc4e44ae049fb5541313a,
+        type: 3}
+      propertyPath: burnDamagePerSecond
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6842095370318848584, guid: cd0849b05d2cc4e44ae049fb5541313a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4293,7 +4318,7 @@ PrefabInstance:
     - target: {fileID: 7872616598961850039, guid: cd0849b05d2cc4e44ae049fb5541313a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4727,6 +4752,16 @@ PrefabInstance:
       propertyPath: chargeUI
       value: 
       objectReference: {fileID: 7032485914615149161}
+    - target: {fileID: 1958504897331683906, guid: cc11e9c0f2694ce4b96f33845f6adc3d,
+        type: 3}
+      propertyPath: dotDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958504897331683906, guid: cc11e9c0f2694ce4b96f33845f6adc3d,
+        type: 3}
+      propertyPath: burnDamagePerSecond
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6842095370318848584, guid: cc11e9c0f2694ce4b96f33845f6adc3d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4781,6 +4816,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flamethrower Test 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7872616598961850039, guid: cc11e9c0f2694ce4b96f33845f6adc3d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

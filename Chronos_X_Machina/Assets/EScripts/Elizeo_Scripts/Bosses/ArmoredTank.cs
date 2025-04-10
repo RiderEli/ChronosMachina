@@ -57,6 +57,10 @@ public class ArmoredTank : BossParent
         {
             Debug.Log("Boss Died, lol");
             Destroy(this.gameObject);
+            if (WaveChecker.insideWave == true)
+            {
+                WaveSystem.counter -= 1;
+            }
         }
     }
     public void OnTriggerEnter(Collider other)
@@ -64,7 +68,18 @@ public class ArmoredTank : BossParent
 
         if (other.gameObject.CompareTag("PlayerWep"))
         {
-            bossHP -= 25;
+            if (other.gameObject.GetComponent<BulletProjectile>() != null)
+            {
+                bossHP -= other.gameObject.GetComponent<BulletProjectile>().impactDamage;
+            }
+            else if (other.gameObject.GetComponent<FireProjectile>() != null)
+            {
+                bossHP -= other.gameObject.GetComponent<FireProjectile>().impactDamage;
+            }
+            else
+            {
+                bossHP -= 25;
+            }
             Destroy(other.gameObject);
             StartCoroutine(BossGotHit());
         }

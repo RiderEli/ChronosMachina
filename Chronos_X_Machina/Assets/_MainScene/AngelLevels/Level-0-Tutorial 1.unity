@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 088bc9301451ab444b39479859711f07,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -5775,7 +5776,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 449373901}
         m_TargetAssemblyTypeName: LevelFinisnLine, Assembly-CSharp
-        m_MethodName: PlayAgain
+        m_MethodName: Level_One
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22551,6 +22552,7 @@ MonoBehaviour:
   playerThing: {fileID: 1747485101}
   pauseContainer: {fileID: 34486865}
   GameOverContainer: {fileID: 1358941046}
+  levels: 0
 --- !u!1 &454903882 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4882901132025852630, guid: 11cdbf8e494275541b0b687158ff7549,
@@ -30574,6 +30576,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
+      propertyPath: Damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
       propertyPath: maxAmmo
       value: 40
       objectReference: {fileID: 0}
@@ -30590,7 +30597,7 @@ PrefabInstance:
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: dotDuration
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
@@ -30610,7 +30617,7 @@ PrefabInstance:
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: burnDamagePerSecond
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
@@ -30618,6 +30625,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7435269215468941916, guid: 5123f4c9d79f2de428b8fc573f9c7410,
         type: 3}
+    - target: {fileID: 1674946245128948501, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618498984551700595, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994172586458530921, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3300004231629408233, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_Name
@@ -30717,6 +30739,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsKinematic
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331840670908403321, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46283,6 +46310,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 4654626186079721302, guid: 618c75cf7e6add44ab94ec3ca436dcb7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8612566844888000863, guid: 618c75cf7e6add44ab94ec3ca436dcb7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52309,7 +52341,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play Again
+  m_text: Next Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
