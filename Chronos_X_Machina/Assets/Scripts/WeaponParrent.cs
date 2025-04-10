@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class WeaponParrent : MonoBehaviour
 {
+    private PlayerController controller;
+    
     [Header("Machinegun Settings | MG")]
     [SerializeField] MachineGun machineGun;
     public float damageMG = 1;
@@ -12,12 +14,16 @@ public class WeaponParrent : MonoBehaviour
     public float bulletSpeedMG = 1;
     public float rangeMG = 20;
     public bool Tier1_MG = true;
+    public GameObject TierObj1_MG;
+
 
     public bool Tier2_MG = false;
     public int Tier2_MG_Cost = 10;
+    public GameObject TierObj2_MG;
 
     public bool Tier3_MG = false;
     public int Tier3_MG_Cost = 15;
+    private GameObject TierObj3_MG;
 
     public float inaccuracyMG = 1;
     public float delayBtwnBulletsMG = 1;
@@ -29,12 +35,15 @@ public class WeaponParrent : MonoBehaviour
     public float bulletSpeedSG = 1;
     public float rangeSG = 20;
     public bool Tier1_SG = true;
+    public GameObject TierObj1_SG;
 
     public bool Tier2_SG = false;
     public int Tier2_SG_Cost = 7;
+    public GameObject TierObj2_SG;
 
     public bool Tier3_SG = false;
     public int Tier3_SG_Cost = 12;
+    public GameObject TierObj3_SG;
 
     public int bulletsShot = 5;
 
@@ -92,9 +101,11 @@ public class WeaponParrent : MonoBehaviour
     public float bulletSpeedFLM = 1;
     public float rangeFLM = 20;
     public bool Tier1_FLM = true;
+    public GameObject TierObj1_FLM;
 
     public bool Tier2_FLM = false;
     public int Tier2_FLM_Cost = 14;
+    public GameObject TierObj2_FLM;
 
     public bool Tier3_FLM = false;
     public int Tier3_FLM_Cost = 18;
@@ -128,8 +139,20 @@ public class WeaponParrent : MonoBehaviour
 
     void Start()
     {
+        controller = GameObject.Find("PlayerTest").GetComponent<PlayerController>();
+
         // Ensure that all weapon scripts are enabled by default
         EnableAllWeaponScripts();
+        //TierObj1_MG = GameObject.Find("MachineGunTest");
+        //TierObj2_MG = GameObject.Find("MachineGunTest (1)");
+
+        //TierObj1_SG = GameObject.Find("Shotgun Test");
+        //TierObj2_SG = GameObject.Find("Shotgun Test (1)");
+
+        //TierObj1_FLM = GameObject.Find("Flamethrower Test");
+        //TierObj2_FLM = GameObject.Find("Flamethrower Test 1");
+
+
     }
 
     void Update()
@@ -141,6 +164,20 @@ public class WeaponParrent : MonoBehaviour
         else
         {
             EnableAllWeaponScripts();
+        }
+
+        if (controller.equipedLeftWeapon == TierObj1_MG && Tier2_MG)
+        {
+            controller.equipedLeftWeapon = TierObj2_MG;
+        }
+        else if (controller.equipedLeftWeapon == TierObj1_SG && Tier2_SG)
+        {
+            controller.equipedLeftWeapon = TierObj2_SG;
+        }
+
+        if (controller.equipedRightWeapon == TierObj1_FLM && Tier2_FLM)
+        {
+            controller.equipedRightWeapon = TierObj2_FLM;
         }
     }
 

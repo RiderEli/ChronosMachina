@@ -10,4 +10,12 @@ public class BulletProjectile : MonoBehaviour
     {
         impactDamage = damage;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ground") || other.CompareTag("Wall"))
+        {
+            GameObject.Destroy(gameObject);
+        }
+    }
 }
