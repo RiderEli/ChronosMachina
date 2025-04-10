@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Turret : EnemyParent
 {
-    public GameObject poop;
+    //public GameObject poop;
 
     [Header("Is the turret aiming?")]
     public bool aiming;
@@ -39,7 +39,7 @@ public class Turret : EnemyParent
         if (aiming)
         {
             enemyHead.transform.LookAt(player.transform.position);
-            poop.transform.position = player.transform.position;
+           // poop.transform.position = player.transform.position;
             missileShoot();
 
         }

@@ -136,9 +136,9 @@ MonoBehaviour:
   - {fileID: 8909298994541195064, guid: 6ccbebe77351bc04aa7e97cd2f450b51, type: 3}
   - {fileID: 341658222094009727, guid: 6ebaf63574368b84ab207804808ce333, type: 3}
   enemyPieces:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2749516665628177420}
+  - {fileID: 7119202359821304435}
+  - {fileID: 3664357955063618991}
   enemyRB: {fileID: 0}
   weaponSpawn: {fileID: 3863671058162465521}
   player: {fileID: 0}
@@ -329,9 +329,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1389157214485551384}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2749516665628177420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3850430306517363988, guid: 59053e64e6b4d62468b82f9bd61c1e98,
+    type: 3}
+  m_PrefabInstance: {fileID: 1389157214485551384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3664357955063618991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2422141674695460023, guid: 59053e64e6b4d62468b82f9bd61c1e98,
+    type: 3}
+  m_PrefabInstance: {fileID: 1389157214485551384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3863671058162465521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2799483577311306729, guid: 59053e64e6b4d62468b82f9bd61c1e98,
+    type: 3}
+  m_PrefabInstance: {fileID: 1389157214485551384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7119202359821304435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8181699066666720107, guid: 59053e64e6b4d62468b82f9bd61c1e98,
     type: 3}
   m_PrefabInstance: {fileID: 1389157214485551384}
   m_PrefabAsset: {fileID: 0}
