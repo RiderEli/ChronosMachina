@@ -79,7 +79,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theEnemy: {fileID: 3274325234155895039}
   spawnTime: 2
-  enemyInWave: 1
+  bombDropperInParent: 0
+  dropper: {fileID: 0}
 --- !u!1001 &5485962831925839125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 3784335824167794120, guid: 4c12d14a47add924ca16ed7eb6596dce,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.62
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3784335824167794120, guid: 4c12d14a47add924ca16ed7eb6596dce,
         type: 3}

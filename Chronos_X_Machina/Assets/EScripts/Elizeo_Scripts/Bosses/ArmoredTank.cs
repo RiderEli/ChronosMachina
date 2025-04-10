@@ -23,19 +23,13 @@ public class ArmoredTank : BossParent
         //Renderer for the Body
         bossRenderer[0] = bossPieces[0].GetComponent<Renderer>();
         //Renderer for the Top Turret
-        bossRenderer[3] = bossPieces[3].GetComponent<Renderer>();
-        bossRenderer[4] = bossPieces[4].GetComponent<Renderer>();
-        bossRenderer[5] = bossPieces[5].GetComponent<Renderer>();
-        bossRenderer[6] = bossPieces[6].GetComponent<Renderer>();
-        bossRenderer[7] = bossPieces[7].GetComponent<Renderer>();
+        bossRenderer[1] = bossPieces[1].GetComponent<Renderer>();
+
         //Materials in use for Body
         bossRenderer[0].material = bossMat[0];
         //Materials in use for Top Turret
-        bossRenderer[3].material = bossMat[0];
-        bossRenderer[4].material = bossMat[0];
-        bossRenderer[5].material = bossMat[0];
-        bossRenderer[6].material = bossMat[0];
-        bossRenderer[7].material = bossMat[0];
+        bossRenderer[1].material = bossMat[0];
+
     }
 
     // Update is called once per frame
@@ -79,18 +73,12 @@ public class ArmoredTank : BossParent
     public IEnumerator BossGotHit()
     {
         bossRenderer[0].material = bossMat[1];
-        bossRenderer[3].material = bossMat[1];
-        bossRenderer[4].material = bossMat[1];
-        bossRenderer[5].material = bossMat[1];
-        bossRenderer[6].material = bossMat[1];
-        bossRenderer[7].material = bossMat[1];
+        bossRenderer[1].material = bossMat[1];
+
         yield return new WaitForSeconds(0.1f);
         bossRenderer[0].material = bossMat[0];
-        bossRenderer[3].material = bossMat[0];
-        bossRenderer[4].material = bossMat[0];
-        bossRenderer[5].material = bossMat[0];
-        bossRenderer[6].material = bossMat[0];
-        bossRenderer[7].material = bossMat[0];
+        bossRenderer[1].material = bossMat[0];
+
     }
 
     public void BossShooting()
