@@ -13,9 +13,9 @@ public class Flamethrower : MonoBehaviour
     private bool isFiring = false;
 
     public float maxRange = 10f;
-    public int dotDamage = 5;
     public float dotDuration = 3f;
     public int burnDamagePerSecond = 5;
+    public int Damage;
 
     public float maxAmmo = 5f;
     private float currentAmmo;
@@ -138,7 +138,7 @@ public class Flamethrower : MonoBehaviour
             FireProjectile fireScript = flameProjectile.GetComponent<FireProjectile>();
             if (fireScript != null)
             {
-                fireScript.Initialize(maxRange, dotDamage, dotDuration, burnDamagePerSecond);
+                fireScript.Initialize(maxRange, Damage, dotDuration, burnDamagePerSecond);
             }
 
             Destroy(flameProjectile, 5f); // Destroy the projectile after 5 seconds

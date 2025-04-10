@@ -107,7 +107,18 @@ public class NormalGrunt : EnemyParent
 
         if (other.gameObject.CompareTag("PlayerWep"))
         {
-            enemyHP -= 25;
+            if (other.gameObject.GetComponent<BulletProjectile>() != null)
+            {
+                enemyHP -= other.gameObject.GetComponent<BulletProjectile>().impactDamage;
+            }
+            else if (other.gameObject.GetComponent<FireProjectile>() != null)
+            {
+                enemyHP -= other.gameObject.GetComponent<FireProjectile>().impactDamage;
+            }
+            else
+            {
+                enemyHP -= 25;
+            }
             Destroy(other.gameObject);
             StartCoroutine(EnemyGotHit());
         }

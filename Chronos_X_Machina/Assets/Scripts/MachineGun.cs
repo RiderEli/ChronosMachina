@@ -8,6 +8,7 @@ public class MachineGun : MonoBehaviour
     public float bulletSpeed = 20f;
     public float inaccuracy = 2f; // Degrees of inaccuracy
     public float bulletRange = 50f; // Maximum range of bullets
+    public int damage;
 
     public GameObject barrelTip;
     public GameObject bulletPrefab;
@@ -49,6 +50,11 @@ public class MachineGun : MonoBehaviour
             targetDirection = Quaternion.Euler(0, Random.Range(-inaccuracy, inaccuracy), 0) * targetDirection;
 
             GameObject bullet = Instantiate(bulletPrefab, barrelTip.transform.position, Quaternion.LookRotation(targetDirection));
+            BulletProjectile bulletProjectile = bullet.GetComponent<BulletProjectile>();
+            if (bulletProjectile != null)
+            {
+                bulletProjectile.Initialize(damage);
+            }
 
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
             if (rb != null)
