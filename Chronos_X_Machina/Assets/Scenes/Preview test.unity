@@ -5028,6 +5028,11 @@ PrefabInstance:
       objectReference: {fileID: 1886213682}
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
+      propertyPath: screws
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
       propertyPath: waveCam
       value: 
       objectReference: {fileID: 0}
@@ -5039,7 +5044,7 @@ PrefabInstance:
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: isShopping
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
