@@ -31,7 +31,7 @@ public class WaveChecker : MonoBehaviour
     {
         if (PlayerController.currentHP <= 0)
         {
-        StartCoroutine(DiedOnSpawn());
+        //StartCoroutine(DiedOnSpawn());
         }
 
         if (insideWave)
@@ -72,9 +72,9 @@ public class WaveChecker : MonoBehaviour
 
     public IEnumerator DiedOnSpawn()
     {
-        insideWave = false;
+        //insideWave = false;
         yield return new WaitForSeconds(0.1f);
-        WaveSystem.collisionPresent = true;
+       // WaveSystem.collisionPresent = true;
         yield return new WaitForSeconds(0.1f);
 
     }

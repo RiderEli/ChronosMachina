@@ -346,6 +346,10 @@ public class PlayerController : MonoBehaviour
         playerHPUI.SetHP(maxHP);
 
         StartCoroutine(RespawnCooldown());
+        
+        //These are the lines that I added that'll make the wave system work properly.
+        WaveChecker.insideWave = false;
+        WaveSystem.collisionPresent = true;
     }
 
     private IEnumerator RespawnCooldown()
