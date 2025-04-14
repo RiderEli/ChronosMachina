@@ -100237,9 +100237,25 @@ PrefabInstance:
       objectReference: {fileID: 1149930137}
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
+      propertyPath: LeftDisplay
+      value: 
+      objectReference: {fileID: 1921784278}
+    - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
       propertyPath: playerSpawn
       value: 
       objectReference: {fileID: 1836147338}
+    - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: RightDisplay
+      value: 
+      objectReference: {fileID: 1823261863}
+    - target: {fileID: 4426084932063094254, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6140399405611235981, guid: 79eedbf3f49338a4bb1dc64c01ae206c,
+        type: 3}
     - target: {fileID: 5788512343472234389, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_AnchorMax.x
