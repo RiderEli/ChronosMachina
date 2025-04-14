@@ -4971,20 +4971,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MachineGun T2
       objectReference: {fileID: 0}
-    - target: {fileID: 2618498984551700595, guid: a884e71611f91264eb5e26c4fbbfc28d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2994172586458530921, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_Name
       value: Flamethrower T2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2994172586458530921, guid: a884e71611f91264eb5e26c4fbbfc28d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3300004231629408233, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
@@ -5029,22 +5019,12 @@ PrefabInstance:
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: screws
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
-        type: 3}
-      propertyPath: waveCam
-      value: 
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: playerCam
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
-        type: 3}
-      propertyPath: isShopping
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
@@ -5056,18 +5036,6 @@ PrefabInstance:
       propertyPath: RightDisplay
       value: 
       objectReference: {fileID: 842847781}
-    - target: {fileID: 4974728039116750681, guid: a884e71611f91264eb5e26c4fbbfc28d,
-        type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 6140399405611235981, guid: 79eedbf3f49338a4bb1dc64c01ae206c,
-        type: 3}
-    - target: {fileID: 5155484938804992194, guid: a884e71611f91264eb5e26c4fbbfc28d,
-        type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 6140399405611235981, guid: 79eedbf3f49338a4bb1dc64c01ae206c,
-        type: 3}
     - target: {fileID: 5788512343472234389, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5083,20 +5051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun T2
       objectReference: {fileID: 0}
-    - target: {fileID: 6860426994137125593, guid: a884e71611f91264eb5e26c4fbbfc28d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7331840670908403321, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_Name
       value: Flamethrower T1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7331840670908403321, guid: a884e71611f91264eb5e26c4fbbfc28d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

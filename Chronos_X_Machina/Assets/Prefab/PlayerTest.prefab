@@ -508,12 +508,12 @@ GameObject:
   - component: {fileID: 7222137631254782199}
   - component: {fileID: 5155484938804992194}
   m_Layer: 3
-  m_Name: MachineGunTest
+  m_Name: MachineGun T1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7222137631254782199
 Transform:
   m_ObjectHideFlags: 0
@@ -1069,12 +1069,12 @@ GameObject:
   - component: {fileID: 65602631917531189}
   - component: {fileID: 4426084932063094254}
   m_Layer: 3
-  m_Name: Shotgun Test
+  m_Name: Shotgun T1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &65602631917531189
 Transform:
   m_ObjectHideFlags: 0
@@ -1123,7 +1123,7 @@ GameObject:
   - component: {fileID: 3710570066224016777}
   - component: {fileID: 4974728039116750681}
   m_Layer: 3
-  m_Name: MachineGunTest (1)
+  m_Name: MachineGun T2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1501,6 +1501,8 @@ MonoBehaviour:
   rightWeapons: []
   equipedLeftWeapon: {fileID: 0}
   equipedRightWeapon: {fileID: 0}
+  LeftDisplay: {fileID: 0}
+  RightDisplay: {fileID: 0}
   equipedSuper: {fileID: 0}
   Tester: {fileID: 0}
   Legs: {fileID: 3517809877658613241}
@@ -1526,13 +1528,13 @@ MonoBehaviour:
   currentLives: 0
   healValue: 25
   waveCam: {fileID: 0}
-  playerCam: {fileID: 2292162795776462073}
+  playerCam: {fileID: 0}
   speed: 25
   rotationSpeed: 10
   gravity: -80
   terminalVelocity: -80
   isShopping: 0
-  screws: 0
+  screws: 50
   torsoTurnReductionFactor: 0.4
   isUsingFlamethrower: 0
 --- !u!143 &2213536198613312571
@@ -1579,10 +1581,10 @@ MonoBehaviour:
   bulletSpeedMG: 1
   rangeMG: 20
   Tier1_MG: 1
-  TierObj1_MG: {fileID: 0}
+  TierObj1_MG: {fileID: 1674946245128948501}
   Tier2_MG: 0
   Tier2_MG_Cost: 10
-  TierObj2_MG: {fileID: 0}
+  TierObj2_MG: {fileID: 2618498984551700595}
   Tier3_MG: 0
   Tier3_MG_Cost: 15
   inaccuracyMG: 1
@@ -1593,10 +1595,10 @@ MonoBehaviour:
   bulletSpeedSG: 1
   rangeSG: 20
   Tier1_SG: 1
-  TierObj1_SG: {fileID: 0}
+  TierObj1_SG: {fileID: 2509500046123938538}
   Tier2_SG: 0
   Tier2_SG_Cost: 7
-  TierObj2_SG: {fileID: 0}
+  TierObj2_SG: {fileID: 6860426994137125593}
   Tier3_SG: 0
   Tier3_SG_Cost: 12
   TierObj3_SG: {fileID: 0}
@@ -1638,10 +1640,10 @@ MonoBehaviour:
   bulletSpeedFLM: 1
   rangeFLM: 20
   Tier1_FLM: 1
-  TierObj1_FLM: {fileID: 0}
+  TierObj1_FLM: {fileID: 7331840670908403321}
   Tier2_FLM: 0
   Tier2_FLM_Cost: 14
-  TierObj2_FLM: {fileID: 0}
+  TierObj2_FLM: {fileID: 2994172586458530921}
   Tier3_FLM: 0
   Tier3_FLM_Cost: 18
   emp: {fileID: 948190974954343945}
@@ -4313,7 +4315,7 @@ PrefabInstance:
     - target: {fileID: 7872616598961850039, guid: cd0849b05d2cc4e44ae049fb5541313a,
         type: 3}
       propertyPath: m_Name
-      value: Flamethrower Test
+      value: Flamethrower T1
       objectReference: {fileID: 0}
     - target: {fileID: 7872616598961850039, guid: cd0849b05d2cc4e44ae049fb5541313a,
         type: 3}
@@ -4331,7 +4333,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 648176584699070670}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7331840670908403321}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d8da2e3a803f42458865916a3d7717f, type: 3}
@@ -4340,6 +4342,12 @@ MonoBehaviour:
 --- !u!4 &6199988110492035718 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6842095370318848584, guid: cd0849b05d2cc4e44ae049fb5541313a,
+    type: 3}
+  m_PrefabInstance: {fileID: 648176584699070670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7331840670908403321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7872616598961850039, guid: cd0849b05d2cc4e44ae049fb5541313a,
     type: 3}
   m_PrefabInstance: {fileID: 648176584699070670}
   m_PrefabAsset: {fileID: 0}
@@ -4815,7 +4823,7 @@ PrefabInstance:
     - target: {fileID: 7872616598961850039, guid: cc11e9c0f2694ce4b96f33845f6adc3d,
         type: 3}
       propertyPath: m_Name
-      value: Flamethrower Test 1
+      value: Flamethrower T2
       objectReference: {fileID: 0}
     - target: {fileID: 7872616598961850039, guid: cc11e9c0f2694ce4b96f33845f6adc3d,
         type: 3}
@@ -4830,6 +4838,12 @@ PrefabInstance:
 --- !u!4 &1889355093436194966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6842095370318848584, guid: cc11e9c0f2694ce4b96f33845f6adc3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4957433013876409054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2994172586458530921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7872616598961850039, guid: cc11e9c0f2694ce4b96f33845f6adc3d,
     type: 3}
   m_PrefabInstance: {fileID: 4957433013876409054}
   m_PrefabAsset: {fileID: 0}
@@ -4894,7 +4908,7 @@ PrefabInstance:
     - target: {fileID: 3855112078911812146, guid: 8a01970dfd879b84282e9276a55a9003,
         type: 3}
       propertyPath: m_Name
-      value: Shotgun Test (1)
+      value: Shotgun T2
       objectReference: {fileID: 0}
     - target: {fileID: 3855112078911812146, guid: 8a01970dfd879b84282e9276a55a9003,
         type: 3}
@@ -4917,6 +4931,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a01970dfd879b84282e9276a55a9003, type: 3}
+--- !u!1 &6860426994137125593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3855112078911812146, guid: 8a01970dfd879b84282e9276a55a9003,
+    type: 3}
+  m_PrefabInstance: {fileID: 7689120119159546091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7543959265429148686 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 145444467807859941, guid: 8a01970dfd879b84282e9276a55a9003,
