@@ -7350,6 +7350,7 @@ MonoBehaviour:
   playerThing: {fileID: 969082397}
   pauseContainer: {fileID: 152385510}
   GameOverContainer: {fileID: 1358941046}
+  levels: 0
 --- !u!1 &459999801
 GameObject:
   m_ObjectHideFlags: 0
@@ -28027,11 +28028,6 @@ PrefabInstance:
       propertyPath: Tester
       value: 
       objectReference: {fileID: 562884957}
-    - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
-        type: 3}
-      propertyPath: isShopping
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4974728039116750681, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: damage

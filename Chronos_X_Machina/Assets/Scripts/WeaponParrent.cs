@@ -137,6 +137,24 @@ public class WeaponParrent : MonoBehaviour
     // Add a reference to PlayerController for shopping state
     public PlayerController playerController;  // Make sure to drag the PlayerController script in the inspector
 
+    public Dictionary<string, GameObject> weaponDict;
+    void Awake()
+    {
+        weaponDict = new Dictionary<string, GameObject>
+        {
+            { "Tier1_MG", TierObj1_MG },
+            { "Tier2_MG", TierObj2_MG },
+            { "Tier3_MG", TierObj3_MG },
+            { "Tier1_SG", TierObj1_SG },
+            { "Tier2_SG", TierObj2_SG },
+            { "Tier3_SG", TierObj3_SG },
+            { "Tier1_FLM", TierObj1_FLM },
+            { "Tier2_FLM", TierObj2_FLM },
+            //{ "Tier3_FT", TierObj3_FLM },
+            
+        };
+    }
+
     void Start()
     {
         controller = GameObject.Find("PlayerTest").GetComponent<PlayerController>();
@@ -209,5 +227,20 @@ public class WeaponParrent : MonoBehaviour
         if (chestLaser != null) chestLaser.enabled = true;
         if (healingStatBoosts != null) healingStatBoosts.enabled = true;
         if (rocketLauncher != null) rocketLauncher.enabled = true;
+    }
+
+    public GameObject GetTieredWeapon(string weaponType, int tier)
+    {
+        switch (weaponType)
+        {
+            case "MG":
+                return tier == 1 ? TierObj1_MG : tier == 2 ? TierObj2_MG : TierObj3_MG;
+            case "SG":
+                return tier == 1 ? TierObj1_SG : tier == 2 ? TierObj2_SG : TierObj3_SG;
+            case "FLM":
+                return tier == 1 ? TierObj1_FLM : tier == 2 ? TierObj2_FLM : null;
+            default:
+                return null;
+        }
     }
 }

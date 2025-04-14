@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +20,10 @@ public class PlayerController : MonoBehaviour
 
     public GameObject equipedLeftWeapon;
     public GameObject equipedRightWeapon;
+
+    public TextMeshProUGUI LeftDisplay;
+    public TextMeshProUGUI RightDisplay;
+
     public GameObject equipedSuper;
 
     private int leftWeaponIndex = 0;
@@ -114,6 +121,7 @@ public class PlayerController : MonoBehaviour
         RechargeFlares(); // Call the recharge function
     }
 
+
     void RechargeFlares()
     {
         if (currentFlareCharges < maxFlareCharges)
@@ -146,27 +154,31 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            foreach (Transform child in LeftArmTransform.transform)
+            leftWeapons.Clear();
+            rightWeapons.Clear();
+
+            foreach (Transform child in LeftArmTransform)
             {
-                // Add the child GameObject to the list
                 leftWeapons.Add(child.gameObject);
                 if (child.gameObject.activeSelf)
                 {
                     equipedLeftWeapon = child.gameObject;
+                    LeftDisplay.text = equipedLeftWeapon.name;
                 }
             }
 
-            foreach (Transform child in RightArmTransform.transform)
+            foreach (Transform child in RightArmTransform)
             {
-                // Add the child GameObject to the list
                 rightWeapons.Add(child.gameObject);
                 if (child.gameObject.activeSelf)
                 {
                     equipedRightWeapon = child.gameObject;
+                    RightDisplay.text = equipedRightWeapon.name;
                 }
             }
         }
     }
+
 
     void FixedUpdate()
     {
@@ -183,6 +195,7 @@ public class PlayerController : MonoBehaviour
                 if (child.gameObject.activeSelf)
                 {
                     equipedLeftWeapon = child.gameObject;
+                    LeftDisplay.text = equipedLeftWeapon.name;
                 }
                 child.gameObject.SetActive(false);
             }
@@ -196,11 +209,13 @@ public class PlayerController : MonoBehaviour
                 if (child.gameObject.activeSelf)
                 {
                     equipedRightWeapon = child.gameObject;
+                    RightDisplay.text = equipedRightWeapon.name;
                 }
                 child.gameObject.SetActive(false);
             }
         }
     }
+
 
     void HandleMovement()
     {
@@ -399,5 +414,13 @@ public class PlayerController : MonoBehaviour
             playerHPUI.SetHP(currentHP);
             Destroy(other.gameObject);
         }
+    }
+    public void UpdateWeaponDisplays()
+    {
+        if (equipedLeftWeapon != null)
+            LeftDisplay.text = equipedLeftWeapon.name;
+
+        if (equipedRightWeapon != null)
+            RightDisplay.text = equipedRightWeapon.name;
     }
 }

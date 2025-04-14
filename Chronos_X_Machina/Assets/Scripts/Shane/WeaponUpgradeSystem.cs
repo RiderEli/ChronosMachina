@@ -16,9 +16,10 @@ public class WeaponUpgradeSystem : MonoBehaviour
         if (playerTest != null)
         {
             weaponParrent = playerTest.GetComponentInChildren<WeaponParrent>();
+            playerController = playerTest.GetComponent<PlayerController>();
         }
 
-        // Find and assign buttons dynamically
+        // Assign buttons for all weapons
         AssignButtons("MachineGun");
         AssignButtons("Shotgun");
         AssignButtons("PlasmaGun");
@@ -29,8 +30,6 @@ public class WeaponUpgradeSystem : MonoBehaviour
         AssignButtons("ChestLaser");
         AssignButtons("HealingStatBoost");
     }
-
-    
 
     private void AssignButtons(string weaponName)
     {
@@ -52,10 +51,9 @@ public class WeaponUpgradeSystem : MonoBehaviour
         }
     }
 
-    // Purchase logic for a specific tier
     public void PurchaseUpgrade(string weaponType, int tier)
     {
-        if (playerController.screws < 50) // Adjust pricing as needed
+        if (playerController.screws < 50)
         {
             Debug.Log($"Not enough currency to upgrade {weaponType}.");
             return;
@@ -64,28 +62,28 @@ public class WeaponUpgradeSystem : MonoBehaviour
         switch (weaponType)
         {
             case "MachineGun":
-                UpgradeWeapon(ref weaponParrent.Tier1_MG, ref weaponParrent.Tier2_MG, ref weaponParrent.Tier3_MG, tier);
+                UpgradeWeapon(ref weaponParrent.Tier1_MG, ref weaponParrent.Tier2_MG, ref weaponParrent.Tier3_MG, tier, true, "MG");
                 break;
             case "Shotgun":
-                UpgradeWeapon(ref weaponParrent.Tier1_SG, ref weaponParrent.Tier2_SG, ref weaponParrent.Tier3_SG, tier);
+                UpgradeWeapon(ref weaponParrent.Tier1_SG, ref weaponParrent.Tier2_SG, ref weaponParrent.Tier3_SG, tier, true, "SG");
                 break;
             case "PlasmaGun":
-                UpgradeWeapon(ref weaponParrent.Tier1_PL, ref weaponParrent.Tier2_PL, ref weaponParrent.Tier3_PL, tier);
+                UpgradeWeapon(ref weaponParrent.Tier1_PL, ref weaponParrent.Tier2_PL, ref weaponParrent.Tier3_PL, tier, true, "PL");
                 break;
             case "Sword":
-                UpgradeWeapon(ref weaponParrent.Tier1_SWD, ref weaponParrent.Tier2_SWD, ref weaponParrent.Tier3_SWD, tier);
+                UpgradeWeapon(ref weaponParrent.Tier1_SWD, ref weaponParrent.Tier2_SWD, ref weaponParrent.Tier3_SWD, tier, false, "SWD");
                 break;
             case "Flamethrower":
-                UpgradeWeapon(ref weaponParrent.Tier1_FLM, ref weaponParrent.Tier2_FLM, ref weaponParrent.Tier3_FLM, tier);
+                UpgradeWeapon(ref weaponParrent.Tier1_FLM, ref weaponParrent.Tier2_FLM, ref weaponParrent.Tier3_FLM, tier, false, "FLM");
                 break;
             case "GrenadeLauncher":
-                UpgradeWeapon(ref weaponParrent.Tier1_GRE, ref weaponParrent.Tier2_GRE, ref weaponParrent.Tier3_GRE, tier);
+                UpgradeWeapon(ref weaponParrent.Tier1_GRE, ref weaponParrent.Tier2_GRE, ref weaponParrent.Tier3_GRE, tier, false, "GRE");
                 break;
             case "EMP":
                 Debug.Log("EMP upgrade not implemented yet.");
                 break;
             case "ChestLaser":
-                Debug.Log("Chest Laser upgrade not implemented yet.");  
+                Debug.Log("Chest Laser upgrade not implemented yet.");
                 break;
             case "HealingStatBoost":
                 Debug.Log("Healing Stat Boost upgrade not implemented yet.");
@@ -96,35 +94,68 @@ public class WeaponUpgradeSystem : MonoBehaviour
         }
     }
 
-    private void UpgradeWeapon(ref bool tier1, ref bool tier2, ref bool tier3, int targetTier)
+    private void UpgradeWeapon(ref bool tier1, ref bool tier2, ref bool tier3, int targetTier, bool isLeftArm, string gunTag)
     {
-        int cost = (targetTier == 2) ? 50 : 75; // Example costs
+        int cost = (targetTier == 2) ? 50 : 75;
 
-        // Ensure the player has enough currency before proceeding
+        string key = $"Tier{targetTier}_{gunTag}";
+        // If the player already owns this tier, just equip it
+        if ((targetTier == 2 && tier2) || (targetTier == 3 && tier3))
+        {
+            // Directly set the active weapon for left/right arm
+            if (isLeftArm)
+            {
+                playerController.equipedLeftWeapon = weaponParrent.weaponDict[key];
+            }
+
+            if (!isLeftArm)
+            {
+                playerController.equipedRightWeapon = weaponParrent.weaponDict[key];
+            }
+
+            playerController.UpdateWeaponDisplays();
+            Debug.Log($"Weapon already owned. Equipped Tier {targetTier}.");
+            return;
+        }
+
         if (playerController.screws < cost)
         {
             Debug.Log("Not enough currency to upgrade.");
             return;
         }
 
+        // Handle the upgrade logic
         if (targetTier == 2 && tier1 && !tier2)
         {
             tier1 = false;
             tier2 = true;
             playerController.screws -= cost;
-            Debug.Log($"Upgraded to Tier 2! Remaining Currency: {playerController.screws}");
+            Debug.Log($"Upgraded to Tier 2! Equipped it. Remaining Currency: {playerController.screws}");
         }
         else if (targetTier == 3 && tier2 && !tier3)
         {
             tier2 = false;
             tier3 = true;
             playerController.screws -= cost;
-            Debug.Log($"Upgraded to Tier 3! Remaining Currency: {playerController.screws}");
+            Debug.Log($"Upgraded to Tier 3! Equipped it. Remaining Currency: {playerController.screws}");
         }
         else
         {
-            Debug.Log("Weapon is already at max tier or upgrade conditions not met!");
+            Debug.Log("Upgrade not allowed. Missing prior tier?");
+            return;
         }
-    }
 
+        // Now equip the weapon after upgrade
+        if (isLeftArm)
+        {
+            playerController.equipedLeftWeapon = weaponParrent.weaponDict[key];
+        }
+        else
+        {
+            playerController.equipedRightWeapon = weaponParrent.weaponDict[key];
+        }
+
+        playerController.UpdateWeaponDisplays();
+        Debug.Log($"Upgraded to Tier {targetTier} and equipped!");
+    }
 }
