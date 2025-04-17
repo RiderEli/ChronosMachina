@@ -130,4 +130,16 @@ public class BombDropper : EnemyParent
             WaveSystem.counter -= 1;
         }
     }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("WaveKill"))
+        {
+            Destroy(transform.parent.gameObject);
+            if (WaveChecker.insideWave == true || dropperInWave == true)
+            {
+                WaveSystem.counter -= 1;
+            }
+        }
+    }
 }

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4280993075051962462}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60.9, y: -4.3, z: 1.8}
+  m_LocalPosition: {x: 2.8, y: 10.3, z: 50.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106,7 +106,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20, y: 20, z: 20}
+  m_Size: {x: 150, y: 20, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1698863880649849149
 MonoBehaviour:
@@ -120,6 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abab441c9defc3b42baaddcdd2234604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveCheckerObject: {fileID: 5112912014968442140, guid: 3985d21108b302545b58c29b49852a00,
+  waveCheckerObject: {fileID: 5112912014968442140, guid: 3f327e376b2b85d4890b73cb3ffa4f24,
     type: 3}
   waveSpawn: {fileID: 3450928721278780531}

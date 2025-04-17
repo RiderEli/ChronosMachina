@@ -39,6 +39,8 @@ public class Kamikaze : EnemyParent
         this.transform.LookAt(player.transform.position);
     }
 
+
+
     public void OnTriggerEnter(Collider other)
     {
 
@@ -79,5 +81,17 @@ public class Kamikaze : EnemyParent
         enemyRenderer.material = enemyMat[0];
         enemyRend2.material = enemyMat[0];
         enemyRend3.material = enemyMat[0];
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("WaveKill"))
+        {
+            Destroy(transform.parent.gameObject);
+            if (WaveChecker.insideWave == true)
+            {
+                WaveSystem.counter -= 1;
+            }
+        }
     }
 }

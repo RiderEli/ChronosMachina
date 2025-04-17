@@ -83,15 +83,15 @@ public class EnemyBomb : MonoBehaviour
         if (bombExploding)
         {
             bombRB.velocity = Vector3.zero;
-
+            bombObject.SetActive(false);
+            explosionObject.SetActive(true);
         }
     }
 
     public IEnumerator explosion()
     {
         bombExploding = true;
-        bombObject.SetActive(false);
-        explosionObject.SetActive(true);
+
         yield return new WaitForSeconds(explosionDuration);
         Destroy(gameObject);
     }

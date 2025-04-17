@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 using static EnemyParent;
 
@@ -11,6 +12,11 @@ public class ArmoredTank : BossParent
     [Header("How fast will the turret shoot?")]
     public float missileDelay;
     private float shotCounter;
+
+    public GameObject bossHealth_UI;
+    public bool bossHealthActive;
+
+    public PlayerHP bossHealth_UI_On_Screen;
 
     // Start is called before the first frame update
     public override void Start()
@@ -29,6 +35,8 @@ public class ArmoredTank : BossParent
         bossRenderer[0].material = bossMat[0];
         //Materials in use for Top Turret
         bossRenderer[1].material = bossMat[0];
+
+        bossHealthActive = false;
 
     }
 
@@ -50,6 +58,7 @@ public class ArmoredTank : BossParent
         if (distance < bossDetect)
         {
             aiming = true;
+            bossHealthActive = true;
         }
 
 
@@ -61,6 +70,15 @@ public class ArmoredTank : BossParent
             {
                 WaveSystem.counter -= 1;
             }
+        }
+
+        if (bossHealthActive)
+        {
+            bossHealth_UI.SetActive(true);
+        }
+        else
+        {
+            bossHealth_UI.SetActive(false);
         }
     }
     public void OnTriggerEnter(Collider other)
@@ -80,6 +98,7 @@ public class ArmoredTank : BossParent
             {
                 bossHP -= 25;
             }
+            bossHealth_UI_On_Screen.SetHP(bossHP);
             Destroy(other.gameObject);
             StartCoroutine(BossGotHit());
         }

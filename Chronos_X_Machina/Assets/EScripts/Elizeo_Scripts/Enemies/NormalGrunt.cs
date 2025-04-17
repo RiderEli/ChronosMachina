@@ -155,4 +155,16 @@ public class NormalGrunt : EnemyParent
         enemyRend2.material = enemyMat[0];
         enemyRend3.material = enemyMat[0];
     }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("WaveKill"))
+        {
+            Destroy(transform.parent.gameObject);
+            if (WaveChecker.insideWave == true)
+            {
+                WaveSystem.counter -= 1;
+            }
+        }
+    }
 }

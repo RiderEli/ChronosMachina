@@ -51,6 +51,8 @@ public class EnemyParent : MonoBehaviour
     {
         idle,
         moving,
+        //This is ONLY to be used for Certain Enemies.
+        unique
     }
 
     [Header("Enemy Movement States:")]
@@ -91,6 +93,10 @@ public class EnemyParent : MonoBehaviour
                 EnemyMove();
                 break;
 
+            //This is ONLY for use of Specific Enemies
+            case enemyMovement.unique:
+                //No Code will be added here.
+                break;
         }
     }
 
