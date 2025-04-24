@@ -39,9 +39,8 @@ public class PlayerController : MonoBehaviour
     public Transform LeftFlareSpawnPoint;
     public Transform RightFlareSpawnPoint;
     public int maxFlareCharges = 3;
-    public int flareCharges = 0;
     public float flareRechargeTimer = 2f;
-    private int currentFlareCharges;
+    public int currentFlareCharges;
     public float flareSpeed = 10f;
     public int flaresPerShot = 5;
     public float flareSpreadAngle = 20f;
@@ -113,24 +112,28 @@ public class PlayerController : MonoBehaviour
 
 
 
+        RechargeFlares();
         HandleMovement();
         HandleFlareShooting();
         StoreActiveWeapons();
-        HandleCameras();
         HandleHealthSystem();
-        RechargeFlares(); // Call the recharge function
+        HandleCameras(); // Call the recharge function
     }
 
 
     void RechargeFlares()
     {
+        Debug.Log(currentFlareCharges + " " + maxFlareCharges);
         if (currentFlareCharges < maxFlareCharges)
         {
             flareRechargeTimerElapsed += Time.deltaTime;
+            Debug.Log($"Recharging... {flareRechargeTimerElapsed:F2} / {flareRechargeTimer}");
+
             if (flareRechargeTimerElapsed >= flareRechargeTimer)
             {
                 currentFlareCharges++;
                 flareRechargeTimerElapsed = 0f;
+                Debug.Log($"Flare charge added! Current: {currentFlareCharges}");
             }
         }
     }
@@ -265,8 +268,11 @@ public class PlayerController : MonoBehaviour
                 SpawnFlare(LeftFlareSpawnPoint, leftFlareRotation, -transform.right);
                 SpawnFlare(RightFlareSpawnPoint, rightFlareRotation, transform.right);
             }
-            currentFlareCharges--;
-            flareRechargeTimerElapsed = 0f; // Reset recharge timer after shooting
+            currentFlareCharges--; 
+            if (currentFlareCharges <= 0)
+            {
+                flareRechargeTimerElapsed = 0f;
+            }
         }
     }
 

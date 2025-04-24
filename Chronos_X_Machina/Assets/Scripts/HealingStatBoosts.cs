@@ -1,68 +1,120 @@
-using System.Collections;
+using System;
 using UnityEngine;
 
 public class HealingStatBoosts : MonoBehaviour
 {
-    public int healAmount = 30;
-    public float boostDuration = 5f;
-    public float speedBoostMultiplier = 1.5f;
-    public float flareRechargeBoostMultiplier = 0.5f; // Lower = faster recharge
-    public GameObject healEffectPrefab;
+    public int healAmount = 20;
+    public float healingDelay = 0.5f;
+    public float healingDuration = 5f;
+    public KeyCode ultKey = KeyCode.H;
 
-    public float cooldownTime = 10f;
-    private float cooldownTimer = 0f;
-    private bool isActive = false;
+    private bool isHealing = false;
+    private float lastHealTime = 0f;
 
-    private PlayerController playerController;
-    private float originalSpeed;
-    private float originalRechargeTime;
+    public PlayerController playerController;
 
-    void Start()
+    public float damageBoost;
+
+    public float flareRechargeBoost = 1.5f;
+    public float flareBoostDuration = 3f; // New customizable duration for the flare boost
+    private float flareBoostStartTime = 0f;
+    private bool flareBoostActive = false;
+
+    private float originalFlareRechargeTimer;
+
+    private void Start()
     {
-        playerController = GetComponent<PlayerController>();
-        originalSpeed = playerController.speed;
-        originalRechargeTime = playerController.flareRechargeTimer;
+        if (playerController == null)
+        {
+            Debug.LogError("HealingStatBoosts: PlayerController not found on this GameObject.");
+        }
+
+        originalFlareRechargeTimer = playerController.flareRechargeTimer;
     }
 
-    void Update()
+    private void Update()
     {
-        if (cooldownTimer > 0f)
+        if (Input.GetKeyDown(ultKey) && !isHealing)
         {
-            cooldownTimer -= Time.deltaTime;
+            StartHealing();
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && !isActive && cooldownTimer <= 0f)
+        if (isHealing)
         {
-            StartCoroutine(ActivateHealingBuff());
-            cooldownTimer = cooldownTime;
+            if (!flareBoostActive)
+            {
+                ApplyFlareBoosts();
+            }
+
+            if (Time.time - lastHealTime >= healingDuration)
+            {
+                EndHealing();
+            }
+        }
+
+        if (flareBoostActive && Time.time - flareBoostStartTime >= flareBoostDuration)
+        {
+            EndFlareBoost();
         }
     }
 
-    IEnumerator ActivateHealingBuff()
+    public void StartHealing()
     {
-        isActive = true;
-
-        // Optional: spawn healing effect
-        if (healEffectPrefab)
+        if (playerController != null)
         {
-            GameObject effect = Instantiate(healEffectPrefab, transform.position, Quaternion.identity);
-            Destroy(effect, 3f); // auto destroy effect
+            isHealing = true;
+            lastHealTime = Time.time;
+
+            Debug.Log("Ultimate healing started.");
+            StartCoroutine(HealAfterDelay());
         }
+        else
+        {
+            Debug.LogError("HealingStatBoosts: PlayerController reference is missing.");
+        }
+    }
 
-        // Heal the player
-        //PlayerController.currentHP = Mathf.Min(PlayerController.maxHP, PlayerController.currentHP + healAmount);
-        playerController.playerHPUI.SetHP(PlayerController.currentHP);
+    private System.Collections.IEnumerator HealAfterDelay()
+    {
+        yield return new WaitForSeconds(healingDelay);
 
-        // Apply stat boosts
-        playerController.speed = originalSpeed * speedBoostMultiplier;
-        playerController.flareRechargeTimer = originalRechargeTime * flareRechargeBoostMultiplier;
+        int newHP = Mathf.Min(playerController.maxHP, PlayerController.currentHP + healAmount);
+        Debug.Log($"Healing player: New HP = {newHP}");
+        PlayerController.currentHP = newHP;
 
-        yield return new WaitForSeconds(boostDuration);
+        if (playerController.playerHPUI != null)
+        {
+            playerController.playerHPUI.SetHP(PlayerController.currentHP);
+        }
+        else
+        {
+            Debug.LogWarning("HealingStatBoosts: playerHPUI is not assigned.");
+        }
+    }
 
-        // Revert boosts
-        playerController.speed = originalSpeed;
-        playerController.flareRechargeTimer = originalRechargeTime;
+    private void ApplyFlareBoosts()
+    {
+        playerController.flareRechargeTimer /= flareRechargeBoost;
+        flareBoostStartTime = Time.time;
+        flareBoostActive = true;
 
-        isActive = false;
+        if (playerController.currentFlareCharges < playerController.maxFlareCharges)
+        {
+            playerController.currentFlareCharges += 2;
+            Debug.Log("Regenerated 1 flare charge!");
+        }
+    }
+
+    private void EndFlareBoost()
+    {
+        playerController.flareRechargeTimer = originalFlareRechargeTimer;
+        flareBoostActive = false;
+        Debug.Log("Flare recharge boost ended.");
+    }
+
+    private void EndHealing()
+    {
+        isHealing = false;
+        Debug.Log("Ultimate healing ended.");
     }
 }

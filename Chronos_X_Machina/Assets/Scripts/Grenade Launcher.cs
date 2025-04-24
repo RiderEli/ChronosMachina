@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GrenadeLauncher : MonoBehaviour
 {
@@ -12,8 +13,6 @@ public class GrenadeLauncher : MonoBehaviour
     public float maxAmmo = 5f;
     private float currentAmmo;
     public float rechargeRate = 1f;
-    public float rechargePenaltyTime = 3f;
-    private bool isRechargingPenalty = false;
 
     [Header("UI & Targeting")]
     public ChargeTest chargeUI;
@@ -32,12 +31,14 @@ public class GrenadeLauncher : MonoBehaviour
     public Material arcMaterial; // Assign this in the Inspector
 
     private bool isFiring;
+    private float fireCooldownTime = 1f; // Delay between shots
+    private float lastFiredTime;
+    private bool buttonHeld;
 
     private void Start()
     {
         currentAmmo = maxAmmo;
         chargeUI.SetMaxCharge(maxAmmo);
-
         if (playerController == null)
             playerController = FindObjectOfType<PlayerController>();
 
@@ -71,34 +72,38 @@ public class GrenadeLauncher : MonoBehaviour
 
         UpdateLandingIndicator();
 
-        if (Input.GetMouseButton(2) && currentAmmo > 0 && !isRechargingPenalty)
+        bool isButtonPressed = Input.GetMouseButton(2);
+
+        // Handle firing logic with cooldown
+        if (isButtonPressed && currentAmmo > 0 && Time.time - lastFiredTime >= fireCooldownTime)
         {
-            if (!isFiring)
+            if (!buttonHeld)
             {
-                isFiring = true;
-                FireGrenade();
-                if (playerController != null)
-                    playerController.isUsingFlamethrower = true;
+                buttonHeld = true;  // Register that the button is held
+                FireGrenade();      // Fire once when button is pressed
             }
         }
         else
         {
-            isFiring = false;
-            if (playerController != null)
-                playerController.isUsingFlamethrower = false;
+            // Allow recharge only when player releases the fire button
+            if (buttonHeld && !isButtonPressed)
+            {
+                buttonHeld = false;  // Button was released
+            }
         }
 
-        if (isRechargingPenalty)
+        if (!buttonHeld && !isButtonPressed && currentAmmo < maxAmmo)
         {
+            float previousAmmo = currentAmmo;
+
             currentAmmo += rechargeRate * Time.deltaTime;
-            chargeUI.UpdateCharge(currentAmmo);
-            if (currentAmmo >= maxAmmo)
-                isRechargingPenalty = false;
-        }
-        else if (!isFiring && currentAmmo < maxAmmo)
-        {
-            currentAmmo += rechargeRate * Time.deltaTime;
-            chargeUI.UpdateCharge(currentAmmo);
+            currentAmmo = Mathf.Min(currentAmmo, maxAmmo); // Clamp to max
+
+            // Only update the slider if ammo actually increased or was 0
+            if (previousAmmo <= 0 || Mathf.Abs(currentAmmo - previousAmmo) > 0.001f)
+            {
+                chargeUI.UpdateCharge(currentAmmo);
+            }
         }
     }
 
@@ -113,7 +118,7 @@ public class GrenadeLauncher : MonoBehaviour
 
     void FireGrenade()
     {
-        if (landingIndicatorInstance == null) return;
+        if (landingIndicatorInstance == null || chargeUI.currentCharge <= 0) return;
 
         Vector3 startPoint = firePoint.position;
         Vector3 targetPosition = landingIndicatorInstance.transform.position;
@@ -127,13 +132,14 @@ public class GrenadeLauncher : MonoBehaviour
             grenadeScript.explosionDamage = explosionDamage;
         }
 
-        currentAmmo -= 1f;
-        chargeUI.UpdateCharge(currentAmmo);
-
-        if (currentAmmo <= 0)
-            StartCoroutine(RechargePenalty());
+        // Decrease ammo after firing and update UI
+        chargeUI.UpdateCharge(chargeUI.currentCharge - 1);  // Decrease charge by 1
+        currentAmmo = Mathf.Clamp(currentAmmo - 1, 0, maxAmmo); // Decrease ammo count
 
         lineRenderer.enabled = false;
+
+        // Record the time of the last shot to handle cooldown
+        lastFiredTime = Time.time;
     }
 
     private void DrawArc(Vector3 startPoint, Vector3 targetPosition)
@@ -160,12 +166,5 @@ public class GrenadeLauncher : MonoBehaviour
 
             lineRenderer.enabled = true;
         }
-    }
-
-    private IEnumerator RechargePenalty()
-    {
-        isRechargingPenalty = true;
-        yield return new WaitForSeconds(rechargePenaltyTime);
-        currentAmmo = 0;
     }
 }
