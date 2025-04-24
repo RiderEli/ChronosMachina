@@ -65,23 +65,38 @@ public class ArmoredTank : BossParent
     }
     public void OnTriggerEnter(Collider other)
     {
-
         if (other.gameObject.CompareTag("PlayerWep"))
         {
             if (other.gameObject.GetComponent<BulletProjectile>() != null)
             {
                 bossHP -= other.gameObject.GetComponent<BulletProjectile>().impactDamage;
+                Destroy(other.gameObject);
+                StartCoroutine(BossGotHit());
             }
             else if (other.gameObject.GetComponent<FireProjectile>() != null)
             {
+
                 bossHP -= other.gameObject.GetComponent<FireProjectile>().impactDamage;
+                Destroy(other.gameObject);
+                StartCoroutine(BossGotHit());
+            }
+            else if (other.gameObject.GetComponent<ExplosionDamage>() != null)
+            {
+                bossHP -= other.gameObject.GetComponent<ExplosionDamage>().impactDamage;
+                StartCoroutine(BossGotHit());
             }
             else
             {
                 bossHP -= 25;
+                Destroy(other.gameObject);
+                StartCoroutine(BossGotHit());
             }
-            Destroy(other.gameObject);
-            StartCoroutine(BossGotHit());
+
+            if (other.gameObject.CompareTag("PlayerRocket"))
+            {
+                bossHP -= 69;
+                Destroy(other.gameObject);
+            }
         }
     }
 

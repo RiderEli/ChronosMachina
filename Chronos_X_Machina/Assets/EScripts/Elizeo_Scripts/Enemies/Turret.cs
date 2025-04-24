@@ -80,17 +80,26 @@ public class Turret : EnemyParent
             if (other.gameObject.GetComponent<BulletProjectile>() != null)
             {
                 enemyHP -= other.gameObject.GetComponent<BulletProjectile>().impactDamage;
+                Destroy(other.gameObject);
+                StartCoroutine(EnemyGotHit());
             }
-            else if (other.gameObject.GetComponent<FireProjectile>() != null) 
+            else if (other.gameObject.GetComponent<FireProjectile>() != null)
             {
                 enemyHP -= other.gameObject.GetComponent<FireProjectile>().impactDamage;
+                Destroy(other.gameObject);
+                StartCoroutine(EnemyGotHit());
+            }
+            else if(other.gameObject.GetComponent<ExplosionDamage>() != null)
+            {
+                enemyHP -= other.gameObject.GetComponent<ExplosionDamage>().impactDamage;
+                StartCoroutine(EnemyGotHit());
             }
             else
             {
                 enemyHP -= 25;
+                Destroy(other.gameObject);
+                StartCoroutine(EnemyGotHit());
             }
-            Destroy(other.gameObject);
-            StartCoroutine(EnemyGotHit());
         }
 
         if (other.gameObject.CompareTag("PlayerRocket"))

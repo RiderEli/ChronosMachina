@@ -47,25 +47,40 @@ public class Kamikaze : EnemyParent
             if (other.gameObject.GetComponent<BulletProjectile>() != null)
             {
                 enemyHP -= other.gameObject.GetComponent<BulletProjectile>().impactDamage;
+                Destroy(other.gameObject);
+                StartCoroutine(EnemyGotHit());
             }
             else if (other.gameObject.GetComponent<FireProjectile>() != null)
             {
                 enemyHP -= other.gameObject.GetComponent<FireProjectile>().impactDamage;
+                Destroy(other.gameObject);
+                StartCoroutine(EnemyGotHit());
+            }
+            else if (other.gameObject.GetComponent<ExplosionDamage>() != null)
+            {
+                enemyHP -= other.gameObject.GetComponent<ExplosionDamage>().impactDamage;
+                StartCoroutine(EnemyGotHit());
             }
             else
             {
                 enemyHP -= 25;
+                Destroy(other.gameObject);
+                StartCoroutine(EnemyGotHit());
             }
-            Destroy(other.gameObject);
-            StartCoroutine(EnemyGotHit());
-        }
 
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Destroy(this.gameObject);
-            if (WaveChecker.insideWave == true)
+            if (other.gameObject.CompareTag("PlayerRocket"))
             {
-                WaveSystem.counter -= 1;
+                enemyHP -= 69;
+                Destroy(other.gameObject);
+            }
+
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Destroy(this.gameObject);
+                if (WaveChecker.insideWave == true)
+                {
+                    WaveSystem.counter -= 1;
+                }
             }
         }
     }

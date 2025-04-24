@@ -513,7 +513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7222137631254782199
 Transform:
   m_ObjectHideFlags: 0
@@ -1074,7 +1074,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &65602631917531189
 Transform:
   m_ObjectHideFlags: 0
@@ -1521,7 +1521,6 @@ MonoBehaviour:
   verticalArcAngle: 15
   randomVelocityFactor: 3
   upwardBoost: 5
-  maxHP: 100
   playerHPUI: {fileID: 6527490296319119079}
   playerSpawn: {fileID: 0}
   playerLives: 5
@@ -1753,6 +1752,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02966cc533ce7a94684f8b9f8708df39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healAmount: 30
+  boostDuration: 5
+  speedBoostMultiplier: 1.5
+  flareRechargeBoostMultiplier: 0.5
+  healEffectPrefab: {fileID: 0}
+  cooldownTime: 10
 --- !u!1 &3486511672489381672
 GameObject:
   m_ObjectHideFlags: 0
@@ -4188,6 +4193,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576b725b48ea7224eb02436b364cb74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grenadePrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  launchSpeed: 15
+  maxArcHeight: 5
+  fuseTime: 3
+  maxAmmo: 5
+  rechargeRate: 1
+  rechargePenaltyTime: 3
+  chargeUI: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!1 &9063121940199023462
 GameObject:
   m_ObjectHideFlags: 0
