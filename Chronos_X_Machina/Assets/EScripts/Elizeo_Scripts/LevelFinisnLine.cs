@@ -16,11 +16,11 @@ public class LevelFinisnLine : MonoBehaviour
 
     public enum NextLevels
     {
-        LEVEL_1,
-        LEVEL_2
+        LEVEL_0,
+        LEVEL_1
     }
 
-    [Header("THIS HAS BEEN SCRAPPED! - PLEASE IGNORE!")]
+    [Header("Use this only if the game is over. (confusing, I know...)")]
     public NextLevels levels;
     void Start()
     {
@@ -53,6 +53,19 @@ public class LevelFinisnLine : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isLevelFinished = true;
+        }
+    }
+
+    public void ContinueLevel()
+    {
+        if (levels == NextLevels.LEVEL_0)
+        {
+            SceneManager.LoadScene("Level-0-Tutorial 1");
+        }
+
+        if (levels == NextLevels.LEVEL_1)
+        {
+            SceneManager.LoadScene("Level-1-Antarctica 1");
         }
     }
 

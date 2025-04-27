@@ -22,6 +22,8 @@ public class NormalGrunt : EnemyParent
     private Renderer enemyRendUP;
     private Renderer enemyRendDOWN;
 
+    public float turningSpeed;
+
     private bool gruntAfterDist;
     // Update is called once per frame
     public override void Start()
@@ -45,7 +47,8 @@ public class NormalGrunt : EnemyParent
     {
         if (aiming)
         {
-            enemyHead.transform.LookAt(player.transform.position);
+            //enemyHead.transform.LookAt(player.transform.position);
+            TurretAim();
             missileShoot();
 
         }
@@ -82,6 +85,17 @@ public class NormalGrunt : EnemyParent
         }
 
         enemyPause();
+    }
+
+    public void TurretAim()
+    {
+        Vector3 headDir = player.transform.position - transform.position;
+        Quaternion rotation = Quaternion.Slerp(enemyHead.transform.rotation, Quaternion.LookRotation(headDir), turningSpeed * Time.deltaTime);
+
+        rotation.x = 0;
+        rotation.z = 0;
+
+        enemyHead.transform.rotation = rotation;
     }
     public void enemyPause()
     {

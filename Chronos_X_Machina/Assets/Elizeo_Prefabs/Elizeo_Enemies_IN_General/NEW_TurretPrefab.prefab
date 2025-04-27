@@ -150,12 +150,13 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 62cb04c1dbe7b6243ada6e62da1fffef, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 0
   weapons: 0
   enemyDirection: 0
-  poop: {fileID: 0}
   aiming: 0
-  missileDelay: 2
+  missileDelay: 1
+  turningSpeed: 50
 --- !u!54 &5341093249117760478
 Rigidbody:
   m_ObjectHideFlags: 0

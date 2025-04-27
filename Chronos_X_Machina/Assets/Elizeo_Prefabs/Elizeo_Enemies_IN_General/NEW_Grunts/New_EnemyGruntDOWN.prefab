@@ -204,6 +204,7 @@ MonoBehaviour:
   enemyDirection: 2
   aiming: 0
   missileDelay: 1
+  turningSpeed: 50
 --- !u!195 &5447453241355978451
 NavMeshAgent:
   m_ObjectHideFlags: 0

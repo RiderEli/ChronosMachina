@@ -9,9 +9,9 @@ public class GameOver : MonoBehaviour
 {
     public GameObject gameOverScreen;
 
-    [SerializeField] private GameObject playerObject;
+    private GameObject playerObject;
 
-    [SerializeField] public static bool isGameOver;
+    public static bool isGameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -41,21 +41,13 @@ public class GameOver : MonoBehaviour
 
     public void ContinueButton()
     {
-        if (Input.GetKey(KeyCode.Z))
-        {
-            //SceneManager.LoadScene("Elizeo_Enemy");
-        }
-        //SceneManager.LoadScene("Electronic Prototype");
-        SceneManager.LoadScene("Elizeo_Enemy");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void QuitButton()
     {
-        if (Input.GetKey(KeyCode.X))
-        {
-            //Debug.Log("Cue Time Machine");
-        }
-        SceneManager.LoadScene("MainMenu");
+
+        SceneManager.LoadScene("Elizeo_TimeMachine");
 
     }
 }

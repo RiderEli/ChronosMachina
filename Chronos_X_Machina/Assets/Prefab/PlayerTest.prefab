@@ -1804,8 +1804,8 @@ MonoBehaviour:
   LeftFlareSpawnPoint: {fileID: 3989829308874942212}
   RightFlareSpawnPoint: {fileID: 2213080823115078850}
   maxFlareCharges: 100
-  flareCharges: 0
   flareRechargeTimer: 2
+  currentFlareCharges: 0
   flareSpeed: 10
   flaresPerShot: 4
   flareSpreadAngle: 20
@@ -1816,7 +1816,7 @@ MonoBehaviour:
   maxHP: 100
   playerHPUI: {fileID: 6527490296319119079}
   playerSpawn: {fileID: 0}
-  playerLives: 5
+  playerLives: 3
   currentLives: 0
   healValue: 25
   waveCam: {fileID: 0}
@@ -1927,7 +1927,7 @@ MonoBehaviour:
   Tier3_GRE: 0
   Tier3_GRE_Cost: 15
   flamethrower: {fileID: 1427862052355418764}
-  damageFLM: 0.5
+  damageFLM: 0.8
   fireRateFLM: 1
   bulletSpeedFLM: 1
   rangeFLM: 20
@@ -2045,6 +2045,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02966cc533ce7a94684f8b9f8708df39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healAmount: 20
+  healingDelay: 0.5
+  healingDuration: 5
+  ultKey: 104
+  playerController: {fileID: 0}
+  damageBoost: 0
+  flareRechargeBoost: 1.5
+  flareBoostDuration: 3
 --- !u!1 &3458214542894212465
 GameObject:
   m_ObjectHideFlags: 0
@@ -3932,7 +3940,7 @@ Transform:
   m_GameObject: {fileID: 7438268167891001967}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4.03, z: 0}
   m_LocalScale: {x: 1.1768305, y: 1.1768305, z: 1.1768305}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5312,6 +5320,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576b725b48ea7224eb02436b364cb74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grenadePrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  maxArcHeight: 5
+  fuseTime: 3
+  maxAmmo: 5
+  rechargeRate: 1
+  chargeUI: {fileID: 0}
+  playerController: {fileID: 0}
+  landingIndicatorPrefab: {fileID: 0}
+  tester: {fileID: 0}
+  explosionDamage: 50
+  grenadeSpeed: 10
+  explosionRadius: 5
+  arcMaterial: {fileID: 0}
 --- !u!1 &9063121940199023462
 GameObject:
   m_ObjectHideFlags: 0

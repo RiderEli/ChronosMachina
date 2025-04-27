@@ -74,6 +74,7 @@ MonoBehaviour:
   enemyDirection: 1
   aiming: 0
   missileDelay: 2
+  turningSpeed: 50
 --- !u!54 &1373819158999172078
 Rigidbody:
   m_ObjectHideFlags: 0
