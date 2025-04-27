@@ -115,7 +115,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ToTheTimeMachine()
     {
-        SceneManager.LoadScene("Elizeo_TimeMachine");
+        SceneManager.LoadScene("TimeMachine");
     }
 
     public void QuitButton()

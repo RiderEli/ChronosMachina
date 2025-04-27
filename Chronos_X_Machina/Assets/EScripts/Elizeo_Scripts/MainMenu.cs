@@ -39,7 +39,7 @@ public class MainMenu : MonoBehaviour
     //Goes in to the Time Hub
     public void IntoTime()
     {
-        SceneManager.LoadScene("Elizeo_TimeMachine");
+        SceneManager.LoadScene("TimeMachine");
     }
 
     //Goes back to the main menu

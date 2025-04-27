@@ -55,7 +55,7 @@ public class BaseMissile_Enemy : MonoBehaviour
         switch (missileType)
         {
             case missileState.straight:
-                wepRB.velocity = transform.up * wepSpeed;
+                wepRB.velocity = transform.forward * wepSpeed;
                 if (PauseMenu.isPaused)
                 {
                     wepRB.velocity = Vector3.zero;
