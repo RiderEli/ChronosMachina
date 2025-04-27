@@ -56,6 +56,10 @@ public class BaseMissile_Enemy : MonoBehaviour
         {
             case missileState.straight:
                 wepRB.velocity = transform.up * wepSpeed;
+                if (PauseMenu.isPaused)
+                {
+                    wepRB.velocity = Vector3.zero;
+                }
                 break;
 
             //CURRENTLY A WIP, WILL ADJUST THE MISSILE ROTATION SOON.

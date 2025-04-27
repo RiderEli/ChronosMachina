@@ -93,8 +93,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6826791124147692169}
-  - component: {fileID: 7893754912230196862}
   - component: {fileID: 4387933960627042063}
+  - component: {fileID: 7893754912230196862}
   m_Layer: 0
   m_Name: EnemyTrigger
   m_TagString: Untagged
@@ -119,21 +119,6 @@ Transform:
   - {fileID: 5193980519983004606}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7893754912230196862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7219825829708278934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab3b3d09eb13d04419d5ed32ac2012e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  spawnPointEnabled: 0
-  enemySpawn: {fileID: 532089791918552948}
 --- !u!65 &4387933960627042063
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -155,3 +140,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 55, y: 25, z: 55}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7893754912230196862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7219825829708278934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab3b3d09eb13d04419d5ed32ac2012e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyThing: {fileID: 0}
+  spawnPointEnabled: 0
+  enemySpawn: {fileID: 532089791918552948}

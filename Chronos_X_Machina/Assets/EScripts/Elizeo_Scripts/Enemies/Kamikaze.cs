@@ -21,7 +21,10 @@ public class Kamikaze : EnemyParent
     // Update is called once per frame
     public override void Update()
     {
-        ChasePlayer();
+        if (movement == enemyMovement.unique)
+        {
+            ChasePlayer();
+        }
         if (enemyHP <= 0)
         {
             Debug.Log("Enemy Died, lol");
@@ -31,8 +34,31 @@ public class Kamikaze : EnemyParent
                 WaveSystem.counter -= 1;
             }
         }
+
+        enemyPause();
     }
 
+    public void enemyPause()
+    {
+        if (enemyPaused)
+        {
+            movement = enemyMovement.idle;
+        }
+        else
+        {
+            movement = enemyMovement.unique;
+        }
+
+        if (PauseMenu.isPaused == true)
+        {
+            enemyPaused = true;
+
+        }
+        else
+        {
+            enemyPaused = false;
+        }
+    }
     public void ChasePlayer()
     {
         this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, tankSpeed * Time.deltaTime);

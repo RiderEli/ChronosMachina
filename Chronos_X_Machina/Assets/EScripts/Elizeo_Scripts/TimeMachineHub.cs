@@ -8,12 +8,18 @@ using UnityEngine.SceneManagement;
  */
 public class TimeMachineHub : MonoBehaviour
 {
+    //Time Menu Hub
     public GameObject mainHub;
     public GameObject sceneHub;
-    public GameObject middleHub;
-    //Artifact Hub
-    //Upgrade Hub
+    private GameObject player;
 
+    public GameObject[] levelButtons;
+
+    //Upgrade Hub
+    public GameObject middleHub;
+
+
+    [Header("This bool can be used ONLY if the enum is set to 'Ingame'.")]
     public bool inTimeMachine_Level;
 
     public enum TimeSections
@@ -26,10 +32,14 @@ public class TimeMachineHub : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Save for Menu
+        player = GameObject.FindGameObjectWithTag("Player");
+
         if (timeStuff == TimeSections.Menu)
         {
             mainHub.SetActive(true);
             sceneHub.SetActive(false);
+            middleHub.SetActive(false);
         }
 
         if (timeStuff == TimeSections.Ingame)
@@ -54,17 +64,31 @@ public class TimeMachineHub : MonoBehaviour
 
     public void GoToTutorial()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Level-0-Tutorial 1");
     }
 
     public void GoToLevel1()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Level-1-Antarctica 1");
+    }
+
+    public void GoToLevel2()
+    {
+        //SceneManager.LoadScene("Level-1-Antarctica 1"); 
+
     }
 
     public void ExitFromScene()
     {
         mainHub.SetActive(true);
+        sceneHub.SetActive(false);
+        middleHub.SetActive(false);
+    }
+
+    public void GoToUpgrade()
+    {
+        middleHub.SetActive(true);
+        mainHub.SetActive(false);
         sceneHub.SetActive(false);
     }
 
@@ -80,6 +104,13 @@ public class TimeMachineHub : MonoBehaviour
         {
             inTimeMachine_Level = false;
         }
+
+        if (timeStuff == TimeSections.Menu)
+        {
+            mainHub.SetActive(true);
+            middleHub.SetActive(false);
+            sceneHub.SetActive(false);
+        }
     }
 
     public void TimeStop()
@@ -88,13 +119,16 @@ public class TimeMachineHub : MonoBehaviour
         {
             if (inTimeMachine_Level)
             {
-                Time.timeScale = 0.0f;
+                Time.timeScale = 0;
                 middleHub.SetActive(true);
+                Input.GetKeyDown(KeyCode.Escape).Equals(false);
             }
             else
             {
-                Time.timeScale = 1.0f;
+                Time.timeScale = 1;
                 middleHub.SetActive(false);
+                Input.GetKeyDown(KeyCode.Escape).Equals(true);
+
             }
         }
     }

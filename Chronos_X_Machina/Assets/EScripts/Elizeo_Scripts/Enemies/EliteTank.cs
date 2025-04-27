@@ -13,6 +13,9 @@ public class EliteTank : EnemyParent
     private Renderer eliteRend_1;
     private Renderer eliteRend_2;
 
+    private float currentDetect;
+    private float maxDetection = 100f;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -22,7 +25,7 @@ public class EliteTank : EnemyParent
         aiming = false;
         enemyRB = GetComponent<Rigidbody>();
         shotCounter = shootDelay;
-
+        
         //Renderer Stuff
         enemyRenderer = enemyPieces[0].GetComponent<Renderer>();
         eliteRend_1 = enemyPieces[1].GetComponent<Renderer>();
@@ -55,18 +58,57 @@ public class EliteTank : EnemyParent
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance < enemyDetect)
+        if (!enemyPaused)
         {
-            aiming = true;
-            movement = enemyMovement.idle;
+            if (distance < currentDetect)
+            {
+                aiming = true;
+                movement = enemyMovement.idle;
+            }
+
+        }
+        else
+        {
+            aiming = false;
+        }
+        
+
+        enemyPause();
+    }
+
+    public void enemyPause()
+    {
+        if (enemyPaused)
+        {
+            if (movement == enemyMovement.idle)
+            {
+                currentDetect = maxDetection;
+            }
+        }
+        else
+        {
+            currentDetect = enemyDetect;
+        }
+
+        if (PauseMenu.isPaused == true)
+        {
+            enemyPaused = true;
+
+        }
+        else
+        {
+            enemyPaused = false;
         }
     }
 
     //Totally not copied from the Kamikaze Script
     public void ChasePlayer()
     {
-        this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, tankSpeed * Time.deltaTime);
-        this.transform.LookAt(player.transform.position);
+        if (!enemyPaused)
+        {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, tankSpeed * Time.deltaTime);
+            this.transform.LookAt(player.transform.position);
+        }
     }
     public void AimAtPlayer()
     {
@@ -76,7 +118,7 @@ public class EliteTank : EnemyParent
             tankShoot();
 
         }
-        else
+        else if (!aiming)
         {
             enemyHead.transform.rotation = transform.rotation;
         }
