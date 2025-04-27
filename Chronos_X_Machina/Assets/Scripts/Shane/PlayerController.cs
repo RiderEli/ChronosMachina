@@ -405,7 +405,15 @@ public class PlayerController : MonoBehaviour
         {
             currentHP -= 25;
             playerHPUI.SetHP(currentHP);
-            Destroy(other.gameObject);
+            if (other.CompareTag("Explosion") || other.CompareTag("EnemyBomb"))
+            {
+                other.GetComponent<Collider>().enabled = false;
+            }
+            else
+            {
+                Destroy(other.gameObject);
+
+            }
         }
 
         if (other.CompareTag("Kamikaze"))

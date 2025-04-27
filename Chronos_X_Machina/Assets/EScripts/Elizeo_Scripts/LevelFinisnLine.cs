@@ -14,13 +14,14 @@ public class LevelFinisnLine : MonoBehaviour
     public GameObject pauseContainer;
     public GameObject GameOverContainer;
 
-    public enum nextLevels
+    public enum NextLevels
     {
         LEVEL_1,
         LEVEL_2
     }
 
-    public nextLevels levels;
+    [Header("THIS HAS BEEN SCRAPPED! - PLEASE IGNORE!")]
+    public NextLevels levels;
     void Start()
     {
         isLevelFinished = false;  
@@ -55,18 +56,27 @@ public class LevelFinisnLine : MonoBehaviour
         }
     }
 
-    public void Tutorial_Level()
+    public void BackToTime()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Elizeo_TimeMachine");
     }
 
-    public void Level_One()
-    {
-        SceneManager.LoadScene(2);
-    }
 
-    public void QuitButton()
-    {
-        SceneManager.LoadScene(0);
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
+

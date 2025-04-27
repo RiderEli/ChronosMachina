@@ -70,6 +70,7 @@ public class EnemyBomb : MonoBehaviour
         if (typeOfBomb == bombType.Normal)
         {
             bombRB.velocity = Vector3.down * fallSpeed;
+            StartCoroutine(bombLife());
         }
         if (typeOfBomb == bombType.Cluster)
         {
@@ -83,6 +84,19 @@ public class EnemyBomb : MonoBehaviour
         if (bombExploding)
         {
             bombRB.velocity = Vector3.zero;
+            bombObject.SetActive(false);
+            explosionObject.SetActive(true);
+        }
+
+        if (PauseMenu.isPaused)
+        {
+            explosionObject.GetComponent<Collider>().enabled = false;
+            GetComponent<Collider>().enabled = false;
+
+            if (typeOfBomb == bombType.Normal || typeOfBomb == bombType.Cannon) 
+            {
+                bombRB.velocity = Vector3.zero;
+            }
 
         }
     }
@@ -90,8 +104,7 @@ public class EnemyBomb : MonoBehaviour
     public IEnumerator explosion()
     {
         bombExploding = true;
-        bombObject.SetActive(false);
-        explosionObject.SetActive(true);
+
         yield return new WaitForSeconds(explosionDuration);
         Destroy(gameObject);
     }

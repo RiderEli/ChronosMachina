@@ -4,6 +4,12 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     public float Speed = 3f;
+    
+    //--------Eli's Codes-----------
+    private float currentSpeed;
+    private float minSpeed = 0f;
+    //------------------------------
+
     public float maxTurnAngle = 60f;
     public float selfDestructTime = 2f;
     public float flareLockDelay = 1f;
@@ -37,6 +43,7 @@ public class Rocket : MonoBehaviour
     {
         playerObject = GameObject.FindWithTag("Player"); // Keep player reference
         seekerObject = playerObject; // Default target is the player
+        currentSpeed = Speed;
     }
 
     void FixedUpdate()
@@ -96,7 +103,7 @@ public class Rocket : MonoBehaviour
         }
 
         // Always move forward
-        transform.position += transform.forward * Speed * Time.deltaTime;
+        transform.position += transform.forward * currentSpeed * Time.deltaTime;
 
         // Clamp the Y position (Prevents going too high or below ground)
         Vector3 clampedPosition = transform.position;
@@ -108,6 +115,18 @@ public class Rocket : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (PauseMenu.isPaused)
+        {
+            currentSpeed = minSpeed;
+            homing = false;
+        }
+        else
+        {
+            currentSpeed = Speed;
+            homing = true;
+        }    
+
     }
 
     void UpdateFlareList()

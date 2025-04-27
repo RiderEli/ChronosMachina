@@ -46,11 +46,16 @@ public class EnemyParent : MonoBehaviour
 
     [Header("This will indicate the color that appears when the enemy gets hit.")]
     public Material[] enemyMat;
+
+    public bool enemyPaused;
     //This is a state machine for the grunts. It affects how they function around the battlefield.
     public enum enemyMovement
     {
         idle,
         moving,
+        //This is ONLY to be used for Certain Enemies.
+        unique
+        //This is ONLY to be used for pausing.
     }
 
     [Header("Enemy Movement States:")]
@@ -66,6 +71,7 @@ public class EnemyParent : MonoBehaviour
 
     [Header("Enemy Weapon States:")]
     public enemyWeapons weapons;
+
 
     //These are staying bare-bones for the children scripts in the future.
     public virtual void Start()
@@ -91,6 +97,10 @@ public class EnemyParent : MonoBehaviour
                 EnemyMove();
                 break;
 
+            //This is ONLY for use of Specific Enemies
+            case enemyMovement.unique:
+                //No Code will be added here.
+                break;
         }
     }
 
@@ -150,6 +160,7 @@ public class EnemyParent : MonoBehaviour
 
     [Header("What direction is the enemy facing?")]
     public enemyDirectionStates enemyDirection;
+
 
 
 

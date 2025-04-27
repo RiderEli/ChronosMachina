@@ -287,6 +287,7 @@ MonoBehaviour:
   bombObject: {fileID: 4701891443412368770}
   explosionObject: {fileID: 5048692176534630368}
   explosionTimer: 1
+  bombDuration: 2
   fallSpeed: 50
   typeOfBomb: 0
   bombDirection: 0

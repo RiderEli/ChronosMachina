@@ -33,6 +33,7 @@ Transform:
   m_Children:
   - {fileID: 9124995132783635642}
   - {fileID: 4564222878791075233}
+  - {fileID: 4486363835389600818}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2700046845533298719
@@ -95,12 +96,65 @@ Transform:
   m_GameObject: {fileID: 6002870689661108023}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -67, y: 152.3, z: -34.9}
+  m_LocalPosition: {x: -67, y: 252.5, z: -29.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6648476741868149909}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7061533215231603642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4486363835389600818}
+  - component: {fileID: 7544811731814792516}
+  m_Layer: 0
+  m_Name: WaveKillBox
+  m_TagString: WaveKill
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4486363835389600818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061533215231603642}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -154, y: 0, z: 20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6648476741868149909}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7544811731814792516
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061533215231603642}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 400, y: 100, z: 350}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &81488980560742554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114,10 +168,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: RIGHT_Bomb_Dropper_In_Wave (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4784749421567703067, guid: 73a36b2c807982b4d86c9f859d5afd77,
+        type: 3}
+      propertyPath: spawnTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6810917867152850407, guid: 73a36b2c807982b4d86c9f859d5afd77,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -322.7
+      value: -164.49
       objectReference: {fileID: 0}
     - target: {fileID: 6810917867152850407, guid: 73a36b2c807982b4d86c9f859d5afd77,
         type: 3}
@@ -321,7 +380,7 @@ PrefabInstance:
     - target: {fileID: 9085085700370024889, guid: 49768e08dd6df1c418e754be002e081c,
         type: 3}
       propertyPath: enemyCount
-      value: 19
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9085085700370024889, guid: 49768e08dd6df1c418e754be002e081c,
         type: 3}
@@ -434,6 +493,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret_In_Wave
       objectReference: {fileID: 0}
+    - target: {fileID: 950233759084295980, guid: ba45496e16351184c814940480959c75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7422453750377672259, guid: ba45496e16351184c814940480959c75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -508,10 +572,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: RIGHT_Bomb_Dropper_In_Wave (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4784749421567703067, guid: 73a36b2c807982b4d86c9f859d5afd77,
+        type: 3}
+      propertyPath: spawnTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6810917867152850407, guid: 73a36b2c807982b4d86c9f859d5afd77,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -298.7
+      value: -140.49
       objectReference: {fileID: 0}
     - target: {fileID: 6810917867152850407, guid: 73a36b2c807982b4d86c9f859d5afd77,
         type: 3}
@@ -632,6 +701,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RIGHT_Grunt_In_Wave (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4435584445646549252, guid: 809ababfd8f4d804cbc65b32cf743af3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -656,10 +730,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: RIGHT_Bomb_Dropper_In_Wave
       objectReference: {fileID: 0}
+    - target: {fileID: 4784749421567703067, guid: 73a36b2c807982b4d86c9f859d5afd77,
+        type: 3}
+      propertyPath: spawnTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6810917867152850407, guid: 73a36b2c807982b4d86c9f859d5afd77,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -292.21
+      value: -134
       objectReference: {fileID: 0}
     - target: {fileID: 6810917867152850407, guid: 73a36b2c807982b4d86c9f859d5afd77,
         type: 3}
@@ -780,6 +859,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RIGHT_Grunt_In_Wave
       objectReference: {fileID: 0}
+    - target: {fileID: 4435584445646549252, guid: 809ababfd8f4d804cbc65b32cf743af3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -807,7 +891,7 @@ PrefabInstance:
     - target: {fileID: 6810917867152850407, guid: 73a36b2c807982b4d86c9f859d5afd77,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -292.2
+      value: -133.99
       objectReference: {fileID: 0}
     - target: {fileID: 6810917867152850407, guid: 73a36b2c807982b4d86c9f859d5afd77,
         type: 3}
@@ -928,6 +1012,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kamikaze_In_Wave (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8919343969216502977, guid: 212d99155b4d72b46abcf3a9dfd1bdb6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -997,10 +1086,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6442442570973323252, guid: 257684838a4987f4e95f5324ddfeef40,
+        type: 3}
+      propertyPath: spawnTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7785814533437469313, guid: 257684838a4987f4e95f5324ddfeef40,
         type: 3}
       propertyPath: m_Name
       value: UP_Grunt_In_Wave
+      objectReference: {fileID: 0}
+    - target: {fileID: 7785814533437469313, guid: 257684838a4987f4e95f5324ddfeef40,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1025,6 +1124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret_In_Wave (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 950233759084295980, guid: ba45496e16351184c814940480959c75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7422453750377672259, guid: ba45496e16351184c814940480959c75,
         type: 3}
@@ -1150,6 +1254,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UP_Grunt_In_Wave (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7785814533437469313, guid: 257684838a4987f4e95f5324ddfeef40,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1174,10 +1283,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: RIGHT_Bomb_Dropper_In_Wave (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4784749421567703067, guid: 73a36b2c807982b4d86c9f859d5afd77,
+        type: 3}
+      propertyPath: spawnTime
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6810917867152850407, guid: 73a36b2c807982b4d86c9f859d5afd77,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -267.8
+      value: -109.58998
       objectReference: {fileID: 0}
     - target: {fileID: 6810917867152850407, guid: 73a36b2c807982b4d86c9f859d5afd77,
         type: 3}
@@ -1247,6 +1361,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret_In_Wave (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 950233759084295980, guid: ba45496e16351184c814940480959c75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7422453750377672259, guid: ba45496e16351184c814940480959c75,
         type: 3}
@@ -1322,6 +1441,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret_In_Wave (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 950233759084295980, guid: ba45496e16351184c814940480959c75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7422453750377672259, guid: ba45496e16351184c814940480959c75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1395,6 +1519,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RIGHT_Homing_In_Wave (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 361460579018973311, guid: 170d72550bf2aa0419bd0886a2e983bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6562384936145619532, guid: 170d72550bf2aa0419bd0886a2e983bb,
         type: 3}
@@ -1470,6 +1599,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret_In_Wave (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 950233759084295980, guid: ba45496e16351184c814940480959c75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7422453750377672259, guid: ba45496e16351184c814940480959c75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1544,10 +1678,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: RIGHT_Bomb_Dropper_In_Wave (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4784749421567703067, guid: 73a36b2c807982b4d86c9f859d5afd77,
+        type: 3}
+      propertyPath: spawnTime
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6810917867152850407, guid: 73a36b2c807982b4d86c9f859d5afd77,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -267.6
+      value: -109.39
       objectReference: {fileID: 0}
     - target: {fileID: 6810917867152850407, guid: 73a36b2c807982b4d86c9f859d5afd77,
         type: 3}
@@ -1668,6 +1807,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kamikaze_In_Wave
       objectReference: {fileID: 0}
+    - target: {fileID: 8919343969216502977, guid: 212d99155b4d72b46abcf3a9dfd1bdb6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1691,6 +1835,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RIGHT_Homing_In_Wave
+      objectReference: {fileID: 0}
+    - target: {fileID: 361460579018973311, guid: 170d72550bf2aa0419bd0886a2e983bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6562384936145619532, guid: 170d72550bf2aa0419bd0886a2e983bb,
         type: 3}

@@ -29,9 +29,13 @@ public class BombDropper : EnemyParent
     // Update is called once per frame
     public override void Update()
     {
-        BombShoot();
-        EnemyMove();
+        enemyMove();
         DirectEnemy();
+
+        if (movement == enemyMovement.moving)
+        {
+            BombShoot();
+        }
         if (enemyHP <= 0)
         {
             Debug.Log("Enemy Died, lol");
@@ -42,11 +46,32 @@ public class BombDropper : EnemyParent
             }
         }
 
-        StartCoroutine(BombDeath());    
-    
+        StartCoroutine(BombDeath());
+
+        enemyPause();
     }
 
+    public void enemyPause()
+    {
+        if (enemyPaused)
+        {
+            movement = enemyMovement.idle;
+        }
+        else
+        {
+            movement = enemyMovement.moving;
+        }
 
+        if (PauseMenu.isPaused == true)
+        {
+            enemyPaused = true;
+
+        }
+        else
+        {
+            enemyPaused = false;
+        }
+    }
 
     public void BombShoot()
     {
@@ -141,6 +166,18 @@ public class BombDropper : EnemyParent
         if (WaveChecker.insideWave == true && dropperInWave == true)
         {
             WaveSystem.counter -= 1;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("WaveKill"))
+        {
+            Destroy(transform.parent.gameObject);
+            if (WaveChecker.insideWave == true || dropperInWave == true)
+            {
+                WaveSystem.counter -= 1;
+            }
         }
     }
 }

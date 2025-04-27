@@ -12,12 +12,17 @@ public class NormalGrunt : EnemyParent
     public float missileDelay;
     private float shotCounter;
 
+    private float currentDetect;
+    private float minDetection = -1f;
+
     private Renderer enemyRend2;
     private Renderer enemyRend3;
     private Renderer enemyRendLEFT;
     private Renderer enemyRendRIGHT;
     private Renderer enemyRendUP;
     private Renderer enemyRendDOWN;
+
+    private bool gruntAfterDist;
     // Update is called once per frame
     public override void Start()
     {
@@ -32,6 +37,8 @@ public class NormalGrunt : EnemyParent
         enemyRend2.material = enemyMat[0];
         enemyRend3.material = enemyMat[0];
         enemyRB = GetComponent<Rigidbody>();
+        currentDetect = enemyDetect;
+        gruntAfterDist = false;
     }
 
     public override void Update()
@@ -63,17 +70,57 @@ public class NormalGrunt : EnemyParent
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance < enemyDetect)
+        if (distance < currentDetect)
         {
-            aiming = true;
-            enemyDirection = enemyDirectionStates.NONE;
+                aiming = true;
+                gruntAfterDist = true;
+                movement = enemyMovement.idle;
         }
         else
         {
             aiming = false;
         }
-    }
 
+        enemyPause();
+    }
+    public void enemyPause()
+    {
+        if (enemyPaused)
+        {
+            currentDetect = minDetection;
+            if(movement == enemyMovement.moving)
+            {
+                movement = enemyMovement.idle;
+            }
+        }
+        else
+        {
+            if (currentDetect == minDetection)
+            {
+                if (!gruntAfterDist)
+                {
+                    if (movement == enemyMovement.idle)
+                    {
+                        movement = enemyMovement.moving;
+                    }
+                }
+                
+                currentDetect = enemyDetect;
+            }
+
+        }
+
+
+        if (PauseMenu.isPaused == true)
+        {
+            enemyPaused = true;
+
+        }
+        else
+        {
+            enemyPaused = false;
+        }
+    }
     //The direction state in action.
     public void DirectEnemy()
     {
@@ -169,5 +216,17 @@ public class NormalGrunt : EnemyParent
         enemyRenderer.material = enemyMat[0];
         enemyRend2.material = enemyMat[0];
         enemyRend3.material = enemyMat[0];
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("WaveKill"))
+        {
+            Destroy(transform.parent.gameObject);
+            if (WaveChecker.insideWave == true)
+            {
+                WaveSystem.counter -= 1;
+            }
+        }
     }
 }

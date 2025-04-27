@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 using static EnemyParent;
 
@@ -11,6 +12,11 @@ public class ArmoredTank : BossParent
     [Header("How fast will the turret shoot?")]
     public float missileDelay;
     private float shotCounter;
+
+    public GameObject bossHealth_UI;
+    public bool bossHealthActive;
+
+    public PlayerHP bossHealth_UI_On_Screen;
 
     // Start is called before the first frame update
     public override void Start()
@@ -29,6 +35,8 @@ public class ArmoredTank : BossParent
         bossRenderer[0].material = bossMat[0];
         //Materials in use for Top Turret
         bossRenderer[1].material = bossMat[0];
+
+        bossHealthActive = false;
 
     }
 
@@ -50,6 +58,7 @@ public class ArmoredTank : BossParent
         if (distance < bossDetect)
         {
             aiming = true;
+            bossHealthActive = true;
         }
 
 
@@ -62,41 +71,36 @@ public class ArmoredTank : BossParent
                 WaveSystem.counter -= 1;
             }
         }
+
+        if (bossHealthActive)
+        {
+            bossHealth_UI.SetActive(true);
+        }
+        else
+        {
+            bossHealth_UI.SetActive(false);
+        }
     }
     public void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.CompareTag("PlayerWep"))
         {
             if (other.gameObject.GetComponent<BulletProjectile>() != null)
             {
                 bossHP -= other.gameObject.GetComponent<BulletProjectile>().impactDamage;
-                Destroy(other.gameObject);
-                StartCoroutine(BossGotHit());
             }
             else if (other.gameObject.GetComponent<FireProjectile>() != null)
             {
-
                 bossHP -= other.gameObject.GetComponent<FireProjectile>().impactDamage;
-                Destroy(other.gameObject);
-                StartCoroutine(BossGotHit());
-            }
-            else if (other.gameObject.GetComponent<ExplosionDamage>() != null)
-            {
-                bossHP -= other.gameObject.GetComponent<ExplosionDamage>().impactDamage;
-                StartCoroutine(BossGotHit());
             }
             else
             {
                 bossHP -= 25;
-                Destroy(other.gameObject);
-                StartCoroutine(BossGotHit());
             }
-
-            if (other.gameObject.CompareTag("PlayerRocket"))
-            {
-                bossHP -= 69;
-                Destroy(other.gameObject);
-            }
+            bossHealth_UI_On_Screen.SetHP(bossHP);
+            Destroy(other.gameObject);
+            StartCoroutine(BossGotHit());
         }
     }
 

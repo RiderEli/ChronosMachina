@@ -62,12 +62,13 @@ MonoBehaviour:
   player: {fileID: 0}
   tankSpeed: 10
   enemyHP: 100
-  enemyDetect: 30
+  enemyDetect: 40
   enemyDamage: 0
   enemyRenderer: {fileID: 0}
   enemyMat:
   - {fileID: 2100000, guid: 213223c177a08d345b830e1a884eeed2, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 0
   weapons: 1
   enemyDirection: 3

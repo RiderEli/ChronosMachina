@@ -1,21 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using TMPro;
 using UnityEngine;
 
 public class Turret : EnemyParent
 {
-    //public GameObject poop;
+    //poop
+
 
     [Header("Is the turret aiming?")]
     public bool aiming;
-    
+
+    private float currentDetect;
+    private float minDetection = -1f;
 
     [Header("How fast will the turret shoot?")]
     public float missileDelay;
     private float shotCounter;
 
+    public float turningSpeed;
+
     private Renderer enemyRend2;
     private Renderer enemyRend3;
+
+
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -29,6 +39,7 @@ public class Turret : EnemyParent
         enemyRenderer.material = enemyMat[0];
         enemyRend2.material = enemyMat[0];
         enemyRend3.material = enemyMat[0];
+        currentDetect = enemyDetect;
     }
 
     // Update is called once per frame
@@ -38,8 +49,7 @@ public class Turret : EnemyParent
         
         if (aiming)
         {
-            enemyHead.transform.LookAt(player.transform.position);
-           // poop.transform.position = player.transform.position;
+            TurretAim();
             missileShoot();
 
         }
@@ -60,7 +70,7 @@ public class Turret : EnemyParent
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance < enemyDetect)
+        if (distance < currentDetect)
         {
             aiming = true;
         }
@@ -70,8 +80,42 @@ public class Turret : EnemyParent
             //Debug.Log("poop");
         }
         enemyWeaponShoot();
+
+        enemyPause();
+    }
+    public void enemyPause()
+    {
+        if (enemyPaused)
+        {
+            currentDetect = minDetection;
+        }
+        else
+        {
+            currentDetect = enemyDetect;
+        }
+
+
+        if (PauseMenu.isPaused == true)
+        {
+            enemyPaused = true;
+
+        }
+        else
+        {
+            enemyPaused = false;
+        }
     }
 
+    public void TurretAim()
+    {
+        Vector3 headDir = player.transform.position - transform.position;
+        Quaternion rotation = Quaternion.Slerp(enemyHead.transform.rotation, Quaternion.LookRotation(headDir), turningSpeed * Time.deltaTime);
+
+        rotation.x = 0;
+        rotation.z = 0;
+
+        enemyHead.transform.rotation = rotation;
+    }
     public void OnTriggerEnter(Collider other)
     {
 
@@ -129,6 +173,8 @@ public class Turret : EnemyParent
         }
 
     }
+
+
 
     public IEnumerator EnemyGotHit()
     {
