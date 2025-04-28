@@ -73325,7 +73325,7 @@ Transform:
   m_GameObject: {fileID: 1149930137}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: -88.24877, y: 130.89177, z: 850.3}
+  m_LocalPosition: {x: 144.3, y: 95, z: 335}
   m_LocalScale: {x: 0.84974, y: 0.84973997, z: 0.84973997}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106445,6 +106445,11 @@ PrefabInstance:
       propertyPath: Damage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7461383531888625974, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f1eecd735ba795d458a6bc20c65c09b3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
