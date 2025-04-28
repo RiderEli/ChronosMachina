@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5458174010999143355}
   - component: {fileID: 1576245417457406863}
   - component: {fileID: -4723026992460154368}
+  - component: {fileID: 6200156448395608907}
   m_Layer: 0
   m_Name: bullet 2
   m_TagString: PlayerWep
@@ -106,7 +107,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1576245417457406863
 Rigidbody:
@@ -148,6 +149,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactDamage: 5
+--- !u!65 &6200156448395608907
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140399405611235981}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4495619708129533521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,6 +178,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 747198108202399147}
     m_Modifications:
+    - target: {fileID: 1968004791070235234, guid: ae5d32f8ddf141941acd3215a3e096b8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9436714
+      objectReference: {fileID: 0}
     - target: {fileID: 1968004791070235234, guid: ae5d32f8ddf141941acd3215a3e096b8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -169,7 +196,7 @@ PrefabInstance:
     - target: {fileID: 1968004791070235234, guid: ae5d32f8ddf141941acd3215a3e096b8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -4.67
       objectReference: {fileID: 0}
     - target: {fileID: 1968004791070235234, guid: ae5d32f8ddf141941acd3215a3e096b8,
         type: 3}

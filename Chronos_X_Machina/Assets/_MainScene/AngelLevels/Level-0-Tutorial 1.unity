@@ -6648,7 +6648,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Tester
       value: 
-      objectReference: {fileID: 348408314}
+      objectReference: {fileID: 934956481}
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: waveCam
@@ -6669,6 +6669,12 @@ PrefabInstance:
       propertyPath: RightDisplay
       value: 
       objectReference: {fileID: 204802581}
+    - target: {fileID: 5155484938804992194, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6140399405611235981, guid: 79eedbf3f49338a4bb1dc64c01ae206c,
+        type: 3}
     - target: {fileID: 5628784061183969546, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -17878,12 +17884,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c09f3f7bd767b24b9bc19c5415bcaea, type: 3}
---- !u!1 &348408314 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8836964683806614786, guid: 2c09f3f7bd767b24b9bc19c5415bcaea,
-    type: 3}
-  m_PrefabInstance: {fileID: 348408313}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &350278690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3771420456641929635, guid: 08864b96c13bbbb48bdbef9891bb557b,
