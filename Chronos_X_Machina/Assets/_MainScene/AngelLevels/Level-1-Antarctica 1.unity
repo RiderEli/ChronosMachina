@@ -41500,7 +41500,22 @@ PrefabInstance:
         type: 3}
       propertyPath: pauseThing
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1626483675}
+    - target: {fileID: 4246832195438502812, guid: 618c75cf7e6add44ab94ec3ca436dcb7,
+        type: 3}
+      propertyPath: resSetting
+      value: 
+      objectReference: {fileID: 105949907}
+    - target: {fileID: 4246832195438502812, guid: 618c75cf7e6add44ab94ec3ca436dcb7,
+        type: 3}
+      propertyPath: settingsMenu
+      value: 
+      objectReference: {fileID: 1626483674}
+    - target: {fileID: 4246832195438502812, guid: 618c75cf7e6add44ab94ec3ca436dcb7,
+        type: 3}
+      propertyPath: volumeSetting
+      value: 
+      objectReference: {fileID: 232140989}
     - target: {fileID: 4654626186079721302, guid: 618c75cf7e6add44ab94ec3ca436dcb7,
         type: 3}
       propertyPath: m_Name
@@ -106455,6 +106470,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a884e71611f91264eb5e26c4fbbfc28d, type: 3}
+--- !u!1 &1626483674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3458214542894212465, guid: a884e71611f91264eb5e26c4fbbfc28d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1626483673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1626483675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4000269297123705226, guid: a884e71611f91264eb5e26c4fbbfc28d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1626483673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1631577120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5575699082974931060, guid: 9fb80b2b7283ab74aa746c888e69c3ac,
