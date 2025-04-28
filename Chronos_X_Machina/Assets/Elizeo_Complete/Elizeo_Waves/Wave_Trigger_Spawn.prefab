@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3450928721278780531}
   - component: {fileID: 1422163154941650979}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WavePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 1019739281934054270}
   - component: {fileID: 8390225610029798450}
   - component: {fileID: 1698863880649849149}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wave_Trigger_Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
