@@ -15,6 +15,10 @@ public class BombDropper : EnemyParent
     [Header("Check this bool if you are using this Bomb Dropper in a wave")]
     public bool dropperInWave;
 
+
+    private PlayerController playerController;
+    public int screwsToDrop;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -24,6 +28,10 @@ public class BombDropper : EnemyParent
         enemyRenderer = enemyPieces[0].GetComponent<Renderer>();
         enemyRenderer.material = enemyMat[0];
         enemyRB = GetComponent<Rigidbody>();
+
+
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (playerController == null) { Debug.Log("Player Not Found"); }
     }
 
     // Update is called once per frame
@@ -39,6 +47,7 @@ public class BombDropper : EnemyParent
         if (enemyHP <= 0)
         {
             Debug.Log("Enemy Died, lol");
+            playerController.screws += screwsToDrop;
             Destroy(this.gameObject);
             if (WaveChecker.insideWave == true)
             {

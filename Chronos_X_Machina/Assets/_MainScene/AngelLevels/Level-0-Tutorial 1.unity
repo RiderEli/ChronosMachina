@@ -6651,6 +6651,11 @@ PrefabInstance:
       objectReference: {fileID: 934956481}
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
+      propertyPath: screws
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
       propertyPath: waveCam
       value: 
       objectReference: {fileID: 62211566}
@@ -23956,6 +23961,7 @@ MonoBehaviour:
   playerThing: {fileID: 0}
   pauseContainer: {fileID: 34486865}
   GameOverContainer: {fileID: 110532821}
+  triggerOnce: 0
   levels: 0
 --- !u!1 &454903882 stripped
 GameObject:
@@ -48062,6 +48068,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 886443273093554585, guid: c727ba58469806346bbf7be88763ad33,
+        type: 3}
+      propertyPath: screwsToDrop
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5770206310996360899, guid: c727ba58469806346bbf7be88763ad33,
         type: 3}

@@ -16,6 +16,9 @@ public class EliteTank : EnemyParent
     private float currentDetect;
     private float maxDetection = 100f;
 
+    private PlayerController playerController;
+    public int screwsToDrop;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -34,6 +37,9 @@ public class EliteTank : EnemyParent
         enemyRenderer.material = enemyMat[0];
         eliteRend_1.material = enemyMat[0];
         eliteRend_2.material = enemyMat[0];
+
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (playerController == null) { Debug.Log("Player Not Found"); }
     }
 
     // Update is called once per frame
@@ -49,6 +55,7 @@ public class EliteTank : EnemyParent
         if (enemyHP <= 0)
         {
             //Debug.Log("Elite Tank Died, lol");
+            playerController.screws += screwsToDrop;
             Destroy(this.gameObject);
             if (WaveChecker.insideWave == true)
             {
@@ -152,17 +159,32 @@ public class EliteTank : EnemyParent
             if (other.gameObject.GetComponent<BulletProjectile>() != null)
             {
                 enemyHP -= other.gameObject.GetComponent<BulletProjectile>().impactDamage;
+                Destroy(other.gameObject);
+                StartCoroutine(EnemyGotHit());
             }
             else if (other.gameObject.GetComponent<FireProjectile>() != null)
             {
                 enemyHP -= other.gameObject.GetComponent<FireProjectile>().impactDamage;
+                Destroy(other.gameObject);
+                StartCoroutine(EnemyGotHit());
+            }
+            else if (other.gameObject.GetComponent<ExplosionDamage>() != null)
+            {
+                enemyHP -= other.gameObject.GetComponent<ExplosionDamage>().impactDamage;
+                StartCoroutine(EnemyGotHit());
             }
             else
             {
                 enemyHP -= 25;
+                Destroy(other.gameObject);
+                StartCoroutine(EnemyGotHit());
             }
-            Destroy(other.gameObject);
-            StartCoroutine(EnemyGotHit());
+
+            if (other.gameObject.CompareTag("PlayerRocket"))
+            {
+                enemyHP -= 69;
+                Destroy(other.gameObject);
+            }
         }
     }
     public IEnumerator EnemyGotHit()

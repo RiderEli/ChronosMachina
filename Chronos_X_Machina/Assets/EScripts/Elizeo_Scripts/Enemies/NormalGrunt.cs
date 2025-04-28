@@ -26,6 +26,10 @@ public class NormalGrunt : EnemyParent
 
     private bool gruntAfterDist;
     // Update is called once per frame
+
+
+    private PlayerController playerController;
+    public int screwsToDrop;
     public override void Start()
     {
         player = GameObject.FindGameObjectWithTag("PlayerTarget");
@@ -41,6 +45,9 @@ public class NormalGrunt : EnemyParent
         enemyRB = GetComponent<Rigidbody>();
         currentDetect = enemyDetect;
         gruntAfterDist = false;
+
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (playerController == null) { Debug.Log("Player Not Found"); }
     }
 
     public override void Update()
@@ -64,6 +71,7 @@ public class NormalGrunt : EnemyParent
         if (enemyHP <= 0)
         {
             Debug.Log("Enemy Died, lol");
+            playerController.screws += screwsToDrop;
             Destroy(this.gameObject);
             if (WaveChecker.insideWave == true)
             {

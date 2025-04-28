@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class Turret : EnemyParent
 {
-    //poop
-
-
     [Header("Is the turret aiming?")]
     public bool aiming;
 
@@ -24,7 +21,8 @@ public class Turret : EnemyParent
     private Renderer enemyRend2;
     private Renderer enemyRend3;
 
-
+    private PlayerController playerController;
+    public int screwsToDrop;
 
     // Start is called before the first frame update
     public override void Start()
@@ -40,6 +38,10 @@ public class Turret : EnemyParent
         enemyRend2.material = enemyMat[0];
         enemyRend3.material = enemyMat[0];
         currentDetect = enemyDetect;
+
+        
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (playerController == null) { Debug.Log("Player Not Found"); }
     }
 
     // Update is called once per frame
@@ -61,6 +63,7 @@ public class Turret : EnemyParent
         if (enemyHP <= 0)
         {
             Debug.Log("Enemy Died, lol");
+            playerController.screws += screwsToDrop;
             Destroy(this.gameObject);
             if (WaveChecker.insideWave == true)
             {
