@@ -45,7 +45,6 @@ public class PauseMenu : MonoBehaviour
                 pauseThing.SetActive(true);
                 isPaused = true;
                 }
-     
         }
         IsItPaused();
         //Debug.Log(Time.timeScale + " sec");
@@ -58,11 +57,13 @@ public class PauseMenu : MonoBehaviour
         if (isPaused)
         {
             player.GetComponent<PlayerController>().isShopping = true;
-            
+            Time.timeScale = 0f;
+
         }
         else
         {
             player.GetComponent<PlayerController>().isShopping = false;
+            Time.timeScale = 1f;
         }
 
     }
