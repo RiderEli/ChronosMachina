@@ -116,12 +116,12 @@ public class Rocket : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (PauseMenu.isPaused)
+        if (PauseMenu.isPaused && !playerWeapon)
         {
             currentSpeed = minSpeed;
             homing = false;
         }
-        else
+        else if(!PauseMenu.isPaused && !playerWeapon) 
         {
             currentSpeed = Speed;
             homing = true;
