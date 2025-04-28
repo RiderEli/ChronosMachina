@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4486363835389600818}
   - component: {fileID: 7544811731814792516}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WaveKillBox
   m_TagString: WaveKill
   m_Icon: {fileID: 0}
@@ -249,6 +249,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1337991183318650030, guid: 49768e08dd6df1c418e754be002e081c,
         type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337991183318650030, guid: 49768e08dd6df1c418e754be002e081c,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -322,10 +327,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 177.6
       objectReference: {fileID: 0}
+    - target: {fileID: 4121900186702707979, guid: 49768e08dd6df1c418e754be002e081c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6842830790337349431, guid: 49768e08dd6df1c418e754be002e081c,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7739621632974703355, guid: 49768e08dd6df1c418e754be002e081c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8690172702209623280, guid: 49768e08dd6df1c418e754be002e081c,
         type: 3}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7691796244218892565}
   - component: {fileID: 8588919225897224119}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WaveKillBox
   m_TagString: WaveKill
   m_Icon: {fileID: 0}
@@ -483,6 +483,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaveChild
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337991183318650030, guid: 49768e08dd6df1c418e754be002e081c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1337991183318650030, guid: 49768e08dd6df1c418e754be002e081c,
         type: 3}
