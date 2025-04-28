@@ -14,6 +14,8 @@ public class LevelFinisnLine : MonoBehaviour
     public GameObject pauseContainer;
     public GameObject GameOverContainer;
 
+    public bool triggerOnce = false;
+
     public enum NextLevels
     {
         LEVEL_0,
@@ -30,22 +32,14 @@ public class LevelFinisnLine : MonoBehaviour
 
     void Update()
     {
-        if (isLevelFinished == true)
+        if (isLevelFinished == true && !triggerOnce)
         {
+            triggerOnce = true;
             finishUI.SetActive(true);
             pauseContainer.SetActive(false);
             GameOverContainer.SetActive(false);
-            Time.timeScale = 0.0f;
+            //Time.timeScale = 0.0f;
         }
-        else
-        {
-            finishUI.SetActive(false);
-            pauseContainer.SetActive(true);
-            GameOverContainer.SetActive(true);
-            Time.timeScale = 1.0f;
-        }
-
-
     }
 
     public void OnTriggerEnter(Collider other)
@@ -61,17 +55,20 @@ public class LevelFinisnLine : MonoBehaviour
         if (levels == NextLevels.LEVEL_0)
         {
             SceneManager.LoadScene("Level-0-Tutorial 1");
+            Time.timeScale = 1.0f;
         }
 
         if (levels == NextLevels.LEVEL_1)
         {
             SceneManager.LoadScene("Level-1-Antarctica 1");
+            Time.timeScale = 1.0f;
         }
     }
 
     public void BackToTime()
     {
         SceneManager.LoadScene("Elizeo_TimeMachine");
+        Time.timeScale = 1.0f;
     }
 
 
