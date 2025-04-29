@@ -53,12 +53,6 @@ public class WeaponUpgradeSystem : MonoBehaviour
 
     public void PurchaseUpgrade(string weaponType, int tier)
     {
-        if (playerController.screws < 50)
-        {
-            Debug.Log($"Not enough currency to upgrade {weaponType}.");
-            return;
-        }
-
         switch (weaponType)
         {
             case "MachineGun":
@@ -96,66 +90,117 @@ public class WeaponUpgradeSystem : MonoBehaviour
 
     private void UpgradeWeapon(ref bool tier1, ref bool tier2, ref bool tier3, int targetTier, bool isLeftArm, string gunTag)
     {
-        int cost = (targetTier == 2) ? 50 : 75;
-
-        string key = $"Tier{targetTier}_{gunTag}";
-        // If the player already owns this tier, just equip it
-        if ((targetTier == 2 && tier2) || (targetTier == 3 && tier3))
+        int cost = 0;
+        switch (targetTier)
         {
-            // Directly set the active weapon for left/right arm
+            case 1: cost = 0; break;
+            case 2: cost = 50; break;
+            case 3: cost = 75; break;
+        }
+
+        // FIRST: if already own the target tier or higher, equip the highest one
+        if (tier3 && targetTier <= 3)
+        {
             if (isLeftArm)
             {
-                playerController.equipedLeftWeapon = weaponParrent.weaponDict[key];
+                playerController.equipedLeftWeapon = weaponParrent.weaponDict["Tier3_" + gunTag];
             }
-
-            if (!isLeftArm)
+            else
             {
-                playerController.equipedRightWeapon = weaponParrent.weaponDict[key];
+                playerController.equipedRightWeapon = weaponParrent.weaponDict["Tier3_" + gunTag];
             }
-
             playerController.UpdateWeaponDisplays();
-            Debug.Log($"Weapon already owned. Equipped Tier {targetTier}.");
+            Debug.Log("Equipped Tier 3.");
+            return;
+        }
+        else if (tier2 && targetTier <= 2)
+        {
+            if (isLeftArm)
+            {
+                playerController.equipedLeftWeapon = weaponParrent.weaponDict["Tier2_" + gunTag];
+            }
+            else
+            {
+                playerController.equipedRightWeapon = weaponParrent.weaponDict["Tier2_" + gunTag];
+            }
+            playerController.UpdateWeaponDisplays();
+            Debug.Log("Equipped Tier 2.");
+            return;
+        }
+        else if (tier1 && targetTier == 1)
+        {
+            if (isLeftArm)
+            {
+                playerController.equipedLeftWeapon = weaponParrent.weaponDict["Tier1_" + gunTag];
+            }
+            else
+            {
+                playerController.equipedRightWeapon = weaponParrent.weaponDict["Tier1_" + gunTag];
+            }
+            playerController.UpdateWeaponDisplays();
+            Debug.Log("Equipped Tier 1.");
             return;
         }
 
+        // SECOND: if don't own it yet, try to buy it
         if (playerController.screws < cost)
         {
-            Debug.Log("Not enough currency to upgrade.");
+            Debug.Log("Not enough currency.");
             return;
         }
 
-        // Handle the upgrade logic
-        if (targetTier == 2 && tier1 && !tier2)
+        if (targetTier == 2 && !tier2 && tier1)
         {
-            tier1 = false;
+            playerController.screws -= cost;
             tier2 = true;
-            playerController.screws -= cost;
-            Debug.Log($"Upgraded to Tier 2! Equipped it. Remaining Currency: {playerController.screws}");
+            tier1 = false;
+
+            if (isLeftArm)
+            {
+                playerController.equipedLeftWeapon = weaponParrent.weaponDict["Tier2_" + gunTag];
+            }
+            else
+            {
+                playerController.equipedRightWeapon = weaponParrent.weaponDict["Tier2_" + gunTag];
+            }
+            playerController.UpdateWeaponDisplays();
+            Debug.Log("Bought and equipped Tier 2!");
         }
-        else if (targetTier == 3 && tier2 && !tier3)
+        else if (targetTier == 3 && !tier3 && tier2)
         {
-            tier2 = false;
+            playerController.screws -= cost;
             tier3 = true;
-            playerController.screws -= cost;
-            Debug.Log($"Upgraded to Tier 3! Equipped it. Remaining Currency: {playerController.screws}");
+            tier2 = false;
+
+            if (isLeftArm)
+            {
+                playerController.equipedLeftWeapon = weaponParrent.weaponDict["Tier3_" + gunTag];
+            }
+            else
+            {
+                playerController.equipedRightWeapon = weaponParrent.weaponDict["Tier3_" + gunTag];
+            }
+            playerController.UpdateWeaponDisplays();
+            Debug.Log("Bought and equipped Tier 3!");
+        }
+        else if (targetTier == 1)
+        {
+            // Equipping Tier 1 (free if no upgrades)
+            if (isLeftArm)
+            {
+                playerController.equipedLeftWeapon = weaponParrent.weaponDict["Tier1_" + gunTag];
+            }
+            else
+            {
+                playerController.equipedRightWeapon = weaponParrent.weaponDict["Tier1_" + gunTag];
+            }
+            playerController.UpdateWeaponDisplays();
+            Debug.Log("Equipped Tier 1.");
         }
         else
         {
-            Debug.Log("Upgrade not allowed. Missing prior tier?");
-            return;
+            Debug.Log("Upgrade conditions not met.");
         }
-
-        // Now equip the weapon after upgrade
-        if (isLeftArm)
-        {
-            playerController.equipedLeftWeapon = weaponParrent.weaponDict[key];
-        }
-        else
-        {
-            playerController.equipedRightWeapon = weaponParrent.weaponDict[key];
-        }
-
-        playerController.UpdateWeaponDisplays();
-        Debug.Log($"Upgraded to Tier {targetTier} and equipped!");
     }
+
 }

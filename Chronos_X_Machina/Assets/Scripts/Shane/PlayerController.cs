@@ -311,7 +311,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         int layerMask = LayerMask.GetMask("Player", "UI", "Ignore Raycast");
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~layerMask))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~layerMask) && Tester != null)
         {
             Debug.DrawLine(ray.origin, hit.point);
             Tester.transform.position = hit.point;
