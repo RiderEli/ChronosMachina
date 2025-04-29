@@ -57,6 +57,8 @@ public class Landmine : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            this.gameObject.GetComponent<Collider>().enabled = false;
+
             if (landmineType == mineType.Proximity)
             {
                 StartCoroutine(mineDelay());
