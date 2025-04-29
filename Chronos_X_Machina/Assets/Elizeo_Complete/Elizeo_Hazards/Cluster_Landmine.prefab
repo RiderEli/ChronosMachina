@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229cef7aff7f30741a519036e6227b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mine: {fileID: 7276856663364785067}
+  mine: {fileID: 7994010676714143805}
   explosionPrefab: {fileID: 5279192952874243714}
   explodeDelay: 1.5
   explodeTime: 1
@@ -371,6 +371,12 @@ PrefabInstance:
 --- !u!4 &7330662789335898759 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9082892195914903562, guid: 7e433934f4feaae4a8ff5798ec9e17f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1997158021236959885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7994010676714143805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8450788065497885360, guid: 7e433934f4feaae4a8ff5798ec9e17f9,
     type: 3}
   m_PrefabInstance: {fileID: 1997158021236959885}
   m_PrefabAsset: {fileID: 0}

@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7aeb3781d27604ba6e324adcd53e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombObject: {fileID: 4701891443412368770}
+  bombObject: {fileID: 8022545991271601285}
   explosionObject: {fileID: 5048692176534630368}
   explosionTimer: 1
   bombDuration: 0.5
@@ -378,6 +378,12 @@ PrefabInstance:
 --- !u!4 &7214238556033257023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2637446856436932231, guid: 226ba101f4e46914b87a26fbc6cb5b7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4648849852202930360}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8022545991271601285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3445754395203241021, guid: 226ba101f4e46914b87a26fbc6cb5b7d,
     type: 3}
   m_PrefabInstance: {fileID: 4648849852202930360}
   m_PrefabAsset: {fileID: 0}
