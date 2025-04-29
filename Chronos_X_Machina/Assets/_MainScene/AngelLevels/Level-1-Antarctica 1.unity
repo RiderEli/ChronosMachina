@@ -96305,6 +96305,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 575355639}
   m_SourcePrefab: {fileID: 100100000, guid: a660a7ce80b8b9844b27052c428d2629, type: 3}
+--- !u!1 &1507813265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4087883611732250033, guid: a884e71611f91264eb5e26c4fbbfc28d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1626483673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1508276666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -106430,6 +106436,11 @@ PrefabInstance:
       propertyPath: RightDisplay
       value: 
       objectReference: {fileID: 1823261863}
+    - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: playerCamPostion
+      value: 
+      objectReference: {fileID: 1507813265}
     - target: {fileID: 5628784061183969546, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

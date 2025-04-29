@@ -64,8 +64,9 @@ public class PlayerController : MonoBehaviour
     private bool isRespawning = false;
 
     [Header("Cameras")]
-    public GameObject waveCam;
     public GameObject playerCam;
+    public GameObject playerCamPostion;
+    private bool hasCameraBeenReset = false;
 
     [Header("Movement & Physics")]
     public float speed;
@@ -293,15 +294,15 @@ public class PlayerController : MonoBehaviour
 
     void HandleCameras()
     {
-        if (!WaveChecker.insideWave)
+        if (!WaveChecker.insideWave && !hasCameraBeenReset)
         {
-            waveCam.SetActive(false);
-            playerCam.SetActive(true);
+            ResetCamera();
+            Debug.LogWarning("Camera Being Reset");
         }
-        else
+        else if (WaveChecker.insideWave)
         {
-            waveCam.SetActive(true);
-            playerCam.SetActive(false);
+            playerCam.transform.parent = null;
+            hasCameraBeenReset = false;
         }
     }
 
@@ -358,6 +359,8 @@ public class PlayerController : MonoBehaviour
         isRespawning = true;
         currentLives -= 1;
         currentHP = maxHP;
+
+        ResetCamera();
 
         characterController.enabled = false;
         transform.position = playerSpawn.position;
@@ -436,5 +439,12 @@ public class PlayerController : MonoBehaviour
 
         if (equipedRightWeapon != null)
             RightDisplay.text = equipedRightWeapon.name;
+    }
+
+    public void ResetCamera()
+    {
+        playerCam.transform.parent = playerCamPostion.transform;
+        playerCam.transform.localPosition = new Vector3(0,0,0);
+        hasCameraBeenReset = true;
     }
 }

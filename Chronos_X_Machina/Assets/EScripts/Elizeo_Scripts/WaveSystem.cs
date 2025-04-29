@@ -65,6 +65,7 @@ public class WaveSystem : MonoBehaviour
             {
                 Debug.Log("Counter Ran Out!");
                 WaveChecker.insideWave = false;
+                //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().ResetCamera();
                 // this.gameObject.SetActive(false);
                 Destroy(transform.parent.gameObject);
                 
@@ -117,6 +118,7 @@ public class WaveSystem : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             StartCoroutine(waveSpawner());
+
             waveChecker.LocateWaveCam();
             collisionPresent = false;
         }
