@@ -16,8 +16,26 @@ public class ArmoredTank : BossParent
     public GameObject bossHealth_UI;
     public bool bossHealthActive;
 
+    public float turningSpeed;
+
+  //  public float wepBlinkTime;
+    //private float blinkCounter;
+
+    private float patternCount;
+
+    public GameObject bossBottom;
+
     public PlayerHP bossHealth_UI_On_Screen;
 
+    public GameObject normRocketIndicator;
+    public GameObject homRocketIndicator;
+
+    public enum WeaponTypes
+    {
+        NORMAL_Missile,
+        HOMING_Missile,
+    }
+    public WeaponTypes weapon;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -26,6 +44,11 @@ public class ArmoredTank : BossParent
         //aiming = false;
         bossMove = bossMovement.idle;
         shotCounter = missileDelay;
+        patternCount = missileDelay;
+
+        normRocketIndicator.SetActive(false);
+        homRocketIndicator.SetActive(false);
+
         //Renderer for the Body
         bossRenderer[0] = bossPieces[0].GetComponent<Renderer>();
         //Renderer for the Top Turret
@@ -47,10 +70,12 @@ public class ArmoredTank : BossParent
         {
             bossHead.transform.LookAt(player.transform.position);
             BossShooting();
+            SmootherAim();
         }
         else
         {
             bossHead.transform.rotation = transform.rotation;
+            bossBottom.transform.rotation = transform.rotation;
         }
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
@@ -103,7 +128,16 @@ public class ArmoredTank : BossParent
             StartCoroutine(BossGotHit());
         }
     }
+    public void SmootherAim()
+    {
+        Vector3 headDir = player.transform.position - transform.position;
+        Quaternion rotation = Quaternion.Slerp(bossBottom.transform.rotation, Quaternion.LookRotation(headDir), turningSpeed * Time.deltaTime);
 
+        rotation.x = 0;
+        rotation.z = 0;
+
+        bossBottom.transform.rotation = rotation;
+    }
     public IEnumerator BossGotHit()
     {
         bossRenderer[0].material = bossMat[1];
@@ -115,17 +149,44 @@ public class ArmoredTank : BossParent
 
     }
 
+
     public void BossShooting()
     {
         shotCounter -= Time.deltaTime;
+        patternCount -= Time.deltaTime;
+
+        if (patternCount < 0)
+        {
+            if (weapon == WeaponTypes.NORMAL_Missile)
+            {
+                weapon = WeaponTypes.HOMING_Missile;
+            }
+            else if (weapon == WeaponTypes.HOMING_Missile)
+            {
+                weapon = WeaponTypes.NORMAL_Missile;
+            }
+
+            patternCount = missileDelay;
+        }
 
         if (shotCounter < 0)
         {
             //Turret is shooting
-            Instantiate(bossWeapon[0], weaponSpawn[0].transform.position, weaponSpawn[0].transform.rotation);
-            Instantiate(bossWeapon[0], weaponSpawn[1].transform.position, weaponSpawn[1].transform.rotation);
-            Instantiate(bossWeapon[0], weaponSpawn[2].transform.position, weaponSpawn[2].transform.rotation);
-            Instantiate(bossWeapon[0], weaponSpawn[3].transform.position, weaponSpawn[3].transform.rotation);
+            if (weapon == WeaponTypes.NORMAL_Missile)
+            {
+                Instantiate(bossWeapon[0], weaponSpawn[0].transform.position, weaponSpawn[0].transform.rotation);
+                Instantiate(bossWeapon[0], weaponSpawn[1].transform.position, weaponSpawn[1].transform.rotation);
+                Instantiate(bossWeapon[0], weaponSpawn[2].transform.position, weaponSpawn[2].transform.rotation);
+                Instantiate(bossWeapon[0], weaponSpawn[3].transform.position, weaponSpawn[3].transform.rotation);
+            }
+
+            if (weapon == WeaponTypes.HOMING_Missile)
+            {
+                Instantiate(bossWeapon[2], weaponSpawn[0].transform.position, weaponSpawn[0].transform.rotation);
+                Instantiate(bossWeapon[2], weaponSpawn[1].transform.position, weaponSpawn[1].transform.rotation);
+                Instantiate(bossWeapon[2], weaponSpawn[2].transform.position, weaponSpawn[2].transform.rotation);
+                Instantiate(bossWeapon[2], weaponSpawn[3].transform.position, weaponSpawn[3].transform.rotation);
+            }
 
             shotCounter = missileDelay;
         }
