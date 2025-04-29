@@ -6709,6 +6709,11 @@ PrefabInstance:
       propertyPath: particleSpeed
       value: 47
       objectReference: {fileID: 0}
+    - target: {fileID: 2500734639721194294, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2640858591811670767, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_RenderPostProcessing
