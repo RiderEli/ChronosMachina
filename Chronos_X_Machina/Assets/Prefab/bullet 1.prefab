@@ -147,6 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d15947a7db01384db3c08dec573275c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impactDamage: 5
+  minColliderSize: 1
+  maxColliderSize: 5
 --- !u!1 &7220886251995090398
 GameObject:
   m_ObjectHideFlags: 0
