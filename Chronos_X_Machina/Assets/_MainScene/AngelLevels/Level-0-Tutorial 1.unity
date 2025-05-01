@@ -6774,6 +6774,21 @@ PrefabInstance:
       propertyPath: RightDisplay
       value: 
       objectReference: {fileID: 204802581}
+    - target: {fileID: 4779378551611437848, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: ultKey
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779378551611437848, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: healAmount
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779378551611437848, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 121025013}
     - target: {fileID: 5155484938804992194, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: bulletPrefab
