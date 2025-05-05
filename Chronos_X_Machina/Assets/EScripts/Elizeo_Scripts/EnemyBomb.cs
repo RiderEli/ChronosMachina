@@ -78,7 +78,7 @@ public class EnemyBomb : MonoBehaviour
         }
         if (typeOfBomb == bombType.Cannon)
         {
-            bombRB.velocity = Vector3.back * fallSpeed;
+            bombRB.velocity = transform.forward * fallSpeed;
             StartCoroutine(bombLife());
         }
         if (bombExploding)

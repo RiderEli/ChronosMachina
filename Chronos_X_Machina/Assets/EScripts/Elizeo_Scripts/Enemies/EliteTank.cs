@@ -32,11 +32,11 @@ public class EliteTank : EnemyParent
         //Renderer Stuff
         enemyRenderer = enemyPieces[0].GetComponent<Renderer>();
         eliteRend_1 = enemyPieces[1].GetComponent<Renderer>();
-        eliteRend_2 = enemyPieces[2].GetComponent<Renderer>();
+      //  eliteRend_2 = enemyPieces[2].GetComponent<Renderer>();
         //------------------------------------------------------
         enemyRenderer.material = enemyMat[0];
         eliteRend_1.material = enemyMat[0];
-        eliteRend_2.material = enemyMat[0];
+       // eliteRend_2.material = enemyMat[0];
 
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if (playerController == null) { Debug.Log("Player Not Found"); }
@@ -191,11 +191,11 @@ public class EliteTank : EnemyParent
     {
         enemyRenderer.material = enemyMat[1];
         eliteRend_1.material = enemyMat[1];
-        eliteRend_2.material = enemyMat[1];
+       // eliteRend_2.material = enemyMat[1];
         yield return new WaitForSeconds(0.1f);
         enemyRenderer.material = enemyMat[0];
         eliteRend_1.material = enemyMat[0];
-        eliteRend_2.material = enemyMat[0];
+       // eliteRend_2.material = enemyMat[0];
     }
 
     public void OnTriggerExit(Collider other)

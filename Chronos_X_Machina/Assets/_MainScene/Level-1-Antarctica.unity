@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1830,11 +1830,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &67823974
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4607,11 +4610,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &171095031
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4986,11 +4992,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &176443650
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5300,11 +5309,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &191673035
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6560,11 +6572,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &236665340
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14161,11 +14176,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &367167399
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14674,11 +14692,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &374653059
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14843,11 +14864,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &376160327
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15118,11 +15142,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &376726710
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15516,11 +15543,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &381615513
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17708,11 +17738,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &428042918
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17991,11 +18024,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &430931270
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18667,6 +18703,8 @@ MonoBehaviour:
   playerThing: {fileID: 969082397}
   pauseContainer: {fileID: 1792048791}
   GameOverContainer: {fileID: 1358941046}
+  triggerOnce: 0
+  levels: 0
 --- !u!1001 &451026261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18849,11 +18887,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &461048990
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20659,11 +20700,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &507682869
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21989,11 +22033,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &540333837
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22449,11 +22496,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &546878903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23564,11 +23614,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &601235885
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26154,11 +26207,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &678496963
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26323,11 +26379,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &684388953
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26523,11 +26582,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &687947589
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27371,11 +27433,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &708662382
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30185,11 +30250,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &803756681
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32609,11 +32677,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &867881959
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32778,11 +32849,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &869949568
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33522,11 +33596,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &891208851
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34226,11 +34303,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &910318217
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35076,11 +35156,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &935177550
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35353,11 +35436,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &940310682
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35627,11 +35713,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &946798891
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36648,11 +36737,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &967544963
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41182,11 +41274,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1134469396
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41351,11 +41446,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1145611808
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42552,11 +42650,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1178608237
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -43626,11 +43727,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1202690909
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49446,11 +49550,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1246457507
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49720,11 +49827,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1253444914
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -50430,11 +50540,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1268957131
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -51163,11 +51276,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1282116105
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -51870,11 +51986,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1310215867
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -52193,11 +52312,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1314611121
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -53454,7 +53576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 1084913788}
-  playerObject: {fileID: 0}
 --- !u!1001 &1359924781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55019,11 +55140,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1427438670
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -56829,11 +56953,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1472888577
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -56998,11 +57125,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1483993591
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -57928,11 +58058,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1515255643
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60078,11 +60211,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1561798454
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60343,11 +60479,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1563520004
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66801,11 +66940,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1634082460
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -67158,6 +67300,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2500734639721194294, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2509500046123938538, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_IsActive
@@ -67435,11 +67582,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1659349396
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -69075,11 +69225,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1706850990
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -70597,11 +70750,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1762953352
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -78045,11 +78201,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1896137672
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -78550,11 +78709,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1911914220
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -79753,11 +79915,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1941942493
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -81256,11 +81421,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &1983616791
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -82537,11 +82705,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &2026069400
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -82706,11 +82877,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &2030965332
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -82989,11 +83163,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &2037757110
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -83241,11 +83418,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &2043681729
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -83934,11 +84114,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &2072096842
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -85009,11 +85192,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 3
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &2097484925
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -86768,11 +86954,14 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 78518d43ecf2f8244a8557d79595efe4, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 1
   weapons: 2
   enemyDirection: 4
   dropperDuration: 10
   bombDelay: 2
+  dropperInWave: 0
+  screwsToDrop: 0
 --- !u!23 &2145566498
 MeshRenderer:
   m_ObjectHideFlags: 0

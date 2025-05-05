@@ -147,3 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactDamage: 5
+  minColliderSize: 0.5
+  maxColliderSize: 5

@@ -1144,12 +1144,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2292162795776462073}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: -0.6, y: 69.115, z: -34.8}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 217103335342338316}
+  m_Father: {fileID: 2471802576135098198}
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!20 &3247483050078640511
 Camera:
@@ -1264,7 +1264,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f1eecd735ba795d458a6bc20c65c09b3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.686
   m_Pitch: 1
@@ -1771,7 +1771,7 @@ Transform:
   m_Children:
   - {fileID: 707038431720787279}
   - {fileID: 2853603654124746779}
-  - {fileID: 1650516872498881620}
+  - {fileID: 2471802576135098198}
   - {fileID: 7671722911840046821}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1819,14 +1819,14 @@ MonoBehaviour:
   playerLives: 3
   currentLives: 0
   healValue: 25
-  waveCam: {fileID: 0}
   playerCam: {fileID: 2292162795776462073}
+  playerCamPostion: {fileID: 4087883611732250033}
   speed: 25
   rotationSpeed: 10
   gravity: -80
   terminalVelocity: -80
   isShopping: 0
-  screws: 50
+  screws: 0
   torsoTurnReductionFactor: 0.4
   isUsingFlamethrower: 0
 --- !u!143 &2213536198613312571
@@ -2717,6 +2717,38 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &4087883611732250033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2471802576135098198}
+  m_Layer: 3
+  m_Name: PlayCam Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2471802576135098198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087883611732250033}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
+  m_LocalPosition: {x: -0.6000001, y: 69.115, z: -34.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1650516872498881620}
+  m_Father: {fileID: 217103335342338316}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4212231265105836222
 GameObject:
   m_ObjectHideFlags: 0
@@ -5380,6 +5412,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1958504897331683906, guid: cd0849b05d2cc4e44ae049fb5541313a,
         type: 3}
+      propertyPath: Damage
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958504897331683906, guid: cd0849b05d2cc4e44ae049fb5541313a,
+        type: 3}
       propertyPath: chargeUI
       value: 
       objectReference: {fileID: 7032485914615149161}
@@ -5916,6 +5953,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3356025443578143462}
     m_Modifications:
+    - target: {fileID: 1958504897331683906, guid: cc11e9c0f2694ce4b96f33845f6adc3d,
+        type: 3}
+      propertyPath: Damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1958504897331683906, guid: cc11e9c0f2694ce4b96f33845f6adc3d,
         type: 3}
       propertyPath: chargeUI

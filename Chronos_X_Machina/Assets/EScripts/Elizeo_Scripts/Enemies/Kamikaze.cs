@@ -77,6 +77,15 @@ public class Kamikaze : EnemyParent
     public void OnTriggerEnter(Collider other)
     {
 
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+            if (WaveChecker.insideWave == true)
+            {
+                WaveSystem.counter -= 1;
+            }
+        }
+
         if (other.gameObject.CompareTag("PlayerWep"))
         {
             if (other.gameObject.GetComponent<BulletProjectile>() != null)
@@ -109,14 +118,7 @@ public class Kamikaze : EnemyParent
                 Destroy(other.gameObject);
             }
 
-            if (other.gameObject.CompareTag("Player"))
-            {
-                Destroy(this.gameObject);
-                if (WaveChecker.insideWave == true)
-                {
-                    WaveSystem.counter -= 1;
-                }
-            }
+           
         }
     }
 

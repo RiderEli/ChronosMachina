@@ -7472,6 +7472,7 @@ MonoBehaviour:
   playerThing: {fileID: 969082397}
   pauseContainer: {fileID: 152385510}
   GameOverContainer: {fileID: 1358941046}
+  triggerOnce: 0
   levels: 0
 --- !u!1 &459999801
 GameObject:
@@ -23125,7 +23126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 1084913788}
-  playerObject: {fileID: 0}
 --- !u!1 &1363471422
 GameObject:
   m_ObjectHideFlags: 0
@@ -28193,6 +28193,11 @@ PrefabInstance:
       propertyPath: m_MinValue
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: maxRange
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 1877857180761832909, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -28430,7 +28435,7 @@ PrefabInstance:
     - target: {fileID: 7331840670908403321, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8912678338625989633, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
@@ -28440,7 +28445,7 @@ PrefabInstance:
     - target: {fileID: 8912678338625989633, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9062406813792502996, guid: a884e71611f91264eb5e26c4fbbfc28d, type: 3}

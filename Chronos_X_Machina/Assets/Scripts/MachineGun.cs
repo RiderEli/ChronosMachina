@@ -29,7 +29,7 @@ public class MachineGun : MonoBehaviour
 
     private IEnumerator ShootContinuously()
     {
-        int layerMask = LayerMask.GetMask("Player", "UI");
+        int layerMask = LayerMask.GetMask("Player", "UI","Ignore Raycast");
 
         while (isFiring)
         {

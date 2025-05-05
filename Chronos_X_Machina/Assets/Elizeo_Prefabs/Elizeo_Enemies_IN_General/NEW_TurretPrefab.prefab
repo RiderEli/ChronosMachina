@@ -134,7 +134,7 @@ MonoBehaviour:
   enemyHead: {fileID: 1551176433269964663}
   enemyWeapon:
   - {fileID: 629351139393265974, guid: 423814b3c681cc244834a1e63ab04969, type: 3}
-  - {fileID: 341658222094009727, guid: 6ebaf63574368b84ab207804808ce333, type: 3}
+  - {fileID: 7913895152195520897, guid: 0c33f19922531d1449ec87b26a8a2d2a, type: 3}
   enemyPieces:
   - {fileID: 2749516665628177420}
   - {fileID: 7119202359821304435}
@@ -157,6 +157,7 @@ MonoBehaviour:
   aiming: 0
   missileDelay: 1
   turningSpeed: 50
+  screwsToDrop: 0
 --- !u!54 &5341093249117760478
 Rigidbody:
   m_ObjectHideFlags: 0

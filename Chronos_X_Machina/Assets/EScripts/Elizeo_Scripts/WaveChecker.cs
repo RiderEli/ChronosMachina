@@ -67,7 +67,7 @@ public class WaveChecker : MonoBehaviour
 
     public void LocateWaveCam()
     {
-        player.waveCam.transform.position = cameraPos.transform.position;
+        player.playerCam.transform.position = cameraPos.transform.position;
     }
 
     public IEnumerator DiedOnSpawn()

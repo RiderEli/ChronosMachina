@@ -13,15 +13,30 @@ public class FireProjectile : MonoBehaviour
     private bool isLingerOnEnemy = false;
     private ParticleSystem fireParticleSystem;
 
-    private float maxRange = 10f;
+    private float maxRange = 10f; // The range for the projectile
+    public float minColliderSize = 7f; // Min size of the collider
+    public float maxColliderSize = 12f; // Max size of the collider
+
+    private float currentSize; // Current collider size
 
     private Vector3 startPosition; // Store the starting position
+
+    private BoxCollider boxCollider;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         fireParticleSystem = GetComponent<ParticleSystem>();
         startPosition = transform.position; // Initialize starting position
+
+        boxCollider = GetComponent<BoxCollider>(); // Get the BoxCollider component
+        if (boxCollider == null)
+        {
+            Debug.LogError("No BoxCollider attached to the projectile!");
+        }
+
+        currentSize = minColliderSize; // Start with the minimum size
+        boxCollider.size = new Vector3(currentSize, currentSize, currentSize); // Set initial collider size
     }
 
     public void Initialize(float range, int damage, float duration, int burnDamage)
@@ -34,8 +49,23 @@ public class FireProjectile : MonoBehaviour
 
     void Update()
     {
-        //  Destroy if the projectile travels too far
-        if (Vector3.Distance(startPosition, transform.position) >= maxRange)
+        // Calculate distance traveled
+        float distanceTraveled = Vector3.Distance(startPosition, transform.position);
+
+        // Calculate the growth factor (normalized value from 0 to 1)
+        float growthFactor = Mathf.Clamp01(distanceTraveled / maxRange);
+
+        // Interpolate the collider size based on the growth factor
+        currentSize = Mathf.Lerp(minColliderSize, maxColliderSize, growthFactor);
+
+        // Apply the size to the collider
+        if (boxCollider != null)
+        {
+            boxCollider.size = new Vector3(currentSize, currentSize, currentSize); // Scale the collider only
+        }
+
+        // Destroy the projectile if it has traveled too far
+        if (distanceTraveled >= maxRange)
         {
             Destroy(gameObject);
         }
