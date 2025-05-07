@@ -85,6 +85,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        //DontDestroyOnLoad(this.gameObject);
+
         currentHP = maxHP;
         currentLives = playerLives;
         characterController = GetComponent<CharacterController>();
@@ -94,6 +96,16 @@ public class PlayerController : MonoBehaviour
 
         // Initialize weapons
         InitializeWeapons();
+    }
+    void Awake()
+    {
+        if (FindObjectsOfType<PlayerController>().Length > 1)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     void Update()
@@ -108,7 +120,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.isKinematic = false;
             ShowWeapons();
-            Debug.Log("seen");
+            //Debug.Log("seen");
         }
 
 

@@ -34,7 +34,7 @@ public class Shotgun : MonoBehaviour
     {
         isCoroutineRunning = true;
 
-        int layerMask = LayerMask.GetMask("Player", "UI");
+        int layerMask = LayerMask.GetMask("Player", "UI", "Ignore Raycast");
 
         while (isFiring)
         {

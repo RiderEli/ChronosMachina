@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEditor;
 
 public class WeaponUpgradeSystem : MonoBehaviour
 {
@@ -8,6 +9,28 @@ public class WeaponUpgradeSystem : MonoBehaviour
     [SerializeField] private PlayerController playerController;
 
     private Dictionary<string, Button[]> weaponButtons = new Dictionary<string, Button[]>();
+
+    private void Awake()
+    {
+        // Automatically find the weapon parent from "PlayerTest"
+        GameObject playerTest = GameObject.Find("PlayerTest");
+        if (playerTest != null)
+        {
+            weaponParrent = playerTest.GetComponentInChildren<WeaponParrent>();
+            playerController = playerTest.GetComponent<PlayerController>();
+        }
+
+        // Assign buttons for all weapons
+        AssignButtons("MachineGun");
+        AssignButtons("Shotgun");
+        AssignButtons("PlasmaGun");
+        AssignButtons("Sword");
+        AssignButtons("Flamethrower");
+        AssignButtons("GrenadeLauncher");
+        AssignButtons("EMP");
+        AssignButtons("ChestLaser");
+        AssignButtons("HealingStatBoost");
+    }
 
     private void Start()
     {
@@ -127,7 +150,7 @@ public class WeaponUpgradeSystem : MonoBehaviour
             Debug.Log("Equipped Tier 2.");
             return;
         }
-        else if (tier1 && targetTier == 1)
+        else if ((tier1 && targetTier == 1) || (targetTier == 1 && !tier2 && !tier3))
         {
             if (isLeftArm)
             {
