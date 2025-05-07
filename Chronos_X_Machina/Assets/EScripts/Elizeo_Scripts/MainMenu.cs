@@ -64,4 +64,10 @@ public class MainMenu : MonoBehaviour
         //Mostly for Test Build, but also closes the application on quit.
         Application.Quit();
     }
+
+    //THIS IS ONLY A USED FOR TESTING BUILDS. DISREGARD THIS ON RELEASE.
+    public void GoToTest()
+    {
+        SceneManager.LoadScene("Elizeo_Enemy");
+    }
 }

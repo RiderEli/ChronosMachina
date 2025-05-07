@@ -76,4 +76,6 @@ public class BossParent : MonoBehaviour
     {
         bossRB.velocity = Vector3.zero;
     }
+
+    
 }
