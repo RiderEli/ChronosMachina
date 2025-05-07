@@ -11,7 +11,9 @@ public class TimeMachineHub : MonoBehaviour
     //Time Menu Hub
     public GameObject mainHub;
     public GameObject sceneHub;
+    public GameManager gameManager;
     private GameObject player;
+
 
     public GameObject[] levelButtons;
 
@@ -64,11 +66,13 @@ public class TimeMachineHub : MonoBehaviour
 
     public void GoToTutorial()
     {
+        //gameManager.sceneSwitched = true;
         SceneManager.LoadScene("Level-0-Tutorial 1");
     }
 
     public void GoToLevel1()
     {
+        //gameManager.sceneSwitched = true;
         SceneManager.LoadScene("Level-1-Antarctica 1");
     }
 
