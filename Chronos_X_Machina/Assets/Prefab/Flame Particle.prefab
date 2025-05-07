@@ -72,6 +72,8 @@ MonoBehaviour:
   burnDuration: 3
   burnDamagePerSecond: 5
   lingerTime: 1.5
+  minColliderSize: 4
+  maxColliderSize: 12
 --- !u!54 &3644557961521826903
 Rigidbody:
   m_ObjectHideFlags: 0
