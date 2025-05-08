@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Device;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     public bool Tier2_GRE;
     public bool Tier3_GRE;
 
+    public int Screws;
 
     public bool sceneSwitched = false;
     public bool updateWeaponsLockout = false;
@@ -129,6 +131,8 @@ public class GameManager : MonoBehaviour
             wp.Tier3_FLM = Tier3_FLM;
             wp.Tier2_GRE = Tier2_GRE;
         }
+
+        Screws = playerController.screws;
 
         updateWeaponsLockout = false;
     }
