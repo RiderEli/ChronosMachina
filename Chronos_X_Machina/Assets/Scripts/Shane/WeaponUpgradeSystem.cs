@@ -60,6 +60,11 @@ public class WeaponUpgradeSystem : MonoBehaviour
         Button tier2 = GameObject.Find($"Tier2_{weaponName}_Button")?.GetComponent<Button>();
         Button tier3 = GameObject.Find($"Tier3_{weaponName}_Button")?.GetComponent<Button>();
 
+
+
+
+
+
         if (tier1 != null && tier2 != null && tier3 != null)
         {
             weaponButtons[weaponName] = new Button[] { tier1, tier2, tier3 };

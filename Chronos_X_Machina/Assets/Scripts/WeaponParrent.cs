@@ -86,9 +86,11 @@ public class WeaponParrent : MonoBehaviour
     public float bulletSpeedGRE = 1;
     public float rangeGRE = 20;
     public bool Tier1_GRE = true;
+    public GameObject TierObj1_GRE;
 
     public bool Tier2_GRE = false;
     public int Tier2_GRE_Cost = 9;
+    public GameObject TierObj2_GRE;
 
     public bool Tier3_GRE = false;
     public int Tier3_GRE_Cost = 15;
@@ -150,6 +152,8 @@ public class WeaponParrent : MonoBehaviour
             { "Tier3_SG", TierObj3_SG },
             { "Tier1_FLM", TierObj1_FLM },
             { "Tier2_FLM", TierObj2_FLM },
+            { "Tier1_GRE", TierObj1_GRE },
+            { "Tier2_GRE", TierObj2_GRE },
             //{ "Tier3_FT", TierObj3_FLM },
             
         };
@@ -238,6 +242,8 @@ public class WeaponParrent : MonoBehaviour
             case "SG":
                 return tier == 1 ? TierObj1_SG : tier == 2 ? TierObj2_SG : TierObj3_SG;
             case "FLM":
+                return tier == 1 ? TierObj1_FLM : tier == 2 ? TierObj2_FLM : null;
+            case "GRE":
                 return tier == 1 ? TierObj1_FLM : tier == 2 ? TierObj2_FLM : null;
             default:
                 return null;

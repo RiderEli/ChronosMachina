@@ -14,9 +14,11 @@ public class PlayerController : MonoBehaviour
     [Header("Weapon Management")]
     public Transform LeftArmTransform; // Parent object for left arm weapons
     public Transform RightArmTransform; // Parent object for right arm weapons
+    public Transform SuperTransform; // Parent object for super weapons
 
     public List<GameObject> leftWeapons = new List<GameObject>();
     public List<GameObject> rightWeapons = new List<GameObject>();
+    public List<GameObject> superWeapons = new List<GameObject>();
 
     public GameObject equipedLeftWeapon;
     public GameObject equipedRightWeapon;
@@ -136,7 +138,7 @@ public class PlayerController : MonoBehaviour
 
     void RechargeFlares()
     {
-        Debug.Log(currentFlareCharges + " " + maxFlareCharges);
+        //Debug.Log(currentFlareCharges + " " + maxFlareCharges);
         if (currentFlareCharges < maxFlareCharges)
         {
             flareRechargeTimerElapsed += Time.deltaTime;
@@ -192,6 +194,8 @@ public class PlayerController : MonoBehaviour
                     RightDisplay.text = equipedRightWeapon.name;
                 }
             }
+
+            
         }
     }
 
@@ -230,6 +234,18 @@ public class PlayerController : MonoBehaviour
                 child.gameObject.SetActive(false);
             }
         }
+
+        if (SuperTransform != null)
+        {
+            foreach (Transform child in SuperTransform)
+            {
+                superWeapons.Add(child.gameObject);
+                if (child.gameObject.activeSelf)
+                {
+                    equipedSuper = child.gameObject;
+                }
+            }
+        }
     }
 
 
@@ -255,7 +271,7 @@ public class PlayerController : MonoBehaviour
             ShootFlares();
         }
 
-        // Check if the flamethrower is actively being used (add your own key/input for flamethrower)
+        /* Check if the flamethrower is actively being used (add your own key/input for flamethrower)
         if (Input.GetKeyDown(KeyCode.F))
         {
             isUsingFlamethrower = true;
@@ -263,7 +279,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.F))
         {
             isUsingFlamethrower = false;
-        }
+        }*/
     }
 
     void ShootFlares()
