@@ -5,6 +5,8 @@ using UnityEngine;
 public class RocketGun : MonoBehaviour
 {
     public PlayerController controller;
+    public List<GameObject> rocketUISprite = new List<GameObject>();
+
 
     public GameObject rocketPrefab;
     public GameObject barrelOne;
@@ -30,6 +32,8 @@ public class RocketGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HandleRocketUI();
+
         barrelOne.transform.LookAt(controller.Tester.transform.position);
         if (Input.GetMouseButtonDown(1) && rocketCharges > 0)
         {
@@ -47,7 +51,14 @@ public class RocketGun : MonoBehaviour
             }
         }
     }
-
+    void HandleRocketUI()
+    {
+        for (int i = 0; i < rocketUISprite.Count; i++)
+        {
+            bool isUsed = i >= rocketCharges;
+            rocketUISprite[i].GetComponent<RocketUI>().shot = isUsed;
+        }
+    }
     private void ShootRockets()
     {
         Instantiate(rocketPrefab, barrelOne.transform.position, barrelOne.transform.rotation);

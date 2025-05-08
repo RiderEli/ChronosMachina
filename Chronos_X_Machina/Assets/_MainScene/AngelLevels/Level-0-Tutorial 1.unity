@@ -8873,6 +8873,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 500187127}
+    - target: {fileID: 1237231632769321657, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1427862052355418764, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: Damage
@@ -8888,10 +8893,20 @@ PrefabInstance:
       propertyPath: particleSpeed
       value: 47
       objectReference: {fileID: 0}
+    - target: {fileID: 1674946245128948501, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2500734639721194294, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509500046123938538, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2640858591811670767, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
@@ -8998,6 +9013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Damage
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331840670908403321, guid: a884e71611f91264eb5e26c4fbbfc28d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

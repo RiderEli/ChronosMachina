@@ -8,6 +8,14 @@ using Unity.VisualScripting;
 public class PlayerController : MonoBehaviour
 {
     private CharacterController characterController;
+    public TextMeshProUGUI screwsText;
+    public GameObject ChargeUI;
+    public GameObject HealthUI;
+
+    public GameObject UIElements;
+
+    public List<GameObject> flareUISprite = new List<GameObject>();
+
     private Rigidbody rb;
     private bool weaponsShown = true;
 
@@ -107,6 +115,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        Tester = GameObject.FindGameObjectWithTag("MouseAim");
         //DontDestroyOnLoad(this.gameObject);
     }
 
@@ -116,23 +125,51 @@ public class PlayerController : MonoBehaviour
         {
             rb.isKinematic = true;
             HideWeapons();
+            UIElements.SetActive(false);
             return;
         }
         else
         {
             rb.isKinematic = false;
             ShowWeapons();
+            UIElements.SetActive(true);
             //Debug.Log("seen");
         }
 
 
-
+        HandleFlareUI();
         RechargeFlares();
         HandleMovement();
         HandleFlareShooting();
         StoreActiveWeapons();
         HandleHealthSystem();
         HandleCameras(); // Call the recharge function
+    }
+
+    void HideUI()
+    {
+        if (UIElements.gameObject.activeSelf)
+        {
+            UIElements.SetActive(false);
+            ChargeUI.SetActive(false);
+            HealthUI.SetActive(false);
+        }
+
+        if (!UIElements.gameObject.activeSelf)
+        {
+            UIElements.SetActive(true);
+            ChargeUI.SetActive(true);
+            HealthUI.SetActive(true);
+        }
+    }
+
+    void HandleFlareUI()
+    {
+        for (int i = 0; i < flareUISprite.Count; i++)
+        {
+            bool isUsed = i >= currentFlareCharges;
+            flareUISprite[i].GetComponent<flareUI>().shot = isUsed;
+        }
     }
 
 
@@ -203,6 +240,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         HandleMouseAim();
+        screwsText.text = ("Screws: " + screws); 
+
     }
 
     void InitializeWeapons()

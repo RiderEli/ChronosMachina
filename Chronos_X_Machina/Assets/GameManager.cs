@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public bool Tier2_FLM;
     public bool Tier3_FLM;
 
+    public bool Tier2_GRE;
+    public bool Tier3_GRE;
+
 
     public bool sceneSwitched = false;
     public bool updateWeaponsLockout = false;
@@ -77,6 +80,7 @@ public class GameManager : MonoBehaviour
                 Tier3_SG = wp.Tier3_SG;
                 Tier2_FLM = wp.Tier2_FLM;
                 Tier3_FLM = wp.Tier3_FLM;
+                Tier2_GRE = wp.Tier2_GRE;
             }
         }
     }
@@ -123,6 +127,7 @@ public class GameManager : MonoBehaviour
             wp.Tier3_SG = Tier3_SG;
             wp.Tier2_FLM = Tier2_FLM;
             wp.Tier3_FLM = Tier3_FLM;
+            wp.Tier2_GRE = Tier2_GRE;
         }
 
         updateWeaponsLockout = false;
