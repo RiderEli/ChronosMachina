@@ -80,7 +80,7 @@ public class AerialShip : BossParent
         deployCounter = deployDelay;
         posNum = UnityEngine.Random.Range(minPosValue, maxPosValue);
         planeDeployNum = UnityEngine.Random.Range(minDepNum, maxDepNum);
-
+        phases = PlanePhases.PHASE_1;
         //Renderer for the Ship
         bossRenderer[0] = bossPieces[0].GetComponent<Renderer>();
         bossRenderer[0].material = bossMat[0];
@@ -95,15 +95,10 @@ public class AerialShip : BossParent
 
         BossDetectBoolThing();
         PlaneMoving();
-        PosValueSwitch();
-        //PlaneAttacking();
         PlaneDeployValue();
         PlaneDetection();
         Debug.Log("Position Number: " + posNum);
         Debug.Log("Deploy Number: " + planeDeployNum);
-        //FOR DEBUGGINH PURPOSES
-        //PlaneLookDebug();
-
 
         //General Stuff for UI and Materials
         if (bossHP <= 0)
@@ -124,6 +119,19 @@ public class AerialShip : BossParent
         {
             bossHealth_UI.SetActive(false);
         }
+
+        //Phases
+
+        if (bossHP < 1250)
+        {
+            phases = PlanePhases.PHASE_2;
+        }
+        
+        if (phases == PlanePhases.PHASE_2)
+        {
+            PosValueSwitch();
+        }
+
     }
 
     //THIS IS ONLY FOR DEBUGGINH
@@ -135,15 +143,11 @@ public class AerialShip : BossParent
     public void PlaneMoving()
     {
         if (bossMove == bossMovement.moving)
-        {
-
-            
+        {           
             if (planeMovement == PlaneMovements.Straight)
-            {
-                
+            { 
                 if (posNum == 1)
                 {
-
                     transform.LookAt(thingsToRotateAround[0].position);
                     transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[0].position, bossSpeed * Time.deltaTime);
                 }
@@ -151,30 +155,24 @@ public class AerialShip : BossParent
                 if (posNum == 2)
                 {
                     transform.LookAt(thingsToRotateAround[1].position);
-
                     transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[1].position, bossSpeed * Time.deltaTime);
-
                 }
 
                 if (posNum == 3)
                 {
-
                     transform.LookAt(thingsToRotateAround[2].position);
-
                     transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[2].position, bossSpeed * Time.deltaTime);
                 }
 
                 if (posNum == 4)
                 {
                     transform.LookAt(thingsToRotateAround[3].position);
-
                     transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[3].position, bossSpeed * Time.deltaTime);
                 }
 
                 if (posNum == 5)
                 {
-                    transform.LookAt(thingsToRotateAround[4].position);
-
+                   transform.LookAt(thingsToRotateAround[4].position);
                    transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[4].position, bossSpeed * Time.deltaTime);
                 }
             }
@@ -386,7 +384,7 @@ public class AerialShip : BossParent
         {
             if (bossAttacking == true)
             {
-                //PlaneAttacking();
+                PlaneAttacking();
                 Debug.Log("Boss is Attacking");
             }
             else if (bossAttacking == false)

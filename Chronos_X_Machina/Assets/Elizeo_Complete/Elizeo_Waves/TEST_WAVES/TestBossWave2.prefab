@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1258224644450047938}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -65.7, y: 25.6, z: 97.7}
+  m_LocalPosition: {x: -33.9, y: 25.6, z: 52.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79,7 +79,7 @@ Transform:
   m_GameObject: {fileID: 2777798683954556727}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -63.9, y: 26.1, z: -34.2}
+  m_LocalPosition: {x: -35.2, y: 26.1, z: -20.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -132,7 +132,7 @@ Transform:
   m_GameObject: {fileID: 2926973513787006229}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.9, y: 25.6, z: 37.7}
+  m_LocalPosition: {x: -2.9, y: 25.6, z: 11.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -378,7 +378,7 @@ Transform:
   m_GameObject: {fileID: 6888113875398938713}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 56.9, y: 25.6, z: -32.6}
+  m_LocalPosition: {x: 37.2, y: 25.6, z: -19.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -431,7 +431,7 @@ Transform:
   m_GameObject: {fileID: 8659999402166668138}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 60.4, y: 25.6, z: 95.5}
+  m_LocalPosition: {x: 35.4, y: 25.6, z: 51.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -672,6 +672,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7365956023967012276}
     m_Modifications:
+    - target: {fileID: 816066702188828424, guid: b70fb01934456b140aae1b4bb7483a20,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3760891680220073945, guid: b70fb01934456b140aae1b4bb7483a20,
         type: 3}
       propertyPath: m_LocalPosition.x
