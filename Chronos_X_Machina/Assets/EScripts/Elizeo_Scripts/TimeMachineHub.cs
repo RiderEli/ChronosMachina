@@ -133,18 +133,7 @@ public class TimeMachineHub : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 1;
                 player.GetComponent<PlayerController>().isShopping = false;
-                Shotgun shotgun = null;
-                foreach (Shotgun s in FindObjectsOfType<Shotgun>())
-                {
-                    if (s.gameObject.activeInHierarchy)
-                    {
-                        shotgun = s;
-                        break; // Stop after finding the first active one
-                    }
-                }
-                shotgun.GetComponent<Shotgun>().ResetShotgun();
                 middleHub.SetActive(false);
                 Input.GetKeyDown(KeyCode.Escape).Equals(true);
 

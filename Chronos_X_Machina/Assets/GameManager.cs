@@ -64,13 +64,11 @@ public class GameManager : MonoBehaviour
             singleStart = false;
             return;
         }
-
-        if (playerController != null)
+        else 
         {
-            Screws = playerController.screws;
+            sceneSwitched = true;
         }
 
-        sceneSwitched = true;
     }
 
     private void Update()
@@ -102,8 +100,6 @@ public class GameManager : MonoBehaviour
                     Tier3_FLM = wp.Tier3_FLM;
                     Tier2_GRE = wp.Tier2_GRE;
                 }
-
-                Screws = playerController.screws; // Only here if scene/player is valid
             }
         }
     }
@@ -157,7 +153,6 @@ public class GameManager : MonoBehaviour
             wp.Tier2_GRE = Tier2_GRE;
         }
 
-        Screws = playerController.screws;
 
         updateWeaponsLockout = false;
     }

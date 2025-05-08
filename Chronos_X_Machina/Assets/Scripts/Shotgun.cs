@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Shotgun : MonoBehaviour
@@ -12,107 +11,79 @@ public class Shotgun : MonoBehaviour
     public GameObject barrelTip;
     public GameObject bulletPrefab;
 
-    private bool isFiring = false;
-    private bool isCoroutineRunning = false;
+    private float fireCooldown = 0f;
     private TimeMachineHub timeMachineHub;
 
     void Start()
     {
-        // Find the TimeMachineHub in the scene to check menu state
         timeMachineHub = FindObjectOfType<TimeMachineHub>();
     }
 
     void Update()
     {
-        // Check if the game is in the upgrade menu (middleHub active)
         if (timeMachineHub.middleHub.activeSelf)
-        {
-            // If we are in the menu, disable shooting
             return;
+
+        if (Input.GetMouseButton(0))
+        {
+            if (fireCooldown <= 0f)
+            {
+                FireShotgun();
+                fireCooldown = delayBetweenShots;
+            }
         }
 
-        // If left mouse button is pressed and the gun is not in the middle of a coroutine
-        if (Input.GetMouseButtonDown(0) && !isCoroutineRunning)
+        if (fireCooldown > 0f)
         {
-            StartFiring();
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            StopFiring();
+            fireCooldown -= Time.deltaTime; // Unscaled if you still want to shoot while time is paused
         }
     }
 
-    private void StartFiring()
+    private void FireShotgun()
     {
-        isFiring = true;
-        StartCoroutine(ShootShotgun());
-    }
+        int layerMask = LayerMask.GetMask("Player", "UI", "Ignore Raycast");
 
-    private void StopFiring()
-    {
-        isFiring = false;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 targetDirection;
+
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, ~layerMask))
+        {
+            targetDirection = (hit.point - barrelTip.transform.position).normalized;
+        }
+        else
+        {
+            targetDirection = barrelTip.transform.forward;
+        }
+
+        targetDirection.y = 0;
+        targetDirection.Normalize();
+
+        for (int i = 0; i < pelletsPerShot; i++)
+        {
+            float spreadStep = spreadAngle / (pelletsPerShot - 1);
+            float spreadOffset = -spreadAngle / 2f + (spreadStep * i);
+            Vector3 spreadDirection = Quaternion.Euler(0, spreadOffset, 0) * targetDirection;
+
+            GameObject bullet = Instantiate(bulletPrefab, barrelTip.transform.position, Quaternion.LookRotation(spreadDirection));
+            BulletProjectile bulletProjectile = bullet.GetComponent<BulletProjectile>();
+            if (bulletProjectile != null)
+            {
+                bulletProjectile.Initialize(damage);
+            }
+
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.velocity = spreadDirection * bulletSpeed;
+                rb.useGravity = false;
+            }
+
+            Destroy(bullet, bulletRange / bulletSpeed);
+        }
     }
 
     public void ResetShotgun()
     {
-        if (isCoroutineRunning)
-        {
-            StopCoroutine(ShootShotgun());
-        }
-
-        isFiring = false;
-        isCoroutineRunning = false;
-    }
-
-    private IEnumerator ShootShotgun()
-    {
-        isCoroutineRunning = true;
-
-        int layerMask = LayerMask.GetMask("Player", "UI", "Ignore Raycast");
-
-        while (isFiring)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector3 targetDirection;
-
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, ~layerMask))
-            {
-                targetDirection = (hit.point - barrelTip.transform.position).normalized;
-            }
-            else
-            {
-                targetDirection = barrelTip.transform.forward;
-            }
-            targetDirection.y = 0;
-            targetDirection.Normalize();
-
-            for (int i = 0; i < pelletsPerShot; i++)
-            {
-                float spreadStep = spreadAngle / (pelletsPerShot - 1);
-                float spreadOffset = -spreadAngle / 2f + (spreadStep * i);
-
-                Vector3 spreadDirection = Quaternion.Euler(0, spreadOffset, 0) * targetDirection;
-
-                GameObject bullet = Instantiate(bulletPrefab, barrelTip.transform.position, Quaternion.LookRotation(spreadDirection));
-                BulletProjectile bulletProjectile = bullet.GetComponent<BulletProjectile>();
-                if (bulletProjectile != null)
-                {
-                    bulletProjectile.Initialize(damage);
-                }
-
-                Rigidbody rb = bullet.GetComponent<Rigidbody>();
-                if (rb != null)
-                {
-                    rb.velocity = spreadDirection * bulletSpeed;
-                    rb.useGravity = false;
-                }
-
-                Destroy(bullet, bulletRange / bulletSpeed);
-            }
-
-            yield return new WaitForSecondsRealtime(delayBetweenShots);
-        }
-
-        isCoroutineRunning = false;
+        fireCooldown = 0f;
     }
 }
