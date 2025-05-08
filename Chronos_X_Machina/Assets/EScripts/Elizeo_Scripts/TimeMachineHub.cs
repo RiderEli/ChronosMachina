@@ -104,7 +104,7 @@ public class TimeMachineHub : MonoBehaviour
 
     public void MidTimeMachine_UnPause()
     {
-        this.gameObject.GetComponent<Collider>().enabled = false;
+
 
         if (timeStuff == TimeSections.Ingame)
         {
@@ -113,6 +113,7 @@ public class TimeMachineHub : MonoBehaviour
 
         if (timeStuff == TimeSections.Menu)
         {
+            this.gameObject.GetComponent<Collider>().enabled = false;
             mainHub.SetActive(true);
             middleHub.SetActive(false);
             sceneHub.SetActive(false);
