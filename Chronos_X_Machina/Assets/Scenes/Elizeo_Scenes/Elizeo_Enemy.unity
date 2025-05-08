@@ -6228,7 +6228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850173620}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 48.1, z: 72.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6271,20 +6271,24 @@ MonoBehaviour:
   bossDetect: 0
   bossMove: 1
   deployDelay: 1
+  attackRange: {fileID: 1691767246}
+  attackDetect: 100
   bossHealth_UI: {fileID: 0}
   bossHealthActive: 0
   enemies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2229724425434470529, guid: 91d869f839070284f8d2d8a06e843d5e, type: 3}
+  - {fileID: 4481949665246602400, guid: 475d39ceb4cf3034eac9d8f3ac305ebe, type: 3}
+  - {fileID: 7889507312522401288, guid: 9d4723dc72dbb2c48a8bc0963cc57168, type: 3}
   thingsToRotateAround:
   - {fileID: 1433076171}
   - {fileID: 1303108023}
   - {fileID: 1582519507}
   - {fileID: 1637110666}
   - {fileID: 1948773289}
+  rotationLookPoint: {fileID: 1691767246}
   posValueTime: 10
   movePosTime: 1
+  planeDeployNum: 3
   deployables: 0
   planeMovement: 1
   phases: 0
@@ -13187,6 +13191,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681377388}
   m_CullTransparentMesh: 1
+--- !u!1 &1691767245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1691767246}
+  m_Layer: 0
+  m_Name: PlaneAttackRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1691767246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691767245}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.1, y: 0, z: 77.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1715379666
 GameObject:
   m_ObjectHideFlags: 0
@@ -16399,7 +16434,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 53e7ebf9fc6b64b4fb312f50ff6633b5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53e7ebf9fc6b64b4fb312f50ff6633b5,
         type: 3}
@@ -16409,12 +16444,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 53e7ebf9fc6b64b4fb312f50ff6633b5,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53e7ebf9fc6b64b4fb312f50ff6633b5,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53e7ebf9fc6b64b4fb312f50ff6633b5,
         type: 3}
@@ -16424,7 +16459,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 53e7ebf9fc6b64b4fb312f50ff6633b5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53e7ebf9fc6b64b4fb312f50ff6633b5,
         type: 3}
@@ -17027,6 +17062,7 @@ SceneRoots:
   - {fileID: 1721533166}
   - {fileID: 81433136}
   - {fileID: 1433076171}
+  - {fileID: 1691767246}
   - {fileID: 1303108023}
   - {fileID: 1582519507}
   - {fileID: 1637110666}

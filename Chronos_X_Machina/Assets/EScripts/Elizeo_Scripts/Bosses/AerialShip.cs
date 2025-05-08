@@ -7,6 +7,8 @@ public class AerialShip : BossParent
 {
     public float deployDelay;
     private float deployCounter;
+    public Transform attackRange;
+    public float attackDetect;
 
     public GameObject bossHealth_UI;
     public bool bossHealthActive;
@@ -21,6 +23,8 @@ public class AerialShip : BossParent
     //public Transform bombSpawn;
     public Transform[] thingsToRotateAround;
 
+    public Transform rotationLookPoint;
+
     private int maxPosValue = 5;
     private int minPosValue = 1;
     private int posNum;
@@ -31,7 +35,7 @@ public class AerialShip : BossParent
 
     private int minDepNum = 1;
     private int maxDepNum = 3;
-    private int planeDeployNum;
+    [SerializeField] private int planeDeployNum;
 
     public enum ShipPatterns
     {
@@ -57,6 +61,8 @@ public class AerialShip : BossParent
 
     }
 
+    private bool bossAttacking;
+
     public PlanePhases phases;
     
     // Start is called before the first frame update
@@ -66,16 +72,28 @@ public class AerialShip : BossParent
         currentPosTime = posValueTime;
         deployCounter = deployDelay;
         posNum = Random.Range(minPosValue, maxPosValue);
-        planeDeployNum = Random.Range(minDepNum, maxDepNum);
+        //planeDeployNum = Random.Range(minDepNum, maxDepNum);
     }
 
     // Update is called once per frame
     public override void Update()
     {
+        BossDetectBoolThing();
         PlaneMoving();
         PosValueSwitch();
-        PlaneAttacking();
+        //PlaneAttacking();
+        PlaneDeployValue();
+        PlaneDetection();
         Debug.Log("Position Number: " + posNum);
+        Debug.Log("Deploy Number: " + planeDeployNum);
+        //FOR DEBUGGINH PURPOSES
+        //PlaneLookDebug();
+    }
+
+    //THIS IS ONLY FOR DEBUGGINH
+    public void PlaneLookDebug()
+    {
+        transform.LookAt(thingsToRotateAround[1].position);
     }
 
     public void PlaneMoving()
@@ -86,28 +104,36 @@ public class AerialShip : BossParent
             {
                 if (posNum == 1)
                 {
+                    transform.LookAt(thingsToRotateAround[0].position);
                     transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[0].position, bossSpeed * Time.deltaTime);
                 }
 
                 if (posNum == 2)
                 {
+                    transform.LookAt(thingsToRotateAround[1].position);
+
                     transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[1].position, bossSpeed * Time.deltaTime);
 
                 }
 
                 if (posNum == 3)
                 {
+
+                    transform.LookAt(thingsToRotateAround[2].position);
+
                     transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[2].position, bossSpeed * Time.deltaTime);
                 }
 
                 if (posNum == 4)
                 {
+                    transform.LookAt(thingsToRotateAround[3].position);
 
                     transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[3].position, bossSpeed * Time.deltaTime);
                 }
 
                 if (posNum == 5)
                 {
+                    transform.LookAt(thingsToRotateAround[4].position);
 
                     transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[4].position, bossSpeed * Time.deltaTime);
                 }
@@ -130,6 +156,7 @@ public class AerialShip : BossParent
                 if (posNum == 3)
                 {
                     transform.RotateAround(thingsToRotateAround[2].position, Vector3.up, bossSpeed * Time.deltaTime);
+
                 }
 
                 if (posNum == 4)
@@ -149,7 +176,20 @@ public class AerialShip : BossParent
 
     public void PlaneDeployValue()
     {
+        if (planeDeployNum == 1)
+        {
+            deployables = ShipPatterns.BOMBS;
+        }
 
+        if (planeDeployNum == 2)
+        {
+            deployables = ShipPatterns.MISSILES;
+        }
+
+        if (planeDeployNum == 3)
+        {
+            deployables = ShipPatterns.GRUNTS;
+        }
     }
 
     //Allows the Position Values to Switch Values randomly every (10) seconds.
@@ -211,5 +251,34 @@ public class AerialShip : BossParent
             }
         }
 
+    }
+
+        public void BossDetectBoolThing()
+    {
+        if (bossAttacking == true)
+        {
+            PlaneAttacking();
+            Debug.Log("Boss is Attacking");
+        }
+        else if(bossAttacking == false)
+        {
+            Debug.Log("Boss is NOT Attacking");
+        }
+
+    }
+
+        public void PlaneDetection()
+        {
+            float distance = Vector3.Distance(transform.position, attackRange.position);
+
+             if (distance < attackDetect)
+             {
+            bossAttacking = true;     
+                   
+             }
+             else
+        {
+            bossAttacking = false;
+        }
     }
 }
