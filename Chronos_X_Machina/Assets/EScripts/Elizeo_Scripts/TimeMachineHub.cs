@@ -78,7 +78,7 @@ public class TimeMachineHub : MonoBehaviour
 
     public void GoToLevel2()
     {
-        //SceneManager.LoadScene("Level-1-Antarctica 1"); 
+        SceneManager.LoadScene("Level-2-AztecJungle 1"); 
 
     }
 
@@ -104,6 +104,8 @@ public class TimeMachineHub : MonoBehaviour
 
     public void MidTimeMachine_UnPause()
     {
+        this.gameObject.GetComponent<Collider>().enabled = false;
+
         if (timeStuff == TimeSections.Ingame)
         {
             inTimeMachine_Level = false;
