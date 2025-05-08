@@ -104,8 +104,11 @@ public class Kamikaze : EnemyParent
             {
                 enemyHP -= other.gameObject.GetComponent<ExplosionDamage>().impactDamage;
                 StartCoroutine(EnemyGotHit());
-            }
-            else
+            }else if (other.gameObject.GetComponent<EMP>() != null)
+            {
+                enemyHP -= other.gameObject.GetComponent<EMP>().damage;
+                StartCoroutine(EnemyGotHit());
+            }else
             {
                 enemyHP -= 25;
                 Destroy(other.gameObject);

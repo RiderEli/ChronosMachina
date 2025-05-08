@@ -146,6 +146,11 @@ public class BombDropper : EnemyParent
                 enemyHP -= other.gameObject.GetComponent<ExplosionDamage>().impactDamage;
                 StartCoroutine(EnemyGotHit());
             }
+            else if(other.gameObject.GetComponent<EMP>() != null)
+            {
+                enemyHP -= other.gameObject.GetComponent<EMP>().damage;
+                StartCoroutine(EnemyGotHit());
+            }
             else
             {
                 enemyHP -= 25;
