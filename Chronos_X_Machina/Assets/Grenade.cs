@@ -93,9 +93,14 @@ public class Grenade : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Explode();
+        }
+
+        if (other.CompareTag("Ground") || other.CompareTag("Wall"))
         {
             Explode();
         }
