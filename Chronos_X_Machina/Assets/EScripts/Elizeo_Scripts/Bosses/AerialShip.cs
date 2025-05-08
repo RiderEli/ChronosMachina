@@ -12,12 +12,13 @@ public class AerialShip : BossParent
     public bool bossHealthActive;
 
     //Objects that can be instantiated
-    public GameObject missile;
-    public GameObject bomb;
+    //public GameObject missile;
+    //public GameObject bomb;
     public GameObject[] enemies;
 
     //Transformation Stuff
-    public Transform deploySpawn;
+    //public Transform deploySpawn;
+    //public Transform bombSpawn;
     public Transform[] thingsToRotateAround;
 
     private int maxPosValue = 5;
@@ -27,7 +28,11 @@ public class AerialShip : BossParent
     private float currentPosTime;
 
     [SerializeField] private float movePosTime;
-    
+
+    private int minDepNum = 1;
+    private int maxDepNum = 3;
+    private int planeDeployNum;
+
     public enum ShipPatterns
     {
         BOMBS,
@@ -48,8 +53,8 @@ public class AerialShip : BossParent
     public enum PlanePhases
     {
         PHASE_1,
-        PHASE_2,
-        PHASE_3
+        PHASE_2
+
     }
 
     public PlanePhases phases;
@@ -59,7 +64,9 @@ public class AerialShip : BossParent
     {
         bossRB = GetComponent<Rigidbody>();
         currentPosTime = posValueTime;
+        deployCounter = deployDelay;
         posNum = Random.Range(minPosValue, maxPosValue);
+        planeDeployNum = Random.Range(minDepNum, maxDepNum);
     }
 
     // Update is called once per frame
@@ -67,6 +74,7 @@ public class AerialShip : BossParent
     {
         PlaneMoving();
         PosValueSwitch();
+        PlaneAttacking();
         Debug.Log("Position Number: " + posNum);
     }
 
@@ -139,6 +147,12 @@ public class AerialShip : BossParent
         }
     }
 
+    public void PlaneDeployValue()
+    {
+
+    }
+
+    //Allows the Position Values to Switch Values randomly every (10) seconds.
     public void PosValueSwitch()
     {
         currentPosTime -= Time.deltaTime;
@@ -153,8 +167,41 @@ public class AerialShip : BossParent
         }
     }
 
+    //Holds different types of attacks
+    public void PlaneAttacking()
+    {
+        deployCounter -= Time.deltaTime;
 
-    public void OnTriggerEnter(Collider other)
+        //bossWeapon[0] is the homing missiles
+        //bossWeapon[1] is the bomb
+
+        //weaponSpawn[0] is where the bomb and missiles will come from
+        //weaponSpawn[1] is where the grunts will be deployed from
+        if (deployCounter < 0)
+        {
+            if (deployables == ShipPatterns.BOMBS)
+            {
+                Instantiate(bossWeapon[1], weaponSpawn[0].transform.position, weaponSpawn[0].transform.rotation);
+            }
+
+            if (deployables == ShipPatterns.MISSILES)
+            {
+                Instantiate(bossWeapon[0], weaponSpawn[0].transform.position, weaponSpawn[0].transform.rotation);
+            }
+
+            if (deployables == ShipPatterns.GRUNTS)
+            {
+                Instantiate(enemies[Random.Range(0, 2)], weaponSpawn[1].transform.position, weaponSpawn[1].transform.rotation);
+            }
+
+            deployCounter = deployDelay;
+
+            planeDeployNum = Random.Range(minDepNum, maxDepNum);
+        }
+
+
+    }
+        public void OnTriggerEnter(Collider other)
     {
         if (planeMovement == PlaneMovements.Straight)
         {
