@@ -124,7 +124,7 @@ public class PauseMenu : MonoBehaviour
     public void ToTheTimeMachine()
     {
         Time.timeScale = 1.0f;
-
+        isPaused = false;
         gameManager.SaveScrews();
         SceneManager.LoadScene("TimeMachine");
     }
