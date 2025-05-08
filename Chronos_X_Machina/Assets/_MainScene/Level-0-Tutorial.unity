@@ -10230,7 +10230,7 @@ GameObject:
   - component: {fileID: 562884958}
   m_Layer: 0
   m_Name: TestAim
-  m_TagString: Untagged
+  m_TagString: MouseAim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28608,7 +28608,7 @@ PrefabInstance:
     - target: {fileID: 7331840670908403321, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8912678338625989633, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
@@ -28618,7 +28618,7 @@ PrefabInstance:
     - target: {fileID: 8912678338625989633, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9062406813792502996, guid: a884e71611f91264eb5e26c4fbbfc28d, type: 3}

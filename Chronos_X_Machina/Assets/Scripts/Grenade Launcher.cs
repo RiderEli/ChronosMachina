@@ -67,6 +67,8 @@ public class GrenadeLauncher : MonoBehaviour
         if (tester == null)
         {
             Debug.LogError("Tester GameObject is not assigned.");
+            tester = GameObject.FindGameObjectWithTag("MouseAim"); 
+            landingIndicatorInstance = GameObject.Find("Tester");
             return;
         }
 

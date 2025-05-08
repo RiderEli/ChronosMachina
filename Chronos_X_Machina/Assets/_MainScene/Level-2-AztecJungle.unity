@@ -8699,6 +8699,8 @@ MonoBehaviour:
   playerThing: {fileID: 969082397}
   pauseContainer: {fileID: 1792048791}
   GameOverContainer: {fileID: 1358941046}
+  triggerOnce: 0
+  levels: 0
 --- !u!1 &463727684
 GameObject:
   m_ObjectHideFlags: 0
@@ -10003,7 +10005,7 @@ GameObject:
   - component: {fileID: 562884958}
   m_Layer: 0
   m_Name: TestAim
-  m_TagString: Untagged
+  m_TagString: MouseAim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23139,7 +23141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 1084913788}
-  playerObject: {fileID: 0}
 --- !u!1 &1392483147
 GameObject:
   m_ObjectHideFlags: 0

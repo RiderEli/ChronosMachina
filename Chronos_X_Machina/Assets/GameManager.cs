@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public string leftWep;
     public string rightWep;
+    public string ultWep;
     private bool singleStart = true;
 
     private PlayerController playerController;
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
         {
             leftWep = playerController.equipedLeftWeapon?.name;
             rightWep = playerController.equipedRightWeapon?.name;
+            ultWep = playerController.equipedSuper?.name;
 
             WeaponParrent wp = playerController.GetComponent<WeaponParrent>();
             if (wp != null)
