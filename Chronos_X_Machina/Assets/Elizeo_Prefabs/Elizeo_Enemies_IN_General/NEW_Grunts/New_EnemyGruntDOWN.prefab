@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2780943372969016533}
   - component: {fileID: 592861000987843994}
   - component: {fileID: 5447453241355978451}
+  - component: {fileID: 3861070268022850746}
   m_Layer: 0
   m_Name: New_EnemyGruntDOWN
   m_TagString: Enemy
@@ -201,6 +202,7 @@ MonoBehaviour:
   enemyPaused: 0
   movement: 0
   weapons: 0
+  explosionEnemy: {fileID: 3861070268022850746}
   enemyDirection: 2
   aiming: 0
   missileDelay: 1
@@ -228,6 +230,21 @@ NavMeshAgent:
   m_BaseOffset: -0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3861070268022850746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2229724425434470529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc80bb2052eb904bbe90c2887db79b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 7728106532347966243, guid: 42c1db6743368f04e9c33b7fc03d1ec2,
+    type: 3}
+  explosionTimer: 1
 --- !u!1001 &7138180132394379043
 PrefabInstance:
   m_ObjectHideFlags: 0

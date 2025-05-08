@@ -72,6 +72,7 @@ public class EnemyParent : MonoBehaviour
     [Header("Enemy Weapon States:")]
     public enemyWeapons weapons;
 
+    public Explosion explosionEnemy;
 
     //These are staying bare-bones for the children scripts in the future.
     public virtual void Start()
@@ -148,7 +149,13 @@ public class EnemyParent : MonoBehaviour
             enemyRB.velocity = Vector3.right * tankSpeed;
         }
     }
-
+    public IEnumerator enemyDeath()
+    {
+        explosionEnemy.explode();
+        this.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        Destroy(this.gameObject);
+    }
     public enum enemyDirectionStates
     {
         NONE,

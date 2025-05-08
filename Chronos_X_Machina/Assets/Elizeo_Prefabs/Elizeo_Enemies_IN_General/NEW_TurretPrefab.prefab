@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 886443273093554585}
   - component: {fileID: 5341093249117760478}
   - component: {fileID: 7455201724217625958}
+  - component: {fileID: 8303508351212038722}
   m_Layer: 0
   m_Name: NEW_TurretPrefab
   m_TagString: Enemy
@@ -153,6 +154,7 @@ MonoBehaviour:
   enemyPaused: 0
   movement: 0
   weapons: 0
+  explosionEnemy: {fileID: 8303508351212038722}
   enemyDirection: 0
   aiming: 0
   missileDelay: 1
@@ -206,6 +208,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6, y: 23.653913, z: 6}
   m_Center: {x: 0, y: 5.2187395, z: 0}
+--- !u!114 &8303508351212038722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5770206310996360899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc80bb2052eb904bbe90c2887db79b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 7728106532347966243, guid: 42c1db6743368f04e9c33b7fc03d1ec2,
+    type: 3}
+  explosionTimer: 1
 --- !u!1001 &1389157214485551384
 PrefabInstance:
   m_ObjectHideFlags: 0

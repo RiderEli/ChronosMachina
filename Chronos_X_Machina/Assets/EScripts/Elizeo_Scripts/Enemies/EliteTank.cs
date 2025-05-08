@@ -56,7 +56,7 @@ public class EliteTank : EnemyParent
         {
             //Debug.Log("Elite Tank Died, lol");
             playerController.screws += screwsToDrop;
-            Destroy(this.gameObject);
+            StartCoroutine(enemyDeath());
             if (WaveChecker.insideWave == true)
             {
                 WaveSystem.counter -= 1;

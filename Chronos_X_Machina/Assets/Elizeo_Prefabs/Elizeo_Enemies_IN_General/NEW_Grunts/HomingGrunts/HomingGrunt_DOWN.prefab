@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5279857727776824508}
   - component: {fileID: 2104086767645107436}
   - component: {fileID: 4167956887044869949}
+  - component: {fileID: 2853328236738759172}
   m_Layer: 0
   m_Name: HomingGrunt_DOWN
   m_TagString: Enemy
@@ -71,6 +72,7 @@ MonoBehaviour:
   enemyPaused: 0
   movement: 0
   weapons: 1
+  explosionEnemy: {fileID: 2853328236738759172}
   enemyDirection: 2
   aiming: 0
   missileDelay: 2
@@ -146,6 +148,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2853328236738759172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4481949665246602400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc80bb2052eb904bbe90c2887db79b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 7728106532347966243, guid: 42c1db6743368f04e9c33b7fc03d1ec2,
+    type: 3}
+  explosionTimer: 1
 --- !u!1 &7853210043426974464
 GameObject:
   m_ObjectHideFlags: 0

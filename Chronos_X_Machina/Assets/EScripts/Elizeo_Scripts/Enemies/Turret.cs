@@ -64,7 +64,9 @@ public class Turret : EnemyParent
         {
             Debug.Log("Enemy Died, lol");
             playerController.screws += screwsToDrop;
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            StartCoroutine(enemyDeath());
+
             if (WaveChecker.insideWave == true)
             {
                 WaveSystem.counter -= 1;

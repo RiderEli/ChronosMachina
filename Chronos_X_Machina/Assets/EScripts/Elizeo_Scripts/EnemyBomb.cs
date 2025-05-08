@@ -109,6 +109,8 @@ public class EnemyBomb : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+
     public IEnumerator bombLife()
     {
         yield return new WaitForSeconds(bombDuration);

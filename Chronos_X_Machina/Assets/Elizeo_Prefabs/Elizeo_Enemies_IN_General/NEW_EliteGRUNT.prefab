@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5510487327677771424}
   - component: {fileID: 5082217070331327659}
   - component: {fileID: 2955055333210058693}
+  - component: {fileID: 8552186593822126746}
   m_Layer: 0
   m_Name: NEW_EliteGRUNT
   m_TagString: Untagged
@@ -148,6 +149,7 @@ MonoBehaviour:
   enemyPaused: 0
   movement: 0
   weapons: 0
+  explosionEnemy: {fileID: 8552186593822126746}
   enemyDirection: 0
   aiming: 0
   shootDelay: 0.8
@@ -174,6 +176,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8552186593822126746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7889507312522401288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc80bb2052eb904bbe90c2887db79b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 7728106532347966243, guid: 42c1db6743368f04e9c33b7fc03d1ec2,
+    type: 3}
+  explosionTimer: 1
 --- !u!1001 &6532442268817947483
 PrefabInstance:
   m_ObjectHideFlags: 0

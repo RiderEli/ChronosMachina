@@ -72,7 +72,7 @@ public class NormalGrunt : EnemyParent
         {
             Debug.Log("Enemy Died, lol");
             playerController.screws += screwsToDrop;
-            Destroy(this.gameObject);
+            StartCoroutine(enemyDeath());
             if (WaveChecker.insideWave == true)
             {
                 WaveSystem.counter -= 1;

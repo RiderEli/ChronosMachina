@@ -219,10 +219,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6623090040615666363, guid: c3378eb8a73091746accb1829f553a7e,
+        type: 3}
+      propertyPath: explosionEnemy
+      value: 
+      objectReference: {fileID: 639677126141846829}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3136707041790235618, guid: c3378eb8a73091746accb1829f553a7e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 639677126141846829}
   m_SourcePrefab: {fileID: 100100000, guid: c3378eb8a73091746accb1829f553a7e, type: 3}
 --- !u!4 &2904793530072098386 stripped
 Transform:
@@ -230,3 +239,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7645151500797195915}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4728457072756139369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3136707041790235618, guid: c3378eb8a73091746accb1829f553a7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7645151500797195915}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &639677126141846829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4728457072756139369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc80bb2052eb904bbe90c2887db79b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 7728106532347966243, guid: 42c1db6743368f04e9c33b7fc03d1ec2,
+    type: 3}
+  explosionTimer: 1

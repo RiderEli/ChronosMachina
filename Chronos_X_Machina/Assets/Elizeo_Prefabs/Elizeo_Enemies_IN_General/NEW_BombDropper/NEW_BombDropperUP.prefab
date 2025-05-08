@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 1415746306269013290}
   - component: {fileID: 8073864982320051230}
   - component: {fileID: 2725532150854598057}
+  - component: {fileID: 5263324438985407671}
   m_Layer: 0
   m_Name: BombDropper
   m_TagString: Enemy
@@ -262,11 +263,27 @@ MonoBehaviour:
   enemyPaused: 0
   movement: 1
   weapons: 2
+  explosionEnemy: {fileID: 5263324438985407671}
   enemyDirection: 1
   dropperDuration: 30
   bombDelay: 2
   dropperInWave: 0
   screwsToDrop: 5
+--- !u!114 &5263324438985407671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851718829905309040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc80bb2052eb904bbe90c2887db79b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 7728106532347966243, guid: 42c1db6743368f04e9c33b7fc03d1ec2,
+    type: 3}
+  explosionTimer: 1
 --- !u!1001 &6761546524660239667
 PrefabInstance:
   m_ObjectHideFlags: 0

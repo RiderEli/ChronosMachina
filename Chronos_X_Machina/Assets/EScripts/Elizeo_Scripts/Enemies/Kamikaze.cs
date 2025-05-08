@@ -35,7 +35,8 @@ public class Kamikaze : EnemyParent
         {
             Debug.Log("Enemy Died, lol");
             playerController.screws += screwsToDrop;
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            StartCoroutine(enemyDeath());
             if (WaveChecker.insideWave == true)
             {
                 WaveSystem.counter -= 1;
@@ -79,7 +80,7 @@ public class Kamikaze : EnemyParent
 
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
+            StartCoroutine(enemyDeath());
             if (WaveChecker.insideWave == true)
             {
                 WaveSystem.counter -= 1;

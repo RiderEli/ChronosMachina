@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 4969717129594705479}
   - component: {fileID: 5002154455162301416}
   - component: {fileID: 4759066191789401241}
+  - component: {fileID: -1105541138653272927}
   m_Layer: 0
   m_Name: New_EnemyGruntRIGHT
   m_TagString: Enemy
@@ -201,6 +202,8 @@ MonoBehaviour:
   enemyPaused: 0
   movement: 0
   weapons: 0
+  explosionEnemy: {fileID: 3861070268022850746, guid: 91d869f839070284f8d2d8a06e843d5e,
+    type: 3}
   enemyDirection: 4
   aiming: 0
   missileDelay: 1
@@ -228,6 +231,21 @@ NavMeshAgent:
   m_BaseOffset: -0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-1105541138653272927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7047242189854635576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc80bb2052eb904bbe90c2887db79b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 7728106532347966243, guid: 42c1db6743368f04e9c33b7fc03d1ec2,
+    type: 3}
+  explosionTimer: 1
 --- !u!1001 &4023053099793645627
 PrefabInstance:
   m_ObjectHideFlags: 0
