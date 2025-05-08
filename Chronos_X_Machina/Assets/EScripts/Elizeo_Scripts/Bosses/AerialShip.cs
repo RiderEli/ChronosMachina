@@ -350,7 +350,7 @@ public class AerialShip : BossParent
                         transform.position = new Vector3(transform.position.x, thingsToRotateAround[0].position.y, transform.position.z);
                         transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
                     }
-                }s
+                }
             }
         }
         if (other.gameObject.CompareTag("PlayerWep"))
