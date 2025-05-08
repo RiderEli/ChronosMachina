@@ -830,7 +830,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
   bossDetect: 100
   bossMove: 1
-  deployDelay: 1
+  deployDelay: 3
   attackRange: {fileID: 0}
   attackDetect: 100
   bossHealth_UI: {fileID: 1272700182746359320}

@@ -92,7 +92,6 @@ public class AerialShip : BossParent
     // Update is called once per frame
     public override void Update()
     {
-
         BossDetectBoolThing();
         PlaneMoving();
         PlaneDeployValue();
@@ -122,7 +121,7 @@ public class AerialShip : BossParent
 
         //Phases
 
-        if (bossHP < 1250)
+        if (bossHP < 1800)
         {
             phases = PlanePhases.PHASE_2;
         }
