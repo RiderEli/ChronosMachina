@@ -21,8 +21,6 @@ public class Shotgun : MonoBehaviour
 
     void Update()
     {
-        if (timeMachineHub.middleHub.activeSelf)
-            return;
 
         if (Input.GetMouseButton(0))
         {

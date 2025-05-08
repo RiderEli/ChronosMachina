@@ -17,7 +17,8 @@ public class Grenade : MonoBehaviour
     private float arcHeight;
 
     [Header("Visuals")]
-    public Material explosionMaterial;      // Assigned in Inspector
+    public Material explosionMaterial;
+    public GameObject explosionParticles; // Assign a Particle System prefab here
 
     public void LaunchWithConsistentSpeed(Vector3 start, Vector3 end, float arcHeight, float speed, float radius)
     {
@@ -69,12 +70,22 @@ public class Grenade : MonoBehaviour
 
         hasExploded = true;
 
+        // Enable and play explosion particles
+        if (explosionParticles != null)
+        {
+            explosionParticles.transform.position = transform.position;
+            explosionParticles.SetActive(true); // Reactivate first
+
+            ParticleSystem ps = explosionParticles.GetComponent<ParticleSystem>();
+            if (ps != null)
+                ps.Play(); // Must call after reactivating
+        }
+
         GameObject explosionVisual = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         explosionVisual.transform.position = transform.position;
         explosionVisual.transform.localScale = Vector3.one * explosionRadius;
         explosionVisual.tag = "PlayerWep";
 
-        // Assign material (from Inspector)
         if (explosionMaterial != null)
         {
             Renderer renderer = explosionVisual.GetComponent<Renderer>();
@@ -89,18 +100,16 @@ public class Grenade : MonoBehaviour
         ExplosionDamage damageScript = explosionVisual.AddComponent<ExplosionDamage>();
         damageScript.impactDamage = explosionDamage;
 
-        Destroy(explosionVisual, 0.25f); // Optional linger time
+        Destroy(explosionVisual, 0.25f);
         Destroy(gameObject);
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            Explode();
-        }
-
-        if (other.CompareTag("Ground") || other.CompareTag("Wall"))
+        if (other.gameObject.CompareTag("Enemy") ||
+            other.CompareTag("Ground") ||
+            other.CompareTag("Wall"))
         {
             Explode();
         }
