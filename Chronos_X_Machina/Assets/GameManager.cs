@@ -71,12 +71,13 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void Update()
+    void Update()
     {
         if (sceneSwitched)
         {
             sceneSwitched = false;
             playerController.screws = Screws;
+            Debug.LogWarning("Restoring Screws= " +Screws + " : " + playerController.screws);
             updateWeaponsLockout = true;
             StartCoroutine(WaitForPlayerReload());
         }
@@ -107,6 +108,7 @@ public class GameManager : MonoBehaviour
     public void SaveScrews()
     {
         Screws = playerController.screws;
+        Debug.LogWarning("Logging Screws= " + Screws + " : " + playerController.screws);
     }
 
     void TryGetPlayer()
@@ -155,6 +157,7 @@ public class GameManager : MonoBehaviour
 
 
         updateWeaponsLockout = false;
+        sceneSwitched = false;
     }
 
 

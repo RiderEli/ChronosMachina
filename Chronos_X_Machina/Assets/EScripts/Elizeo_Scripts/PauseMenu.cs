@@ -21,8 +21,15 @@ public class PauseMenu : MonoBehaviour
 
     private GameObject player;
 
+    public GameManager gameManager;
+
     //Checks if the game is paused. May change into a static depending on our codes.
     public static bool isPaused;
+
+    private void Awake()
+    {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+    }
 
     private void Start()
     {
@@ -117,14 +124,8 @@ public class PauseMenu : MonoBehaviour
     public void ToTheTimeMachine()
     {
         Time.timeScale = 1.0f;
-        GameManager mangager = FindObjectOfType<GameManager>();
-        PlayerController player = FindObjectOfType<PlayerController>();
 
-        if (mangager != null && player != null)
-        {
-            mangager.Screws = player.screws;
-        }
-
+        gameManager.SaveScrews();
         SceneManager.LoadScene("TimeMachine");
     }
 

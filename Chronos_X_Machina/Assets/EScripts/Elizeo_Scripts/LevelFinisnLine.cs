@@ -80,23 +80,6 @@ public class LevelFinisnLine : MonoBehaviour
         SceneManager.LoadScene("Elizeo_TimeMachine");
         Time.timeScale = 1.0f;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
