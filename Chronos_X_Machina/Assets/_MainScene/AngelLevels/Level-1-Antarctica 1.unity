@@ -12426,6 +12426,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 145825851}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &146896425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1703333053715845032, guid: a810de5a5e9088f49b6f60a7f27e35b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284637563}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &146925547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116438,6 +116450,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1458836474}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1459790442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1349854853774499149, guid: a810de5a5e9088f49b6f60a7f27e35b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284637563}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1460354162
 GameObject:
   m_ObjectHideFlags: 0
@@ -130028,7 +130052,7 @@ PrefabInstance:
         type: 3}
       propertyPath: LeftDisplay
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1459790442}
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: playerSpawn
@@ -130038,7 +130062,7 @@ PrefabInstance:
         type: 3}
       propertyPath: RightDisplay
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 146896425}
     - target: {fileID: 5039160610852856083, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: tester

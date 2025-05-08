@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Screws = playerController.screws;
             sceneSwitched = true;
         }
     }
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
         if (sceneSwitched)
         {
             sceneSwitched = false;
+            playerController.screws = Screws;
             updateWeaponsLockout = true;
             StartCoroutine(WaitForPlayerReload());
         }
