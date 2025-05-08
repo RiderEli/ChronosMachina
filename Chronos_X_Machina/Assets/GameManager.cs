@@ -108,6 +108,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SaveScrews()
+    {
+        Screws = playerController.screws;
+    }
 
     void TryGetPlayer()
     {

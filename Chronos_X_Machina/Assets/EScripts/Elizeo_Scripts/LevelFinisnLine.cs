@@ -14,7 +14,14 @@ public class LevelFinisnLine : MonoBehaviour
     public GameObject pauseContainer;
     public GameObject GameOverContainer;
 
+    public GameManager gameManager;
+
     public bool triggerOnce = false;
+
+    private void Awake()
+    {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+    }
 
     public enum NextLevels
     {
@@ -54,12 +61,14 @@ public class LevelFinisnLine : MonoBehaviour
     {
         if (levels == NextLevels.LEVEL_0)
         {
+            gameManager.SaveScrews();
             SceneManager.LoadScene("Level-0-Tutorial 1");
             Time.timeScale = 1.0f;
         }
 
         if (levels == NextLevels.LEVEL_1)
         {
+            gameManager.SaveScrews();
             SceneManager.LoadScene("Level-1-Antarctica 1");
             Time.timeScale = 1.0f;
         }
@@ -67,6 +76,7 @@ public class LevelFinisnLine : MonoBehaviour
 
     public void BackToTime()
     {
+        gameManager.SaveScrews();
         SceneManager.LoadScene("Elizeo_TimeMachine");
         Time.timeScale = 1.0f;
     }
