@@ -92,6 +92,7 @@ public class AerialShip : BossParent
     // Update is called once per frame
     public override void Update()
     {
+
         BossDetectBoolThing();
         PlaneMoving();
         PosValueSwitch();
@@ -135,10 +136,14 @@ public class AerialShip : BossParent
     {
         if (bossMove == bossMovement.moving)
         {
+
+            
             if (planeMovement == PlaneMovements.Straight)
             {
+                
                 if (posNum == 1)
                 {
+
                     transform.LookAt(thingsToRotateAround[0].position);
                     transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[0].position, bossSpeed * Time.deltaTime);
                 }
@@ -170,7 +175,7 @@ public class AerialShip : BossParent
                 {
                     transform.LookAt(thingsToRotateAround[4].position);
 
-                    transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[4].position, bossSpeed * Time.deltaTime);
+                   transform.position = Vector3.MoveTowards(transform.position, thingsToRotateAround[4].position, bossSpeed * Time.deltaTime);
                 }
             }
 
@@ -303,7 +308,8 @@ public class AerialShip : BossParent
                 if (other.gameObject == rotationObjects[0])
                 {
                     planeMovement = PlaneMovements.Rotating;
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    transform.position = new Vector3(transform.position.x, thingsToRotateAround[0].position.y, transform.position.z);
+                    transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
                 }
             }
 
@@ -312,7 +318,8 @@ public class AerialShip : BossParent
                 if (other.gameObject == rotationObjects[1])
                 {
                     planeMovement = PlaneMovements.Rotating;
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    transform.position = new Vector3(transform.position.x, thingsToRotateAround[0].position.y, transform.position.z);
+                    transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
                 }
             }
 
@@ -321,7 +328,8 @@ public class AerialShip : BossParent
                 if (other.gameObject == rotationObjects[2])
                 {
                     planeMovement = PlaneMovements.Rotating;
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    transform.position = new Vector3(transform.position.x, thingsToRotateAround[0].position.y, transform.position.z);
+                    transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
                 }
             }
 
@@ -330,7 +338,8 @@ public class AerialShip : BossParent
                 if (other.gameObject == rotationObjects[3])
                 {
                     planeMovement = PlaneMovements.Rotating;
-                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    transform.position = new Vector3(transform.position.x, thingsToRotateAround[0].position.y, transform.position.z);
+                    transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
                 }
 
                 if (posNum == 5)
@@ -338,32 +347,29 @@ public class AerialShip : BossParent
                     if (other.gameObject == rotationObjects[4])
                     {
                         planeMovement = PlaneMovements.Rotating;
-                        transform.rotation = Quaternion.Euler(0, 0, 0);
+                        transform.position = new Vector3(transform.position.x, thingsToRotateAround[0].position.y, transform.position.z);
+                        transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
                     }
-                }
-
-
+                }s
             }
-
-            if (other.gameObject.CompareTag("PlayerWep"))
+        }
+        if (other.gameObject.CompareTag("PlayerWep"))
+        {
+            if (other.gameObject.GetComponent<BulletProjectile>() != null)
             {
-                if (other.gameObject.GetComponent<BulletProjectile>() != null)
-                {
-                    bossHP -= other.gameObject.GetComponent<BulletProjectile>().impactDamage;
-                }
-                else if (other.gameObject.GetComponent<FireProjectile>() != null)
-                {
-                    bossHP -= other.gameObject.GetComponent<FireProjectile>().impactDamage;
-                }
-                else
-                {
-                    bossHP -= 25;
-                }
-                bossHealth_UI_On_Screen.SetHP(bossHP);
-                Destroy(other.gameObject);
-                StartCoroutine(BossGotHit());
+                bossHP -= other.gameObject.GetComponent<BulletProjectile>().impactDamage;
             }
-
+            else if (other.gameObject.GetComponent<FireProjectile>() != null)
+            {
+                bossHP -= other.gameObject.GetComponent<FireProjectile>().impactDamage;
+            }
+            else
+            {
+                bossHP -= 25;
+            }
+            bossHealth_UI_On_Screen.SetHP(bossHP);
+            Destroy(other.gameObject);
+            StartCoroutine(BossGotHit());
         }
     }
 
@@ -380,7 +386,7 @@ public class AerialShip : BossParent
         {
             if (bossAttacking == true)
             {
-                PlaneAttacking();
+                //PlaneAttacking();
                 Debug.Log("Boss is Attacking");
             }
             else if (bossAttacking == false)
