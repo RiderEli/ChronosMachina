@@ -13646,6 +13646,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea92faf0a8bd9b48adaa9049dfa744d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tier2_MG: 0
+  Tier3_MG: 0
+  Tier2_SG: 0
+  Tier3_SG: 0
+  Tier2_FLM: 0
+  Tier3_FLM: 0
+  sceneSwitched: 0
+  updateWeaponsLockout: 0
   leftWep: 
   rightWep: 
 --- !u!4 &937791415
@@ -18412,7 +18420,7 @@ PrefabInstance:
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}
       propertyPath: screws
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4385065217387698216, guid: a884e71611f91264eb5e26c4fbbfc28d,
         type: 3}

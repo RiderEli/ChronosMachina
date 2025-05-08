@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Weapon Upgrade States")]
+    public bool Tier2_MG;
+    public bool Tier3_MG;
+
+    public bool Tier2_SG;
+    public bool Tier3_SG;
+
+    public bool Tier2_FLM;
+    public bool Tier3_FLM;
+
+
     public bool sceneSwitched = false;
     public bool updateWeaponsLockout = false;
 
@@ -50,12 +61,20 @@ public class GameManager : MonoBehaviour
             updateWeaponsLockout = true;
             StartCoroutine(WaitForPlayerReload());
         }
-        else if (!updateWeaponsLockout)
+        else if (!updateWeaponsLockout && playerController != null)
         {
-            if (playerController != null)
+            leftWep = playerController.equipedLeftWeapon?.name;
+            rightWep = playerController.equipedRightWeapon?.name;
+
+            WeaponParrent wp = playerController.GetComponent<WeaponParrent>();
+            if (wp != null)
             {
-                leftWep = playerController.equipedLeftWeapon?.name;
-                rightWep = playerController.equipedRightWeapon?.name;
+                Tier2_MG = wp.Tier2_MG;
+                Tier3_MG = wp.Tier3_MG;
+                Tier2_SG = wp.Tier2_SG;
+                Tier3_SG = wp.Tier3_SG;
+                Tier2_FLM = wp.Tier2_FLM;
+                Tier3_FLM = wp.Tier3_FLM;
             }
         }
     }
@@ -91,6 +110,17 @@ public class GameManager : MonoBehaviour
         {
             if (wep != null)
                 wep.SetActive(wep == playerController.equipedRightWeapon);
+        }
+
+        WeaponParrent wp = playerController.GetComponent<WeaponParrent>();
+        if (wp != null)
+        {
+            wp.Tier2_MG = Tier2_MG;
+            wp.Tier3_MG = Tier3_MG;
+            wp.Tier2_SG = Tier2_SG;
+            wp.Tier3_SG = Tier3_SG;
+            wp.Tier2_FLM = Tier2_FLM;
+            wp.Tier3_FLM = Tier3_FLM;
         }
 
         updateWeaponsLockout = false;
