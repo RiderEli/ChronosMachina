@@ -6054,7 +6054,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empBlastPrefab: {fileID: 1340807014732869441, guid: 4d8187d2e45b74345ba62c89699622e0,
     type: 3}
-  cooldownTime: 5
+  cooldownTime: 20
+  avaiable: 0
+  charged: {fileID: 21300000, guid: 36fdd6314f875dc43853c222b6ffe305, type: 3}
+  uncharged: {fileID: 21300000, guid: 25207a83084ad614fafe20d221c110d1, type: 3}
+  HpBoarder: {fileID: 8228975650397209870}
 --- !u!1 &6047657922618783604
 GameObject:
   m_ObjectHideFlags: 0
