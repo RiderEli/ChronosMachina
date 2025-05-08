@@ -105,7 +105,7 @@ MonoBehaviour:
   enemyRB: {fileID: 0}
   weaponSpawn: {fileID: 0}
   player: {fileID: 0}
-  tankSpeed: 15
+  tankSpeed: 25
   enemyHP: 25
   enemyDetect: 0
   enemyDamage: 50
@@ -113,9 +113,11 @@ MonoBehaviour:
   enemyMat:
   - {fileID: 2100000, guid: 46f6340a93aa1d941876278c7e80d2e0, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
+  enemyPaused: 0
   movement: 0
   weapons: 0
   enemyDirection: 0
+  screwsToDrop: 5
 --- !u!195 &3786709167641501865
 NavMeshAgent:
   m_ObjectHideFlags: 0

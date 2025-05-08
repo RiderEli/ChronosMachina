@@ -157,7 +157,7 @@ MonoBehaviour:
   aiming: 0
   missileDelay: 1
   turningSpeed: 50
-  screwsToDrop: 0
+  screwsToDrop: 5
 --- !u!54 &5341093249117760478
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -828,7 +828,7 @@ MonoBehaviour:
   bossMat:
   - {fileID: 2100000, guid: 2c1a821cd89d8f4478e5ab3a8661f1a9, type: 2}
   - {fileID: 2100000, guid: 739819d2358b73a48b0a411812f57e59, type: 2}
-  bossDetect: 100
+  bossDetect: 150
   bossMove: 1
   deployDelay: 3
   attackRange: {fileID: 0}

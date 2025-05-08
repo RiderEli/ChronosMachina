@@ -205,7 +205,7 @@ MonoBehaviour:
   aiming: 0
   missileDelay: 1
   turningSpeed: 50
-  screwsToDrop: 0
+  screwsToDrop: 5
 --- !u!195 &5447453241355978451
 NavMeshAgent:
   m_ObjectHideFlags: 0
