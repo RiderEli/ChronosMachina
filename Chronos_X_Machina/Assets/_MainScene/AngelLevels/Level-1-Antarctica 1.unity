@@ -103163,6 +103163,16 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ShowWeapon
       objectReference: {fileID: 0}
+    - target: {fileID: 6011584172281934653, guid: a810de5a5e9088f49b6f60a7f27e35b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1356271789}
+    - target: {fileID: 6011584172281934653, guid: a810de5a5e9088f49b6f60a7f27e35b0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MidTimeMachine_UnPause
+      objectReference: {fileID: 0}
     - target: {fileID: 6053738504221775449, guid: a810de5a5e9088f49b6f60a7f27e35b0,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target

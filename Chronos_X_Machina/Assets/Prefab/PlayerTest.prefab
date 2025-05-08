@@ -355,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3636826267220662456}
   - component: {fileID: 5300236903860341342}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: ChestLaser Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2998,7 +2998,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2213080823115078850}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Flare Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3475,7 +3475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5424233838926040380}
   - component: {fileID: 4779378551611437848}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: HealingStatBoosts Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6018,8 +6018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5956609541477903577}
   - component: {fileID: 948190974954343945}
-  - component: {fileID: 2476063288080111509}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: EMP Test
   m_TagString: PlayerWep
   m_Icon: {fileID: 0}
@@ -6053,36 +6052,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c3a2127b82ece47afb829dd2aac36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRadius: 30
-  expansionSpeed: 30
-  damage: 50
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  empVisualPrefab: {fileID: 1918604307449147949, guid: bc7424bcc3ba64b4d9fbf3f92226554a,
+  empBlastPrefab: {fileID: 1340807014732869441, guid: 4d8187d2e45b74345ba62c89699622e0,
     type: 3}
   cooldownTime: 5
---- !u!135 &2476063288080111509
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6024383727516069736}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6047657922618783604
 GameObject:
   m_ObjectHideFlags: 0
@@ -6167,7 +6139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6448551778987391428}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Super Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -29,11 +29,22 @@ public class GameManager : MonoBehaviour
     public string ultWep;
     private bool singleStart = true;
 
+    private static GameManager instance;
+
+    
     private PlayerController playerController;
 
     void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject); // Kill the duplicate
+            return;
+        }
+
+        instance = this;
         DontDestroyOnLoad(gameObject);
+
         TryGetPlayer();
     }
 
@@ -53,11 +64,13 @@ public class GameManager : MonoBehaviour
             singleStart = false;
             return;
         }
-        else
+
+        if (playerController != null)
         {
             Screws = playerController.screws;
-            sceneSwitched = true;
         }
+
+        sceneSwitched = true;
     }
 
     private void Update()
@@ -71,20 +84,26 @@ public class GameManager : MonoBehaviour
         }
         else if (!updateWeaponsLockout && playerController != null)
         {
-            leftWep = playerController.equipedLeftWeapon?.name;
-            rightWep = playerController.equipedRightWeapon?.name;
-            ultWep = playerController.equipedSuper?.name;
-
-            WeaponParrent wp = playerController.GetComponent<WeaponParrent>();
-            if (wp != null)
+            // Only update if the player exists
+            if (playerController.gameObject.scene.isLoaded)
             {
-                Tier2_MG = wp.Tier2_MG;
-                Tier3_MG = wp.Tier3_MG;
-                Tier2_SG = wp.Tier2_SG;
-                Tier3_SG = wp.Tier3_SG;
-                Tier2_FLM = wp.Tier2_FLM;
-                Tier3_FLM = wp.Tier3_FLM;
-                Tier2_GRE = wp.Tier2_GRE;
+                leftWep = playerController.equipedLeftWeapon?.name;
+                rightWep = playerController.equipedRightWeapon?.name;
+                ultWep = playerController.equipedSuper?.name;
+
+                WeaponParrent wp = playerController.GetComponent<WeaponParrent>();
+                if (wp != null)
+                {
+                    Tier2_MG = wp.Tier2_MG;
+                    Tier3_MG = wp.Tier3_MG;
+                    Tier2_SG = wp.Tier2_SG;
+                    Tier3_SG = wp.Tier3_SG;
+                    Tier2_FLM = wp.Tier2_FLM;
+                    Tier3_FLM = wp.Tier3_FLM;
+                    Tier2_GRE = wp.Tier2_GRE;
+                }
+
+                Screws = playerController.screws; // Only here if scene/player is valid
             }
         }
     }

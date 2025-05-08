@@ -1,33 +1,67 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shotgun : MonoBehaviour
 {
     public int damage = 25;
-    public float delayBetweenShots = 0.5f; // Time between shotgun shots
+    public float delayBetweenShots = 0.5f;
     public float bulletSpeed = 20f;
-    public float bulletRange = 50f; // Maximum range of bullets
-    public int pelletsPerShot = 6; // Number of pellets per shot
-    public float spreadAngle = 30f; // Cone angle for pellet spread
-
+    public float bulletRange = 50f;
+    public int pelletsPerShot = 6;
+    public float spreadAngle = 30f;
     public GameObject barrelTip;
     public GameObject bulletPrefab;
 
     private bool isFiring = false;
     private bool isCoroutineRunning = false;
+    private TimeMachineHub timeMachineHub;
+
+    void Start()
+    {
+        // Find the TimeMachineHub in the scene to check menu state
+        timeMachineHub = FindObjectOfType<TimeMachineHub>();
+    }
 
     void Update()
     {
+        // Check if the game is in the upgrade menu (middleHub active)
+        if (timeMachineHub.middleHub.activeSelf)
+        {
+            // If we are in the menu, disable shooting
+            return;
+        }
+
+        // If left mouse button is pressed and the gun is not in the middle of a coroutine
         if (Input.GetMouseButtonDown(0) && !isCoroutineRunning)
         {
-            isFiring = true;
-            StartCoroutine(ShootShotgun());
+            StartFiring();
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            isFiring = false;
+            StopFiring();
         }
+    }
+
+    private void StartFiring()
+    {
+        isFiring = true;
+        StartCoroutine(ShootShotgun());
+    }
+
+    private void StopFiring()
+    {
+        isFiring = false;
+    }
+
+    public void ResetShotgun()
+    {
+        if (isCoroutineRunning)
+        {
+            StopCoroutine(ShootShotgun());
+        }
+
+        isFiring = false;
+        isCoroutineRunning = false;
     }
 
     private IEnumerator ShootShotgun()
@@ -76,7 +110,7 @@ public class Shotgun : MonoBehaviour
                 Destroy(bullet, bulletRange / bulletSpeed);
             }
 
-            yield return new WaitForSeconds(delayBetweenShots);
+            yield return new WaitForSecondsRealtime(delayBetweenShots);
         }
 
         isCoroutineRunning = false;

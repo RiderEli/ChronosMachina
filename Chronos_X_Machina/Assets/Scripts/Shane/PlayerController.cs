@@ -146,6 +146,22 @@ public class PlayerController : MonoBehaviour
         HandleCameras(); // Call the recharge function
     }
 
+    public void CheckDuplicateEquipped()
+    {
+        foreach (GameObject weapon in leftWeapons)
+        {
+            // Enable only the equipped left weapon, disable others
+            weapon.SetActive(weapon == equipedLeftWeapon);
+        }
+
+        foreach (GameObject weapon in rightWeapons)
+        {
+            // Enable only the equipped right weapon, disable others
+            weapon.SetActive(weapon == equipedRightWeapon);
+        }
+    }
+
+
     void HideUI()
     {
         if (UIElements.gameObject.activeSelf)

@@ -117,6 +117,14 @@ public class PauseMenu : MonoBehaviour
     public void ToTheTimeMachine()
     {
         Time.timeScale = 1.0f;
+        GameManager mangager = FindObjectOfType<GameManager>();
+        PlayerController player = FindObjectOfType<PlayerController>();
+
+        if (mangager != null && player != null)
+        {
+            mangager.Screws = player.screws;
+        }
+
         SceneManager.LoadScene("TimeMachine");
     }
 

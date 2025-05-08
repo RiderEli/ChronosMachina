@@ -193,9 +193,9 @@ public class NormalGrunt : EnemyParent
                 enemyHP -= other.gameObject.GetComponent<ExplosionDamage>().impactDamage;
                 StartCoroutine(EnemyGotHit());
             }
-            else if (other.gameObject.GetComponent<EMP>() != null)
+            else if (other.gameObject.GetComponent<EMPBlast>() != null)
             {
-                enemyHP -= other.gameObject.GetComponent<EMP>().damage;
+                enemyHP -= other.gameObject.GetComponent<EMPBlast>().damage;
                 StartCoroutine(EnemyGotHit());
             }
             else

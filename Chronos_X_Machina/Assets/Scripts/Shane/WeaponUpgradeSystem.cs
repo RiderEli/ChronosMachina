@@ -138,6 +138,7 @@ public class WeaponUpgradeSystem : MonoBehaviour
                 playerController.equipedRightWeapon = weaponParrent.weaponDict["Tier3_" + gunTag];
             }
             playerController.UpdateWeaponDisplays();
+            playerController.CheckDuplicateEquipped();
             Debug.Log("Equipped Tier 3.");
             return;
         }
@@ -152,6 +153,8 @@ public class WeaponUpgradeSystem : MonoBehaviour
                 playerController.equipedRightWeapon = weaponParrent.weaponDict["Tier2_" + gunTag];
             }
             playerController.UpdateWeaponDisplays();
+            playerController.CheckDuplicateEquipped();
+
             Debug.Log("Equipped Tier 2.");
             return;
         }
@@ -166,6 +169,8 @@ public class WeaponUpgradeSystem : MonoBehaviour
                 playerController.equipedRightWeapon = weaponParrent.weaponDict["Tier1_" + gunTag];
             }
             playerController.UpdateWeaponDisplays();
+            playerController.CheckDuplicateEquipped();
+
             Debug.Log("Equipped Tier 1.");
             return;
         }
@@ -192,6 +197,8 @@ public class WeaponUpgradeSystem : MonoBehaviour
                 playerController.equipedRightWeapon = weaponParrent.weaponDict["Tier2_" + gunTag];
             }
             playerController.UpdateWeaponDisplays();
+            playerController.CheckDuplicateEquipped();
+
             Debug.Log("Bought and equipped Tier 2!");
         }
         else if (targetTier == 3 && !tier3 && tier2)
@@ -209,6 +216,9 @@ public class WeaponUpgradeSystem : MonoBehaviour
                 playerController.equipedRightWeapon = weaponParrent.weaponDict["Tier3_" + gunTag];
             }
             playerController.UpdateWeaponDisplays();
+            playerController.CheckDuplicateEquipped();
+
+
             Debug.Log("Bought and equipped Tier 3!");
         }
         else if (targetTier == 1)
@@ -223,6 +233,8 @@ public class WeaponUpgradeSystem : MonoBehaviour
                 playerController.equipedRightWeapon = weaponParrent.weaponDict["Tier1_" + gunTag];
             }
             playerController.UpdateWeaponDisplays();
+            playerController.CheckDuplicateEquipped();
+
             Debug.Log("Equipped Tier 1.");
         }
         else
