@@ -48,13 +48,13 @@ Material:
     m_Floats:
     - _Foam_Distance: 2
     - _Metallic: 1
-    - _Noise_Scale: 0.004
+    - _Noise_Scale: 0.002
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Referaction: 0.603
-    - _Smoothness: 1
+    - _Referaction: 1
+    - _Smoothness: 0.658
     - _Transparency: 1
-    - _Wave_Speed: 0.0005
+    - _Wave_Speed: 0.00395
     m_Colors:
     - _Foam_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Water_Color: {r: 0.027451038, g: 0, b: 1, a: 0}
